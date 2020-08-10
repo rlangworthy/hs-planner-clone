@@ -1,0 +1,56 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/classes";
+
+/** 
+ * Override react-autosuggest styles 
+ * --------------------------------
+ **/
+.react-autosuggest__suggestions-container {
+  z-index: 1;
+  position: absolute;
+  background-color: $col-app-neutral;
+  width: 100%;
+  border: 1px solid $col-app-gray;
+}
+.react-autosuggest__suggestions-container--open {
+  box-shadow: $box-shadow-z3;
+}
+.react-autosuggest__section-container {
+  margin-top: 1em;
+  border-top: 1px solid $col-app-gray;
+}
+.react-autosuggest__section-container--first {
+  margin-top: 0;
+  border-top: none;
+}
+
+.react-autosuggest__suggestions-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none; 
+}
+/**
+ * -------------------------------
+ **/
+
+.suggestion-item {
+  @extend %clickable;
+  &:before {
+    content: none;
+  }
+  margin: 0;
+  padding: 0.5rem;
+
+}
+.section-title {
+  color: $text-gray;
+  text-transform: uppercase;
+  display: inline-block;
+  float: right;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  margin: 0 1em;
+}
+

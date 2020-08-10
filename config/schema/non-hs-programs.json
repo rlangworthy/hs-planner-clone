@@ -1,0 +1,53 @@
+{
+  "id": "/NonHSPrograms",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {"type": "string"},
+      "programName": {"type": "string"},
+      "programType": {"type": "string"},
+
+      "schoolNameShort": {"type": "string"},
+      "schoolNameLong": {"type": "string"},
+      "schoolID": {"type": "string"},
+      "schoolLocation": {
+        "type": "object",
+        "properties": {
+          "latitude": {"type": "number"},
+          "longitude": {"type": "number"}
+        }
+      },
+
+      "category": {"type": "string"},
+      "cpsPageURL": {"type": "string"},
+      "hsBoundURL": {"type": "string"},
+      "schoolPageURL": {"type": "string"},
+
+      "applicationReqDescription": {"type": "string"},
+      "selectionReqDescription": {"type": "string"},
+
+      "applicationReqFnID": {"type": "string"},
+      "selectionReqFnID": {"type": "string"}
+    },
+    "required": [
+      "id",
+      "programName",
+      "programType",
+      "schoolNameShort",
+      "schoolNameLong",
+      "schoolID",
+      "schoolLocation",
+      "category",
+      "cpsPageURL",
+      "hsBoundURL",
+      "schoolPageURL",
+      "applicationReqDescription",
+      "selectionReqDescription",
+      "applicationReqFnID",
+      "selectionReqFnID"
+    ]
+  }
+}
+

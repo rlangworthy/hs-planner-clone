@@ -1,0 +1,439 @@
+[
+  {
+    "programTypeID": "1",
+    "name": "General Education",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "2",
+    "name": "International Baccalaureate",
+    "alternateNames": [
+      "International Baccalaureate (IB)",
+      "IB",
+      "Int'l Baccalaureate"
+    ]
+  },
+  {
+    "programTypeID": "3",
+    "name": "Selective Enrollment",
+    "alternateNames": [
+      "Selective Enrollment High School",
+      "Selective Enrollment (SE)"
+    ]
+  },
+  {
+    "programTypeID": "4",
+    "name": "Military Academy",
+    "alternateNames": [
+      "Military",
+      "Service Learning Academies (Military)"
+    ]
+  },
+  {
+    "programTypeID": "101",
+    "name": "AVID",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "102",
+    "name": "Accounting & Entrepreneurship",
+    "alternateNames": [
+      "Accounting and Entrepreneurship"
+    ]
+  },
+  {
+    "programTypeID": "103",
+    "name": "Agricultural Sciences",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "104",
+    "name": "Allied Health",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "105",
+    "name": "Architecture",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "106",
+    "name": "Automotive Technology",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "107",
+    "name": "Broadcast Technology",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "108",
+    "name": "Career Academy",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "109",
+    "name": "Carpentry",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "110",
+    "name": "Charter",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "111",
+    "name": "Chicago Builds",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "112",
+    "name": "Cisco Networking",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "113",
+    "name": "Cosmetology",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "114",
+    "name": "Creative Writing",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "115",
+    "name": "Culinary Arts",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "116",
+    "name": "Dance",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "117",
+    "name": "Diesel Technology",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "118",
+    "name": "Digital Journalism",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "119",
+    "name": "Digital Media",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "120",
+    "name": "Double Honors/Scholars",
+    "alternateNames": [
+      "Double Honors / Scholars"
+    ]
+  },
+  {
+    "programTypeID": "121",
+    "name": "Drama",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "122",
+    "name": "Dual Language",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "123",
+    "name": "Early Childhood",
+    "alternateNames": [
+      "Early Childhood & Teaching",
+      "Early Childhood and Teaching"
+    ]
+  },
+  {
+    "programTypeID": "124",
+    "name": "Early College STEM",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "125",
+    "name": "Entrepreneurship",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "126",
+    "name": "Fine Arts & Technology",
+    "alternateNames": [
+      "Fine Arts and Technology",
+      "Fine Arts & Technology - NEIGHBORHOOD",
+      "Fine Arts and Technology - NEIGHBORHOOD"
+    ]
+  },
+  {
+    "programTypeID": "127",
+    "name": "Fine and Performing Arts",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "128",
+    "name": "Game Programming",
+    "alternateNames": [
+    ]
+  },
+  {
+    "programTypeID": "129",
+    "name": "Game Programming & Web Design",
+    "alternateNames": [ 
+      "Game Programming and Web Design"
+    ]
+  },
+  {
+    "programTypeID": "130",
+    "name": "Health Sciences",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "131",
+    "name": "Honors",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "132",
+    "name": "Honors/Double Honors",
+    "alternateNames": [ 
+      "Honors / Double Honors"
+    ]
+  },
+  {
+    "programTypeID": "133",
+    "name": "Instrumental Music",
+    "alternateNames": [ 
+      "Music - Instrumental",
+      "Music - Instumental",
+      "Music \u2013 Instrumental"
+    ]
+  },
+  {
+    "programTypeID": "134",
+    "name": "JROTC",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "135",
+    "name": "Magnet Program",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "136",
+    "name": "Manufacturing",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "137",
+    "name": "Medical & Health Careers",
+    "alternateNames": [ 
+      "Medical and Health Careers"
+    ]
+  },
+  {
+    "programTypeID": "138",
+    "name": "Medical Assisting",
+    "alternateNames": [ 
+      "Medial Assisting"
+    ]
+  },
+  {
+    "programTypeID": "139",
+    "name": "Music",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "140",
+    "name": "Music - Vocal",
+    "alternateNames": [ 
+      "Music \u2013 Vocal",
+      "Vocal Music"
+    ]
+  },
+  {
+    "programTypeID": "141",
+    "name": "Musical Theatre",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "142",
+    "name": "NJROTC",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "143",
+    "name": "Pre-Engineering",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "144",
+    "name": "Pre-Law",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "145",
+    "name": "Scholars",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "146",
+    "name": "Science",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "147",
+    "name": "Science/Technology/Engineering/Math",
+    "alternateNames": [ 
+      "Science / Technology / Engineering / Math",
+      "Science, Technology, Engineering, and Math",
+      "Science, Technology, Engineering and Math",
+      "STEM"
+    ]
+  },
+  {
+    "programTypeID": "148",
+    "name": "Teaching",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "149",
+    "name": "Theatre",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "150",
+    "name": "Visual Arts",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "151",
+    "name": "Vocal Music",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "152",
+    "name": "Web Design",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "153",
+    "name": "World Language and International Studies",
+    "alternateNames": [ 
+      "World Language & International Studies"
+    ]
+  },
+  {
+    "programTypeID": "154",
+    "name": "Accounting",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "155",
+    "name": "University Scholars",
+    "alternateNames": [ 
+    ]
+  },
+  {
+    "programTypeID": "156",
+    "name": "Instrumental Music - Guitar",
+    "alternateNames": [ 
+      "Music - Instrumental - Guitar",
+      "Music \u2013 Instrumental \u2013 Guitar",
+      "Musical - Instrumental - Guitar",
+      "Musical \u2013 Instrumental \u2013 Guitar",
+      "Instrumental Music \u2013 Guitar"
+    ]
+  },
+  {
+    "programTypeID": "157",
+    "name": "Instrumental Music - Brass and Wood",
+    "alternateNames": [ 
+      "Music - Instrumental - Brass and Wood",
+      "Music \u2013 Instrumental \u2013 Brass and Wood",
+      "Musical - Instrumental - Brass and Wood",
+      "Musical \u2013 Instrumental \u2013 Brass and Wood",
+      "Instrumental Music \u2013 Brass and Wood"
+    ]
+  },
+  {
+    "programTypeID": "158",
+    "name": "Instrumental Music - Piano",
+    "alternateNames": [ 
+      "Music - Instrumental - Piano",
+      "Music \u2013 Instrumental \u2013 Piano",
+      "Musical - Instrumental - Piano",
+      "Musical \u2013 Instrumental \u2013 Piano",
+      "Instrumental Music \u2013 Piano"
+    ]
+  },
+  {
+    "programTypeID": "159",
+    "name": "Instrumental Music - Percussion",
+    "alternateNames": [ 
+      "Music - Instrumental - Percussion",
+      "Music \u2013 Instrumental \u2013 Percussion",
+      "Musical - Instrumental - Percussion",
+      "Musical \u2013 Instrumental \u2013 Percussion",
+      "Instrumental Music \u2013 Percussion"
+    ]
+  },
+  {
+    "programTypeID": "160",
+    "name": "Instrumental Music - Strings",
+    "alternateNames": [ 
+      "Music - Instrumental - Strings",
+      "Music \u2013 Instrumental \u2013 Strings",
+      "Musical - Instrumental - Strings",
+      "Musical \u2013 Instrumental \u2013 Strings",
+      "Instrumental Music \u2013 Strings"
+    ]
+  }
+]

@@ -1,0 +1,354 @@
+[
+  {
+    "school": "Lindblom",
+    "programID": "610391-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 772,
+        "avg": 807,
+        "max": 858
+      },
+      "tier1": {
+        "min": 673,
+        "avg": 709,
+        "max": 771
+      },
+      "tier2": {
+        "min": 703,
+        "avg": 729,
+        "max": 771
+      },
+      "tier3": {
+        "min": 715,
+        "avg": 741,
+        "max": 772
+      },
+      "tier4": {
+        "min": 617,
+        "avg": 683,
+        "max": 767
+      }
+    }
+  },
+  {
+    "school": "Northside Prep",
+    "programID": "609749-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 894,
+        "avg": 897,
+        "max": 900
+      },
+      "tier1": {
+        "min": 713,
+        "avg": 784,
+        "max": 877
+      },
+      "tier2": {
+        "min": 844,
+        "avg": 868,
+        "max": 893
+      },
+      "tier3": {
+        "min": 876,
+        "avg": 884,
+        "max": 894
+      },
+      "tier4": {
+        "min": 888,
+        "avg": 891,
+        "max": 894
+      }
+    }
+  },
+  {
+    "school": "Payton",
+    "programID": "609680-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 898,
+        "avg": 899,
+        "max": 900
+      },
+      "tier1": {
+        "min": 792,
+        "avg": 848,
+        "max": 897
+      },
+      "tier2": {
+        "min": 871,
+        "avg": 886,
+        "max": 898
+      },
+      "tier3": {
+        "min": 882,
+        "avg": 890,
+        "max": 897
+      },
+      "tier4": {
+        "min": 894,
+        "avg": 895,
+        "max": 898
+      }
+    }
+  },
+  {
+    "school": "South Shore Intl",
+    "programID": "610547-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 684,
+        "avg": 728,
+        "max": 820
+      },
+      "tier1": {
+        "min": 602,
+        "avg": 637,
+        "max": 682
+      },
+      "tier2": {
+        "min": 608,
+        "avg": 646,
+        "max": 683
+      },
+      "tier3": {
+        "min": 600,
+        "avg": 640,
+        "max": 680
+      },
+      "tier4": {
+        "min": 602,
+        "avg": 622,
+        "max": 668
+      }
+    }
+  },
+  {
+    "school": "Westinghouse",
+    "programID": "609693-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 773,
+        "avg": 805,
+        "max": 884
+      },
+      "tier1": {
+        "min": 675,
+        "avg": 707,
+        "max": 770
+      },
+      "tier2": {
+        "min": 718,
+        "avg": 745,
+        "max": 772
+      },
+      "tier3": {
+        "min": 675,
+        "avg": 721,
+        "max": 772
+      },
+      "tier4": {
+        "min": 600,
+        "avg": 696,
+        "max": 768
+      }
+    }
+  },
+  {
+    "school": "Young",
+    "programID": "609755-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 883,
+        "avg": 890,
+        "max": 900
+      },
+      "tier1": {
+        "min": 788,
+        "avg": 836,
+        "max": 882
+      },
+      "tier2": {
+        "min": 838,
+        "avg": 855,
+        "max": 882
+      },
+      "tier3": {
+        "min": 856,
+        "avg": 868,
+        "max": 882
+      },
+      "tier4": {
+        "min": 871,
+        "avg": 877,
+        "max": 883
+      }
+    }
+  },
+  {
+    "school": "Brooks",
+    "programID": "609726-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 831,
+        "avg": 890,
+        "max": 900
+      },
+      "tier1": {
+        "min": 713,
+        "avg": 789,
+        "max": 900
+      },
+      "tier2": {
+        "min": 763,
+        "avg": 797,
+        "max": 900
+      },
+      "tier3": {
+        "min": 767,
+        "avg": 798,
+        "max": 900
+      },
+      "tier4": {
+        "min": 729,
+        "avg": 798,
+        "max": 900
+      }
+    }
+  },
+  {
+    "school": "Hancock",
+    "programID": "609694-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 841,
+        "avg": 889,
+        "max": 900
+      },
+      "tier1": {
+        "min": 750,
+        "avg": 796,
+        "max": 900
+      },
+      "tier2": {
+        "min": 786,
+        "avg": 814,
+        "max": 900
+      },
+      "tier3": {
+        "min": 800,
+        "avg": 818,
+        "max": 900
+      },
+      "tier4": {
+        "min": 742,
+        "avg": 807,
+        "max": 900
+      }
+    }
+  },
+  {
+    "school": "Jones",
+    "programID": "609678-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 895,
+        "avg": 900,
+        "max": 900
+      },
+      "tier1": {
+        "min": 819,
+        "avg": 886,
+        "max": 900
+      },
+      "tier2": {
+        "min": 868,
+        "avg": 889,
+        "max": 900
+      },
+      "tier3": {
+        "min": 876,
+        "avg": 890,
+        "max": 900
+      },
+      "tier4": {
+        "min": 887,
+        "avg": 890,
+        "max": 900
+      }
+    }
+  },
+  {
+    "school": "King",
+    "programID": "609751-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 719,
+        "avg": 844,
+        "max": 900
+      },
+      "tier1": {
+        "min": 630,
+        "avg": 675,
+        "max": 900
+      },
+      "tier2": {
+        "min": 643,
+        "avg": 678,
+        "max": 900
+      },
+      "tier3": {
+        "min": 636,
+        "avg": 675,
+        "max": 900
+      },
+      "tier4": {
+        "min": 634,
+        "avg": 677,
+        "max": 900
+      }
+    }
+  },
+  {
+    "school": "Lane Tech",
+    "programID": "609720-Selective Enrollment High School",
+    "programType": "Selective Enrollment High School",
+    "tieredCutoffScores": {
+      "rank": {
+        "min": 884,
+        "avg": 900,
+        "max": 900
+      },
+      "tier1": {
+        "min": 764,
+        "avg": 873,
+        "max": 900
+      },
+      "tier2": {
+        "min": 825,
+        "avg": 872,
+        "max": 900
+      },
+      "tier3": {
+        "min": 850,
+        "avg": 872,
+        "max": 900
+      },
+      "tier4": {
+        "min": 865,
+        "avg": 873,
+        "max": 900
+      }
+    }
+  }
+]

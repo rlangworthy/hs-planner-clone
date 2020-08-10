@@ -1,0 +1,54 @@
+$border-radius-sm: 6px;
+$border-radius-med: 12px;
+$border-radius-lg: 20px;
+
+$colo-valid-succcess: green;
+$colo-valid-warn: yellow;
+$colo-valid-fail: red;
+
+$col-app-base: #70C8FF;
+$col-app-accent: #AFFF84;
+//$col-app-neutral: #FCFEFF;
+$col-app-neutral: #fff;
+$col-app-info: blue;
+
+$col-app-gray-light: #EFEFF2;
+$col-app-gray: lighten(#9C9C9E, 10%);
+$col-app-gray-dark: #747475;
+
+$col-succ-certain: #01a18c;
+$col-succ-likely: #7076db;
+$col-succ-uncertain: #f7be00;
+$col-succ-unlikely: #ff7c00;
+$col-succ-none: #ff3e3a;
+$col-succ-notimplemented: darken(#3d383f, 5%);
+
+$text-black: #111;
+$text-dark-gray: #333;
+$text-gray: #666;
+$text-light-gray: #999;
+$text-white: #fefefe;
+
+$margin-xs: 5px;
+$margin-sm: 10px;
+$margin-med: 15px;
+$margin-lg: 30px;
+
+$box-shadow-none: none;
+$box-shadow-z1: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$box-shadow-z2: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$box-shadow-z3: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$box-shadow-z4: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$box-shadow-z5: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+$font-size-xs: 70%;
+$font-size-sm: 80%;
+$font-size-base: 100%;
+$font-size-lg: 125%;
+$font-size-xl: 175%;
+
+$border-light: 1px solid $col-app-gray-light;
+
+$hs-list-element-icon-size: 470px 470px;
+
+$hs-list-element-width: 45px;

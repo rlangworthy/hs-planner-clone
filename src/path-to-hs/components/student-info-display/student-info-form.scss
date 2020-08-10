@@ -1,0 +1,98 @@
+@import "../../../shared/styles/variables";
+
+/* bulma form styles */
+@import "../../../../node_modules/bulma/sass/utilities/_all";
+@import "../../../../node_modules/bulma/sass/elements/button";
+@import "../../../../node_modules/bulma/sass/elements/form";
+
+/* Override bulma select icon to prevent it from rendering above other elements */
+.select:not(.is-multiple):not(.is-loading) {
+    &::after {
+      border-color: $col-app-base;
+      z-index: 0 !important;
+    }
+}
+
+.label.has-tooltip {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: $col-app-info;
+
+  &:after {
+    margin: 0 0.25em;
+    font-size: 9px;
+    line-height: 10px;
+    color: $col-app-info;
+    content: "?";
+    display: inline-block;
+    text-align: center;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $col-app-info;
+    border-radius: 100%;
+  }
+}
+
+.student-info-form {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.tier-display-input {
+  width: 34px;
+  input {
+    text-align: center;
+  }
+  &:after {
+    right: 8px !important;
+  }
+}
+
+.field-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-items: flex-end;
+  margin-bottom: 0.75em;
+  .field {
+    margin-bottom: 0.75em;
+    &:not(:last-child) {
+      margin-right: 0.5em;
+    }
+  }
+}
+.field-group.nowrap {
+  flex-wrap: nowrap;
+}
+.field-group.distribute-left {
+  justify-content: flex-start;
+}
+
+.field.fixed-width-small {
+  width: 90px;
+}
+.field.fixed-width-med {
+  width: 140px;
+}
+
+.label {
+  //font-size: 10px;
+  //width: 100%;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.label.multiline {
+  //height: 3em;
+}
+
+.control.is-small {
+  font-size: $size-small; 
+  * {
+    font-size: inherit;
+  }
+}
+
+
+

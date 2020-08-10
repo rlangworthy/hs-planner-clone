@@ -1,0 +1,54 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/classes";
+
+.success-chance-filter {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  background-color: $col-app-neutral;
+}
+
+.success-chance-filter-button {
+  @extend %clickable;
+
+  flex: 1 0 3em;
+  padding: 1em 0.25em;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+
+
+  &:not(:last-child) {
+    border-right: 1px solid $col-app-gray;
+    &:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 1em;
+      right: -1px;
+      top: 0px;
+      background-color: $col-app-neutral;
+      z-index: 2;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 1em;
+      right: -1px;
+      bottom: 0px;
+      background-color: $col-app-neutral;
+      z-index: 2;
+    }
+  }
+}
+
+.success-chance-filter-button-text {
+  padding: 5px;
+  font-size: 0.7rem;
+  text-align: left;
+}

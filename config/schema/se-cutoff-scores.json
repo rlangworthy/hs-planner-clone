@@ -1,0 +1,60 @@
+{
+  "id": "/selectiveEnrollmentCutoffScores",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["programID", "tieredCutoffScores"],
+    "properties": {
+      "programID": {"type": "string"},
+      "school": {"type": "string"},
+      "programType": {"type": "string"},
+      "tieredCutoffScores": {
+        "type": "object",
+        "properties": {
+          "rank": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"}
+            }
+          },
+          "tier1": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"}
+            }
+          },
+          "tier2": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"}
+            }
+          },
+          "tier3": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"}
+            }
+          },
+          "tier4": {
+            "type": "object",
+            "properties": {
+              "min": {"type": "number"},
+              "avg": {"type": "number"},
+              "max": {"type": "number"}
+            }
+          }
+        } 
+      }
+    }
+  }
+}
+

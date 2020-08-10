@@ -1,0 +1,13 @@
+.awcache
+
+node_modules
+config/node_modules
+
+*.pyc
+
+#os files
+*/.DS_Store
+.DS_Store
+.DS_Store?
+
+COMMIT_EDITMSG

@@ -1,0 +1,131 @@
+@import "../../../src/shared/styles/resets";
+@import "../../../src/shared/styles/variables";
+
+.program-modal-bg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+
+  background-color: rgba(#000, 0.25);
+  
+  visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center 
+}
+.program-modal-bg-overlay.program-modal-active {
+  visibility: visible;
+}
+
+.program-modal-close-button {
+  font-size: 150%;
+  width: 60px;
+  height: 60px;
+
+  border: none;
+  background-color: #f44242; 
+  color: $text-white;
+  border-radius: 100%;
+  z-index: 2;
+
+  box-shadow: $box-shadow-z2;
+
+  position: absolute;
+  right: -15px;
+  top: -20px;
+
+  transition: transform 150ms ease;
+};
+
+.program-modal-close-button:hover {
+  transform: scale(1.2);
+}
+
+.program-modal-close-button:active {
+  transform: scale(0.9);
+}
+
+.program-modal {
+  position: relative;
+  margin-top: 10vh;
+
+  width: 95vw;
+  max-width: 900px;
+
+  background: $col-app-neutral;
+
+  box-shadow: $box-shadow-z5;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.program-modal-header {
+  width: 100%;
+  margin-bottom: 0.5em;
+  background-color: $col-app-gray-light;
+  border-bottom: 4px solid $col-app-base;
+
+}
+
+.program-modal-header-text {
+  font-size: 175%;
+  line-height: 200%;
+  margin: 1em;
+}
+
+.program-modal-program-card-container {
+  margin-top: -40px;
+  display: inline-block;
+  float: left;
+}
+
+
+.program-modal-body {
+  width: 100%;
+  padding: 0.5em 1em;
+}
+
+
+.program-modal-requirement-desc {
+  font-size: 80%;
+  background: $col-app-gray-light;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  padding: 1em;
+}
+
+.program-modal-footer {
+  border-top: 4px solid $col-app-base;
+  background-color: $col-app-gray-light;
+  height: 4em;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.program-modal-button {
+  margin: 1em;
+  padding: 0.5em;
+  color: $col-app-neutral;
+  background-color: darken($col-app-neutral, 50%);
+  border-radius: 7px;
+  transition: background-color 200ms ease;
+}
+.program-modal-button:hover {
+  color: $col-app-neutral;
+  background-color: darken($col-app-neutral, 40%);
+}
+.program-modal-button:active {
+  color: $col-app-neutral;
+  background-color: darken($col-app-neutral, 60%);
+}
+

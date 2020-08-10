@@ -1,0 +1,590 @@
+[
+    {
+        "programID": "610513-Service Learning (Military)",
+        "school": "AIR FORCE HS",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 307}
+        
+    },
+    {
+        "programID": "610524-Pre-Engineering",
+        "school": "ALCOTT HS",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 438}
+        
+    },
+    {
+        "programID": "609695-International Baccalaureate (IB)",
+        "school": "AMUNDSEN HS",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 636}
+        
+    },
+    {
+        "programID": "610518-Pre-Engineering",
+        "school": "AUSTIN CCA HS",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 176}
+        
+    },
+    {
+        "programID": "610563-International Baccalaureate (IB)",
+        "school": "BACK OF THE YARDS HS",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 623}
+        
+    },
+    {
+        "programID": "609698-International Baccalaureate (IB)",
+        "school": "BOGAN HS",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 552}
+        
+    },
+    {
+        "programID": "610323-Pre-Engineering",
+        "school": "BOWEN HS",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 50}
+        
+    },
+    {
+        "programID": "610381-International Baccalaureate (IB)",
+        "school": "BRONZEVILLE HS",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 428}
+        
+    },
+    {
+        "programID": "609760-Service Learning (Military)",
+        "school": "CARVER MILITARY HS",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 321}
+        
+    },
+    {
+        "programID": "400022-Music - Vocal",
+        "school": "CHIARTS HS",
+        "programType": "Music \u2013 Vocal",
+        "cutoffScores": {"min": 132.5}
+        
+    },
+    {
+        "programID": "400022-Dance",
+        "school": "CHIARTS HS",
+        "programType": "Dance",
+        "cutoffScores": {"min": 136.5}
+        
+    },
+    {
+        "programID": "400022-156",
+        "school": "CHIARTS HS",
+        "programType": "Musical \u2013 Instrumental \u2013 Guitar",
+        "cutoffScores": {"min": 153.75}
+        
+    },
+    {
+        "programID": "400022-Musical Theatre",
+        "school": "CHIARTS HS",
+        "programType": "Musical Theatre",
+        "cutoffScores": {"min": 157.75}
+        
+    },
+    {
+        "programID": "400022-Visual Arts",
+        "school": "CHIARTS HS",
+        "programType": "Visual Arts",
+        "cutoffScores": {"min": 184.5}
+        
+    },
+    {
+        "programID": "400022-157",
+        "school": "CHIARTS HS",
+        "programType": "Music \u2013 Instrumental \u2013 Brass and Wood",
+        "cutoffScores": {"min": 190}
+        
+    },
+    {
+        "programID": "400022-Theatre",
+        "school": "CHIARTS HS",
+        "programType": "Theatre",
+        "cutoffScores": {"min": 190.25}
+        
+    },
+    {
+        "programID": "400022-158",
+        "school": "CHIARTS HS",
+        "programType": "Music \u2013 Instrumental \u2013 Piano",
+        "cutoffScores": {"min": 191}
+        
+    },
+    {
+        "programID": "400022-Creative Writing",
+        "school": "CHIARTS HS",
+        "programType": "Creative Writing",
+        "cutoffScores": {"min": 194}
+        
+    },
+    {
+        "programID": "400022-159",
+        "school": "CHIARTS HS",
+        "programType": "Music \u2013 Instrumental \u2013 Percussion",
+        "cutoffScores": {"min": 213.5}
+        
+    },
+    {
+        "programID": "400022-160",
+        "school": "CHIARTS HS",
+        "programType": "Music \u2013 Instrumental \u2013 Strings",
+        "cutoffScores": {"min": 205}
+        
+    },
+    {
+        "programID": "609754-Service Learning (Military)",
+        "school": "CHICAGO MILITARY HS",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 307}
+        
+    },
+    {
+        "programID": "609674-Medical Assisting",
+        "school": "Chicago Vocational",
+        "programType": "Medial Assisting",
+        "cutoffScores": {"min": 0}
+        
+    },
+    {
+        "programID": "609759-Allied Health",
+        "school": "Clemente",
+        "programType": "Allied Health",
+        "cutoffScores": {"min": 229}
+        
+    },
+    {
+        "programID": "609759-International Baccalaureate (IB)",
+        "school": "Clemente",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 459}
+        
+    },
+    {
+        "programID": "609756-Visual Arts",
+        "school": "Curie",
+        "programType": "Visual Arts",
+        "cutoffScores": {"min": 0}
+        
+    },
+    {
+        "programID": "609756-Music",
+        "school": "Curie",
+        "programType": "Music",
+        "cutoffScores": {"min": 10}
+        
+    },
+    {
+        "programID": "609756-Dance",
+        "school": "Curie",
+        "programType": "Dance",
+        "cutoffScores": {"min": 24}
+        
+    },
+    {
+        "programID": "609756-International Baccalaureate (IB)",
+        "school": "Curie",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 620}
+        
+    },
+    {
+        "programID": "609676-Allied Health",
+        "school": "Dunbar",
+        "programType": "Allied Health",
+        "cutoffScores": {"min": 185}
+        
+    },
+    {
+        "programID": "610587-Dance",
+        "school": "Dyett Arts",
+        "programType": "Dance",
+        "cutoffScores": {"min": 51}
+        
+    },
+    {
+        "programID": "610587-General Education",
+        "school": "Dyett Arts",
+        "programType": "General Education",
+        "cutoffScores": {"min": 81}
+        
+    },
+    {
+        "programID": "610587-Visual Arts",
+        "school": "Dyett Arts",
+        "programType": "Visual Arts",
+        "cutoffScores": {"min": 72}
+        
+    },
+    {
+        "programID": "609704-Pre-Law",
+        "school": "Farragut",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 0}
+        
+    },
+    {
+        "programID": "609704-International Baccalaureate (IB)",
+        "school": "Farragut",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 493}
+        
+    },
+    {
+        "programID": "609694-Pre-Law",
+        "school": "Hancock",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 383}
+        
+    },
+    {
+        "programID": "609694-Pre-Engineering",
+        "school": "Hancock",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 396}
+        
+    },
+    {
+        "programID": "609741-155",
+        "school": "Hubbard",
+        "programType": "University Scholars",
+        "cutoffScores": {"min": 336}
+        
+    },
+    {
+        "programID": "609741-International Baccalaureate (IB)",
+        "school": "Hubbard",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 598}
+        
+    },
+    {
+        "programID": "609713-International Baccalaureate (IB)",
+        "school": "Hyde Park",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 387}
+        
+    },
+    {
+        "programID": "609678-Pre-Law",
+        "school": "Jones",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 475}
+        
+    },
+    {
+        "programID": "609678-Pre-Engineering",
+        "school": "Jones",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 534}
+        
+    },
+    {
+        "programID": "609764-Medical & Health Careers",
+        "school": "Juarez",
+        "programType": "Medical and Health Careers",
+        "cutoffScores": {"min": 316}
+        
+    },
+    {
+        "programID": "609764-International Baccalaureate (IB)",
+        "school": "Juarez",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 528.5}
+        
+    },
+    {
+        "programID": "609762-Allied Health",
+        "school": "Julian",
+        "programType": "Allied Health",
+        "cutoffScores": {"min": 250}
+        
+    },
+    {
+        "programID": "609715-AVID",
+        "school": "Kelly",
+        "programType": "AVID",
+        "cutoffScores": {"min": 39}
+        
+    },
+    {
+        "programID": "609715-International Baccalaureate (IB)",
+        "school": "Kelly",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 652}
+        
+    },
+    {
+        "programID": "609716-General Education",
+        "school": "Kelvyn Park",
+        "programType": "General Education",
+        "cutoffScores": {"min": 5}
+        
+    },
+    {
+        "programID": "609718-International Baccalaureate (IB)",
+        "school": "Kennedy",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 600}
+        
+    },
+    {
+        "programID": "609738-Music - Vocal",
+        "school": "Lincoln Park",
+        "programType": "Music \u2013 Vocal",
+        "cutoffScores": {"min": 11}
+        
+    },
+    {
+        "programID": "609738-Music - Instrumental",
+        "school": "Lincoln Park",
+        "programType": "Music \u2013 Instrumental",
+        "cutoffScores": {"min": 19}
+        
+    },
+    {
+        "programID": "609738-Drama",
+        "school": "Lincoln Park",
+        "programType": "Drama",
+        "cutoffScores": {"min": 34}
+        
+    },
+    {
+        "programID": "609738-Honors/Double Honors",
+        "school": "Lincoln Park",
+        "programType": "Honors/Double Honors",
+        "cutoffScores": {"min": 770}
+        
+    },
+    {
+        "programID": "609738-International Baccalaureate (IB)",
+        "school": "Lincoln Park",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 841}
+        
+    },
+    {
+        "programID": "609780-Service Learning (Military)",
+        "school": "Marine",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 383}
+        
+    },
+    {
+        "programID": "609724-Pre-Law",
+        "school": "Mather",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 316}
+        
+    },
+    {
+        "programID": "609725-International Baccalaureate (IB)",
+        "school": "Morgan Park",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 476}
+        
+    },
+    {
+        "programID": "609691-Allied Health",
+        "school": "North-Grand",
+        "programType": "Allied Health",
+        "cutoffScores": {"min": 327}
+        
+    },
+    {
+        "programID": "609691-Pre-Engineering",
+        "school": "North-Grand",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 344}
+        
+    },
+    {
+        "programID": "610529-International Baccalaureate (IB)",
+        "school": "Ogden",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 531}
+        
+    },
+    {
+        "programID": "610304-Service Learning (Military)",
+        "school": "Phoenix",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 301}
+        
+    },
+    {
+        "programID": "609679-International Baccalaureate (IB)",
+        "school": "Prosser",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 648}
+        
+    },
+    {
+        "programID": "610334-Pre-Law",
+        "school": "Raby",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 123}
+        
+    },
+    {
+        "programID": "610390-Service Learning (Military)",
+        "school": "Rickover",
+        "programType": "Military Academy",
+        "cutoffScores": {"min": 300}
+        
+    },
+    {
+        "programID": "609728-Cisco Networking",
+        "school": "Roosevelt",
+        "programType": "Cisco Networking",
+        "cutoffScores": {"min": 48}
+        
+    },
+    {
+        "programID": "609728-Medical & Health Careers",
+        "school": "Roosevelt",
+        "programType": "Medical and Health Careers",
+        "cutoffScores": {"min": 0}
+        
+    },
+    {
+        "programID": "609729-Allied Health",
+        "school": "Schurz",
+        "programType": "Allied Health",
+        "cutoffScores": {"min": 301}
+        
+    },
+    {
+        "programID": "609729-Pre-Engineering",
+        "school": "Schurz",
+        "programType": "Pre-Engineering",
+        "cutoffScores": {"min": 303}
+        
+    },
+    {
+        "programID": "609729-International Baccalaureate (IB)",
+        "school": "Schurz",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 470}
+        
+    },
+    {
+        "programID": "609730-Dance",
+        "school": "Senn",
+        "programType": "Dance",
+        "cutoffScores": {"min": 507}
+        
+    },
+    {
+        "programID": "609730-Music",
+        "school": "Senn",
+        "programType": "Music",
+        "cutoffScores": {"min": 525}
+        
+    },
+    {
+        "programID": "609730-International Baccalaureate (IB)",
+        "school": "Senn",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 552}
+        
+    },
+    {
+        "programID": "609730-Theatre",
+        "school": "Senn",
+        "programType": "Theatre",
+        "cutoffScores": {"min": 602}
+        
+    },
+    {
+        "programID": "609730-Visual Arts",
+        "school": "Senn",
+        "programType": "Visual Arts",
+        "cutoffScores": {"min": 627}
+        
+    },
+    {
+        "programID": "609692-Career Academy",
+        "school": "Simeon",
+        "programType": "Career Academy",
+        "cutoffScores": {"min": 70}
+        
+    },
+    {
+        "programID": "610547-Medical & Health Careers",
+        "school": "South Shore",
+        "programType": "Medical and Health Careers",
+        "cutoffScores": {"min": 407}
+        
+    },
+    {
+        "programID": "610547-International Baccalaureate (IB)",
+        "school": "South Shore",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 501}
+        
+    },
+    {
+        "programID": "609732-International Baccalaureate (IB)",
+        "school": "Steinmetz",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 517}
+        
+    },
+    {
+        "programID": "609733-Medical & Health Careers",
+        "school": "Sullivan",
+        "programType": "Medical and Health Careers",
+        "cutoffScores": {"min": 56}
+        
+    },
+    {
+        "programID": "609734-NJROTC",
+        "school": "Taft",
+        "programType": "NJROTC",
+        "cutoffScores": {"min": 35}
+        
+    },
+    {
+        "programID": "609734-International Baccalaureate (IB)",
+        "school": "Taft",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 850}
+        
+    },
+    {
+        "programID": "609737-Scholars",
+        "school": "Von Steuben",
+        "programType": "Scholars",
+        "cutoffScores": {"min": 81}
+        
+    },
+    {
+        "programID": "609739-International Baccalaureate (IB)",
+        "school": "Washington",
+        "programType": "International Baccalaureate",
+        "cutoffScores": {"min": 598.5}
+        
+    },
+    {
+        "programID": "609740-Pre-Law",
+        "school": "Wells",
+        "programType": "Pre-Law",
+        "cutoffScores": {"min": 185}
+        
+    },
+    {
+        "programID": "609740-Medical & Health Careers",
+        "school": "Wells",
+        "programType": "Medical and Health Careers",
+        "cutoffScores": {"min": 295}
+        
+    }
+]

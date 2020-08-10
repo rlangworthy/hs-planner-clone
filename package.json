@@ -1,0 +1,72 @@
+{
+  "name": "path-to-hs",
+  "version": "0.5.0",
+  "description": "A website that calculates a student's chances of getting into different Chicago Public Schools high schools.",
+  "main": " ",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:dev": "PUBLIC_URL=https://s3.amazonaws.com/path-to-hs-dev react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-config": "node ./config/raw-data-processing/main.js",
+    "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
+    "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
+    "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mpingram/chavez-hs-planner.git"
+  },
+  "keywords": [
+    "education",
+    "school",
+    "Chicago",
+    "CPS",
+    "Chicago Public Schools",
+    "principal",
+    "teacher",
+    "counselor",
+    "high school"
+  ],
+  "author": "Michael Ingram",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/mpingram/chavez-hs-planner/issues"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/jest": "^23.3.9",
+    "@types/react-dom": "^16.0.9",
+    "@types/react-redux": "^6.0.9",
+    "@types/redux-thunk": "^2.1.0",
+    "chai": "^4.1.2",
+    "node-sass": "^4.14.1",
+    "react-scripts": "^2.1.1",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "@types/node": "^10.12.12",
+    "browser-jsonp": "^1.1.5",
+    "bulma": "^0.7.1",
+    "d3": "^5.9.7",
+    "lodash.debounce": "^4.0.8",
+    "promise-polyfill": "^7.1.2",
+    "react": "^16.6.3",
+    "react-autosuggest": "^9.3.4",
+    "react-dom": "^16.6.3",
+    "react-redux": "^5.0.6",
+    "react-select": "^1.2.1",
+    "react-tippy": "^1.2.2",
+    "redux": "^3.7.2",
+    "redux-thunk": "2.2.0",
+    "reselect": "^3.0.1",
+    "whatwg-fetch": "^2.0.4"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}

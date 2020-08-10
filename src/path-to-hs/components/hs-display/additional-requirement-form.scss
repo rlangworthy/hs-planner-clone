@@ -1,0 +1,47 @@
+@import "../../../shared/styles/variables";
+
+.additional-requirement-form {
+  width: 100%;
+}
+.additional-requirement-form-title {
+  width: 100%;
+  font-size: 0.70rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 2px 2px 0 0;
+  background-color: $col-app-gray;
+  padding: 0.5em 1em;
+}
+
+.additional-requirement-form-header {
+  width: 100%;
+  min-height: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 2px solid $col-app-gray;
+  border-top: none;
+
+  padding: 0.5em;
+}
+
+.additional-requirement-form-field {
+  margin-right: 1em;
+}
+
+.additional-requirement-form-help-text {
+  font-size: 0.7rem;
+}
+
+.additional-requirement-form-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px dotted $col-app-gray;
+  border-radius: 0 0 2px 2px;
+  border-top: none;
+  background-color: $col-app-gray-light;
+}

@@ -1,0 +1,19 @@
+{
+  "id": "/SchoolAttendanceBoundaryTable",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "patternProperties": {
+    "^\\d+$": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "number"
+        },
+        "additionalItems": false
+      }
+    }
+  }
+}

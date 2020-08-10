@@ -1,0 +1,12 @@
+%clickable {
+  cursor: pointer;
+  transition: background-color 500ms ease;
+  &:hover {
+    background-color: darken($col-app-gray-light, 3%);
+    transition: background-color 250ms ease;
+  }
+  &.depressed {
+    background-color: darken($col-app-gray-light, 3%);
+    transition: background-color 250ms ease;
+  }
+}

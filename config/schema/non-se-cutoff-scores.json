@@ -1,0 +1,23 @@
+{
+  "id": "/nonSelectiveEnrollmentCutoffScores",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["programID",  "cutoffScores"],
+    "properties": {
+      "programID": {"type": "string"},
+      "school": {"type": "string"},
+      "programType": {"type": "string"},
+      "cutoffScores": {
+        "type": "object",
+        "properties": {
+          "min": {"type": "number"},
+          "avg": {"type": "number"},
+          "max": {"type": "number"}
+        }
+      }
+    }
+  }
+}
+

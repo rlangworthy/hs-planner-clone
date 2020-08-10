@@ -1,0 +1,42 @@
+{
+  "id": "/RawProgramData",
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "School_ID": {"type": "string"},
+      "Short_Name": {"type": "string"},
+      "Long_Name": {"type": "string"},
+      "School_Type": {"type": "string"},
+      "Primary_Category": {"type": "string"},
+      "Address": {"type": "string"},
+      "City": {"type": "string"},
+      "State": {"type": "string"},
+      "Zip": {"type": "string"},
+      "Phone": {"type": "string"},
+      "Fax": {"type": "string"},
+      "CPS_School_Profile": {"type": "string"},
+      "Website": {"type": "string"},
+      "Program_Type": {"type": "string"},
+      "Application_Requirements": {"type": "string"},
+      "Program_Selections": {"type": "string"},
+      "Deadline": {"type": "string"},
+      "School_Latitude": {"type": "string"},
+      "School_Longitude": {"type": "string"}
+    },
+    "required": [
+      "School_ID",
+      "Short_Name",
+      "Long_Name",
+      "Primary_Category",
+      "CPS_School_Profile",
+      "Website",
+      "Program_Type",
+      "Application_Requirements",
+      "Program_Selections",
+      "School_Latitude",
+      "School_Longitude"
+    ]
+  }
+}

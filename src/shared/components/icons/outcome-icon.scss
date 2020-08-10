@@ -1,0 +1,118 @@
+@import "../../../shared/styles/variables";
+
+.outcome-icon.disabled {
+  .fg {
+    stroke: $col-app-neutral !important;
+  }
+  .bg {
+    fill: $col-app-gray !important;
+  }
+}
+
+.outcome-certain-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-certain;
+  }
+}
+.outcome-certain-icon.inverted {
+  .fg {
+    stroke: $col-succ-certain;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}
+
+.outcome-likely-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-likely;
+  }
+}
+.outcome-likely-icon.inverted {
+  .fg {
+    stroke: $col-succ-likely;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}
+
+.outcome-uncertain-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-uncertain;
+  }
+}
+.outcome-uncertain-icon.inverted {
+  .fg {
+    stroke: $col-succ-uncertain;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}
+
+.outcome-unlikely-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-unlikely;
+  }
+}
+.outcome-unlikely-icon.inverted {
+  .fg {
+    stroke: $col-succ-unlikely;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}
+
+.outcome-none-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-none;
+  }
+}
+.outcome-none-icon.inverted {
+  .fg {
+    stroke: $col-succ-none;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}
+
+.outcome-notimplemented-icon {
+  .fg {
+    stroke: $col-app-neutral;
+  }
+  .fg-fill {
+    fill: $col-app-neutral;
+  }
+  .bg {
+    fill: $col-succ-notimplemented;
+  }
+}
+.outcome-notimplemented-icon.inverted {
+  .fg {
+    stroke: $col-succ-notimplemented;
+  }
+  .fg-fill {
+    fill: $col-succ-notimplemented;
+  }
+  .bg {
+    fill: $col-app-neutral;
+  }
+}

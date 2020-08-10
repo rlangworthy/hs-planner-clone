@@ -1,0 +1,40 @@
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/classes";
+
+.hs-list-element {
+  @extend %clickable;
+
+  width: 100px;
+  height: 110px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  border: none;
+  border-radius: 2px;
+  background: none;
+  padding: 0.5em;
+
+  cursor: pointer;
+  transition: background-color 500ms ease;
+}
+
+
+.hs-list-element.selected {
+  background-color: darken($col-app-gray-light, 3%);
+  transform: scale(1.15);
+  box-shadow: $box-shadow-z2;
+  transition: background-color 250ms ease;
+}
+
+.hs-list-element:hover {
+  background-color: darken($col-app-gray-light, 3%);
+  transition: background-color 250ms ease;
+}
+
+
+
+
+

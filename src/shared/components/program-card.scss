@@ -1,0 +1,67 @@
+@import "../../shared/styles/variables";
+
+.program-card {
+  position: relative;
+  font-size: 100%;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.program-card-icon-container {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 100%;
+  overflow: hidden;
+
+  &.succ-certain {
+    background-color: $col-succ-certain;
+  }
+  &.succ-likely {
+    background-color: $col-succ-likely;
+  }
+  &.succ-uncertain {
+    background-color: $col-succ-uncertain;
+  }
+  &.succ-unlikely {
+    background-color: $col-succ-unlikely;
+  }
+  &.succ-none {
+    background-color: $col-succ-none;
+  }
+  &.succ-not-implemented {
+    background-color: $col-succ-notimplemented;
+  }
+}
+
+.program-card-displayname {
+  width: 100%;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+  word-wrap: normal; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  margin: 5px auto;
+
+  // mimic link styling
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+.program-card-displayname.visited {
+  color: purple;
+}
+
+
+
