@@ -95,6 +95,7 @@ import {
   GREELEY_REGIONAL_GIFTED_CENTER_ES_PROGRAM,
   RAVENSWOOD_ES_PROGRAM,
   GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
+  CHICAGO_ACADEMY_ES_PROGRAM,
 
 
 } from "./constants";
@@ -2756,5 +2757,772 @@ export const requirementFunctions: ReqFnTable = {
         attendance: 90
       }
     ))
+  },
+  "d41d8cd98f00b204e9800998ecf8427e": {
+    "id": "d41d8cd98f00b204e9800998ecf8427e",
+    "programs": [
+      "PATHWAYS - AVONDALE HS: General Education",
+      "PATHWAYS - AVONDALE HS: General Education",
+      "INSTITUTO - LOZANO HS: General Education",
+      "INSTITUTO - LOZANO HS: General Education",
+      "CAMELOT - EXCEL ENGLEWOOD HS: General Education",
+      "CAMELOT - EXCEL ENGLEWOOD HS: General Education",
+      "YCCS - CAMPOS: General Education",
+      "YCCS - CAMPOS: General Education",
+      "LITTLE BLACK PEARL HS: General Education",
+      "LITTLE BLACK PEARL HS: General Education",
+      "SOUTHSIDE HS: General Education",
+      "SOUTHSIDE HS: General Education",
+      "VAUGHN HS: General Education",
+      "VAUGHN HS: General Education",
+      "YCCS - VIRTUAL: General Education",
+      "YCCS - VIRTUAL: General Education",
+      "YCCS - AUSTIN CAREER: General Education",
+      "YCCS - AUSTIN CAREER: General Education",
+      "YCCS - INNOVATIONS: General Education",
+      "YCCS - INNOVATIONS: General Education",
+      "PATHWAYS - BRIGHTON PARK HS: General Education",
+      "PATHWAYS - BRIGHTON PARK HS: General Education",
+      "YCCS - CCA ACADEMY: General Education",
+      "YCCS - CCA ACADEMY: General Education",
+      "OMBUDSMAN - NORTHWEST HS: General Education",
+      "OMBUDSMAN - NORTHWEST HS: General Education",
+      "HARPER HS: General Education",
+      "HARPER HS: General Education",
+      "YCCS - OLIVE HARVEY: General Education",
+      "YCCS - OLIVE HARVEY: General Education",
+      "YCCS - WEST: General Education",
+      "YCCS - WEST: General Education",
+      "JEFFERSON HS: General Education",
+      "JEFFERSON HS: General Education",
+      "YCCS - WEST TOWN: General Education",
+      "YCCS - WEST TOWN: General Education",
+      "PATHWAYS - ASHBURN HS: General Education",
+      "PATHWAYS - ASHBURN HS: General Education",
+      "YORK HS: General Education",
+      "YORK HS: General Education",
+      "HOPE HS: General Education",
+      "HOPE HS: General Education",
+      "CAMELOT - EXCEL SOUTHSHORE HS: General Education",
+      "CAMELOT - EXCEL SOUTHSHORE HS: General Education",
+      "GRAHAM HS: General Education",
+      "GRAHAM HS: General Education",
+      "YCCS - PROGRESSIVE LEADERSHIP: General Education",
+      "YCCS - PROGRESSIVE LEADERSHIP: General Education",
+      "YCCS - MCKINLEY: General Education",
+      "YCCS - MCKINLEY: General Education",
+      "YCCS - YOUTH CONNECTION: General Education",
+      "YCCS - YOUTH CONNECTION: General Education",
+      "DEVRY HS: General Education",
+      "DEVRY HS: General Education",
+      "OMBUDSMAN - SOUTH HS: General Education",
+      "OMBUDSMAN - SOUTH HS: General Education",
+      "YCCS - CHATHAM: General Education",
+      "YCCS - CHATHAM: General Education",
+      "YCCS - LATINO YOUTH: General Education",
+      "YCCS - LATINO YOUTH: General Education",
+      "YCCS - SCHOLASTIC ACHIEVEMENT: General Education",
+      "YCCS - SCHOLASTIC ACHIEVEMENT: General Education",
+      "PATHWAYS - HUMBOLDT PARK HS: General Education",
+      "PATHWAYS - HUMBOLDT PARK HS: General Education",
+      "YCCS - TRUMAN: General Education",
+      "YCCS - TRUMAN: General Education",
+      "YCCS - YOUTH DEVELOPMENT: General Education",
+      "YCCS - YOUTH DEVELOPMENT: General Education",
+      "OMBUDSMAN - ROSELAND HS: General Education",
+      "OMBUDSMAN - ROSELAND HS: General Education",
+      "OMBUDSMAN - WEST HS: General Education",
+      "OMBUDSMAN - WEST HS: General Education",
+      "CAMELOT - EXCEL SOUTHWEST HS: General Education",
+      "CAMELOT - EXCEL SOUTHWEST HS: General Education",
+      "YCCS - ASPIRA PANTOJA: General Education",
+      "YCCS - ASPIRA PANTOJA: General Education",
+      "SIMPSON HS: General Education",
+      "SIMPSON HS: General Education",
+      "YCCS - SULLIVAN: General Education",
+      "YCCS - SULLIVAN: General Education",
+      "NORTHSIDE LEARNING HS: General Education",
+      "NORTHSIDE LEARNING HS: General Education",
+      "YCCS - ADDAMS: General Education",
+      "YCCS - ADDAMS: General Education",
+      "YCCS - ASSOCIATION HOUSE: General Education",
+      "YCCS - ASSOCIATION HOUSE: General Education",
+      "CAMELOT - SAFE HS: General Education",
+      "CAMELOT - SAFE HS: General Education",
+      "PEACE AND EDUCATION HS: General Education",
+      "PEACE AND EDUCATION HS: General Education",
+      "CAMELOT - EXCEL HS: General Education",
+      "CAMELOT - EXCEL HS: General Education"
+    ],
+    "desc": "",
+    "fn": accept(everyone)
+  },
+  "8a090af387ed4f6cfbc4a329dc11be0a": {
+    "id": "8a090af387ed4f6cfbc4a329dc11be0a",
+    "programs": [
+      "CHIARTS HS: Creative Writing"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92. A portfolio review is required for all eligible applicants.Students can apply to a maximum of two ChiArts programs.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades(
+          {
+            nweaCombined: 48,
+            attendance: 92
+          }
+        ))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades(
+          {
+            nweaBoth: 24,
+            attendance: 92
+          }
+        ))
+      }
+    )
+  },
+  "031dddcf21c96edad4454e69e627bf96": {
+    "id": "031dddcf21c96edad4454e69e627bf96",
+    "programs": [
+      "CHIARTS HS: Dance",
+      "CHIARTS HS: Music - Vocal",
+      "CHIARTS HS: Theatre"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.An audition is required for all eligible applicants.Students can apply to a maximum of two ChiArts programs.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades(
+          {
+            nweaCombined: 48,
+            attendance: 92
+          }
+        ))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades(
+          {
+            nweaBoth: 24,
+            attendance: 92
+          }
+        ))
+      }
+    )
+  },
+  "55836565a02e07a0ca6d59401d42a51a": {
+    "id": "55836565a02e07a0ca6d59401d42a51a",
+    "programs": [
+      "CHIARTS HS: Musical Theatre"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92. An audition is required for all eligible applicants.Students can apply to a maximum of two ChiArts programs.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades(
+          {
+            nweaCombined: 48,
+            attendance: 92
+          }
+        ))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades(
+          {
+            nweaBoth: 24,
+            attendance: 92
+          }
+        ))
+      }
+    )
+  },
+  "c4856f2b901e0b42320b6b375ebf01f2": {
+    "id": "c4856f2b901e0b42320b6b375ebf01f2",
+    "programs": [
+      "CHIARTS HS: Visual Arts"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.IEP and EL students: Minimum combined percentile of 48 in reading and math on NWEA MAP and 7th grade minimum attendance percentage of 92.A portfolio review is required for all eligible applicants.Students can apply to a maximum of two ChiArts programs.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades(
+          {
+            nweaCombined: 48,
+            attendance: 92
+          }
+        ))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades(
+          {
+            nweaBoth: 24,
+            attendance: 92
+          }
+        ))
+      }
+    )
+  },
+  "ee34c434839373e9a27f4d0bef9209bf": {
+    "id": "ee34c434839373e9a27f4d0bef9209bf",
+    "programs": [
+      "SENN HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school�s Middle Years Programme partner, Peirce Elementary School.",
+    "fn": ibPointSystem
+  },
+  "510f34dc635ac449653af3c1be320b55": {
+    "id": "510f34dc635ac449653af3c1be320b55",
+    "programs": [
+      "CHICAGO ACADEMY HS: General Education"
+    ],
+    "desc": "Students currently enrolled in the school�s eighth grade will have a guaranteed offer to this program.Students who are not currently enrolled in the school�s eighth grade are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, proximity, AUSL schools, general.",
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(
+            CHICAGO_ACADEMY_ES_PROGRAM
+        ),
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          PROXIMITY_LOTTERY_STAGE,
+          {
+            filter: ifStudentAttendsOneOf(
+              AUSL_ES_PROGRAMS
+            ),
+            size: LotteryStageSize.LARGE
+          },
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "2358b2a40f5226ad2456ccfd87860b38": {
+    "id": "2358b2a40f5226ad2456ccfd87860b38",
+    "programs": [
+      "CHICAGO ACADEMY HS: Scholars"
+    ],
+    "desc": "Eligible students are randomly selected by computerized lottery. The lottery is conducted in the following order: continuing students, sibling, proximity, elementary preference, general.",
+    "fn": lottery(
+      CONTINUING_STUDENTS_LOTTERY_STAGE,
+      SIBLING_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE,
+    )
+  },
+  "7caa4aba0a56c0169502dfe6c5a5df0a": {
+    "id": "7caa4aba0a56c0169502dfe6c5a5df0a",
+    "programs": [
+      "SCHURZ HS: Dual Language",
+      "BACK OF THE YARDS HS: Dual Language",
+      "ROOSEVELT HS: Dual Language"
+    ],
+    "desc": "All applicants: Minimum 2.5 GPA in 7th grade.Applicants� primary language must be Spanish.",
+    "fn": accept(
+      ifHasGrades({
+        gpa: 2.5,
+      })
+    )
+  },
+  "46c1706c25af41cd2d54d6cadd62af8a": {
+    "id": "46c1706c25af41cd2d54d6cadd62af8a",
+    "programs": [
+      "MULTICULTURAL HS: Fine and Performing Arts",
+      "SOCIAL JUSTICE HS: General Education",
+      "WORLD LANGUAGE HS: General Education"
+    ],
+    "desc": "Students who live within the school's attendance boundary can be admitted automatically to the Little Village Lawndale High School campus. The specific school from which the student receives an offer is dependent upon the order that the school is ranked on the student�s application.Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "09b80ddb498d8a06db00526b72db4d7e": {
+    "id": "09b80ddb498d8a06db00526b72db4d7e",
+    "programs": [
+      "FARRAGUT HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school�s Middle Years Programme partner, Madero Middle School.",
+    "fn": ibPointSystem
+  },
+  "33c4de73d50a54673e2d5d2cb9a52990": {
+    "id": "33c4de73d50a54673e2d5d2cb9a52990",
+    "programs": [
+      "CLARK HS: Early College STEM"
+    ],
+    "desc": "Eligible students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, proximity, tier. (The designated proximity for magnet schools is a 2.5 mile radius of the school.)",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      TIER_LOTTERY_STAGE
+    )
+  },//FIXME2020
+  "fc8efcb2ffc801af1a246f976413a1c4": {
+    "id": "fc8efcb2ffc801af1a246f976413a1c4",
+    "programs": [
+      "ART IN MOTION: Fine and Performing Arts"
+    ],
+    "desc": "Students currently enrolled in the school's eighth grade will have a guaranteed offer to this program.Students who are not currently enrolled in the school are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, general.This program will add one grade each year until it serves grades 7-12.",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "97d72c94f4150dc8fdf1b1205f548644": {
+    "id": "97d72c94f4150dc8fdf1b1205f548644",
+    "programs": [
+      "TAFT HS: International Baccalaureate (IB)",
+      "MORGAN PARK HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school�s Academic Center.",
+    "fn": ibPointSystem
+  },//FIXME2020
+  "c4ac31d6677ffd3b3d97f856b7fa7efa": {
+    "id": "c4ac31d6677ffd3b3d97f856b7fa7efa",
+    "programs": [
+      "KELVYN PARK HS: General Education"
+    ],
+    "desc": "Students currently enrolled in the school�s eighth grade will have a guaranteed offer to this program.Students who live within the school�s attendance boundary can be admitted automatically.Students who live outside of the school�s attendance boundary or are not currently enrolled in the school�s eighth grade are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "f0361727fa49edaf380b43dcd6f798e6": {
+    "id": "f0361727fa49edaf380b43dcd6f798e6",
+    "programs": [
+      "OGDEN HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Students currently enrolled in the school�s eighth grade will have a guaranteed offer to this program.Eligible students who do not attend the school are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school�s overlay boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.",
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(
+          OGDEN_GENERAL_EDUCATION_ES_PROGRAM,
+           OGDEN_MAGNET_CLUSTER_ES_PROGRAM
+           ),
+        fn: accept(everyone)
+      },
+      {
+        filter:everyone,
+        fn: ibPointSystem
+      }
+    )
+  },
+  "de2b82c9a4a653d0375bb5df9a25b9c4": {
+    "id": "de2b82c9a4a653d0375bb5df9a25b9c4",
+    "programs": [
+      "INFINITY HS: STEM"
+    ],
+    "desc": "Eligible students who live within the school's attendance boundary can be admitted automatically to the Little Village Lawndale High School campus. The specific school from which the student receives an offer is dependent upon the order that the school is ranked on the student�s application.Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "2ba36ed643af8d758ebab223d6db6f5e": {
+    "id": "2ba36ed643af8d758ebab223d6db6f5e",
+    "programs": [
+      "CURIE HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.  Preference is given to students who meet the minimum eligibilty requirements, attend an Information Session, and are enrolled in the school�s Middle Years Programme partner, Edwards Elementary School.",
+    "fn": ibPointSystem
+  },//FIXME2020
+  "263185272081996f9fa74d651f7565dd": {
+    "id": "263185272081996f9fa74d651f7565dd",
+    "programs": [
+      "CURIE HS: Journalism"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 40 in both reading and math on NWEA MAP and 7th minimum attendance percentage of 80.IEP and EL students: Minimum combined percentile of 80 in reading and math on NWEA MAP.This program only accepts students who live within the school�s attendance boundary.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(ifHasGrades(
+          {
+            nweaCombined: 80,
+            attendance: 80
+          }
+        ))
+      },
+      {
+        filter: everyone,
+        fn: accept(ifHasGrades(
+          {
+            nweaBoth: 40,
+            attendance: 80
+          }
+        ))
+      }
+    )
+  },
+  "a27ab58300750f6e81fca857cef99a2d": {
+    "id": "a27ab58300750f6e81fca857cef99a2d",
+    "programs": [
+      "CURIE HS: Journalism"
+    ],
+    "desc": "Eligible students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, attendance area students.",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      ATTENDANCE_AREA_LOTTERY_STAGE
+    )
+  },
+  "e6f9b6d8c09881bfe7c38a5541d8f00f": {
+    "id": "e6f9b6d8c09881bfe7c38a5541d8f00f",
+    "programs": [
+      "SOLORIO HS: Double Honors/Scholars"
+    ],
+    "desc": "Eligible students are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, attendance area, general.",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      ATTENDANCE_AREA_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "0066e34e5bedc32d9590cd2c85ee7bc3": {
+    "id": "0066e34e5bedc32d9590cd2c85ee7bc3",
+    "programs": [
+      "MORGAN PARK HS: General Education"
+    ],
+    "desc": "Students who live within the school�s attendance boundary have no eligibility requirements.Students who live outside of the school�s attendance boundary: Minimum 2.3 GPA in 7th grade and 7th grade minimum attendance percentage of 95.",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter:everyone,
+        fn: accept(
+          ifHasGrades(
+            {
+              gpa: 2.3,
+              attendance: 95 
+            }
+          )
+        )
+      }
+    )
+  },
+  "650acbf3afc1af4b9d806b2b263fcb50": {
+    "id": "650acbf3afc1af4b9d806b2b263fcb50",
+    "programs": [
+      "WELLS HS: Fine and Performing Arts"
+    ],
+    "desc": "Students who live within the school�s attendance boundary have no eligibility requirements.Students who live outside of the school�s attendance boundary: Minimum 2.0 GPA in 7th grade and 7th grade minimum attendance percentage of 92.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: accept(
+          ifHasGrades(
+            {
+              gpa: 2,
+              attendance: 92
+            }
+          )
+        )
+      }
+    )
+  },
+  "9652ca379fecce3ca05b3013976ce251": {
+    "id": "9652ca379fecce3ca05b3013976ce251",
+    "programs": [
+      "WELLS HS: Fine and Performing Arts"
+    ],
+    "desc": "Students who live within the school�s attendance boundary have no eligibility requirements and can be admitted automatically.Eligible students who live outside of the school�s attendance boundary are randomly selected by computerized lottery.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "1d29fcc15a34b28a83f6e10b6471a870": {
+    "id": "1d29fcc15a34b28a83f6e10b6471a870",
+    "programs": [
+      "COLLINS HS: General Education"
+    ],
+    "desc": "Eligible students are randomly selected by computerized lottery. The lottery is conducted in the following order: students currently enrolled in sibling; staff preference; Chalmers, Dvorak, Herzl, Johnson, or Morton Elementary Schools; general.",
+    "fn": lottery(
+      {
+        filter: ifStudentAttendsOneOf(
+          CHALMERS_ES_PROGRAM, 
+          DVORAK_ES_PROGRAM,
+          HERZL_ES_PROGRAM,
+          JOHNSON_ES_PROGRAM,
+          MORTON_ES_PROGRAM
+        ),
+        size: LotteryStageSize.LARGE
+      },
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "0a8552094c8fdf34594f60cb6d3448e9": {
+    "id": "0a8552094c8fdf34594f60cb6d3448e9",
+    "programs": [
+      "LINCOLN PARK HS: Honors/Double Honors"
+    ],
+    "desc": "Students who live within the school's attendance boundary have no eligibility requirements.Students who live outside of the school's attendance boundary:General Education and 504 Plan students: Minimum percentile of 24 in both reading and math on the NWEA MAP and minimum 2.5 GPA in 7th grade.IEP and 504 Plan students: Minimum combined percentile of 48 in reading and math on NWEA MAP and minimum 2.5 GPA in 7th grade.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: conditional(
+          {
+            filter: ifIEPorEL,
+            fn: accept(ifHasGrades(
+              {
+                nweaCombined: 48,
+                gpa: 2.5
+              }
+            ))
+          },
+          {
+            filter: everyone,
+            fn: accept(ifHasGrades(
+              {
+                nweaBoth: 24,
+                gpa: 2.5
+              }
+            ))
+          }
+        )
+      }
+    )
+  },
+  "d392d2f43306ea9a8817869100ff5ea9": {
+    "id": "d392d2f43306ea9a8817869100ff5ea9",
+    "programs": [
+      "LINCOLN PARK HS: Music - Instrumental",
+      "LINCOLN PARK HS: Music - Vocal"
+    ],
+    "desc": "Students who live within the school's attendance boundary have no eligibility/audition requirements and can be admitted automatically.Eligible students who live outside of the school's attendance boundary are selected on a point system. Points are based on the audition.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: notImplemented
+      }
+    )
+  },
+  "437f8cbb6e546ff19de7e1274fc542c9": {
+    "id": "437f8cbb6e546ff19de7e1274fc542c9",
+    "programs": [
+      "AIR FORCE HS: Service Leadership Academy",
+      "CARVER MILITARY HS: Service Leadership Academy",
+      "PHOENIX MILITARY HS: Service Leadership Academy",
+      "MARINE LEADERSHIP AT AMES HS: Service Leadership Academy"
+    ],
+    "desc": "Eligible students must attend an Information Session, during which they will sign a Commitment Agreement, complete a Motivation and Perseverance Assessment and write a brief essay. Selections will be based on a point system with a maximum of 500 points, derived from 7th grade final (cumulative) grades (100 points), 7th grade NWEA MAP scores (100 points), the two-part assessment (75 for each part), and the essay (150 points).",
+    "fn": notImplemented
+  },
+  "e744f77a7d480b5ef5b160aed449aa1d": {
+    "id": "e744f77a7d480b5ef5b160aed449aa1d",
+    "programs": [
+      "RICKOVER MILITARY HS: Service Leadership Academy"
+    ],
+    "desc": "Eligible students must attend an Information Session, during which they will sign a Commitment Agreement, complete a Motivation and Perseverance Assessment and write a brief essay. Selections will be based on a point system with a maximum of 500 points, derived from 7th grade final (cumulative) grades (100 points), 7th grade NWEA MAP scores (100 points), the two-part assessment (75 for each part), and the essay (150 points). The first 30% of seats will go to students who reside in the overlay boundary.",
+    "fn": notImplemented
+  },
+  "46aada0b6ee8234309183bac1ad25253": {
+    "id": "46aada0b6ee8234309183bac1ad25253",
+    "programs": [
+      "KELLY HS: General Education"
+    ],
+    "desc": "Students who live within the school's attendance boundary do not have eligibility requirements.Applicants who live outside of the schools attendance area: Minimum GPA of 2.0 in 7th grade and 7th grade minimum attendance percentage of 90.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: accept(
+          ifHasGrades({
+            gpa:2,
+            attendance: 90
+          })
+        )
+      }
+    )
+  },
+  "cc2419366976415994044c201cc504bd": {
+    "id": "cc2419366976415994044c201cc504bd",
+    "programs": [
+      "KELLY HS: Performing Arts"
+    ],
+    "desc": "Students who live within the school�s attendance boundary do not have eligibility requirements.Applicants who live outside of the schools attendance area: Minimum GPA of 2.0 in 7th grade and 7th grade minimum attendance percentage of 90.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: accept(
+          ifHasGrades({
+            gpa:2,
+            attendance: 90
+          })
+        )
+      }
+    )
+  },//FIXME2020
+  "68ea21657919b7252e4b3c38493e9caf": {
+    "id": "68ea21657919b7252e4b3c38493e9caf",
+    "programs": [
+      "AMUNDSEN HS: General Education Grow Community",
+      "LAKE VIEW HS: STEM Grow Community"
+    ],
+    "desc": "Students are randomly selected by computerized lottery. Students who live within the school�s attendance boundary can be admitted automatically. Students who attend Grow Community Schools can be admitted automatically if they rank this program first on their application. Students who live outside of the school's attendance boundary, or who attend a non-Grow Community School, will be waitlisted.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "8e2826b8005ec1110ac23fca1616551a": {
+    "id": "8e2826b8005ec1110ac23fca1616551a",
+    "programs": [
+      "AMUNDSEN HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections. Preference is given to students who meet the minimum eligibility requirements, attend an Information Session, and are enrolled in the school�s Middle Years Programme partner, McPherson Elementary School.",
+    "fn": ibPointSystem
+  },
+  "6bb96565d3003c14acc93fe832728899": {
+    "id": "6bb96565d3003c14acc93fe832728899",
+    "programs": [
+      "HUBBARD HS: JROTC"
+    ],
+    "desc": "General Education and 504 Plan students: Minimum percentile of 50 in both reading and math on NWEA MAP, minimum GPA of 2.0 in 7th grade, and  7th grade attendance percentage of 85.IEP and EL students: Minimum combined percentile of 100 in reading and math on NWEA MAP, minimum GPA of 2.0 in 7th grade, and  7th grade attendance percentage of 85.",
+    "fn": conditional(
+      {
+        filter: ifIEPorEL,
+        fn: accept(
+          ifHasGrades({
+            gpa: 2,
+            nweaCombined: 100,
+            attendance: 85
+          })
+        )
+      },
+      {
+        filter: everyone,
+        fn: accept(
+          ifHasGrades({
+            gpa:2,
+            nweaBoth:50,
+            attendance:85
+          })
+        )
+      }
+    )
+  },
+  "c731f219a29ab3dfbb641d52c9b501ee": {
+    "id": "c731f219a29ab3dfbb641d52c9b501ee",
+    "programs": [
+      "STEINMETZ HS: General Education",
+      "HARLAN HS: General Education"
+    ],
+    "desc": "Students who live within the school's attendance boundary can be admitted automatically.Eligible students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: sibling, staff preference, general.",
+    "fn": conditional(
+      {
+        filter: ifInAttendBound,
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: lottery(
+          SIBLING_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "3a6bd84c6d96b6109310bb778c5be4e5": {
+    "id": "3a6bd84c6d96b6109310bb778c5be4e5",
+    "programs": [
+      "LAKE VIEW HS: Early College STEM"
+    ],
+    "desc": "All applicants: Minimum combined percentile of 100 in reading and math on NWEA MAP, minimum 3.1 GPA in 7th grade, and 7th grade minimum attendance percentage of 92.",
+    "fn": accept(
+      ifHasGrades(
+        {
+          gpa: 3.1,
+          nweaCombined: 100,
+          attendance: 92
+        }
+      )
+    )
+  },
+  "a9c70187a91fc32f5570b98d2e55e942": {
+    "id": "a9c70187a91fc32f5570b98d2e55e942",
+    "programs": [
+      "HYDE PARK HS: International Baccalaureate (IB)"
+    ],
+    "desc": "Eligible students are selected on a point system. Points are based on NWEA MAP scores and 7th grade GPA. Students who live within the school's attendance boundary will be given 50 additional points. The school determines the minimum cutoff score for selections.  Preference is given to students who meet the minimum eligibilty requirements, attend an Information Session, and are enrolled in the school�s Middle Years Programme partner, Carnegie Elementary School.",
+    "fn": ibPointSystem
   }
 }
