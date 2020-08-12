@@ -18,6 +18,7 @@ interface HSProgramElemProps {
 
 interface HSProgramElemState {
   visited: boolean
+  hover: boolean
   combinedSuccessChance: SuccessChance
 }
 
@@ -29,6 +30,7 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
     super(props);
     this.state = { 
       visited: false,
+      hover: false,
       combinedSuccessChance: props.outcome === undefined ? SuccessChance.NOTIMPLEMENTED : props.outcome.overallChance,
     };
   }
@@ -38,6 +40,9 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
     
     // compare props.onSelect
     if (nextProps.onSelect !== this.props.onSelect) {
+      return true;
+    }
+    if (nextState.hover !== this.state.hover) {
       return true;
     }
    
@@ -66,8 +71,11 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
       <button 
         className="hs-list-element"
         onClick={this.handleClick}
+        onMouseEnter={this.handleEnter}
+        onMouseLeave={this.handleLeave}
       >
       <ProgramCard 
+        hover={this.state.hover}
         outcome={this.state.combinedSuccessChance}
         displayName={this.props.program.programType}
       />
@@ -78,6 +86,14 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
   private handleClick = (ev) => {
     this.setState({visited: true});
     this.props.onSelect(this.props.program, this.props.outcome);
+  }
+
+  private handleEnter = (ev) => {
+    this.setState({hover: true})
+  }
+
+  private handleLeave = (ev) => {
+    this.setState({hover: false})
   }
 
 }

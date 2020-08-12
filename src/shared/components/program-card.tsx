@@ -5,9 +5,12 @@ import { SuccessChance } from "../../shared/enums";
 interface ProgramCardProps {
   outcome: SuccessChance
   displayName: string
+  hover: boolean
 }
 
 import SchoolIcon from "../../shared/components/icons/school";
+import DoorOpen from "./icons/door";
+import DoorClosed from "../../shared/components/icons/door-closed";
 
 import OutcomeCertainIcon from "../../shared/components/icons/outcome-certain";
 import OutcomeLikelyIcon from "../../shared/components/icons/outcome-likely";
@@ -61,7 +64,7 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
     <div className="program-card">
       <div className={`program-card-icon-container ${getClassName(props.outcome)}`}>
         <div className={`program-card-icon ${getClassName(props.outcome)}`}>
-          <SchoolIcon width="30px" height="30px" color="#fefefe"/>
+          <DoorOpen width="30px" height="30px" color="#fefefe" open={props.hover}/>
         </div>
         <div className="program-card-outcome-icon">
           { getIcon(props.outcome) }

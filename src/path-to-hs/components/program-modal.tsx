@@ -59,7 +59,7 @@ export const ProgramModal: React.SFC<ProgramModalProps> = (props) => {
         <div className="program-modal-header">
           { props.program && props.outcome &&
           <div className="program-modal-program-card-container">
-            <ProgramCard outcome={props.outcome.overallChance} displayName={props.program.schoolNameShort}/>
+            <ProgramCard outcome={props.outcome.overallChance} displayName={props.program.schoolNameShort} hover={false}/>
           </div>
           }
           { props.program && 
