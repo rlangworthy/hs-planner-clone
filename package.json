@@ -11,6 +11,7 @@
     "eject": "react-scripts eject",
     "build-config": "node ./config/raw-data-processing/main.js",
     "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
+    "deploy:cps-server": "",
     "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },
@@ -42,7 +43,7 @@
     "@types/redux-thunk": "^2.1.0",
     "chai": "^4.1.2",
     "node-sass": "^4.14.1",
-    "react-scripts": "^2.1.1",
+    "react-scripts": "^3.4.3",
     "typescript": "^3.1.6"
   },
   "dependencies": {
@@ -61,7 +62,8 @@
     "redux": "^3.7.2",
     "redux-thunk": "2.2.0",
     "reselect": "^3.0.1",
-    "whatwg-fetch": "^2.0.4"
+    "whatwg-fetch": "^2.0.4",
+    "yarn": "^1.22.4"
   },
   "browserslist": [
     ">0.2%",

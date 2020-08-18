@@ -54,7 +54,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
               <Tooltip
                 html={<span className="tooltip-text-small">An IEP (Individual Education Plan) is a national program for Special Education students with learning disabilities. Not all Special Education students have an IEP. If you don't know whether or not you have an IEP, ask your school's counselor.</span>}
                 tabIndex={0}
-                arrow="true"
+                arrow={true}
               >
                 <label tabIndex={0} className="label is-small multiline has-tooltip">Do you have an IEP?</label>
               </Tooltip>
@@ -82,7 +82,7 @@ export class StudentInfoForm extends React.Component<StudentInfoFormProps, Stude
               <Tooltip
                 html={<span className="tooltip-text-small">You are an English Learner student if you qualify for a bilingual education program or an English as a Second Language (ESL) program at your school. Not all bilingual students are English Learners. If you don't know whether or not you are an English Learner student, ask your school's counselor.</span>}
                 tabIndex={0}
-                arrow="true"
+                arrow={true}
               >
                 <label data-tip data-for="el-tooltip" className="label is-small multiline has-tooltip">Are you an English Learner student?</label>
               </Tooltip>

@@ -17,6 +17,9 @@ import { AdditionalRequirementForm } from "./additional-requirement-form";
 
 import SuccessChanceFilter from "./success-chance-filter";
 import HSGroup from "./hs-group";
+import "./hs-program-list.scss";
+import { connect } from "react-redux";
+import { updateStudentSETestPercentile } from "../../../shared/redux/actions";
 
 interface HSProgramListProps {
   programs: ProgramDictionary
@@ -30,14 +33,11 @@ interface HSProgramListState {
   selectedSuccessChance: SuccessChance | null
 }
 
-import "./hs-program-list.scss";
 
 /* 
  * FIXME hardcoded additional requirement field and data; move elsewhere
  * ------------------------------------------------
  * */
-import { connect } from "react-redux";
-import { updateStudentSETestPercentile } from "../../../shared/redux/actions";
 interface SETEstPercentileFieldProps {
   value: number | null
   onChange: (value: number) => any

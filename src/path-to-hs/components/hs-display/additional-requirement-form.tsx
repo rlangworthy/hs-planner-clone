@@ -1,11 +1,11 @@
 import * as React from "react";
+import "./additional-requirement-form.scss";
 
 export interface AdditionalRequirementFormProps {
   field: React.ReactNode
   helpText: React.ReactNode
 }
 
-import "./additional-requirement-form.scss";
 
 export const AdditionalRequirementForm: React.SFC<AdditionalRequirementFormProps> = props => {
   return (

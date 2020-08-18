@@ -99,6 +99,7 @@ import {
 
 
 } from "./constants";
+import { store } from "../../shared/redux/store";
 
 /**
  * This is a placeholder requirement function. Use it to indicate "I need to write this
@@ -113,7 +114,6 @@ const todoImplement = (s,p) => SuccessChance.NOTIMPLEMENTED;
  * We need to initialize these functions by passing them a link
  * to the app's redux store, which holds the data.
  * */
-import { store } from "../../shared/redux/store";
 const getAttendBoundDict = () => store.getState().data.schoolAttendanceBoundaryTable;
 const getSECutoffScores = () => store.getState().data.seCutoffScores;
 const getNonSECutoffScores = () => store.getState().data.nonSECutoffScores;

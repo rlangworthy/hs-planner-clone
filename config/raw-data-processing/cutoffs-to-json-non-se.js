@@ -28,18 +28,18 @@ function nonSECutoffsCSVToJSON(pathToCutoffScores, pathToSchoolIDs) {
         columns:true
     })
 
-    cutOffs = d3.nest().key( k => k['school'] + k['programType']).rollup( ks => {
-                            const schoolRow = rawSchoolIDs.find( row => row['Short_Name'] === ks[0].school.toUpperCase() )
+    cutOffs = d3.nest().key( k => k['SCHOOL'] + k['PROGRAM']).rollup( ks => {
+                            const schoolRow = rawSchoolIDs.find( row => row['School_Nm'] === ks[0]['SCHOOL'].toUpperCase() )
                             if (schoolRow === undefined) {
-                                throw new Error(`Could not find school ${ks[0].school.toUpperCase()}`);
+                                throw new Error(`Could not find school ${ks[0]['SCHOOL'].toUpperCase()}`);
                             }
                             const schoolID = schoolRow['School_ID']
                             return {
-                                programID: schoolID + '-' + ks[0]['programType'],
-                                school: ks[0]['school'],
-                                programType: ks[0]['programType'],
+                                programID: schoolID + '-' + ks[0]['PROGRAM'],
+                                school: ks[0]['SCHOOL'],
+                                programType: ks[0]['PROGRAM'],
                                 cutoffScores: {
-                                    min: parseInt(ks[0]['cutoffScores'], 10)
+                                    min: parseInt(ks[0]['CUTOFF SCORE'], 10)
                                 }
                             }
                         })
@@ -49,7 +49,7 @@ function nonSECutoffsCSVToJSON(pathToCutoffScores, pathToSchoolIDs) {
                         
 }
 
-const nonSEJson = nonSECutoffsCSVToJSON(path.join(__dirname, '../raw-data/2019-07-10/non-se-cutoff-scores.csv'), path.join(__dirname, '../../scraper/raw-data/Chicago_Public_Schools_-_School_Profile_Information_SY1819.csv'))
-fs.writeFileSync(path.join(__dirname, '../raw-data/2019-07-10/non-se-cutoff-scores.json'), nonSEJson, 'utf-8')
+const nonSEJson = nonSECutoffsCSVToJSON(path.join(__dirname, '../raw-data/2020-08-03/non-se-cutoff-scores.csv'), path.join(__dirname, '../../scraper/raw-data/Chicago_Public_Schools_-_School_Locations_SY1920.csv'))
+fs.writeFileSync(path.join(__dirname, '../raw-data/2020-08-03/non-se-cutoff-scores.json'), nonSEJson, 'utf-8')
 
-//module.exports = nonSECutoffsCSVToJSON
+module.exports = nonSECutoffsCSVToJSON

@@ -1,6 +1,7 @@
 import * as Redux from "redux";
 
 import { ActionType } from "../../../shared/enums";
+import { initialLoadingStatus } from "./initial-state";
 
 interface LoadingStatus {
   loadingData: boolean
@@ -9,7 +10,6 @@ interface LoadingStatus {
   tierLoaded: boolean
 }
 
-import { initialLoadingStatus } from "./initial-state";
 
 export const loadingStatusReducer: Redux.Reducer<LoadingStatus> = (loadingStatus = initialLoadingStatus, action): LoadingStatus => {
 

@@ -37,7 +37,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         <Tooltip
           html={<span className="tooltip-text">Your attendance percentage measures how many days you attended school. If you missed 10 days of school in a normal school year, your attendance percentage would be around 94%.<br/>You can find your attendance percentage on your report card.</span>}
           tabIndex={0}
-          arrow="true"
+          arrow={true}
         >
           <label tabIndex={0} className="label is-small has-tooltip">Attendance Percentage</label>
         </Tooltip>
@@ -172,7 +172,7 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
           <Tooltip
             html={<span className="tooltip-text">A GPA (Grade Point Average) combines all of your grades together into one number. If all of your grades are 'A', you have a 4.0 GPA. If all of your grades are 'B's, you have a 3.0 GPA.</span>}
             tabIndex={0}
-            arrow="true"
+            arrow={true}
           >
             <label tabIndex={0} className="label is-small multiline has-tooltip">GPA</label>
           </Tooltip>

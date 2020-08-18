@@ -3,7 +3,9 @@ import * as Autosuggest from "react-autosuggest";
 
 import { AppState, ProgramDictionary } from "../../../shared/types";
 import { store } from "../../../shared/redux/store";
+import SearchIcon from "../../../shared/components/icons/search";
 
+import "./search-bar.scss";
 interface Suggestion {
   value: string
   matchStart: number
@@ -134,9 +136,7 @@ const getSuggestions = (programDict: ProgramDictionary, query: string, numSugges
   return suggestions;
 };
 
-import SearchIcon from "../../../shared/components/icons/search";
 
-import "./search-bar.scss";
 
 interface SearchBarProps {
   placeholder: string

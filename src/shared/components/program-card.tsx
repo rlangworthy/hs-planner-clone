@@ -2,11 +2,6 @@ import * as React from "react";
 
 import { SuccessChance } from "../../shared/enums";
 
-interface ProgramCardProps {
-  outcome: SuccessChance
-  displayName: string
-  hover: boolean
-}
 
 import SchoolIcon from "../../shared/components/icons/school";
 import DoorOpen from "./icons/door";
@@ -20,6 +15,12 @@ import OutcomeNoneIcon from "../../shared/components/icons/outcome-none";
 import OutcomeNotImplementedIcon from "../../shared/components/icons/outcome-notimplemented";
 
 import "./program-card.scss";
+
+interface ProgramCardProps {
+  outcome: SuccessChance
+  displayName: string
+  hover: boolean
+}
 
 export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
 

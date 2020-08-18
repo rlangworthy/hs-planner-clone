@@ -9,6 +9,7 @@ import { SuccessChance } from "../../../shared/enums";
 
 import { shallowCompare } from "../../../shared/util/shallow-compare";
 import { ProgramCard } from "../../../shared/components/program-card";
+import "./hs-program-element.scss";
 
 interface HSProgramElemProps {
   program: Program
@@ -22,7 +23,6 @@ interface HSProgramElemState {
   combinedSuccessChance: SuccessChance
 }
 
-import "./hs-program-element.scss";
 
 class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElemState> {
 
