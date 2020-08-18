@@ -3,7 +3,7 @@
 /* bulma form styles */
 @import "../../../../node_modules/bulma/sass/utilities/_all";
 @import "../../../../node_modules/bulma/sass/elements/button";
-@import "../../../../node_modules/bulma/sass/elements/form";
+@import "../../../../node_modules/bulma/sass/form/_all";
 
 /* Override bulma select icon to prevent it from rendering above other elements */
 .select:not(.is-multiple):not(.is-loading) {

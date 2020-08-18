@@ -11,7 +11,7 @@
     "eject": "react-scripts eject",
     "build-config": "node ./config/raw-data-processing/main.js",
     "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
-    "deploy:cps-server": "",
+    "deploy:cps-server": "ssh -t rlangworthy@10.129.210.11 'sudo rm -r /var/www/hs-planner/* /home/rlangworthy/repos/chavez-hs-planner/build/*' && scp -r ./build/* rlangworthy@10.129.210.11:/home/rlangworthy/repos/chavez-hs-planner/build && ssh -t rlangworthy@10.129.210.11 'sudo rsync -rtv /home/rlangworthy/repos/chavez-hs-planner/build/ /var/www/hs-planner/ && sudo restorecon -R /var/www/hs-planner'",
     "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },
@@ -49,7 +49,7 @@
   "dependencies": {
     "@types/node": "^10.12.12",
     "browser-jsonp": "^1.1.5",
-    "bulma": "^0.7.1",
+    "bulma": "^0.7.5",
     "d3": "^5.9.7",
     "lodash.debounce": "^4.0.8",
     "promise-polyfill": "^7.1.2",
