@@ -227,7 +227,7 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
         return -1;
       }
       switch(outcome.overallChance) {
-          case SuccessChance.CERTAIN: return 6;
+          case SuccessChance.CERTAIN: return 5; /*change value to collapse Certain and Likely Categories*/
           case SuccessChance.LIKELY: return 5;
           case SuccessChance.UNCERTAIN: return 4;
           case SuccessChance.UNLIKELY: return 3;
@@ -254,9 +254,11 @@ class HSProgramList extends React.PureComponent<HSProgramListProps, HSProgramLis
         counts.notImplemented += 1;
       } else {
         switch(outcome.overallChance){
+          /* Commented out to collapse Certain and Likely cases
           case SuccessChance.CERTAIN:
             counts.certain += 1;
             break;
+          */
           case SuccessChance.LIKELY:
             counts.likely += 1;
             break;

@@ -1,5 +1,5 @@
 export enum SuccessChance {
-  CERTAIN = 5,
+  CERTAIN = 4,
   LIKELY = 4,
   UNCERTAIN = 3,
   UNLIKELY = 2,

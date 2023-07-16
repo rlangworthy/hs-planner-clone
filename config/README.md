@@ -53,7 +53,7 @@ If new data becomes available -- for example, if schools' program application an
     * `se-cutoff-scores.json`
     * `non-se-cutoff-scores.json`
     * `tract-tier-table.json`
-    * `es-attendance-boundaries.geojson`
+    * `es-attendance-boundaries.geojson` 
     * `hs-attendance-boundaries.geojson`
 3. From the `config/` folder, run `$ npm run process-raw-data`. This script will process the raw data and save the result to `public/data`. **Running this script will overwrite any files in `public/data`.**
     * If you run into errors here, it's likely that there's something wrong in your raw-data sources. Check your raw data files against old versions of the raw data and against the schema in `config/schema`.

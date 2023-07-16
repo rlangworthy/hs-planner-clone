@@ -10,29 +10,29 @@ import { SuccessChance } from "../../../shared/enums";
 
 const sePointCalc = (student: StudentData, program: Program): number | null => {
 
+
   // if any needed student data is null, return early with null
-  if (student.nweaPercentileMath === null ||
-    student.nweaPercentileRead === null ||
+  if (student.hsatPercentileMath === null ||
+    student.hsatPercentileRead === null ||
     student.subjGradeMath === null ||
     student.subjGradeRead === null ||
     student.subjGradeSci === null ||
-    student.subjGradeSocStudies === null ||
-    student.seTestPercentile === null
+    student.subjGradeSocStudies === null
   ) {
     return null;
   }
 
 
-  // calculate points for NWEA scores
-  const NWEA_SCORE_CONSTANT = 1.515;
-  const nweaMathPoints = Math.round(student.nweaPercentileMath * NWEA_SCORE_CONSTANT);
-  const nweaReadPoints = Math.round(student.nweaPercentileRead * NWEA_SCORE_CONSTANT);
+  // calculate points for HSAT scores
+  const HSAT_SCORE_CONSTANT = 2.2727;
+  const hsatMathPoints = Math.round(student.hsatPercentileMath * HSAT_SCORE_CONSTANT);
+  const hsatReadPoints = Math.round(student.hsatPercentileRead * HSAT_SCORE_CONSTANT);
 
   // calculate points for subjGrades
   const gradePointsLookup = {
-    "A": 75,
-    "B": 50,
-    "C": 25,
+    "A": 112.5,
+    "B": 75,
+    "C": 38,
     "D": 0,
     "F": 0,
   }
@@ -40,18 +40,18 @@ const sePointCalc = (student: StudentData, program: Program): number | null => {
   const subjGradeReadPoints = gradePointsLookup[student.subjGradeRead];
   const subjGradeSciPoints = gradePointsLookup[student.subjGradeSci];
   const subjGradeSocStudiesPoints = gradePointsLookup[student.subjGradeSocStudies];
-
+  //removed 2022
   // calculate score component for SE Test percentile 
-  const SE_TEST_PERCENTILE_CONSTANT = 3.03; 
-  const seTestPoints = Math.round(student.seTestPercentile * SE_TEST_PERCENTILE_CONSTANT);
+  //const SE_TEST_PERCENTILE_CONSTANT = 3.03; 
+  //const seTestPoints = Math.round(student.seTestPercentile * SE_TEST_PERCENTILE_CONSTANT);
   
-  const sePoints = nweaMathPoints +
-    nweaReadPoints +
+  const sePoints = hsatMathPoints +
+    hsatReadPoints +
     subjGradeMathPoints +
     subjGradeReadPoints + 
     subjGradeSciPoints +
-    subjGradeSocStudiesPoints +
-    seTestPoints;
+    subjGradeSocStudiesPoints;
+    //seTestPoints;
 
   return sePoints;
 };
@@ -62,9 +62,10 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
   // good assumption.
   const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
-    throw new Error(`Failed to find cutoff scores for ${program.programName}`);
+    console.error(`Failed to find cutoff scores for ${program.programName} with id ${program.id}`);
     return null;
   }
+  console.log(`Found cutoff scores for ${program.programName} with id ${program.id}`)
   if (student.tier === null) {
     return null;
   }
@@ -88,16 +89,15 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
 export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): RequirementFunction => {
 
   const seLookup = createSELookup(getCutoffDict);
-
+  
   return (student, program) => {
     // if student data is not initialized, return early with NOTIMPLEMENTED
-    if (student.nweaPercentileMath === null ||
-      student.nweaPercentileRead === null ||
+    if (student.hsatPercentileMath === null ||
+      student.hsatPercentileRead === null ||
       student.subjGradeMath === null ||
       student.subjGradeRead === null ||
       student.subjGradeSci === null ||
       student.subjGradeSocStudies === null ||
-      student.seTestPercentile === null ||
       student.tier === null
     ) {
       return SuccessChance.NOTIMPLEMENTED;
@@ -105,7 +105,6 @@ export const createSEPointSystem = (getCutoffDict: () => SECutoffDictionary): Re
     
     const points = sePointCalc(student, program);
     const prevScores= seLookup(student, program);
-    console.log(prevScores)
     if (prevScores === null) {
       console.error(`Failed to find cutoff scores for ${program.programName}`);
       return SuccessChance.NOTIMPLEMENTED;

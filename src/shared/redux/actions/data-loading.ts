@@ -2,7 +2,9 @@ import {
   AppState,
   ProgramDictionary,
   RequirementFunctionDictionary,
-  SchoolDictionary
+  SchoolDictionary,
+  CutoffScores,
+  NonSECutoffDictionary
 } from "../../../shared/types";
 
 import { ActionType } from "../../../shared/enums";
@@ -89,9 +91,12 @@ export const loadSECutoffScores = () => {
 };
 
 export const updateNonSECutoffScores = (data) => {
+  //data is an array of objects, app state expects dictionary
+  const dict:NonSECutoffDictionary= {}
+  data.forEach( (d) => dict[d.programID] = d.cutoffScores)
   return {
     type: ActionType.UpdateNonSECutoffScores,
-    payload: data
+    payload: dict
   }
 };
 export const loadNonSECutoffScores = () => {

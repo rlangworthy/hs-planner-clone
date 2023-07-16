@@ -21,25 +21,26 @@ const ICON_SIZE = "48px";
 const SuccessChanceFilter: React.SFC<SuccessChanceFilterProps> = (props) => {
   return (
     <div className="success-chance-filter">
-
-      <button 
-        className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.CERTAIN ? "depressed" : ""}`}
-        onClick={ ev => props.selectedSuccessChance === SuccessChance.CERTAIN
-          ? props.onSelectedSuccessChanceChange(null)
-          : props.onSelectedSuccessChanceChange(SuccessChance.CERTAIN)
-        }
-      >
-        <div className="success-chance-filter-button-icon">
-          <OutcomeCertainIcon 
-            size={ICON_SIZE} 
-            disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.CERTAIN}
-          />
-        </div>
-        <div className="success-chance-filter-button-text">
-          You will almost certainly be accepted.
-        </div>
-      </button>
-
+      {/*
+      //Commenting out Certain Button to collapse certain and more likely buttons
+        <button 
+          className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.CERTAIN ? "depressed" : ""}`}
+          onClick={ ev => props.selectedSuccessChance === SuccessChance.CERTAIN
+            ? props.onSelectedSuccessChanceChange(null)
+            : props.onSelectedSuccessChanceChange(SuccessChance.CERTAIN)
+          }
+        >
+          <div className="success-chance-filter-button-icon">
+            <OutcomeCertainIcon 
+              size={ICON_SIZE} 
+              disabled={props.selectedSuccessChance !== null && props.selectedSuccessChance !== SuccessChance.CERTAIN}
+            />
+          </div>
+          <div className="success-chance-filter-button-text">
+            You will almost certainly be accepted.
+          </div>
+        </button>
+        */}
       <button 
         className={`success-chance-filter-button ${props.selectedSuccessChance === SuccessChance.LIKELY ? "depressed" : ""}`}
         onClick={ ev => props.selectedSuccessChance === SuccessChance.LIKELY

@@ -19,8 +19,8 @@ export interface StudentData {
     gpa: number | null
     siblingHSSchoolIDs: string[] | null
     seTestPercentile: number | null
-    nweaPercentileMath: number | null
-    nweaPercentileRead: number | null
+    hsatPercentileMath: number | null
+    hsatPercentileRead: number | null
     subjGradeMath: LetterGrade | null
     subjGradeRead: LetterGrade | null
     subjGradeSci: LetterGrade | null

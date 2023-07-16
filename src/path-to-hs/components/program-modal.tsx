@@ -12,16 +12,22 @@ export interface ProgramModalProps {
   program: Program | null
   outcome: ProgramOutcome | null
   onCloseButtonClick: (ev) => any
-}
+} 
 
 export const ProgramModal: React.SFC<ProgramModalProps> = (props) => {
+  
+  const toHTML = (string: string):React.ReactElement|null => {
+    return <div className="Container" dangerouslySetInnerHTML={{__html: string}}></div>
+  }
 
   const toMessage = (success: SuccessChance): string => {
     let msg: string = "";
     switch(success) {
+        /* Commented out to collapse Certain and Likely categories
         case SuccessChance.CERTAIN:
           msg = "You meet this requirement.";
         break;
+        */
         case SuccessChance.LIKELY:
           msg = "You are more likely to meet this requirement than other people who apply.";
         break;
@@ -76,7 +82,7 @@ export const ProgramModal: React.SFC<ProgramModalProps> = (props) => {
               </tr>
               <tr>
                 <td className="program-modal-requirement-type">To Be Selected:</td>
-                <td className="program-modal-requirement-desc">{props.program && props.program.selectionReqDescription}</td>
+                <td className="program-modal-requirement-desc">{props.program && toHTML(props.program.selectionReqDescription)}</td>
                 <td className="program-modal-requirement-outcome">{props.outcome && toMessage(props.outcome.selectionChance)}</td>
               </tr>
             </tbody>

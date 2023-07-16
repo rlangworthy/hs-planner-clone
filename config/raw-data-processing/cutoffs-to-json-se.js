@@ -40,7 +40,7 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
                             // The short_name is a semistandard name for the school, which usually is in ALL CAPS and
                             // ends in 'HS'. I had to capitalize the school names in the cutoff scores .csv and append
                             // 'HS' to the name to get it to work.
-                            const schoolRow = rawSchoolIDs.find( row => row['School_Nm'] === ks[0].School.toUpperCase() + ' HS' )
+                            const schoolRow = rawSchoolIDs.find( row => row['Short_Name'] === ks[0].School.toUpperCase() + ' HS' )
                             if (schoolRow === undefined) {
                                 throw new Error(`Could not find school ${ks[0].School.toUpperCase() + ' HS'}`);
                             }
@@ -68,7 +68,7 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
 
 }
 
-const seJson = seCutoffsCSVtoJSON(path.join(__dirname, '../raw-data/2020-08-03/se-cutoff-scores.csv'), path.join(__dirname, '../../scraper/raw-data/Chicago_Public_Schools_-_School_Locations_SY1920.csv'))
-fs.writeFileSync(path.join(__dirname, '../raw-data/2020-08-03/se-cutoff-scores.json'), seJson, 'utf-8')
+const seJson = seCutoffsCSVtoJSON(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.csv'), path.join(__dirname, '../../scraper/raw-data/Chicago_Public_Schools_-_School_Profile_Information_SY2122.csv'))
+fs.writeFileSync(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.json'), seJson, 'utf-8')
 
 module.exports=seCutoffsCSVtoJSON

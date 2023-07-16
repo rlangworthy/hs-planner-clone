@@ -81,16 +81,16 @@ export const updateStudentSkip7OrRepeated8 = (newValue: boolean) => {
   }
 };
 
-export const updateStudentNWEAPercentileMath = (newValue: number) => {
+export const updateStudentHSATPercentileMath = (newValue: number) => {
   return {
-    type: ActionType.UpdateStudentNWEAPercentileMath,
+    type: ActionType.UpdateStudentHSATPercentileMath,
     payload: newValue
   };
 };
 
-export const updateStudentNWEAPercentileRead = (newValue: number) => {
+export const updateStudentHSATPercentileRead = (newValue: number) => {
   return {
-    type: ActionType.UpdateStudentNWEAPercentileRead,
+    type: ActionType.UpdateStudentHSATPercentileRead,
     payload: newValue
   };
 };
@@ -133,11 +133,11 @@ export const updateStudentSETestPercentile = (newValue: number) => {
 export const updateStudentScore = (scoreType: ScoreType, newValue: number) => {
   let actionType;
   switch(scoreType) {
-    case ScoreType.nweaPercentileMath:
-      actionType = ActionType.UpdateStudentNWEAPercentileMath;
+    case ScoreType.hsatPercentileMath:
+      actionType = ActionType.UpdateStudentHSATPercentileMath;
       break;
-    case ScoreType.nweaPercentileRead:
-      actionType = ActionType.UpdateStudentNWEAPercentileRead;
+    case ScoreType.hsatPercentileRead:
+      actionType = ActionType.UpdateStudentHSATPercentileRead;
       break;
     case ScoreType.subjGradeMath:
       actionType = ActionType.UpdateStudentSubjGradeMath;

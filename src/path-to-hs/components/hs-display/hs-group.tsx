@@ -54,7 +54,9 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
               {this.props.title}
             </div>
             <div className="outcome-counts-wrapper">
-              <div className="outcome-count">
+              
+              {/*commenting out to collapse Certain and Likely Categories
+                <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeCertainIcon 
                     disabled={this.props.outcomeCounts.certain === 0}
@@ -67,7 +69,7 @@ class HSGroup extends React.PureComponent<HSGroupProps, HSGroupState> {
                   }
                 </div>
               </div>
-
+                */}
               <div className="outcome-count">
                 <div className="outcome-count-icon">
                   <OutcomeLikelyIcon 

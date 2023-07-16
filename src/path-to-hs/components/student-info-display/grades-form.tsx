@@ -7,10 +7,10 @@ import { LetterGrade } from "../../../shared/types";
 import "./grades-form.scss";
 
 export interface GradesFormProps {
-  nweaMath: number | null
-  onNWEAMathChange: (newVal: number) => any
-  nweaRead: number | null
-  onNWEAReadChange: (newVal: number) => any
+  hsatMath: number | null
+  onHSATMathChange: (newVal: number) => any
+  hsatRead: number | null
+  onHSATReadChange: (newVal: number) => any
 
   attendancePercentage: number | null;
   onAttendancePercentageChange: (newVal: number) => any
@@ -55,12 +55,12 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
 
       <div className="field-group distribute-left">
         <div className="field fixed-width-med">
-          <label className="label is-small">NWEA Math percentile</label>
+          <label className="label is-small">HSAT Math percentile</label>
           <div className="control">
 
             <input 
-              value={props.nweaMath === null ? "" : props.nweaMath}
-              onChange={ ev => props.onNWEAMathChange(ev.currentTarget.valueAsNumber) }
+              value={props.hsatMath === null ? "" : props.hsatMath}
+              onChange={ ev => props.onHSATMathChange(ev.currentTarget.valueAsNumber) }
               className="input" 
               type="number" 
             />
@@ -69,12 +69,12 @@ export const GradesForm: React.SFC<GradesFormProps> = (props) => {
         </div>
 
         <div className="field fixed-width-med">
-          <label className="label is-small">NWEA Reading percentile</label>
+          <label className="label is-small">HSAT Reading percentile</label>
           <div className="control">
 
           <input 
-              value={props.nweaRead === null ? "" : props.nweaRead}
-              onChange={ ev => props.onNWEAReadChange(ev.currentTarget.valueAsNumber) }
+              value={props.hsatRead === null ? "" : props.hsatRead}
+              onChange={ ev => props.onHSATReadChange(ev.currentTarget.valueAsNumber) }
               className="input" 
               type="number" 
             />

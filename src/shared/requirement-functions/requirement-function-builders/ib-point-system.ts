@@ -11,8 +11,8 @@ import { pointSystem } from "./point-system";
 const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
 
   // if any needed student data is null, return early with null
-  if (student.nweaPercentileMath === null ||
-    student.nweaPercentileRead === null ||
+  if (student.hsatPercentileMath === null ||
+    student.hsatPercentileRead === null ||
     student.subjGradeMath === null ||
     student.subjGradeRead === null ||
     student.subjGradeSci === null ||
@@ -21,12 +21,12 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentDat
     return null;
   }
 
-  const IB_NWEA_SCORE_CONSTANT = 2.2727;
+  const IB_HSAT_SCORE_CONSTANT = 2.2727;
   const IB_ATTEND_BOUND_BONUS_PTS = 50;
 
-  // calculate points for NWEA scores
-  const nweaMathPoints = Math.round(student.nweaPercentileMath * IB_NWEA_SCORE_CONSTANT);
-  const nweaReadPoints = Math.round(student.nweaPercentileRead * IB_NWEA_SCORE_CONSTANT);
+  // calculate points for HSAT scores
+  const hsatMathPoints = Math.round(student.hsatPercentileMath * IB_HSAT_SCORE_CONSTANT);
+  const hsatReadPoints = Math.round(student.hsatPercentileRead * IB_HSAT_SCORE_CONSTANT);
 
   // calculate score component for subj grades
   const gradePointsLookup = {
@@ -45,8 +45,8 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentDat
   // TODO figure out what to do for schools without attendance bounds, like BACK OF THE YARDS HS
   const attendBonus = ifInAttendBound(student, program) ? IB_ATTEND_BOUND_BONUS_PTS : 0;
 
-  const ibPoints = nweaMathPoints +
-    nweaReadPoints +
+  const ibPoints = hsatMathPoints +
+    hsatReadPoints +
     subjGradeMathPoints +
     subjGradeReadPoints + 
     subjGradeSciPoints +
@@ -63,7 +63,7 @@ const createIBCutoffLookup = (getCutoffDict: () => NonSECutoffDictionary) => (st
   }
   return cutoff;
 };
-
+  
 export const createIBPointSystem = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter) => {
   const ibPointCalc = createIBPointCalc(ifInAttendBound);
   const ibCutoffLookup = createIBCutoffLookup(getCutoffDict);

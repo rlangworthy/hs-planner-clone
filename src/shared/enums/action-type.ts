@@ -16,8 +16,8 @@ export enum ActionType {
   UpdateStudentCurrESProgram,
   UpdateStudentSiblingHSSchools,
 
-  UpdateStudentNWEAPercentileMath,
-  UpdateStudentNWEAPercentileRead,
+  UpdateStudentHSATPercentileMath,
+  UpdateStudentHSATPercentileRead,
 
   UpdateStudentSubjGradeMath,
   UpdateStudentSubjGradeRead,

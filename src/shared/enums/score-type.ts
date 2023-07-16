@@ -1,6 +1,6 @@
 export enum ScoreType {
-  nweaPercentileMath = "nweaPercentileMath", 
-  nweaPercentileRead = "nweaPercentileRead", 
+  hsatPercentileMath = "hsatPercentileMath", 
+  hsatPercentileRead = "hsatPercentileRead", 
   subjGradeMath = "subjGradeMath", 
   subjGradeRead = "subjGradeRead", 
   subjGradeSci = "subjGradeSci", 

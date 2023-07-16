@@ -82,13 +82,13 @@ export const studentDataReducer: Redux.Reducer<StudentData> = (studentData = ini
       const seTestPercentile = sanitizePercentile(action.payload);
       nextStudentData = {...studentData, seTestPercentile: seTestPercentile};
       break;
-    case ActionType.UpdateStudentNWEAPercentileMath:
-      const nweaPercentileMath = sanitizePercentile(action.payload);
-      nextStudentData = {...studentData, nweaPercentileMath: nweaPercentileMath};
+    case ActionType.UpdateStudentHSATPercentileMath:
+      const hsatPercentileMath = sanitizePercentile(action.payload);
+      nextStudentData = {...studentData, hsatPercentileMath: hsatPercentileMath};
       break;
-    case ActionType.UpdateStudentNWEAPercentileRead:
-      const nweaPercentileRead = sanitizePercentile(action.payload);
-      nextStudentData = {...studentData, nweaPercentileRead: nweaPercentileRead};
+    case ActionType.UpdateStudentHSATPercentileRead:
+      const hsatPercentileRead = sanitizePercentile(action.payload);
+      nextStudentData = {...studentData, hsatPercentileRead: hsatPercentileRead};
       break;
     case ActionType.UpdateStudentSubjGradeMath:
       nextStudentData = {

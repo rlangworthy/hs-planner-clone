@@ -1,8 +1,8 @@
-export const isValidNwea = (value) => {
+export const isValidHsat = (value) => {
   return typeof value === "number" && 1 <= value && value <=  99;
 };
 
-export const isValidCombinedNwea = (value) => {
+export const isValidCombinedHsat = (value) => {
   return typeof value === "number" && 2 <= value && value <=  198;
 };
 

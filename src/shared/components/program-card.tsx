@@ -27,8 +27,10 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
   const getIcon = (outcome: SuccessChance) => {
     const ICON_SIZE = "16px";
     switch(outcome) {
+      /*commenting out to collapse Certain and Likely Categories
       case SuccessChance.CERTAIN:
         return <OutcomeCertainIcon invertedColors={true} size={ICON_SIZE} />
+      */
       case SuccessChance.LIKELY:
         return <OutcomeLikelyIcon invertedColors={true} size={ICON_SIZE} />;
       case SuccessChance.UNCERTAIN:
@@ -44,8 +46,10 @@ export const ProgramCard: React.SFC<ProgramCardProps> = (props) => {
 
   const getClassName = (outcome: SuccessChance) => {
     switch(outcome){
+      /*commenting out to collapse Certain and Likely Categories
       case SuccessChance.CERTAIN:
         return "succ-certain"
+        */
       case SuccessChance.LIKELY:
         return "succ-likely"
       case SuccessChance.UNCERTAIN:

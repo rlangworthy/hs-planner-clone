@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
 import {
-  updateStudentNWEAPercentileMath,
-  updateStudentNWEAPercentileRead,
+  updateStudentHSATPercentileMath,
+  updateStudentHSATPercentileRead,
   updateStudentSubjGradeMath,
   updateStudentSubjGradeRead,
   updateStudentSubjGradeSci,
@@ -13,8 +13,8 @@ import {
 import { GradesForm, GradesFormProps } from "./grades-form";
 
 type StateProps = Pick<GradesFormProps,
-  "nweaMath" |
-  "nweaRead" |
+  "hsatMath" |
+  "hsatRead" |
   "mathGrade" |
   "readGrade" |
   "scienceGrade" |
@@ -23,8 +23,8 @@ type StateProps = Pick<GradesFormProps,
   "gpa">
 const mapStateToProps = (state): StateProps => {
   return {
-    nweaMath: state.studentData.nweaPercentileMath,
-    nweaRead: state.studentData.nweaPercentileRead,
+    hsatMath: state.studentData.hsatPercentileMath,
+    hsatRead: state.studentData.hsatPercentileRead,
     mathGrade: state.studentData.subjGradeMath,
     readGrade: state.studentData.subjGradeRead,
     scienceGrade: state.studentData.subjGradeSci,
@@ -35,8 +35,8 @@ const mapStateToProps = (state): StateProps => {
 };
 
 type DispatchProps = Pick<GradesFormProps,
-  "onNWEAMathChange" |
-  "onNWEAReadChange" |
+  "onHSATMathChange" |
+  "onHSATReadChange" |
   "onMathGradeChange" |
   "onReadGradeChange" |
   "onScienceGradeChange" |
@@ -44,8 +44,8 @@ type DispatchProps = Pick<GradesFormProps,
   "onAttendancePercentageChange">
 const mapDispatchToProps = (dispatch): DispatchProps => {
   return {
-    onNWEAMathChange: val => dispatch(updateStudentNWEAPercentileMath(val)),
-    onNWEAReadChange: val => dispatch(updateStudentNWEAPercentileRead(val)),
+    onHSATMathChange: val => dispatch(updateStudentHSATPercentileMath(val)),
+    onHSATReadChange: val => dispatch(updateStudentHSATPercentileRead(val)),
     onMathGradeChange: val => dispatch(updateStudentSubjGradeMath(val)),
     onReadGradeChange: val => dispatch(updateStudentSubjGradeRead(val)),
     onScienceGradeChange: val => dispatch(updateStudentSubjGradeSci(val)),

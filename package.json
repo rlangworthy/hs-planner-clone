@@ -6,6 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:cps": "PUBLIC_URL=https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner react-scripts build",
     "build:dev": "PUBLIC_URL=https://s3.amazonaws.com/path-to-hs-dev react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
@@ -70,6 +71,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "homepage": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner"
+  ]
 }

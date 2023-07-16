@@ -1,61 +1,61 @@
 import { ReqFnFilter } from "../../../../shared/types";
 
 import {
-  isValidNwea, 
-  isValidCombinedNwea, 
+  isValidHsat, 
+  isValidCombinedHsat, 
   isValidGPA, 
   isValidAttendance
 } from "../../../../shared/util/grade-validate";
 
 interface StudentGrades {
-  nweaMath?: number
-  nweaRead?: number
-  nweaBoth?: number
-  nweaCombined?: number
+  hsatMath?: number
+  hsatRead?: number
+  hsatBoth?: number
+  hsatCombined?: number
   gpa?: number
   attendance?: number
 }
 
 export const ifHasGrades = (grades: StudentGrades): ReqFnFilter => {
 
-  const hasNweaMath = grades.nweaMath !== undefined 
-  const hasNweaRead = grades.nweaRead !== undefined;
-  const hasNweaMathOrRead = hasNweaMath || hasNweaRead;
-  const hasNweaBoth = grades.nweaBoth !== undefined;
-  const hasNweaCombined = grades.nweaCombined !== undefined;
+  const hasHsatMath = grades.hsatMath !== undefined 
+  const hasHsatRead = grades.hsatRead !== undefined;
+  const hasHsatMathOrRead = hasHsatMath || hasHsatRead;
+  const hasHsatBoth = grades.hsatBoth !== undefined;
+  const hasHsatCombined = grades.hsatCombined !== undefined;
   const hasGpa = grades.gpa !== undefined;
   const hasAttendance = grades.attendance !== undefined;
 
-  const illegalCombination = (hasNweaMathOrRead && hasNweaBoth) || (hasNweaBoth && hasNweaCombined) || (hasNweaMathOrRead && hasNweaCombined);
+  const illegalCombination = (hasHsatMathOrRead && hasHsatBoth) || (hasHsatBoth && hasHsatCombined) || (hasHsatMathOrRead && hasHsatCombined);
   if (illegalCombination) {
-    throw new Error("ifHasGrades: only one of (nweaMath/nweaRead), nweaBoth, and nweaCombined may be set in the grades argument.");
+    throw new Error("ifHasGrades: only one of (hsatMath/hsatRead), hsatBoth, and hsatCombined may be set in the grades argument.");
   }
 
   // check to make sure grades isn't missing all properties
-  const hasAny = hasNweaMath || hasNweaRead || hasNweaBoth || hasNweaCombined || hasGpa || hasAttendance;
+  const hasAny = hasHsatMath || hasHsatRead || hasHsatBoth || hasHsatCombined || hasGpa || hasAttendance;
   if (!hasAny) {
     throw new Error("No grade thresholds found in grades argument.");
   }
 
   // check to make sure passed grades are valid 
-  if (hasNweaMath) {
-    if (!isValidNwea(grades.nweaMath)) {
-      throw new Error("Invalid value for nweaMath");
+  if (hasHsatMath) {
+    if (!isValidHsat(grades.hsatMath)) {
+      throw new Error("Invalid value for hsatMath");
     }
   }
-  if (hasNweaRead) {
-    if (!isValidNwea(grades.nweaRead)) {
-      throw new Error("Invalid value for nweaRead");
+  if (hasHsatRead) {
+    if (!isValidHsat(grades.hsatRead)) {
+      throw new Error("Invalid value for hsatRead");
     }
   }
-  if (hasNweaBoth) {
-    if (!isValidNwea(grades.nweaBoth)) {
-      throw new Error("Invalid value for nweaBoth");
+  if (hasHsatBoth) {
+    if (!isValidHsat(grades.hsatBoth)) {
+      throw new Error("Invalid value for hsatBoth");
     }
   }
-  if (hasNweaCombined) {
-    if (!isValidCombinedNwea(grades.nweaCombined)) {
-      throw new Error("Invalid value for nweaCombined");
+  if (hasHsatCombined) {
+    if (!isValidCombinedHsat(grades.hsatCombined)) {
+      throw new Error("Invalid value for hsatCombined");
     }
   }
   if (hasGpa) {
@@ -71,40 +71,40 @@ export const ifHasGrades = (grades: StudentGrades): ReqFnFilter => {
 
   return (student, program) => {
 
-    // If we recieved either(/both) the nweaMath and nweaRead options,
-    // check the student's nweaMath or(/and) nweaRead scores.
-    if (grades.nweaMath !== undefined || grades.nweaRead !== undefined) {
+    // If we recieved either(/both) the hsatMath and hsatRead options,
+    // check the student's hsatMath or(/and) hsatRead scores.
+    if (grades.hsatMath !== undefined || grades.hsatRead !== undefined) {
 
-      if (grades.nweaMath !== undefined) {
-        if (student.nweaPercentileMath === null) {
+      if (grades.hsatMath !== undefined) {
+        if (student.hsatPercentileMath === null) {
           return false;
-        } else if (student.nweaPercentileMath < grades.nweaMath) {
+        } else if (student.hsatPercentileMath < grades.hsatMath) {
           return false;
         }
       }
-      if (grades.nweaRead !== undefined) {
-        if (student.nweaPercentileRead === null) {
+      if (grades.hsatRead !== undefined) {
+        if (student.hsatPercentileRead === null) {
           return false;
-        } else if (student.nweaPercentileRead < grades.nweaRead) {
+        } else if (student.hsatPercentileRead < grades.hsatRead) {
           return false;
         }
       }
 
-      // Else if we recieved the nweaBoth argument, check the student's
-      // nweaRead and nweaMath scores against the value of nweaBoth.
-    } else if (grades.nweaBoth !== undefined) {
-      if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
+      // Else if we recieved the hsatBoth argument, check the student's
+      // hsatRead and hsatMath scores against the value of hsatBoth.
+    } else if (grades.hsatBoth !== undefined) {
+      if (student.hsatPercentileMath === null || student.hsatPercentileRead === null) {
         return false;
-      } else if (student.nweaPercentileMath < grades.nweaBoth || student.nweaPercentileRead < grades.nweaBoth) {
+      } else if (student.hsatPercentileMath < grades.hsatBoth || student.hsatPercentileRead < grades.hsatBoth) {
         return false;
       }
 
-      // Else if we recieved the nweaCombined argument, check the student's
-      // nweaRead + nweaMath scores added together against the value of nweaCombined.
-    } else if (grades.nweaCombined !== undefined) {
-      if (student.nweaPercentileMath === null || student.nweaPercentileRead === null) {
+      // Else if we recieved the hsatCombined argument, check the student's
+      // hsatRead + hsatMath scores added together against the value of hsatCombined.
+    } else if (grades.hsatCombined !== undefined) {
+      if (student.hsatPercentileMath === null || student.hsatPercentileRead === null) {
         return false;
-      } else if (student.nweaPercentileMath + student.nweaPercentileRead < grades.nweaCombined) {
+      } else if (student.hsatPercentileMath + student.hsatPercentileRead < grades.hsatCombined) {
         return false;
       }
     }

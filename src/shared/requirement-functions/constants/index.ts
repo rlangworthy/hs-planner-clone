@@ -5,4 +5,5 @@ export const CPS_PROXIMITY_LOTTERY_RADIUS_METERS = CPS_PROXIMITY_LOTTERY_RADIUS_
 export const POINT_SYSTEM_UNCERTAINTY_THRESHOLD = 2;
 
 export * from "./cps-es-program-ids";
+export * from "./cps-neighborhood-schools-program-ids";
 

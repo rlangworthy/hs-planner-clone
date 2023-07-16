@@ -19,7 +19,7 @@ export enum LotteryStageSize {
   LARGE
 }
 
-interface LotteryStage {
+export interface LotteryStage {
   filter: ReqFnFilter
   size: LotteryStageSize
 }
@@ -74,6 +74,7 @@ export const TIER_LOTTERY_STAGE = {
   filter: everyone,
   size: LotteryStageSize.LARGE
 };
+
 
 export const lottery = (...stages: LotteryStage[]): RequirementFunction => {
   // stage logic:
