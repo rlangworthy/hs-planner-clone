@@ -1,0 +1,56 @@
+School,Selection Method,Mean,Min,Max
+Brooks,Rank ,853,830,900
+Brooks,Tier 1,775,740,823
+Brooks,Tier 2,795,766,829
+Brooks,Tier 3,808,786,829
+Brooks,Tier 4,786,718,828
+Hancock,Rank ,884,873,900
+Hancock,Tier 1,816,789,870
+Hancock,Tier 2,849,829,871
+Hancock,Tier 3,861,850,870
+Hancock,Tier 4,849,837,870
+Jones,Rank ,899,895,900
+Jones,Tier 1,853,821,895
+Jones,Tier 2,855,823,895
+Jones,Tier 3,885,875,895
+Jones,Tier 4,892,890,895
+King,Rank ,756,718,865
+King,Tier 1,664,621,716
+King,Tier 2,664,607,714
+King,Tier 3,655,616,717
+King,Tier 4,753,600,700
+Lane Tech,Rank ,896,891,900
+Lane Tech,Tier 1,807,763,890
+Lane Tech,Tier 2,839,811,891
+Lane Tech,Tier 3,869,854,891
+Lane Tech,Tier 4,887,884,891
+Lindblom,Rank ,841,811,888
+Lindblom,Tier 1,776,756,809
+Lindblom,Tier 2,780,758,809
+Lindblom,Tier 3,788,770,811
+Lindblom,Tier 4,724,643,809
+Northside PREP,Rank ,900,900,900
+Northside PREP,Tier 1,824,775,893
+Northside PREP,Tier 2,872,838,900
+Northside PREP,Tier 3,893,884,900
+Northside PREP,Tier 4,900,900,900
+Payton,Rank ,900,900,900
+Payton,Tier 1,874,833,900
+Payton,Tier 2,882,850,900
+Payton,Tier 3,898,895,900
+Payton,Tier 4,900,900,900
+South Shore INTL,Rank ,742,706,850
+South Shore INTL,Tier 1,662,630,704
+South Shore INTL,Tier 2,662,606,706
+South Shore INTL,Tier 3,670,630,705
+South Shore INTL,Tier 4,645,613,696
+Westinghouse,Rank ,840,809,898
+Westinghouse,Tier 1,764,732,806
+Westinghouse,Tier 2,778,750,807
+Westinghouse,Tier 3,769,732,807
+Westinghouse,Tier 4,703,606,804
+Young,Rank ,900,900,900
+Young,Tier 1,865,834,898
+Young,Tier 2,873,845,898
+Young,Tier 3,888,877,898
+Young,Tier 4,896,893,900
