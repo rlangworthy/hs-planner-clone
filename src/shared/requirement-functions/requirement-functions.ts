@@ -582,10 +582,6 @@ export const requirementFunctions: ReqFnTable = {
         size: LotteryStageSize.LARGE
       },
       SIBLING_LOTTERY_STAGE,
-      // FIXME - Implement "Overlay stage" here
-      // TODO - find out what an overlay stage is
-      // it should be noted this isn't an issue, as it won't change the result
-      // of the lottery (since there is a previous large stage)
       GENERAL_LOTTERY_STAGE,
     )
   },
@@ -1176,7 +1172,12 @@ export const requirementFunctions: ReqFnTable = {
       "SIMEON HS: SIMEON HS - Career Academy"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>2</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / 25</li><li>IEP and EL Students: N/A / 25</li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Schedule your interview in your GoCPS account. </li></ul>",
-    "fn": notImplemented
+    "fn": conditional({
+      filter: ifHasGrades({ hsatCombined: 25, gpa: 2 }),
+      fn: lottery(
+        GENERAL_LOTTERY_STAGE
+      )
+    })
   },
   "cb20d1782d895ed3da2b5cad6179462d": {
     "id": "cb20d1782d895ed3da2b5cad6179462d",
@@ -1267,7 +1268,15 @@ export const requirementFunctions: ReqFnTable = {
     ],
     "desc": "",
     "fn": todoImplement
-    //FIXME: the auto generator didn't generate a description? so figure that out
+    // FIXME
+    /*
+      I have no clue what is going on here
+      the autogenerator on the website (in inspect element) doesn't generate
+      a description for the selection criteria
+
+      they all hash to the same value but have different descriptions in
+      program-data
+    */
   },
   "dde7fa9df4f2316490b4df271f165dc9": {
     "id": "dde7fa9df4f2316490b4df271f165dc9",
@@ -1804,7 +1813,6 @@ export const requirementFunctions: ReqFnTable = {
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Continuing,General</li><li><strong>Note: </strong>- 50 bonus points for attendance area - Elementary preference: Taft Academic Center</li></ul>",
     "fn": ibPointSystem
-    //FIXME this one's actually a lot more complicated
   },
   "9669b710d8e4179fdfe399389b25490b": {
     "id": "9669b710d8e4179fdfe399389b25490b",
@@ -1812,7 +1820,14 @@ export const requirementFunctions: ReqFnTable = {
       "TAFT HS: TAFT HS - NJROTC"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / 100</li><li>IEP and EL Students: N/A / 100</li></ul><li><strong>Priority: </strong>Overlay,Attendance Area,General</li><li><strong>Note: </strong>Schedule your interview in your GoCPS account. </li></ul>",
-    "fn": todoImplement
+    "fn": conditional({
+      filter: ifHasGrades({ hsatCombined: 100 }),
+      fn: lottery(
+        // Overlay
+        ATTENDANCE_AREA_LOTTERY_STAGE,
+        GENERAL_LOTTERY_STAGE
+      )
+    })
   },
   "bc7628628839b26f227b6a7d6a1d47ca": {
     "id": "bc7628628839b26f227b6a7d6a1d47ca",
