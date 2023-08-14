@@ -26,13 +26,13 @@ describe("ifHasGrades hsReqFilter", () => {
         latitude: 0,
         longitude: 0
       },
-      currESProgramID: "",
+      currESProgramID: { value: "" },
       siblingHSSchoolIDs: [],
 
       gpa: 0,
       attendancePercentage: 0,
-      nweaPercentileMath: 0,
-      nweaPercentileRead: 0,
+      hsatPercentileMath: 0,
+      hsatPercentileRead: 0,
       seTestPercentile: 1,
       subjGradeSci: 'A',
       subjGradeMath: 'B',
@@ -46,26 +46,26 @@ describe("ifHasGrades hsReqFilter", () => {
   it("should return true if the student grades are all greater than or equal to the specified grades", () => {
     s.attendancePercentage = 50;
     s.gpa = 2.5;
-    s.nweaPercentileMath = 39;
-    s.nweaPercentileRead = 40;
+    s.hsatPercentileMath = 39;
+    s.hsatPercentileRead = 40;
 
     const gradeFilterLessThan = ifHasGrades({
       attendance: 40,
       gpa: 1.0, 
-      nweaMath: 24, 
-      nweaRead: 24
+      hsatMath: 24, 
+      hsatRead: 24
     });
     const gradeFilterEqual = ifHasGrades({
       attendance: 50, 
       gpa: 2.5, 
-      nweaMath: 39, 
-      nweaRead: 40
+      hsatMath: 39, 
+      hsatRead: 40
     });
     const gradeFilterGreaterThan = ifHasGrades({
       attendance: 51, 
       gpa: 2.51, 
-      nweaMath: 40, 
-      nweaRead: 41
+      hsatMath: 40, 
+      hsatRead: 41
     });
 
     expect(gradeFilterLessThan(s,p)).to.equal(true);
@@ -73,18 +73,18 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterGreaterThan(s,p)).to.equal(false);
   });
 
-  it("should treat the nweaBoth specified property as though both the nweaMath and nweaRead properties were specified as the same number", () => {
-    s.nweaPercentileMath = 40;
-    s.nweaPercentileRead = 59;
+  it("should treat the hsatBoth specified property as though both the hsatMath and hsatRead properties were specified as the same number", () => {
+    s.hsatPercentileMath = 40;
+    s.hsatPercentileRead = 59;
 
     const gradeFilterLessThan = ifHasGrades({
-      nweaBoth: 24
+      hsatBoth: 24
     });
     const gradeFilterEqual = ifHasGrades({
-      nweaBoth: 40 
+      hsatBoth: 40 
     });
     const gradeFilterGreaterThan = ifHasGrades({
-      nweaBoth: 41 
+      hsatBoth: 41 
     });
 
     expect(gradeFilterLessThan(s,p)).to.equal(true);
@@ -92,18 +92,18 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterGreaterThan(s,p)).to.equal(false);
   });
 
-  it("should treat the nweaCombined property as though the nweaMath and nweaRead properties were added together to create a combined number", () => {
-    s.nweaPercentileMath = 24;
-    s.nweaPercentileRead = 24;
+  it("should treat the hsatCombined property as though the hsatMath and hsatRead properties were added together to create a combined number", () => {
+    s.hsatPercentileMath = 24;
+    s.hsatPercentileRead = 24;
 
     const gradeFilterLessThan = ifHasGrades({
-      nweaCombined: 24 
+      hsatCombined: 24 
     });
     const gradeFilterEqual = ifHasGrades({
-      nweaCombined: 48 
+      hsatCombined: 48 
     });
     const gradeFilterGreaterThan = ifHasGrades({
-      nweaBoth: 49 
+      hsatBoth: 49 
     });
 
     expect(gradeFilterLessThan(s,p)).to.equal(true);
@@ -112,13 +112,13 @@ describe("ifHasGrades hsReqFilter", () => {
   });
 
   it("should return false if the student's grades compared to are NaN", () => {
-    s.nweaPercentileMath = NaN;
-    s.nweaPercentileRead = 40;
+    s.hsatPercentileMath = NaN;
+    s.hsatPercentileRead = 40;
 
-    const gradeFilterRead = ifHasGrades({nweaRead: 40});
-    const gradeFilterMath = ifHasGrades({nweaMath: 40});
-    const gradeFilterBoth = ifHasGrades({nweaBoth: 40});
-    const gradeFilterCombined = ifHasGrades({nweaCombined: 40});
+    const gradeFilterRead = ifHasGrades({hsatRead: 40});
+    const gradeFilterMath = ifHasGrades({hsatMath: 40});
+    const gradeFilterBoth = ifHasGrades({hsatBoth: 40});
+    const gradeFilterCombined = ifHasGrades({hsatCombined: 40});
 
     expect(gradeFilterRead(s,p)).to.equal(true);
     expect(gradeFilterMath(s,p)).to.equal(false);
@@ -127,13 +127,13 @@ describe("ifHasGrades hsReqFilter", () => {
   });
 
   it("should return false if the student's grades compared to are null", () => {
-    s.nweaPercentileMath = null;
-    s.nweaPercentileRead = 40;
+    s.hsatPercentileMath = null;
+    s.hsatPercentileRead = 40;
 
-    const gradeFilterRead = ifHasGrades({nweaRead: 40});
-    const gradeFilterMath = ifHasGrades({nweaMath: 40});
-    const gradeFilterBoth = ifHasGrades({nweaBoth: 40});
-    const gradeFilterCombined = ifHasGrades({nweaCombined: 40});
+    const gradeFilterRead = ifHasGrades({hsatRead: 40});
+    const gradeFilterMath = ifHasGrades({hsatMath: 40});
+    const gradeFilterBoth = ifHasGrades({hsatBoth: 40});
+    const gradeFilterCombined = ifHasGrades({hsatCombined: 40});
 
     expect(gradeFilterRead(s,p)).to.equal(true);
     expect(gradeFilterMath(s,p)).to.equal(false);
@@ -141,13 +141,13 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(gradeFilterCombined(s,p)).to.equal(false);
   });
 
-  it("should throw an error if any combination of the 'nweaBoth', ('nweaMath' or 'nweaRead'), or 'nweaCombined' properties are set in the specified grades", () => {
+  it("should throw an error if any combination of the 'hsatBoth', ('hsatMath' or 'hsatRead'), or 'hsatCombined' properties are set in the specified grades", () => {
 
-    expect( () => ifHasGrades({nweaMath: 40, nweaRead: 40})).not.to.throw();
-    expect( () =>  ifHasGrades({nweaBoth: 40})).not.to.throw();
-    expect( () => ifHasGrades({nweaMath: 40, nweaBoth: 40})).to.throw();
-    expect( () => ifHasGrades({nweaMath: 20, nweaRead: 20, nweaCombined: 40})).to.throw();
-    expect( () => ifHasGrades({nweaBoth: 40, nweaCombined: 80})).to.throw();
+    expect( () => ifHasGrades({hsatMath: 40, hsatRead: 40})).not.to.throw();
+    expect( () =>  ifHasGrades({hsatBoth: 40})).not.to.throw();
+    expect( () => ifHasGrades({hsatMath: 40, hsatBoth: 40})).to.throw();
+    expect( () => ifHasGrades({hsatMath: 20, hsatRead: 20, hsatCombined: 40})).to.throw();
+    expect( () => ifHasGrades({hsatBoth: 40, hsatCombined: 80})).to.throw();
   });
 
   it("should throw an error if any of the specified grades have unexpected values", () => {
@@ -156,9 +156,9 @@ describe("ifHasGrades hsReqFilter", () => {
     expect(() => ifHasGrades({attendance: 101})).to.throw();
     expect(() => ifHasGrades({attendance: NaN})).to.throw();
 
-    expect(() => ifHasGrades({nweaMath: 100})).to.throw();
-    expect(() => ifHasGrades({nweaCombined: 200})).to.throw();
-    expect(() => ifHasGrades({nweaCombined: NaN})).to.throw();
+    expect(() => ifHasGrades({hsatMath: 100})).to.throw();
+    expect(() => ifHasGrades({hsatCombined: 200})).to.throw();
+    expect(() => ifHasGrades({hsatCombined: NaN})).to.throw();
   });
 
 

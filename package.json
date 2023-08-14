@@ -37,21 +37,23 @@
     "url": "https://github.com/mpingram/chavez-hs-planner/issues"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.22.10",
     "@types/chai": "^4.0.4",
     "@types/jest": "^23.3.9",
     "@types/react-dom": "^16.0.9",
     "@types/react-redux": "^6.0.9",
     "@types/redux-thunk": "^2.1.0",
     "chai": "^4.1.2",
-    "node-sass": "^4.14.1",
-    "react-scripts": "^3.4.3",
+    "node-sass": "^9.0.0",
+    "react-scripts": "^5.0.1",
     "typescript": "^3.1.6"
   },
   "dependencies": {
     "@types/node": "^10.12.12",
     "browser-jsonp": "^1.1.5",
     "bulma": "^0.7.5",
-    "d3": "^5.9.7",
+    "d3": "^7.8.5",
+    "geolib": "^3.3.4",
     "lodash.debounce": "^4.0.8",
     "promise-polyfill": "^7.1.2",
     "react": "^16.6.3",
@@ -61,7 +63,7 @@
     "react-select": "^1.2.1",
     "react-tippy": "^1.2.2",
     "redux": "^3.7.2",
-    "redux-thunk": "2.2.0",
+    "redux-thunk": "^2.2.0",
     "reselect": "^3.0.1",
     "whatwg-fetch": "^2.0.4",
     "yarn": "^1.22.4"

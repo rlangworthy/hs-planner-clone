@@ -1,8 +1,10 @@
 SCHOOL,PROGRAM,CUTOFF SCORE
 AIR FORCE HS,Military & Service Leadership,83
-ALCOTT HS,Pre-Engineering ,311
+ALCOTT HS,Pre-Engineering,311
 AMUNDSEN HS,International Baccalaureate (IB),833
 BACK OF THE YARDS HS,International Baccalaureate (IB),589
+BOGAN HS,International Baccalaureate (IB),350
+BOWEN HS,Pre-Engineering,-1
 BRONZEVILLE HS,International Baccalaureate (IB),195
 CARVER MILITARY HS,Military & Service Leadership,265
 CHIARTS HS,Creative Writing,462
@@ -13,12 +15,13 @@ CHIARTS HS,Theatre,118
 CHIARTS HS,Visual Arts,300
 CHIARTS HS,Vocal Music,302
 CHICAGO MILITARY HS,Military & Service Leadership,51
-CHICAGO VOCATIONAL HS,Medical & Health Careers,0
+CHICAGO VOCATIONAL HS,Medical & Health Careers,26
 CLEMENTE HS,Allied Health,162
+CLEMENTE HS,International Baccalaureate (IB),444
 CURIE HS,International Baccalaureate (IB),640
 CURIE HS,Pre-Engineering,459
 DUNBAR HS,Health Sciences,56
-FARRAGUT HS,International Baccalaureate (IB),0
+FARRAGUT HS,International Baccalaureate (IB),192
 FARRAGUT HS,Pre-Law,77
 FOREMAN HS,Pre-Engineering,89
 GAGE PARK HS,Health Sciences,63
@@ -26,34 +29,36 @@ HANCOCK HS,Pre-Engineering,523
 HANCOCK HS,Pre-Law,524
 HUBBARD HS,International Baccalaureate (IB),525
 HUBBARD HS,University Scholars,49
-INSTITUTO - HEALTH,Allied Health,0
+HYDE PARK HS,International Baccalaureate (IB),350
+INSTITUTO - HEALTH,Allied Health,21
 JONES HS,Pre-Engineering,537
 JONES HS,Pre-Law,536
 JUAREZ HS,International Baccalaureate (IB),367
 JUAREZ HS,Health Sciences,287
 JULIAN HS,Health Sciences,148
 KELLY HS,International Baccalaureate (IB),492
-KELVYN PARK HS,Allied Health,0
+KELVYN PARK HS,Allied Health,141
 KENNEDY HS,International Baccalaureate (IB),730
 KING HS,Pre-Engineering,367
 LINCOLN PARK HS,Drama,33
 LINCOLN PARK HS,Instrumental Music,20
-LINCOLN PARK HS, International Baccalaureate (IB) - MYP Diploma Program,754
-LINCOLN PARK HS,International Baccalaureate (IB) - MYP Honors/DoubleHonors,823
+LINCOLN PARK HS,International Baccalaureate (IB),754
+LINCOLN PARK HS,Honors/Double Honors,823
 LINCOLN PARK HS,Visual Arts,14
 LINCOLN PARK HS,Vocal Music,13
 MARINE LEADERSHIP AT AMES HS,Military & Service Leadership,178
 MATHER HS,Pre-Engineering,235
 MATHER HS,Pre-Law,25
 MORGAN PARK HS,International Baccalaureate (IB),401
-MULTICULTURAL ARTS HIGH SCHOOL,Allied Health,0
+MULTICULTURAL ARTS HS,Allied Health,118
 NORTH-GRAND HS,Health Sciences,302
 NORTH-GRAND HS,Pre-Engineering,356
-OGDEN HS,International Baccalaureate (IB),0
+OGDEN HS,International Baccalaureate (IB),401
 PHOENIX MILITARY HS,Military & Service Leadership,300
 PROSSER HS,International Baccalaureate (IB),536
+RABY HS,Pre-Law,-1
 RICKOVER MILITARY HS,Military & Service Leadership,349
-ROOSEVELT HS,Computer Networking,0
+ROOSEVELT HS,Computer Networking,43
 ROOSEVELT HS,Medical & Health Careers,145
 SCHURZ HS,Allied Health,161
 SCHURZ HS,International Baccalaureate (IB),297
@@ -65,14 +70,15 @@ SENN HS,Theatre,498
 SENN HS,Visual Arts,700
 SIMEON HS,Career Academy,96
 SOCIAL JUSTICE HS,Allied Health,82
+SOLORIO HS,Pre-Engineering,-1
 SOUTH SHORE INTL HS,International Baccalaureate (IB),494
 SOUTH SHORE INTL HS,Health Sciences,363
 STEINMETZ HS,International Baccalaureate (IB),175
 SULLIVAN HS,Medical & Health Careers,147
 TAFT HS,International Baccalaureate (IB),878
-TAFT HS,NJROTC,0
+TAFT HS,NJROTC,85
 VON STEUBEN HS,Scholars,76
 WASHINGTON HS,International Baccalaureate (IB),502
-WELLS HS,Pre-Law,0
-WILLIAMS HS,Medical & Health Careers,0
+WELLS HS,Pre-Law,78
+WILLIAMS HS,Medical & Health Careers,62
 WORLD LANGUAGE HS,Allied Health,172

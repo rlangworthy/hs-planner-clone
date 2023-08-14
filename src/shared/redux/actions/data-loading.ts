@@ -92,8 +92,18 @@ export const loadSECutoffScores = () => {
 
 export const updateNonSECutoffScores = (data) => {
   //data is an array of objects, app state expects dictionary
+  //update 2023: this seems to no longer be true, data is now passed in as an
+  //object, and we want the values
   const dict:NonSECutoffDictionary= {}
-  data.forEach( (d) => dict[d.programID] = d.cutoffScores)
+  Object.keys(data).forEach( (d: string) => {
+    dict[d] = {
+      min: data[d].min,
+      avg: -1,
+      max: -1
+      // non se schools only have a min value, no avg or max
+    };
+  });
+
   return {
     type: ActionType.UpdateNonSECutoffScores,
     payload: dict

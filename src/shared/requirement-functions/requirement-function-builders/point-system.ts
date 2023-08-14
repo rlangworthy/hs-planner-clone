@@ -30,6 +30,11 @@ export const pointSystem: PointSystemFn = (calc, lookup) => {
       console.error(e);
       return SuccessChance.NOTIMPLEMENTED;
     }
+
+    if (cutoff.min === -1) {
+      return SuccessChance.NOTIMPLEMENTED;
+    }
+
     const pointsFromCutoff = points - cutoff.min;
 
     // handle failure by returning NOTIMPLEMENTED

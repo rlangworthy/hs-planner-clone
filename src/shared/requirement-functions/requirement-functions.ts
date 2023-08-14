@@ -100,7 +100,11 @@ import {
   GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
   CHICAGO_ACADEMY_ES_PROGRAM,
   
-  CPS_NEIGHBORHOOD_HS_PROGRAMS
+  CPS_NEIGHBORHOOD_HS_PROGRAMS,
+  LOCKE_MAGNET_CLUSTER_ES_PROGRAM,
+  PEIRCE_ES_PROGRAM,
+  ARMSTRONG_G_ES_PROGRAM,
+  LANGUAGE_ES_PROGRAMS
 
 } from "./constants";
 import { store } from "../../shared/redux/store";
@@ -1257,27 +1261,6 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Elem Pref,General</li><li><strong>Note: </strong>-50 bonus points for attendance area- Elementary preference: McPherson (IB Partner School)</li></ul>",
     "fn": ibPointSystem
   },
-  "d41d8cd98f00b204e9800998ecf8427e": {
-    "id": "d41d8cd98f00b204e9800998ecf8427e",
-    "programs": [
-      "BOGAN HS: BOGAN HS - General Education",
-      "FARRAGUT HS: FARRAGUT HS - General Education",
-      "KENWOOD HS: KENWOOD HS - General Education",
-      "BRONZEVILLE HS: BRONZEVILLE HS - General Education",
-      "ALCOTT HS: ALCOTT HS - General Education"
-    ],
-    "desc": "",
-    "fn": todoImplement
-    // FIXME
-    /*
-      I have no clue what is going on here
-      the autogenerator on the website (in inspect element) doesn't generate
-      a description for the selection criteria
-
-      they all hash to the same value but have different descriptions in
-      program-data
-    */
-  },
   "dde7fa9df4f2316490b4df271f165dc9": {
     "id": "dde7fa9df4f2316490b4df271f165dc9",
     "programs": [
@@ -1608,9 +1591,8 @@ export const requirementFunctions: ReqFnTable = {
         filter: ifHasGrades({gpa: 2.5}),
         fn: lottery(
           SIBLING_LOTTERY_STAGE,
-          {//FIXME Add dual/world language es program group
-            filter: ifStudentAttendsOneOf(
-              ),
+          {
+            filter: ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
             size: LotteryStageSize.LARGE
           },
           GENERAL_LOTTERY_STAGE,
@@ -1626,9 +1608,8 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "<ul><li><strong>Selection Type: </strong>Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Sibling,Elem Pref,General</li><li><strong>Note: </strong>Elementary preference:  AZUELA,  BARRY, BATEMAN, BELMONT-CRAGIN, CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER-AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STOWE, TALCOTT, TELPOCHCALLI, VOLTA, VON LINNE, WHITTIER</li></ul>",
     "fn": lottery(
       SIBLING_LOTTERY_STAGE,
-      {//FIXME Add dual/world language es program group
-        filter: ifStudentAttendsOneOf(
-          ),
+      {
+        filter: ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
         size: LotteryStageSize.LARGE
       },
       GENERAL_LOTTERY_STAGE,
@@ -1642,7 +1623,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Elem Pref,General</li><li><strong>Note: </strong>- 50 bonus points for attendance area - Elementary preference: Peirce ES (IB Partner School)</li></ul>",
     "fn": conditional(
       {
-        filter: ifStudentAttendsOneOf(), // FIXME - add Pierce ES
+        filter: ifStudentAttendsOneOf(PEIRCE_ES_PROGRAM),
         fn: accept(everyone)
       },
       {
@@ -1699,7 +1680,7 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Elem Pref,General</li><li><strong>Note: </strong>- 50 bonus points for attendance area - Elementary preference: Locke (IB Partner School)</li></ul>",
     "fn": conditional(
       {
-        filter: ifStudentAttendsOneOf(), // FIXME - Locke ES
+        filter: ifStudentAttendsOneOf(LOCKE_MAGNET_CLUSTER_ES_PROGRAM),
         fn: accept(everyone)
       },
       {
@@ -1735,9 +1716,9 @@ export const requirementFunctions: ReqFnTable = {
       ATTENDANCE_AREA_LOTTERY_STAGE,
       {
         filter: ifStudentAttendsOneOf(
-          //FIXME Add Armstrong G ES program
+          ARMSTRONG_G_ES_PROGRAM,
           BOONE_ES_PROGRAM,
-          //FIXME Add Courtenay ES Program
+          COURTENAY_ES_PROGRAM,
           FIELD_ES_PROGRAM,
           GALE_ES_PROGRAM,
           HAYT_ES_PROGRAM,
@@ -1763,9 +1744,9 @@ export const requirementFunctions: ReqFnTable = {
       ATTENDANCE_AREA_LOTTERY_STAGE,
       {
         filter: ifStudentAttendsOneOf(
-          //FIXME Add Armstrong G ES program
+          ARMSTRONG_G_ES_PROGRAM,
           BOONE_ES_PROGRAM,
-          //FIXME Add Courtenay ES Program
+          COURTENAY_ES_PROGRAM,
           FIELD_ES_PROGRAM,
           GALE_ES_PROGRAM,
           HAYT_ES_PROGRAM,
@@ -1875,7 +1856,6 @@ export const requirementFunctions: ReqFnTable = {
     "fn": conditional(
       {
         filter: ifHasGrades({ hsatBoth: 24 }),
-        //FIXME verify that this is what the 24/48 means in the desc
         fn: lottery(
           SIBLING_LOTTERY_STAGE,
           STAFF_PREFERENCE_LOTTERY_STAGE,
@@ -1913,7 +1893,7 @@ export const requirementFunctions: ReqFnTable = {
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Point</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: N/A / None</li><li>IEP and EL Students: N/A / None</li></ul><li><strong>Priority: </strong>Elem Pref,General</li><li><strong>Note: </strong>- 50 bonus points for attendance area - Elementary preference: Marsh ES (IB Partner School)</li></ul>",
     "fn": ibPointSystem
-    //FIXME add elementary preference somehow
+    //FIXME add elementary preference
   },
   "fb38f5f5a3e776d8d1da4b8d04e4bc80": {
     "id": "fb38f5f5a3e776d8d1da4b8d04e4bc80",

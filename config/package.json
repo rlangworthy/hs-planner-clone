@@ -10,7 +10,6 @@
   "author": "Michael Ingram",
   "license": "",
   "homepage": "https://github.com/mpingram/chavez-hs-planner#readme",
-  "devDependencies": {},
   "dependencies": {
     "chai": "^4.1.2",
     "csv-parse": "^2.5.0",
