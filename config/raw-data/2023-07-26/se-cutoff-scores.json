@@ -256,8 +256,8 @@
     }
   },
   {
-    "school": "SOUTH SHORE INTL",
-    "programID": "610547-SOUTH SHORE INTL - Selective Enrollment High School",
+    "school": "SOUTH SHORE INTL HS",
+    "programID": "610547-SOUTH SHORE INTL HS - Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {

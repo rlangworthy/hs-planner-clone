@@ -69,9 +69,9 @@ const createSELookup = (getCutoffDict: () => SECutoffDictionary) => (student: St
   if (student.tier === null) {
     return null;
   }
-  console.log(student)
-  console.log(cutoff)
-  console.log(cutoff.tier1)
+  //console.log(student)
+  //console.log(cutoff)
+  //console.log(cutoff.tier1)
   switch(student.tier) {
     case '1':
       return cutoff.tier1; 

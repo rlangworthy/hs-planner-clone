@@ -18,6 +18,11 @@ export const createIfInAttendBound = (getAttendBoundDict: () => AttendanceBounda
     console.warn(`No attend bound found for ${program.programName}`);
     return false;
   }
-
-  return pointInPolygon(point, polygon);
+  
+  for (let i = 0; i < polygon.length; i++) {
+    if (pointInPolygon(point, polygon[i])) {
+      return true;
+    }
+  }
+  return false;
 };
