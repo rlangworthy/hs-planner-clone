@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import { 
   AppState,
@@ -127,23 +127,20 @@ export const updateSchoolAttendanceBoundaryTable = (data) => {
 };
 export const loadSchoolAttendanceBoundaryTable = () => {
   return (dispatch) => {
-    const url = "https://api.cps.edu/maps/CPS/GeoJSON?mapName=BOUNDARY_HS";
-    return new Promise( (resolve, reject) => {
-      axios({
-        method: "GET",
-        url: url
-      }).then((res) => {
-        console.log('data found');
-        console.log(res);
-        let formatted = formatAttendanceData(res.data.features);
-        dispatch( updateSchoolAttendanceBoundaryTable(formatted) )
-      }).catch((err) => {
-        console.log("nope!");
-        reject(err)
-      });
+    const url: string = "https://api.cps.edu/maps/CPS/GeoJSON?mapName=BOUNDARY_HS";
+    const config: AxiosRequestConfig = {
+      method: "GET",
+      url: url
+    }
+    axios(config).then((res: AxiosResponse) => {
+      let formatted = formatAttendanceData(res.data.features);
+      dispatch( updateSchoolAttendanceBoundaryTable(formatted) )
+    }).catch((err) => {
+      console.error(err);
     });
 
-    /*
+    /* old, json-based method. commented rather than deleted in case we
+    want to go back to this model at some point
     return fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
       console.log("json: ");
       console.log(json);

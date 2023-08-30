@@ -1,5 +1,5 @@
 import * as JSONP from "browser-jsonp";
-import axios from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse} from 'axios';
 
 import { store } from "../../../shared/redux/store";
 import pointInPolygon from "../../../shared/util/point-in-polygon";
@@ -126,10 +126,11 @@ const lookupTierFromGeo = (geo: { latitude: number, longitude: number }): Promis
   // I don't know the type for geojson objects
   let sendRequest = (baseUrl: string): Promise<any> => {
     return new Promise( (resolve, reject) => {
-      axios({
+      const config: AxiosRequestConfig = {
         method: "GET",
         url: baseUrl
-      }).then((data) => {
+      }
+      axios(config).then((data: AxiosResponse) => {
         console.log('loaded map');
         resolve(data)
       }).catch(err => reject(GetTierError.RequestFailedErr))
