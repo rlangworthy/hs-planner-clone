@@ -133,8 +133,6 @@ export const loadSchoolAttendanceBoundaryTable = () => {
       url: url
     }
     axios(config).then((res: AxiosResponse) => {
-      console.log('data found');
-      console.log(res);
       let formatted = formatAttendanceData(res.data.features);
       dispatch( updateSchoolAttendanceBoundaryTable(formatted) )
     }).catch((err) => {
