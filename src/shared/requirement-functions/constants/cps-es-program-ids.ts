@@ -79,6 +79,12 @@ export const INTER_AMERICAN_ES_PROGRAM = "610078-Magnet (Dual Language Immersion
 
 export const JAHN_ES_PROGRAM = "610010-Magnet Cluster (World Language)";
 
+export const LOCKE_GENERAL_EDUCATION_ES_PROGRAM = "610041-Open Enrollment";
+export const LOCKE_MAGNET_CLUSTER_ES_PROGRAM = "610041-Magnet Cluster (International Baccalaureate Middle Years)";
+export const PEIRCE_ES_PROGRAM = "610122-Magnet Cluster (International Baccalaureate Early and Middle Years)";
+
+export const ARMSTRONG_G_ES_PROGRAM = "609779-Open Enrollment"
+
 export const JAMIESON_ES_PROGRAM = "610011-Open Enrollment";
 export const NETTELHORST_ES_PROGRAM = "610094-Magnet Cluster (Fine and Performing Arts)";
 export const RAVENSWOOD_ES_PROGRAM = "610141-Magnet Cluster (Fine and Performing Arts)";
@@ -149,6 +155,29 @@ export const TAFT_ACADEMIC_CENTER_PROGRAM = "609734-Academic Center";
 export const MORGAN_PARK_ACADEMIC_CENTER_PROGRAM = "609725-Academic Center";
 export const KENWOOD_ACADEMIC_CENTER_PROGRAM = "609746-Academic Center";
 
+// Dual/World Language Programs
+// ----------------------------
+export const AZUELA_LANGUAGE_PROGRAM = "610544-Open Enrollment (Dual Language Program)";
+export const BARRY_LANGUAGE_PROGRAM = "609789-Open Enrollment (Dual Language Program)";
+export const BATEMAN_LANGUAGE_PROGRAM = "609792-Open Enrollment (Dual Language Program)";
+export const BELMONT_CRAGIN_LANGUAGE_PROGRAM = "609922-Open Enrollment (Dual Language Program)";
+export const CALMECA_LANGUAGE_PROGRAM = "610353-Open Enrollment (Dual Language Program)";
+export const CARSON_LANGUAGE_PROGRAM = "609842-Magnet Cluster (World Language Program)";
+export const CHASE_LANGUAGE_PROGRAM = "609853-Magnet Cluster (World Language Program)";
+export const COOPER_LANGUAUGE_PROGRAM = "609867-Open Enrollment (Dual Language Program)";
+export const DARWIN_LANGUAGE_PROGRAM = "609875-Magnet Cluster (World Language Program)";
+export const EDWARDS_LANGUAGE_PROGRAM = "609903-Magnet Cluster (Dual Language Program)";
+export const HURLEY_LANGUAGE_PROGRAM = "610006-Magnet Cluster (Dual Language Program)";
+export const MOOS_LANGUAGE_PROGRAM = "610076-Open Enrollment (Dual Language Program)";
+export const MOZART_LANGUAGE_PROGRAM = "610088-Open Enrollment (Dual Language Program)";
+export const SABIN_LANGUAGE_PROGRAM = "610342-Magnet (Dual Language Program)";
+export const SPRY_LANGUAGE_PROGRAM = "610184-Magnet Cluster (World Language Program)";
+export const STOWE_LANGUAGE_PROGRAM = "610192-Magnet Cluster (Dual Language Program)";
+export const TALCOTT_LANGUAGE_PROGRAM = "610197-Magnet Cluster (Dual Language Program)";
+export const TELPOCHCALLI_LANGUAGE_PROGRAM = "609921-Magnet Cluster (World Language Program)";
+export const VOLTA_LANGUAGE_PROGRAM = "610209-Open Enrollment (Dual Language Program)";
+export const VON_LINNE_LANGUAGE_PROGRAM = "610039-Open Enrollment (Dual Language Program)";
+export const WHITTIER_LANGUAGE_PROGRAM = "610228-Magnet Cluster (World Language Program)";
 
 // Groups of programs
 // ============================================
@@ -221,4 +250,29 @@ export const AUSL_ES_PROGRAMS: string[] = [
   CHICAGO_ACADEMY_ES_PROGRAM,
 ];
 
-
+export const LANGUAGE_ES_PROGRAMS = [
+  AZUELA_LANGUAGE_PROGRAM,
+  BARRY_LANGUAGE_PROGRAM,
+  BATEMAN_LANGUAGE_PROGRAM,
+  BELMONT_CRAGIN_LANGUAGE_PROGRAM,
+  CALMECA_LANGUAGE_PROGRAM,
+  CARSON_LANGUAGE_PROGRAM,
+  CHASE_LANGUAGE_PROGRAM,
+  COOPER_LANGUAUGE_PROGRAM,
+  DARWIN_LANGUAGE_PROGRAM,
+  EDWARDS_LANGUAGE_PROGRAM,
+  //FIXME - Missing ERIE (doesn't show up in cps list of programs)
+  //FIXME - Missing GLOBAL CITIZENSHIP (doesn't show up in cps list of programs)
+  INTER_AMERICAN_ES_PROGRAM,
+  MOOS_LANGUAGE_PROGRAM,
+  MOZART_LANGUAGE_PROGRAM,
+  //FIXME - Missing NAMASTE (doesn't show up in cps list of programs)
+  SABIN_LANGUAGE_PROGRAM,
+  SPRY_LANGUAGE_PROGRAM,
+  STOWE_LANGUAGE_PROGRAM,
+  TALCOTT_LANGUAGE_PROGRAM,
+  TELPOCHCALLI_LANGUAGE_PROGRAM,
+  VOLTA_LANGUAGE_PROGRAM,
+  VON_LINNE_LANGUAGE_PROGRAM,
+  WHITTIER_LANGUAGE_PROGRAM
+];

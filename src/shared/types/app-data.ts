@@ -15,6 +15,6 @@ export interface AppData {
 
     seCutoffScores: {[programID: string]: TieredCutoffScores}
     nonSECutoffScores: {[programID: string]: CutoffScores}
-    schoolAttendanceBoundaryTable: {[schoolID: string]: Array<[number, number]>}
+    schoolAttendanceBoundaryTable: {[schoolID: string]: Array<Array<[number, number]>>}
     tractTierTable: {[tract: string]: string}
 };

@@ -1,3 +1,3 @@
 export interface AttendanceBoundaryDictionary {
-  [schoolID: string]: [number, number][]
+  [schoolID: string]: [number, number][][]
 }

@@ -1,6 +1,8 @@
 import * as JSONP from "browser-jsonp";
+import axios from "axios";
 
 import { store } from "../../../shared/redux/store";
+import pointInPolygon from "../../../shared/util/point-in-polygon";
 
 const getTractTierTable = () => store.getState().data.tractTierTable;
 
@@ -27,7 +29,9 @@ export const getTierAndGeo = (streetAddress: string): Promise<TierAndGeoResponse
 
   return new Promise((resolve, reject) => {
     getTractAndGeo(address).then( ({tract, geo}) => {
-      lookupTierFromTract(tract).then( tier => {
+      // we actually don't need the tract anymore, only the geo
+      // TODO decide whether to remove the tract entirely
+      lookupTierFromGeo(geo).then( tier => {
         resolve({tier, geo});
       }).catch( err => reject(GetTierError.NoTierFoundErr));
     }).catch( err => {
@@ -115,3 +119,46 @@ const lookupTierFromTract = (tract: string): Promise<string> => {
   });
 };
 
+const lookupTierFromGeo = (geo: { latitude: number, longitude: number }): Promise<string> => {
+  let url = "https://api.cps.edu/maps/CPS/GeoJSON?mapName=TIER";
+
+  // TODO better type annotation for this promise
+  // I don't know the type for geojson objects
+  let sendRequest = (baseUrl: string): Promise<any> => {
+    return new Promise( (resolve, reject) => {
+      axios({
+        method: "GET",
+        url: baseUrl
+      }).then((data) => {
+        console.log('loaded map');
+        resolve(data)
+      }).catch(err => reject(GetTierError.RequestFailedErr))
+    });
+  };
+
+  return new Promise( (resolve, reject) => {    
+    sendRequest(url).then(res => {
+      let lst = res.data.features;
+      for (let i = 0; i < lst.length; i++) {
+        let feature = lst[i];
+        let point: [ number, number ] = [ geo.longitude, geo.latitude ];
+        // the geojson features are either a single polygon (handled here)
+        // or a linestring and two polygons (handled in the else)
+        if (feature.geometry.coordinates) {
+          if (pointInPolygon(point, feature.geometry.coordinates[0])) {
+            resolve(feature.properties.Tier);
+            return;
+          }
+        }
+        else {
+          if (pointInPolygon(point, feature.geometry.geometries[1].coordinates[0]) ||
+              pointInPolygon(point, feature.geometry.geometries[2].coordinates[0])) {
+            resolve(feature.properties.Tier);
+            return;
+          }
+        }
+      }
+      reject(GetTierError.NoTierFoundErr);
+    }).catch(err => reject(err));
+  })
+}

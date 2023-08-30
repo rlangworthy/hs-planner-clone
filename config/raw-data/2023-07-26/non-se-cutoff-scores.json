@@ -8,9 +8,9 @@
     }
   },
   {
-    "programID": "610524-ALCOTT HS - Pre-Engineering ",
+    "programID": "610524-ALCOTT HS - Pre-Engineering",
     "school": "ALCOTT HS",
-    "programType": "Pre-Engineering ",
+    "programType": "Pre-Engineering",
     "cutoffScores": {
       "min": 311
     }
@@ -28,7 +28,31 @@
     "school": "BACK OF THE YARDS HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
-      "min": 389
+      "min": 589
+    }
+  },
+  {
+    "programID": "609698-BOGAN HS - International Baccalaureate (IB)",
+    "school": "BOGAN HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 350
+    }
+  },
+  {
+    "programID": "610323-BOWEN HS - Pre-Engineering",
+    "school": "BOWEN HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 39
+    }
+  },
+  {
+    "programID": "610381-BRONZEVILLE HS - International Baccalaureate (IB)",
+    "school": "BRONZEVILLE HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 195
     }
   },
   {
@@ -108,7 +132,7 @@
     "school": "CHICAGO VOCATIONAL HS",
     "programType": "Medical & Health Careers",
     "cutoffScores": {
-      "min": 25
+      "min": 26
     }
   },
   {
@@ -117,6 +141,14 @@
     "programType": "Allied Health",
     "cutoffScores": {
       "min": 162
+    }
+  },
+  {
+    "programID": "609759-CLEMENTE HS - International Baccalaureate (IB)",
+    "school": "CLEMENTE HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 444
     }
   },
   {
@@ -168,9 +200,9 @@
     }
   },
   {
-    "programID": "609709-GAGE PARK HS - Allied Health",
+    "programID": "609709-GAGE PARK HS - Health Sciences",
     "school": "GAGE PARK HS",
-    "programType": "Allied Health",
+    "programType": "Health Sciences",
     "cutoffScores": {
       "min": 63
     }
@@ -204,7 +236,15 @@
     "school": "HUBBARD HS",
     "programType": "University Scholars",
     "cutoffScores": {
-      "min": 469
+      "min": 49
+    }
+  },
+  {
+    "programID": "609713-HYDE PARK HS - International Baccalaureate (IB)",
+    "school": "HYDE PARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 467
     }
   },
   {
@@ -280,6 +320,14 @@
     }
   },
   {
+    "programID": "609751-KING HS - Pre-Engineering",
+    "school": "KING HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 367
+    }
+  },
+  {
     "programID": "609738-LINCOLN PARK HS - Drama",
     "school": "LINCOLN PARK HS",
     "programType": "Drama",
@@ -296,17 +344,17 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS -  International Baccalaureate (IB) - MYP Diploma Program",
+    "programID": "609738-LINCOLN PARK HS - International Baccalaureate (IB)",
     "school": "LINCOLN PARK HS",
-    "programType": " International Baccalaureate (IB) - MYP Diploma Program",
+    "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
       "min": 754
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - International Baccalaureate (IB) - MYP Honors/DoubleHonors",
+    "programID": "609738-LINCOLN PARK HS - Honors/Double Honors",
     "school": "LINCOLN PARK HS",
-    "programType": "International Baccalaureate (IB) - MYP Honors/DoubleHonors",
+    "programType": "Honors/Double Honors",
     "cutoffScores": {
       "min": 823
     }
@@ -360,17 +408,17 @@
     }
   },
   {
-    "programID": "610385-MULTICULTURAL ARTS HIGH SCHOOL - Allied Health",
-    "school": "MULTICULTURAL ARTS HIGH SCHOOL",
+    "programID": "610385-MULTICULTURAL ARTS HS - Allied Health",
+    "school": "MULTICULTURAL ARTS HS",
     "programType": "Allied Health",
     "cutoffScores": {
       "min": 118
     }
   },
   {
-    "programID": "609691-NORTH-GRAND HS - Allied Health",
+    "programID": "609691-NORTH-GRAND HS - Health Sciences",
     "school": "NORTH-GRAND HS",
-    "programType": "Allied Health",
+    "programType": "Health Sciences",
     "cutoffScores": {
       "min": 302
     }
@@ -405,6 +453,14 @@
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
       "min": 536
+    }
+  },
+  {
+    "programID": "610334-RABY HS - Pre-Law",
+    "school": "RABY HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": -1
     }
   },
   {
@@ -458,7 +514,7 @@
   {
     "programID": "609730-SENN HS - Dance",
     "school": "SENN HS",
-    "programType": "Dancec",
+    "programType": "Dance",
     "cutoffScores": {
       "min": 602
     }
@@ -468,7 +524,7 @@
     "school": "SENN HS",
     "programType": "International Baccalaureate (IB)",
     "cutoffScores": {
-      "min": 479
+      "min": 570
     }
   },
   {
@@ -509,6 +565,14 @@
     "programType": "Allied Health",
     "cutoffScores": {
       "min": 82
+    }
+  },
+  {
+    "programID": "610543-SOLORIO HS - Pre-Engineering",
+    "school": "SOLORIO HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": -1
     }
   },
   {

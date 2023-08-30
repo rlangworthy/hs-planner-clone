@@ -1,3 +1,5 @@
+import axios from "axios";
+
 import { 
   AppState,
   ProgramDictionary,
@@ -92,8 +94,18 @@ export const loadSECutoffScores = () => {
 
 export const updateNonSECutoffScores = (data) => {
   //data is an array of objects, app state expects dictionary
+  //update 2023: this seems to no longer be true, data is now passed in as an
+  //object, and we want the values
   const dict:NonSECutoffDictionary= {}
-  data.forEach( (d) => dict[d.programID] = d.cutoffScores)
+  Object.keys(data).forEach( (d: string) => {
+    dict[d] = {
+      min: data[d].min,
+      avg: -1,
+      max: -1
+      // non se schools only have a min value, no avg or max
+    };
+  });
+
   return {
     type: ActionType.UpdateNonSECutoffScores,
     payload: dict
@@ -115,11 +127,42 @@ export const updateSchoolAttendanceBoundaryTable = (data) => {
 };
 export const loadSchoolAttendanceBoundaryTable = () => {
   return (dispatch) => {
-    return fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
-      dispatch( updateSchoolAttendanceBoundaryTable(json) );
+    const url = "https://api.cps.edu/maps/CPS/GeoJSON?mapName=BOUNDARY_HS";
+    return new Promise( (resolve, reject) => {
+      axios({
+        method: "GET",
+        url: url
+      }).then((res) => {
+        console.log('data found');
+        console.log(res);
+        let formatted = formatAttendanceData(res.data.features);
+        dispatch( updateSchoolAttendanceBoundaryTable(formatted) )
+      }).catch((err) => {
+        console.log("nope!");
+        reject(err)
+      });
     });
+
+    /*
+    return fetchJSONFrom(SCHOOL_ATTENDANCE_BOUNDARY_TABLE_URL).then( json => {
+      console.log("json: ");
+      console.log(json);
+      dispatch( updateSchoolAttendanceBoundaryTable(json) );
+    });*/
   }
 };
+
+function formatAttendanceData(input) {
+  // turns a geojson FeatureCollection into a correctly formatted object
+  let out = {};
+  for (let i = 0; i < input.length; i++) {
+    let feature = input[i];
+    let poly = feature.geometry.coordinates;
+    let id = feature.properties.SCHOOL_ID;
+    out[id] = poly;
+  }
+  return out;
+} 
 
 export const updateTractTierTable = (data) => {
   return {
