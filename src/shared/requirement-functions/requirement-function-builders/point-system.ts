@@ -31,25 +31,54 @@ export const pointSystem: PointSystemFn = (calc, lookup) => {
       return SuccessChance.NOTIMPLEMENTED;
     }
 
-    if (cutoff.min === -1) {
-      return SuccessChance.NOTIMPLEMENTED;
-    }
+    // some choice schools only provide min score, some only provide average score
+    if (cutoff.min) {
 
-    const pointsFromCutoff = points - cutoff.min;
+      if (cutoff.min === -1) {
+        return SuccessChance.NOTIMPLEMENTED;
+      }
 
-    // handle failure by returning NOTIMPLEMENTED
-    // rather than give inaccurate prediction
-    if (isNaN(points) || isNaN(cutoff.min)) {
-      return SuccessChance.NOTIMPLEMENTED;
-    }
+      const pointsFromCutoff = points - cutoff.min;
 
-    if (pointsFromCutoff < 0) {
-      return SuccessChance.NONE;
-    } else if (pointsFromCutoff <= POINT_SYSTEM_UNCERTAINTY_THRESHOLD) {
-      return SuccessChance.LIKELY;
-    } else {
-      return SuccessChance.CERTAIN;
+      // handle failure by returning NOTIMPLEMENTED
+      // rather than give inaccurate prediction
+      if (isNaN(points) || isNaN(cutoff.min)) {
+        return SuccessChance.NOTIMPLEMENTED;
+      }
+
+      if (pointsFromCutoff < 0) {
+        return SuccessChance.NONE;
+      } else if (pointsFromCutoff <= POINT_SYSTEM_UNCERTAINTY_THRESHOLD) {
+        return SuccessChance.LIKELY;
+      } else {
+        return SuccessChance.CERTAIN;
+      }
     }
+    else if (cutoff.avg) {
+
+      if (cutoff.avg === -1) {
+        return SuccessChance.NOTIMPLEMENTED;
+      }
+
+      const pointsFromCutoff = points - cutoff.avg;
+
+      // handle failure by returning NOTIMPLEMENTED
+      // rather than give inaccurate prediction
+      if (isNaN(points) || isNaN(cutoff.avg)) {
+        return SuccessChance.NOTIMPLEMENTED;
+      }
+
+      if (pointsFromCutoff < -150) {
+        return SuccessChance.NONE;
+      } else if (pointsFromCutoff < -50) {
+        return SuccessChance.UNLIKELY;
+      } else if (pointsFromCutoff < 100) {
+        return SuccessChance.LIKELY;
+      } else {
+        return SuccessChance.CERTAIN;
+      }
+    }
+    return SuccessChance.NOTIMPLEMENTED;
   }
 };
 
