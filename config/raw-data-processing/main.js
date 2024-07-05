@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-const csvParseSync = require("csv-parse/lib/sync");
+const csvParseSync = require("csv-parse/sync").parse;
 const jsonschema = require("jsonschema");
 
 const createProgramData = require("./create-program-data");

@@ -9,6 +9,7 @@
       "programID": {"type": "string"},
       "school": {"type": "string"},
       "programType": {"type": "string"},
+      "scoresUpdated": {"type": "number"},
       "cutoffScores": {
         "type": "object",
         "properties": {

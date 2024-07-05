@@ -1,0 +1,740 @@
+[
+  {
+    "programID": "610513-AIR FORCE HS - Military & Service Leadership",
+    "school": "AIR FORCE HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 354.6
+    }
+  },
+  {
+    "programID": "610524-ALCOTT HS - Pre-Engineering",
+    "school": "ALCOTT HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 529.5
+    }
+  },
+  { 
+    "programID": "609695-AMUNDSEN HS - International Baccalaureate (IB)",
+    "school": "AMUNDSEN HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 780.5
+    }
+  },
+  {
+    "programID": "610563-BACK OF THE YARDS HS - International Baccalaureate (IB)",
+    "school": "BACK OF THE YARDS HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 607.1
+    }
+  },
+  {
+    "programID": "609698-BOGAN HS - International Baccalaureate (IB)",
+    "school": "BOGAN HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 375.5
+    }
+  },
+  {
+    "programID": "610381-BRONZEVILLE HS - International Baccalaureate (IB)",
+    "school": "BRONZEVILLE HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 440.5
+    }
+  },
+  {
+    "programID": "609760-CARVER MILITARY HS - Military & Service Leadership",
+    "school": "CARVER MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 489.3
+    }
+  },
+  {
+    "programID": "610244-CLARK HS - International Baccalaureate (IB)",
+    "school": "CLARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 346
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Creative Writing",
+    "school": "CHIARTS HS",
+    "programType": "Creative Writing",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 50
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Dance",
+    "school": "CHIARTS HS",
+    "programType": "Dance",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 108
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Musical Theatre",
+    "school": "CHIARTS HS",
+    "programType": "Musical Theatre",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 255
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Theatre",
+    "school": "CHIARTS HS",
+    "programType": "Theatre",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 36
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Visual Arts",
+    "school": "CHIARTS HS",
+    "programType": "Visual Arts",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 244
+    }
+  },
+  {
+    "programID": "400022-CHIARTS HS - Vocal Music",
+    "school": "CHIARTS HS",
+    "programType": "Vocal Music",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 184
+    }
+  },
+  {
+    "programID": "609754-CHICAGO MILITARY HS - Military & Service Leadership",
+    "school": "CHICAGO MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 347.8
+    }
+  },
+  {
+    "programID": "609674-CHICAGO VOCATIONAL HS - Medical Assisting",
+    "school": "CHICAGO VOCATIONAL HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 470.7
+    }
+  },
+  {
+    "programID": "609759-CLEMENTE HS - Health Science",
+    "school": "CLEMENTE HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 393
+    }
+  },
+  {
+    "programID": "609759-CLEMENTE HS - International Baccalaureate (IB)",
+    "school": "CLEMENTE HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 470.1
+    }
+  },
+  {
+    "programID": "609756-CURIE HS - International Baccalaureate (IB)",
+    "school": "CURIE HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 552
+    }
+  },
+  {
+    "programID": "609756-CURIE HS - Pre-Engineering",
+    "school": "CURIE HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 664
+    }
+  },
+  {
+    "programID": "609676-DUNBAR HS - Health Science",
+    "school": "DUNBAR HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 475.9
+    }
+  },
+  {
+    "programID": "609704-FARRAGUT HS - International Baccalaureate (IB)",
+    "school": "FARRAGUT HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 192
+    }
+  },
+  {
+    "programID": "609704-FARRAGUT HS - Pre-Law",
+    "school": "FARRAGUT HS",
+    "programType": "Pre-Law",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 386.5
+    }
+  },
+  {
+    "programID": "609708-FOREMAN HS - Pre-Engineering",
+    "school": "FOREMAN HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 1
+    }
+  },
+  {
+    "programID": "609709-GAGE PARK HS - Health Science",
+    "school": "GAGE PARK HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 332
+    }
+  },
+  {
+    "programID": "609694-HANCOCK HS - Pre-Engineering",
+    "school": "HANCOCK HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 736
+    }
+  },
+  {
+    "programID": "609694-HANCOCK HS - Pre-Law",
+    "school": "HANCOCK HS",
+    "programType": "Pre-Law",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 713
+    }
+  },
+  {
+    "programID": "609741-HUBBARD HS - International Baccalaureate (IB)",
+    "school": "HUBBARD HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 504.4
+    }
+  },
+  {
+    "programID": "609741-HUBBARD HS - University Scholars",
+    "school": "HUBBARD HS",
+    "programType": "University Scholars",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 516.6
+    }
+  },
+  {
+    "programID": "609713-HYDE PARK HS - International Baccalaureate (IB)",
+    "school": "HYDE PARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 417.6
+    }
+  },
+  {
+    "programID": "400104-INSTITUTO - HEALTH - Health Science",
+    "school": "INSTITUTO - HEALTH",
+    "programType": "Health Science",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 21
+    }
+  },
+  {
+    "programID": "609678-JONES HS - Pre-Engineering",
+    "school": "JONES HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 760.5
+    }
+  },
+  {
+    "programID": "609678-JONES HS - Pre-Law",
+    "school": "JONES HS",
+    "programType": "Pre-Law",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 752
+    }
+  },
+  {
+    "programID": "609764-JUAREZ HS - International Baccalaureate (IB)",
+    "school": "JUAREZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 557.8
+    }
+  },
+  {
+    "programID": "609764-JUAREZ HS - Health Science",
+    "school": "JUAREZ HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 461.9
+    }
+  },
+  {
+    "programID": "609762-JULIAN HS - Health Science",
+    "school": "JULIAN HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 323.5
+    }
+  },
+  {
+    "programID": "609715-KELLY HS - International Baccalaureate (IB)",
+    "school": "KELLY HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 606.4
+    }
+  },
+  {
+    "programID": "609716-KELVYN PARK HS - Health Science",
+    "school": "KELVYN PARK HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 141
+    }
+  },
+  {
+    "programID": "609718-KENNEDY HS - International Baccalaureate (IB)",
+    "school": "KENNEDY HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 560.5
+    }
+  },
+  {
+    "programID": "609751-KING HS - Pre-Engineering",
+    "school": "KING HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 534.5
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Drama",
+    "school": "LINCOLN PARK HS",
+    "programType": "Drama",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 48
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Instrumental Music",
+    "school": "LINCOLN PARK HS",
+    "programType": "Instrumental Music",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 18
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - International Baccalaureate (IB) - MYP (Diploma Program)",
+    "school": "LINCOLN PARK HS",
+    "programType": "International Baccalaureate (IB) - MYP Diploma Program",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 768
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Advanced College Prep",
+    "school": "LINCOLN PARK HS",
+    "programType": "Advanced College Prep",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 709
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Visual Arts",
+    "school": "LINCOLN PARK HS",
+    "programType": "Visual Arts",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 13
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Vocal Music",
+    "school": "LINCOLN PARK HS",
+    "programType": "Vocal Music",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 20
+    }
+  },
+  {
+    "programID": "609780-MARINE LEADERSHIP AT AMES HS - Military & Service Leadership",
+    "school": "MARINE LEADERSHIP AT AMES HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 378.3
+    }
+  },
+  {
+    "programID": "609724-MATHER HS - Pre-Engineering",
+    "school": "MATHER HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 555.1
+    }
+  },
+  {
+    "programID": "609724-MATHER HS - Pre-Law",
+    "school": "MATHER HS",
+    "programType": "Pre-Law",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 456.9
+    }
+  },
+  {
+    "programID": "609725-MORGAN PARK HS - International Baccalaureate (IB)",
+    "school": "MORGAN PARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 561.5
+    }
+  },
+  {
+    "programID": "610385-LVLHS MULTICULTURAL HS - Health Science",
+    "school": "MULTICULTURAL ARTS HIGH SCHOOL",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 332.2
+    }
+  },
+  {
+    "programID": "609691-NORTH-GRAND HS - Health Science",
+    "school": "NORTH-GRAND HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 570.3
+    }
+  },
+  {
+    "programID": "609691-NORTH-GRAND HS - Pre-Engineering",
+    "school": "NORTH-GRAND HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 596.8
+    }
+  },
+  {
+    "programID": "610529-OGDEN HS - International Baccalaureate (IB)",
+    "school": "OGDEN HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 549.6
+    }
+  },
+  {
+    "programID": "610304-PHOENIX MILITARY HS - Military & Service Leadership",
+    "school": "PHOENIX MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 511
+    }
+  },
+  {
+    "programID": "609679-PROSSER HS - International Baccalaureate (IB)",
+    "school": "PROSSER HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 508.5
+    }
+  },
+  {
+    "programID": "610390-RICKOVER MILITARY HS - Military & Service Leadership",
+    "school": "RICKOVER MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 524
+    }
+  },
+  {
+    "programID": "609728-ROOSEVELT HS - Computer Networking",
+    "school": "ROOSEVELT HS",
+    "programType": "Computer Networking",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 43
+    }
+  },
+  {
+    "programID": "609728-ROOSEVELT HS - Health Science",
+    "school": "ROOSEVELT HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 376
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - Health Science",
+    "school": "SCHURZ HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 412.8
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - International Baccalaureate (IB)",
+    "school": "SCHURZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 608
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - Pre-Engineering",
+    "school": "SCHURZ HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 423.6
+    }
+  },
+  {
+    "programID": "609730-SENN HS - International Baccalaureate (IB)",
+    "school": "SENN HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 613.1
+    }
+  },
+  {
+    "programID": "609730-SENN HS - Music",
+    "school": "SENN HS",
+    "programType": "Music",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 360
+    }
+  },
+  {
+    "programID": "609730-SENN HS - Theatre",
+    "school": "SENN HS",
+    "programType": "Theatre",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 230.4
+    }
+  },
+  {
+    "programID": "609730-SENN HS - Visual Arts",
+    "school": "SENN HS",
+    "programType": "Visual Arts",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 360
+    }
+  },
+  {
+    "programID": "609730-SENN HS - Dance",
+    "school": "SENN HS",
+    "programType": "Dance",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 288
+    }
+  },
+  {
+    "programID": "609692-SIMEON HS - Career Academy",
+    "school": "SIMEON HS",
+    "programType": "Career Academy",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 61
+    }
+  },
+  {
+    "programID": "610383-LVLHS SOCIAL JUSTICE HS - Health Science",
+    "school": "SOCIAL JUSTICE HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 400.6
+    }
+  },
+  {
+    "programID": "610543-SOLORIO HS - Double Honors/Scholars",
+    "school": "SOLORIO HS",
+    "programType": "Double Honors",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 755
+    }
+  },
+  {
+    "programID": "610543-SOLORIO HS - Pre-Engineering",
+    "school": "SOLORIO HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 698
+    }
+  },
+  {
+    "programID": "610547-SOUTH SHORE INTL HS - International Baccalaureate (IB)",
+    "school": "SOUTH SHORE INTL HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 588.7
+    }
+  },
+  {
+    "programID": "610547-SOUTH SHORE INTL HS - Health Science",
+    "school": "SOUTH SHORE INTL HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 548
+    }
+  },
+  {
+    "programID": "609732-STEINMETZ HS - International Baccalaureate (IB)",
+    "school": "STEINMETZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 453.5
+    }
+  },
+  {
+    "programID": "609733-SULLIVAN HS - Health Science",
+    "school": "SULLIVAN HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 464.9
+    }
+  },
+  {
+    "programID": "609734-TAFT HS - International Baccalaureate (IB)",
+    "school": "TAFT HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 816
+    }
+  },
+  {
+    "programID": "609734-TAFT HS - NJROTC",
+    "school": "TAFT HS",
+    "programType": "NJROTC",
+    "scoresUpdated": 2023,
+    "cutoffScores": {
+      "min": 85
+    }
+  },
+  {
+    "programID": "609737-VON STEUBEN HS - Scholars",
+    "school": "VON STEUBEN HS",
+    "programType": "Scholars",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 776.5
+    }
+  },
+  {
+    "programID": "609739-WASHINGTON HS - International Baccalaureate (IB)",
+    "school": "WASHINGTON HS",
+    "programType": "International Baccalaureate (IB)",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "min": 538.5
+    }
+  },
+  {
+    "programID": "609740-WELLS HS - Pre-Law",
+    "school": "WELLS HS",
+    "programType": "Pre-Law",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 386.6
+    }
+  },
+  {
+    "programID": "610380-WILLIAMS HS - Health Science",
+    "school": "WILLIAMS HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 441.2
+    }
+  },
+  {
+    "programID": "610392-LVLHS WORLD LANGUAGE HS - Health Science",
+    "school": "WORLD LANGUAGE HS",
+    "programType": "Health Science",
+    "scoresUpdated": 2024,
+    "cutoffScores": {
+      "avg": 423.8
+    }
+  }
+]

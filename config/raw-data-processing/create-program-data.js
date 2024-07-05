@@ -156,6 +156,7 @@ function normalizeProgramData(rawProgramData) {
 
     return {
       id: `${p.School_ID}-${p.Program_Type}`,
+      //id: p.Program_Type,
       programName: programName,
       programType: programType,
 
