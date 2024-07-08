@@ -144,11 +144,17 @@ const fixProgramTypeMisspellings = (programType) => {
   return programType;
 };
 
+function removeSchoolNameFromProgramType(shortName, programType) {
+  return programType.split(`${shortName} - `).pop();
+}
+
 function normalizeProgramData(rawProgramData) {
 
   return rawProgramData.map( rawProgram => {
 
     const p = sanitizeRequirementDescriptions(rawProgram);
+
+    p.Program_Type = removeSchoolNameFromProgramType(p.Short_Name, p.Program_Type);
 
     const programName = `${p.Short_Name}: ${p.Program_Type}`;
     const programType = fixProgramTypeMisspellings(p.Program_Type);
