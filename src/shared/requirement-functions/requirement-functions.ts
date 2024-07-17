@@ -826,7 +826,7 @@ export const requirementFunctions: ReqFnTable = {
       "Collins Academy STEAM HS: COLLINS HS - STEAM"
     ],
     "desc": "", // figure out what's up with this
-    "fn": notImplemented
+    "fn": lottery(GENERAL_LOTTERY_STAGE) //probably isn't right but better than notimplemented
   },
   "d416d93fd0bc8c838400e8110be5d6ae": {
     "id": "d416d93fd0bc8c838400e8110be5d6ae",

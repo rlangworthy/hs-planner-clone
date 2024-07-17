@@ -31,6 +31,10 @@ export const pointSystem: PointSystemFn = (calc, lookup) => {
       return SuccessChance.NOTIMPLEMENTED;
     }
 
+    console.log(`Cutoff for ${program.id}:`);
+    console.log(cutoff);
+    console.log();
+
     // some choice schools only provide min score, some only provide average score
     if (cutoff.min) {
 

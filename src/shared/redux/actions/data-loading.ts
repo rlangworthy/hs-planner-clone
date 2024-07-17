@@ -100,9 +100,10 @@ export const updateNonSECutoffScores = (data) => {
   Object.keys(data).forEach( (d: string) => {
     dict[d] = {
       min: data[d].min,
-      avg: -1,
+      avg: data[d].avg,
       max: -1
-      // non se schools only have a min value, no avg or max
+      // non se schools will have either a min or an avg but not both
+      // we want them to return undefined if they don't exist
     };
   });
 
