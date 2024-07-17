@@ -1,7 +1,7 @@
 [
   {
     "school": "BROOKS HS",
-    "programID": "609726-BROOKS HS - Selective Enrollment High School",
+    "programID": "609726-BROOKS HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -33,7 +33,7 @@
   },
   {
     "school": "HANCOCK HS",
-    "programID": "609694-HANCOCK HS - Selective Enrollment High School",
+    "programID": "609694-HANCOCK HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -65,7 +65,7 @@
   },
   {
     "school": "JONES HS",
-    "programID": "609678-JONES HS - Selective Enrollment High School",
+    "programID": "609678-JONES HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -97,7 +97,7 @@
   },
   {
     "school": "KING HS",
-    "programID": "609751-KING HS - Selective Enrollment High School",
+    "programID": "609751-KING HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -129,7 +129,7 @@
   },
   {
     "school": "LANE TECH HS",
-    "programID": "609720-LANE TECH HS - Selective Enrollment High School",
+    "programID": "609720-LANE TECH HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -161,7 +161,7 @@
   },
   {
     "school": "LINDBLOM HS",
-    "programID": "610391-LINDBLOM HS - Selective Enrollment High School",
+    "programID": "610391-LINDBLOM HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -193,7 +193,7 @@
   },
   {
     "school": "NORTHSIDE PREP HS",
-    "programID": "609749-NORTHSIDE PREP HS - Selective Enrollment High School",
+    "programID": "609749-NORTHSIDE PREP HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -225,7 +225,7 @@
   },
   {
     "school": "PAYTON HS",
-    "programID": "609680-PAYTON HS - Selective Enrollment High School",
+    "programID": "609680-PAYTON HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -257,7 +257,7 @@
   },
   {
     "school": "SOUTH SHORE INTL HS",
-    "programID": "610547-SOUTH SHORE INTL HS - Selective Enrollment High School",
+    "programID": "610547-SOUTH SHORE INTL HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -289,7 +289,7 @@
   },
   {
     "school": "WESTINGHOUSE HS",
-    "programID": "609693-WESTINGHOUSE HS - Selective Enrollment High School",
+    "programID": "609693-WESTINGHOUSE HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {
@@ -321,7 +321,7 @@
   },
   {
     "school": "YOUNG HS",
-    "programID": "609755-YOUNG HS - Selective Enrollment High School",
+    "programID": "609755-YOUNG HS: Selective Enrollment High School",
     "programType": "Selective Enrollment High School",
     "tieredCutoffScores": {
       "rank": {

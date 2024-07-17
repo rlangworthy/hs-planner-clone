@@ -128,7 +128,6 @@ function buildCutoffScores() {
     }
     nonSECutoffScores[record.programID] = record.cutoffScores;
   });
-  console.log(OUTPUT_FILEPATH_SE_CUTOFF_SCORES)
   fs.writeFileSync(OUTPUT_FILEPATH_SE_CUTOFF_SCORES, JSON.stringify(seCutoffScores), "utf-8");
   fs.writeFileSync(OUTPUT_FILEPATH_NON_SE_CUTOFF_SCORES, JSON.stringify(nonSECutoffScores), "utf-8");
 }
@@ -136,7 +135,7 @@ function buildCutoffScores() {
 function buildProgramData() {
   const rawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_RAW_PROGRAM_DATA, "utf-8");  
   // parse csv file into js object
-  const rawProgramData = csvParseSync(rawProgramDataCsv, {columns: true});
+  const rawProgramData = csvParseSync(rawProgramDataCsv, {columns: true });
   validateOrThrow(rawProgramData, rawProgramDataSchema);
   let programData;
   try {

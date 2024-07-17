@@ -1,6 +1,6 @@
 [
   {
-    "programID": "610513-AIR FORCE HS - Military & Service Leadership",
+    "programID": "610513-AIR FORCE HS: Military & Service Leadership",
     "school": "AIR FORCE HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -9,7 +9,7 @@
     }
   },
   {
-    "programID": "610524-ALCOTT HS - Pre-Engineering",
+    "programID": "610524-ALCOTT HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "ALCOTT HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -18,7 +18,7 @@
     }
   },
   { 
-    "programID": "609695-AMUNDSEN HS - International Baccalaureate (IB)",
+    "programID": "609695-AMUNDSEN HS: International Baccalaureate (IB)",
     "school": "AMUNDSEN HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -27,7 +27,7 @@
     }
   },
   {
-    "programID": "610563-BACK OF THE YARDS HS - International Baccalaureate (IB)",
+    "programID": "610563-BACK OF THE YARDS HS: International Baccalaureate (IB)",
     "school": "BACK OF THE YARDS HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -36,7 +36,7 @@
     }
   },
   {
-    "programID": "609698-BOGAN HS - International Baccalaureate (IB)",
+    "programID": "609698-BOGAN HS: International Baccalaureate (IB)",
     "school": "BOGAN HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -45,7 +45,16 @@
     }
   },
   {
-    "programID": "610381-BRONZEVILLE HS - International Baccalaureate (IB)",
+    "programID": "610323-BOWEN HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
+    "school": "BOWEN HS",
+    "programType": "Pre-Engineering",
+    "scoresUpdate": 2023,
+    "cutoffScores": {
+      "min": 39
+    }
+  },
+  {
+    "programID": "610381-BRONZEVILLE HS: International Baccalaureate (IB)",
     "school": "BRONZEVILLE HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -54,7 +63,7 @@
     }
   },
   {
-    "programID": "609760-CARVER MILITARY HS - Military & Service Leadership",
+    "programID": "609760-CARVER MILITARY HS: Military & Service Leadership",
     "school": "CARVER MILITARY HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -63,7 +72,7 @@
     }
   },
   {
-    "programID": "610244-CLARK HS - International Baccalaureate (IB)",
+    "programID": "610244-CLARK HS: International Baccalaureate (IB)",
     "school": "CLARK HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -72,7 +81,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Creative Writing",
+    "programID": "400022-CHIARTS HS: Creative Writing",
     "school": "CHIARTS HS",
     "programType": "Creative Writing",
     "scoresUpdated": 2024,
@@ -81,7 +90,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Dance",
+    "programID": "400022-CHIARTS HS: Dance",
     "school": "CHIARTS HS",
     "programType": "Dance",
     "scoresUpdated": 2024,
@@ -90,7 +99,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Musical Theatre",
+    "programID": "400022-CHIARTS HS: Musical Theatre",
     "school": "CHIARTS HS",
     "programType": "Musical Theatre",
     "scoresUpdated": 2024,
@@ -99,7 +108,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Theatre",
+    "programID": "400022-CHIARTS HS: Theatre",
     "school": "CHIARTS HS",
     "programType": "Theatre",
     "scoresUpdated": 2024,
@@ -108,7 +117,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Visual Arts",
+    "programID": "400022-CHIARTS HS: Visual Arts",
     "school": "CHIARTS HS",
     "programType": "Visual Arts",
     "scoresUpdated": 2024,
@@ -117,7 +126,7 @@
     }
   },
   {
-    "programID": "400022-CHIARTS HS - Vocal Music",
+    "programID": "400022-CHIARTS HS: Vocal Music",
     "school": "CHIARTS HS",
     "programType": "Vocal Music",
     "scoresUpdated": 2024,
@@ -126,7 +135,7 @@
     }
   },
   {
-    "programID": "609754-CHICAGO MILITARY HS - Military & Service Leadership",
+    "programID": "609754-CHICAGO MILITARY HS: CHICAGO MILITARY HS at Bronzeville - Military & Service Leadership",
     "school": "CHICAGO MILITARY HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -135,7 +144,7 @@
     }
   },
   {
-    "programID": "609674-CHICAGO VOCATIONAL HS - Medical Assisting",
+    "programID": "609674-CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Health Science",
     "school": "CHICAGO VOCATIONAL HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -144,7 +153,7 @@
     }
   },
   {
-    "programID": "609759-CLEMENTE HS - Health Science",
+    "programID": "609759-CLEMENTE HS: Career & Technical Education (CTE) - Health Science",
     "school": "CLEMENTE HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -153,7 +162,7 @@
     }
   },
   {
-    "programID": "609759-CLEMENTE HS - International Baccalaureate (IB)",
+    "programID": "609759-CLEMENTE HS: International Baccalaureate (IB)",
     "school": "CLEMENTE HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -162,7 +171,7 @@
     }
   },
   {
-    "programID": "609756-CURIE HS - International Baccalaureate (IB)",
+    "programID": "609756-CURIE HS: International Baccalaureate (IB)",
     "school": "CURIE HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -171,7 +180,7 @@
     }
   },
   {
-    "programID": "609756-CURIE HS - Pre-Engineering",
+    "programID": "609756-CURIE HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "CURIE HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -180,7 +189,7 @@
     }
   },
   {
-    "programID": "609676-DUNBAR HS - Health Science",
+    "programID": "609676-DUNBAR HS: Career & Technical Education (CTE) - Health Science",
     "school": "DUNBAR HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -189,7 +198,7 @@
     }
   },
   {
-    "programID": "609704-FARRAGUT HS - International Baccalaureate (IB)",
+    "programID": "609704-FARRAGUT HS: International Baccalaureate (IB)",
     "school": "FARRAGUT HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2023,
@@ -198,7 +207,7 @@
     }
   },
   {
-    "programID": "609704-FARRAGUT HS - Pre-Law",
+    "programID": "609704-FARRAGUT HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
     "school": "FARRAGUT HS",
     "programType": "Pre-Law",
     "scoresUpdated": 2024,
@@ -207,7 +216,7 @@
     }
   },
   {
-    "programID": "609708-FOREMAN HS - Pre-Engineering",
+    "programID": "609708-FOREMAN HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "FOREMAN HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2023,
@@ -216,7 +225,7 @@
     }
   },
   {
-    "programID": "609709-GAGE PARK HS - Health Science",
+    "programID": "609709-GAGE PARK HS: Career & Technical Education (CTE) - Health Science",
     "school": "GAGE PARK HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -225,7 +234,7 @@
     }
   },
   {
-    "programID": "609694-HANCOCK HS - Pre-Engineering",
+    "programID": "609694-HANCOCK HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "HANCOCK HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -234,7 +243,7 @@
     }
   },
   {
-    "programID": "609694-HANCOCK HS - Pre-Law",
+    "programID": "609694-HANCOCK HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
     "school": "HANCOCK HS",
     "programType": "Pre-Law",
     "scoresUpdated": 2024,
@@ -243,7 +252,7 @@
     }
   },
   {
-    "programID": "609741-HUBBARD HS - International Baccalaureate (IB)",
+    "programID": "609741-HUBBARD HS: International Baccalaureate (IB)",
     "school": "HUBBARD HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -252,7 +261,7 @@
     }
   },
   {
-    "programID": "609741-HUBBARD HS - University Scholars",
+    "programID": "609741-HUBBARD HS: Honors - University Scholars",
     "school": "HUBBARD HS",
     "programType": "University Scholars",
     "scoresUpdated": 2024,
@@ -261,7 +270,7 @@
     }
   },
   {
-    "programID": "609713-HYDE PARK HS - International Baccalaureate (IB)",
+    "programID": "609713-HYDE PARK HS: International Baccalaureate (IB)",
     "school": "HYDE PARK HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -279,7 +288,7 @@
     }
   },
   {
-    "programID": "609678-JONES HS - Pre-Engineering",
+    "programID": "609678-JONES HS: Pre-Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "JONES HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -288,7 +297,7 @@
     }
   },
   {
-    "programID": "609678-JONES HS - Pre-Law",
+    "programID": "609678-JONES HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
     "school": "JONES HS",
     "programType": "Pre-Law",
     "scoresUpdated": 2024,
@@ -297,7 +306,7 @@
     }
   },
   {
-    "programID": "609764-JUAREZ HS - International Baccalaureate (IB)",
+    "programID": "609764-JUAREZ HS: International Baccalaureate (IB)",
     "school": "JUAREZ HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -306,7 +315,7 @@
     }
   },
   {
-    "programID": "609764-JUAREZ HS - Health Science",
+    "programID": "609764-JUAREZ HS: Career & Technical Education (CTE) - Health Science",
     "school": "JUAREZ HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -315,7 +324,7 @@
     }
   },
   {
-    "programID": "609762-JULIAN HS - Health Science",
+    "programID": "609762-JULIAN HS: Career & Technical Education (CTE) - Health Science",
     "school": "JULIAN HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -324,7 +333,7 @@
     }
   },
   {
-    "programID": "609715-KELLY HS - International Baccalaureate (IB)",
+    "programID": "609715-KELLY HS: International Baccalaureate (IB)",
     "school": "KELLY HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -333,7 +342,7 @@
     }
   },
   {
-    "programID": "609716-KELVYN PARK HS - Health Science",
+    "programID": "609716-KELVYN PARK HS: Career & Technical Education (CTE) - Health Science",
     "school": "KELVYN PARK HS",
     "programType": "Health Science",
     "scoresUpdated": 2023,
@@ -342,7 +351,7 @@
     }
   },
   {
-    "programID": "609718-KENNEDY HS - International Baccalaureate (IB)",
+    "programID": "609718-KENNEDY HS: International Baccalaureate (IB)",
     "school": "KENNEDY HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -351,7 +360,7 @@
     }
   },
   {
-    "programID": "609751-KING HS - Pre-Engineering",
+    "programID": "609751-KING HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "KING HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -360,7 +369,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - Drama",
+    "programID": "609738-LINCOLN PARK HS: Drama",
     "school": "LINCOLN PARK HS",
     "programType": "Drama",
     "scoresUpdated": 2024,
@@ -369,7 +378,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - Instrumental Music",
+    "programID": "609738-LINCOLN PARK HS: Instrumental Music",
     "school": "LINCOLN PARK HS",
     "programType": "Instrumental Music",
     "scoresUpdated": 2024,
@@ -378,7 +387,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - International Baccalaureate (IB) - MYP (Diploma Program)",
+    "programID": "609738-LINCOLN PARK HS: International Baccalaureate (IB) - MYP Diploma Program",
     "school": "LINCOLN PARK HS",
     "programType": "International Baccalaureate (IB) - MYP Diploma Program",
     "scoresUpdated": 2024,
@@ -387,7 +396,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - Advanced College Prep",
+    "programID": "609738-LINCOLN PARK HS: Advanced College Prep (formerly Double Honors)",
     "school": "LINCOLN PARK HS",
     "programType": "Advanced College Prep",
     "scoresUpdated": 2024,
@@ -396,7 +405,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - Visual Arts",
+    "programID": "609738-LINCOLN PARK HS: Visual Arts",
     "school": "LINCOLN PARK HS",
     "programType": "Visual Arts",
     "scoresUpdated": 2024,
@@ -405,7 +414,7 @@
     }
   },
   {
-    "programID": "609738-LINCOLN PARK HS - Vocal Music",
+    "programID": "609738-LINCOLN PARK HS: Vocal Music",
     "school": "LINCOLN PARK HS",
     "programType": "Vocal Music",
     "scoresUpdated": 2024,
@@ -414,7 +423,7 @@
     }
   },
   {
-    "programID": "609780-MARINE LEADERSHIP AT AMES HS - Military & Service Leadership",
+    "programID": "609780-MARINE LEADERSHIP AT AMES HS: Military & Service Leadership",
     "school": "MARINE LEADERSHIP AT AMES HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -423,7 +432,7 @@
     }
   },
   {
-    "programID": "609724-MATHER HS - Pre-Engineering",
+    "programID": "609724-MATHER HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "MATHER HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -432,7 +441,7 @@
     }
   },
   {
-    "programID": "609724-MATHER HS - Pre-Law",
+    "programID": "609724-MATHER HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
     "school": "MATHER HS",
     "programType": "Pre-Law",
     "scoresUpdated": 2024,
@@ -441,7 +450,7 @@
     }
   },
   {
-    "programID": "609725-MORGAN PARK HS - International Baccalaureate (IB)",
+    "programID": "609725-MORGAN PARK HS: International Baccalaureate (IB)",
     "school": "MORGAN PARK HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -450,7 +459,7 @@
     }
   },
   {
-    "programID": "610385-LVLHS MULTICULTURAL HS - Health Science",
+    "programID": "610385-MULTICULTURAL ARTS HS: MULTICULTURAL HS - Career & Technical Education (CTE) - Health Science",
     "school": "MULTICULTURAL ARTS HIGH SCHOOL",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -459,7 +468,7 @@
     }
   },
   {
-    "programID": "609691-NORTH-GRAND HS - Health Science",
+    "programID": "609691-NORTH-GRAND HS: Career & Technical Education (CTE) - Health Science",
     "school": "NORTH-GRAND HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -468,7 +477,7 @@
     }
   },
   {
-    "programID": "609691-NORTH-GRAND HS - Pre-Engineering",
+    "programID": "609691-NORTH-GRAND HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "NORTH-GRAND HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -477,7 +486,7 @@
     }
   },
   {
-    "programID": "610529-OGDEN HS - International Baccalaureate (IB)",
+    "programID": "610529-OGDEN HS: International Baccalaureate (IB)",
     "school": "OGDEN HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -486,7 +495,7 @@
     }
   },
   {
-    "programID": "610304-PHOENIX MILITARY HS - Military & Service Leadership",
+    "programID": "610304-PHOENIX MILITARY HS: Military & Service Leadership",
     "school": "PHOENIX MILITARY HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -495,7 +504,7 @@
     }
   },
   {
-    "programID": "609679-PROSSER HS - International Baccalaureate (IB)",
+    "programID": "609679-PROSSER HS: International Baccalaureate (IB)",
     "school": "PROSSER HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -504,7 +513,15 @@
     }
   },
   {
-    "programID": "610390-RICKOVER MILITARY HS - Military & Service Leadership",
+    "programID": "610334-RABY HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
+    "school": "RABY HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": -1
+    }
+  },
+  {
+    "programID": "610390-RICKOVER MILITARY HS: Military & Service Leadership",
     "school": "RICKOVER MILITARY HS",
     "programType": "Military & Service Leadership",
     "scoresUpdated": 2024,
@@ -513,7 +530,7 @@
     }
   },
   {
-    "programID": "609728-ROOSEVELT HS - Computer Networking",
+    "programID": "609728-ROOSEVELT HS: Computer Networking",
     "school": "ROOSEVELT HS",
     "programType": "Computer Networking",
     "scoresUpdated": 2023,
@@ -522,7 +539,7 @@
     }
   },
   {
-    "programID": "609728-ROOSEVELT HS - Health Science",
+    "programID": "609728-ROOSEVELT HS: Career & Technical Education (CTE) - Health Science",
     "school": "ROOSEVELT HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -531,7 +548,7 @@
     }
   },
   {
-    "programID": "609729-SCHURZ HS - Health Science",
+    "programID": "609729-SCHURZ HS: Career & Technical Education (CTE) - Health Science",
     "school": "SCHURZ HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -540,7 +557,7 @@
     }
   },
   {
-    "programID": "609729-SCHURZ HS - International Baccalaureate (IB)",
+    "programID": "609729-SCHURZ HS: International Baccalaureate (IB)",
     "school": "SCHURZ HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -549,7 +566,7 @@
     }
   },
   {
-    "programID": "609729-SCHURZ HS - Pre-Engineering",
+    "programID": "609729-SCHURZ HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "SCHURZ HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -558,7 +575,7 @@
     }
   },
   {
-    "programID": "609730-SENN HS - International Baccalaureate (IB)",
+    "programID": "609730-SENN HS: International Baccalaureate (IB)",
     "school": "SENN HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -567,7 +584,7 @@
     }
   },
   {
-    "programID": "609730-SENN HS - Music",
+    "programID": "609730-SENN HS: Music",
     "school": "SENN HS",
     "programType": "Music",
     "scoresUpdated": 2024,
@@ -576,7 +593,7 @@
     }
   },
   {
-    "programID": "609730-SENN HS - Theatre",
+    "programID": "609730-SENN HS: Theatre",
     "school": "SENN HS",
     "programType": "Theatre",
     "scoresUpdated": 2024,
@@ -585,7 +602,7 @@
     }
   },
   {
-    "programID": "609730-SENN HS - Visual Arts",
+    "programID": "609730-SENN HS: Visual Arts",
     "school": "SENN HS",
     "programType": "Visual Arts",
     "scoresUpdated": 2024,
@@ -594,7 +611,7 @@
     }
   },
   {
-    "programID": "609730-SENN HS - Dance",
+    "programID": "609730-SENN HS: Dance",
     "school": "SENN HS",
     "programType": "Dance",
     "scoresUpdated": 2024,
@@ -603,7 +620,7 @@
     }
   },
   {
-    "programID": "609692-SIMEON HS - Career Academy",
+    "programID": "609692-SIMEON HS: Career Academy",
     "school": "SIMEON HS",
     "programType": "Career Academy",
     "scoresUpdated": 2023,
@@ -612,7 +629,7 @@
     }
   },
   {
-    "programID": "610383-LVLHS SOCIAL JUSTICE HS - Health Science",
+    "programID": "610383-SOCIAL JUSTICE HS: Career & Technical Education (CTE) - Health Science",
     "school": "SOCIAL JUSTICE HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -621,7 +638,7 @@
     }
   },
   {
-    "programID": "610543-SOLORIO HS - Double Honors/Scholars",
+    "programID": "610543-SOLORIO HS: Honors - Double Honors/Scholars",
     "school": "SOLORIO HS",
     "programType": "Double Honors",
     "scoresUpdated": 2024,
@@ -630,7 +647,7 @@
     }
   },
   {
-    "programID": "610543-SOLORIO HS - Pre-Engineering",
+    "programID": "610543-SOLORIO HS: Career & Technical Education (CTE) - Manufacturing - Pre-Engineering",
     "school": "SOLORIO HS",
     "programType": "Pre-Engineering",
     "scoresUpdated": 2024,
@@ -639,7 +656,7 @@
     }
   },
   {
-    "programID": "610547-SOUTH SHORE INTL HS - International Baccalaureate (IB)",
+    "programID": "610547-SOUTH SHORE INTL HS: International Baccalaureate (IB)",
     "school": "SOUTH SHORE INTL HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -648,7 +665,7 @@
     }
   },
   {
-    "programID": "610547-SOUTH SHORE INTL HS - Health Science",
+    "programID": "610547-SOUTH SHORE INTL HS: Career & Technical Education (CTE) - Health Science",
     "school": "SOUTH SHORE INTL HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -657,7 +674,7 @@
     }
   },
   {
-    "programID": "609732-STEINMETZ HS - International Baccalaureate (IB)",
+    "programID": "609732-STEINMETZ HS: International Baccalaureate (IB)",
     "school": "STEINMETZ HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -666,7 +683,7 @@
     }
   },
   {
-    "programID": "609733-SULLIVAN HS - Health Science",
+    "programID": "609733-SULLIVAN HS: Career & Technical Education (CTE) - Health Science",
     "school": "SULLIVAN HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -675,7 +692,7 @@
     }
   },
   {
-    "programID": "609734-TAFT HS - International Baccalaureate (IB)",
+    "programID": "609734-TAFT HS: International Baccalaureate (IB)",
     "school": "TAFT HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -684,7 +701,7 @@
     }
   },
   {
-    "programID": "609734-TAFT HS - NJROTC",
+    "programID": "609734-TAFT HS: NJROTC",
     "school": "TAFT HS",
     "programType": "NJROTC",
     "scoresUpdated": 2023,
@@ -693,7 +710,7 @@
     }
   },
   {
-    "programID": "609737-VON STEUBEN HS - Scholars",
+    "programID": "609737-VON STEUBEN HS: Honors - Scholars",
     "school": "VON STEUBEN HS",
     "programType": "Scholars",
     "scoresUpdated": 2024,
@@ -702,7 +719,7 @@
     }
   },
   {
-    "programID": "609739-WASHINGTON HS - International Baccalaureate (IB)",
+    "programID": "609739-WASHINGTON HS: International Baccalaureate (IB)",
     "school": "WASHINGTON HS",
     "programType": "International Baccalaureate (IB)",
     "scoresUpdated": 2024,
@@ -711,7 +728,7 @@
     }
   },
   {
-    "programID": "609740-WELLS HS - Pre-Law",
+    "programID": "609740-WELLS HS: Career & Technical Education (CTE) - Law & Public Safety - Pre-Law",
     "school": "WELLS HS",
     "programType": "Pre-Law",
     "scoresUpdated": 2024,
@@ -720,7 +737,7 @@
     }
   },
   {
-    "programID": "610380-WILLIAMS HS - Health Science",
+    "programID": "610380-WILLIAMS HS: Career & Technical Education (CTE) - Health Science",
     "school": "WILLIAMS HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
@@ -729,7 +746,7 @@
     }
   },
   {
-    "programID": "610392-LVLHS WORLD LANGUAGE HS - Health Science",
+    "programID": "610392-WORLD LANGUAGE HS: Career & Technical Education (CTE) - Health Science",
     "school": "WORLD LANGUAGE HS",
     "programType": "Health Science",
     "scoresUpdated": 2024,
