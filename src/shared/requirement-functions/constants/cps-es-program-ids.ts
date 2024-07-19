@@ -137,6 +137,7 @@ export const CICS_WRIGHTWOOD_ES_PROGRAM = "400031-General Education";
 
 // MS programs
 export const ASPIRA_MS_PROGRAM = "400017-General Education";
+//FIXME add noble comer - ms program doesn't show up in cps list of programs
 
 // joint HS / ES programs
 // -----------------------

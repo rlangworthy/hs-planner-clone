@@ -104,7 +104,8 @@ import {
   LOCKE_MAGNET_CLUSTER_ES_PROGRAM,
   PEIRCE_ES_PROGRAM,
   ARMSTRONG_G_ES_PROGRAM,
-  LANGUAGE_ES_PROGRAMS
+  LANGUAGE_ES_PROGRAMS,
+  EDWARDS_LANGUAGE_PROGRAM
 
 } from "./constants";
 import { store } from "../../shared/redux/store";
@@ -809,25 +810,6 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>50 bonus points for students who live within 2.5 miles of the school.</li></ul>",
     "fn": ibPointSystem
   },
-  "d41d8cd98f00b204e9800998ecf8427e": {
-    "id": "d41d8cd98f00b204e9800998ecf8427e",
-    "programs": [
-      "SIMEON HS: Career & Technical Education (CTE) - Career Academy",
-      "CLARK HS: International Baccalaureate (IB)",
-      "VON STEUBEN HS: Honors - Scholars",
-      "KENWOOD HS: General Education",
-      "TAFT HS: Military & Service Leadership - NJROTC",
-      "BOGAN HS: General Education",
-      "FARRAGUT HS: General Education",
-      "KING HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "BRONZEVILLE HS: General Education",
-      "BOWEN HS: Career & Technical Education (CTE) - Manufacturing & Engineering - Machine Technology",
-      "ALCOTT HS: General Education",
-      "Collins Academy STEAM HS: COLLINS HS - STEAM"
-    ],
-    "desc": "", // figure out what's up with this
-    "fn": lottery(GENERAL_LOTTERY_STAGE) //probably isn't right but better than notimplemented
-  },
   "d416d93fd0bc8c838400e8110be5d6ae": {
     "id": "d416d93fd0bc8c838400e8110be5d6ae",
     "programs": [
@@ -1248,7 +1230,16 @@ export const requirementFunctions: ReqFnTable = {
       "CURIE HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Edwards ES (IB Partner School)</li></ul>",
-    "fn": ibPointSystem //FIXME add elem pref - Edwards ES
+    "fn": conditional(
+      {
+        filter: ifStudentAttendsOneOf(EDWARDS_LANGUAGE_PROGRAM),
+        fn: accept(everyone)
+      },
+      {
+        filter: everyone,
+        fn: ibPointSystem
+      }
+    )
   },
   "cd66854f8a2b17c12348b3cacde2ddc8": {
     "id": "cd66854f8a2b17c12348b3cacde2ddc8",
