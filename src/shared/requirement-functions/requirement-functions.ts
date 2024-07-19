@@ -105,7 +105,12 @@ import {
   PEIRCE_ES_PROGRAM,
   ARMSTRONG_G_ES_PROGRAM,
   LANGUAGE_ES_PROGRAMS,
-  EDWARDS_LANGUAGE_PROGRAM
+  EDWARDS_LANGUAGE_PROGRAM,
+  MARSH_ES_PROGRAM,
+  NOBLE_COMER_MS_PROGRAM,
+  PERSPECTIVES_MS_PROGRAM,
+  ART_IN_MOTION_MS_PROGRAM,
+  INTRINSIC_MS_PROGRAM
 
 } from "./constants";
 import { store } from "../../shared/redux/store";
@@ -884,7 +889,7 @@ export const requirementFunctions: ReqFnTable = {
     "fn": lottery(
       {
         filter: ifStudentAttendsOneOf(
-          //FIXME add Noble Comer ES
+          NOBLE_COMER_MS_PROGRAM
         ),
         size: LotteryStageSize.SMALL
       },
@@ -906,8 +911,10 @@ export const requirementFunctions: ReqFnTable = {
     "fn": lottery(
       {filter: ifStudentAttendsOneOf(
         CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-        CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
-        //FIXME add perspectives, art in motion and intrinsic 8th grades
+        CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
+        PERSPECTIVES_MS_PROGRAM,
+        ART_IN_MOTION_MS_PROGRAM,
+        INTRINSIC_MS_PROGRAM
       ),
     size: LotteryStageSize.LARGE},
     SIBLING_LOTTERY_STAGE,
@@ -984,7 +991,7 @@ export const requirementFunctions: ReqFnTable = {
     "fn": lottery(
       {
         filter: ifStudentAttendsOneOf(
-          //FIXME add Noble Comer ES
+          NOBLE_COMER_MS_PROGRAM
         ),
         size: LotteryStageSize.SMALL
       },
@@ -1307,20 +1314,6 @@ export const requirementFunctions: ReqFnTable = {
     "desc": "Admissions Exam",
     "fn": accept(everyone)
   },
-  "bc5ee15f157b471dc0955876b7ce1946": {
-    "id": "bc5ee15f157b471dc0955876b7ce1946",
-    "programs": [
-      "KENWOOD HS: Selective Enrollment - Academic Center",
-      "TAFT HS: Selective Enrollment - Academic Center",
-      "MORGAN PARK HS: Selective Enrollment - Academic Center",
-      "YOUNG HS: Selective Enrollment - Academic Center",
-      "LANE TECH HS: Selective Enrollment - Academic Center",
-      "BROOKS HS: Selective Enrollment - Academic Center",
-      "LINDBLOM HS: Selective Enrollment - Academic Center"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General,Tier</li><li><strong>Note: </strong>The Academic Center program serves only grades 7-8.The distribution of available seats into the 4 socio-economic tiers will only be applicable at the entry-level grade (7th grade).</li></ul>",
-    "fn": notImplemented //FIXME remove these from this part of site?
-  },
   "3447aac508771f7718f1dd163a717599": {
     "id": "3447aac508771f7718f1dd163a717599",
     "programs": [
@@ -1418,7 +1411,14 @@ export const requirementFunctions: ReqFnTable = {
       "WASHINGTON HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Marsh ES (IB Partner School)</li></ul>",
-    "fn": ibPointSystem //FIXME add elementary preference
+    "fn": conditional({
+      filter: ifStudentAttendsOneOf(MARSH_ES_PROGRAM),
+      fn: accept(everyone)
+    },
+    {
+      filter: everyone,
+      fn: ibPointSystem
+    })
   },
   "56714a996f9491b4c28d03989fe075ff": {
     "id": "56714a996f9491b4c28d03989fe075ff",

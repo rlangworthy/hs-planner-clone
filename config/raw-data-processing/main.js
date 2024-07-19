@@ -57,6 +57,7 @@ if (!mostRecentVersion) {
 const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
 console.log(mostRecentVersion)
 const INPUT_FILEPATH_RAW_PROGRAM_DATA = path.join(srcDir, "program-data.csv");
+const INPUT_FILEPATH_UNOFFICIAL_RAW_PROGRAM_DATA = path.join(srcDir, "unofficial-program-data.csv"); // data for programs that don't show up in program-data
 //const INPUT_FILEPATH_RAW_ES_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "es-attendance-boundaries.geojson");
 const INPUT_FILEPATH_RAW_HS_ATTENDANCE_BOUND_GEOMETRY = path.join(srcDir, "hs-attendance-boundaries.geojson");
 const INPUT_FILEPATH_TRACT_TIER_TABLE = path.join(srcDir, "tract-tier-table.json");
@@ -134,9 +135,15 @@ function buildCutoffScores() {
 
 function buildProgramData() {
   const rawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_RAW_PROGRAM_DATA, "utf-8");  
+  const unofficialRawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_UNOFFICIAL_RAW_PROGRAM_DATA, "utf-8");
+
+  const [, ...rest] = unofficialRawProgramDataCsv.split("\n");
+  const result = rawProgramDataCsv + rest.join("\n");
+
   // parse csv file into js object
-  const rawProgramData = csvParseSync(rawProgramDataCsv, {columns: true });
+  const rawProgramData = csvParseSync(result, {columns: true });
   validateOrThrow(rawProgramData, rawProgramDataSchema);
+
   let programData;
   try {
     programData = createProgramData(rawProgramData);

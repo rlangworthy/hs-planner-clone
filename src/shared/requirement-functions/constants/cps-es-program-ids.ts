@@ -22,12 +22,15 @@ export const HERZL_ES_PROGRAM = "609991-Open Enrollment";
 export const HOWE_ES_PROGRAM = "610000-Open Enrollment";
 export const JOHNSON_ES_PROGRAM = "610274-Open Enrollment";
 export const LEWIS_ES_PROGRAM = "610036-Open Enrollment";
+
+export const MARSH_ES_PROGRAM = "610054-Open Enrollment";
 export const MARQUETTE_ES_PROGRAM = "610053-Magnet Cluster (International Baccalaureate Middle Years)";
 
 export const MCNAIR_ES_PROGRAM = "610282-Open Enrollment";
 export const MORTON_ES_PROGRAM = "610257-Open Enrollment";
 export const NATIONAL_TEACHERS_ACADEMY_GENERAL_EDUCATION_ES_PROGRAM = "610231-General Education";
 export const NATIONAL_TEACHERS_ACADEMY_REGIONAL_GIFTED_CENTER_ES_PROGRAM = "610231-Selective Enrollment (Regional Gifted Center)";
+export const NOBLE_COMER_MS_PROGRAM = "100001-Open Enrollment";
 
 export const OKEEFFE_ES_PROGRAM = "610103-Open Enrollment";
 export const PICCOLO_ES_PROGRAM = "610106-Open Enrollment";
@@ -50,6 +53,10 @@ export const GALE_ES_PROGRAM = "609933-Open Enrollment";
 export const HAYT_ES_PROGRAM = "609976-Open Enrollment";
 export const JORDAN_ES_PROGRAM = "609865-Open Enrollment";
 export const KILMER_ES_PROGRAM = "610022-Open Enrollment";
+
+export const PERSPECTIVES_MS_PROGRAM = "100002-Open Enrollment";
+export const ART_IN_MOTION_MS_PROGRAM = "100003-Open Enrollment";
+export const INTRINSIC_MS_PROGRAM = "100004-Open Enrollment";
 
 export const MCPHERSON_ES_PROGRAM = "610070-610070-Magnet Cluster (International Baccalaureate Middle Years)";
 export const WEST_RIDGE_ES_PROGRAM = "610542-Open Enrollment";

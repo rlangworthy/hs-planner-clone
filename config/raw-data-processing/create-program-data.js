@@ -4,7 +4,7 @@ const PROGRAM_CATEGORY_ES = "ES";
 const PROGRAM_CATEGORY_HS = "HS";
 
 const isAcademicCenter = (program) => {
-  ACADEMIC_CENTER_PROGRAM_TYPES = ["Academic Center", "Selective Enrollment (Academic Center)"]
+  ACADEMIC_CENTER_PROGRAM_TYPES = ["Academic Center", "Selective Enrollment (Academic Center)", "Selective Enrollment - Academic Center"]
   return ACADEMIC_CENTER_PROGRAM_TYPES.indexOf(program.Program_Type) > 0;
 }
 
