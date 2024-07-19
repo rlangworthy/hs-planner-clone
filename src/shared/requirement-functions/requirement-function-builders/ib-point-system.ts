@@ -8,7 +8,7 @@ import {
 
 import { pointSystem } from "./point-system";
 
-const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
+const createIBPointCalc = (ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
 
   // if any needed student data is null, return early with null
   if (student.hsatPercentileMath === null ||
@@ -23,6 +23,7 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentDat
 
   const IB_HSAT_SCORE_CONSTANT = 2.2727;
   const IB_ATTEND_BOUND_BONUS_PTS = 50;
+  const IB_ELEM_PREF_BONUS_PTS = 50;
 
   // calculate points for HSAT scores
   const hsatMathPoints = Math.round(student.hsatPercentileMath * IB_HSAT_SCORE_CONSTANT);
@@ -45,20 +46,26 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter) => (student: StudentDat
   // TODO figure out what to do for schools without attendance bounds, like BACK OF THE YARDS HS
   const attendBonus = ifInAttendBound(student, program) ? IB_ATTEND_BOUND_BONUS_PTS : 0;
 
+  const elemBonus = ifStudentAttendsOneOf(student, program) ? IB_ELEM_PREF_BONUS_PTS : 0;
+  console.log(student.currESProgramID?.value);
+  if (elemBonus > 1) {
+    console.log("got elem bonus for: ");
+    console.log(program.id);
+  }
+
   const ibPoints = hsatMathPoints +
     hsatReadPoints +
     subjGradeMathPoints +
     subjGradeReadPoints + 
     subjGradeSciPoints +
     subjGradeSocStudiesPoints +
-    attendBonus;
+    attendBonus +
+    elemBonus;
 
   return ibPoints;
 };  
 
 const createIBCutoffLookup = (getCutoffDict: () => NonSECutoffDictionary) => (student: StudentData, program: Program): CutoffScores => {
-  console.log("IB Cutoff Dict:");
-  console.log(getCutoffDict());
   const cutoff = getCutoffDict()[program.id];
   if (cutoff === undefined) {
     throw new Error(`School ${program.schoolNameLong} with id ${program.id} not found in IB Cutoff scores`); 
@@ -66,10 +73,16 @@ const createIBCutoffLookup = (getCutoffDict: () => NonSECutoffDictionary) => (st
   return cutoff;
 };
   
-export const createIBPointSystem = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter) => {
-  const ibPointCalc = createIBPointCalc(ifInAttendBound);
+export const createIBPointSystem = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: ReqFnFilter) => {
+  const ibPointCalc = createIBPointCalc(ifInAttendBound, ifStudentAttendsOneOf);
   const ibCutoffLookup = createIBCutoffLookup(getCutoffDict);
   return pointSystem(ibPointCalc, ibCutoffLookup);
-} 
-  
+}
 
+export const createIbPointSystemWithElemPref = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: (...programIDs) => ReqFnFilter) => {
+  return ((...programIDs) => {
+    const ibPointCalc = createIBPointCalc(ifInAttendBound, ifStudentAttendsOneOf(...programIDs));
+    const ibCutoffLookup = createIBCutoffLookup(getCutoffDict);
+    return pointSystem(ibPointCalc, ibCutoffLookup);
+  })
+}

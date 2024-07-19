@@ -25,7 +25,8 @@ import {
   createSEPointSystem,
   createCTEPointSystem,
   notImplemented,
-  pointSystem
+  pointSystem,
+  createIbPointSystemWithElemPref
 } from "./requirement-function-builders";
 
 import {
@@ -110,7 +111,8 @@ import {
   NOBLE_COMER_MS_PROGRAM,
   PERSPECTIVES_MS_PROGRAM,
   ART_IN_MOTION_MS_PROGRAM,
-  INTRINSIC_MS_PROGRAM
+  INTRINSIC_MS_PROGRAM,
+  MADERO_MS_PROGRAM
 
 } from "./constants";
 import { store } from "../../shared/redux/store";
@@ -134,7 +136,11 @@ const getSECutoffScores = () => store.getState().data.seCutoffScores;
 const getNonSECutoffScores = () => store.getState().data.nonSECutoffScores;
 
 const ifInAttendBound = createIfInAttendBound(getAttendBoundDict);
-const ibPointSystem: RequirementFunction = createIBPointSystem(getNonSECutoffScores, ifInAttendBound);
+const ibPointSystem: RequirementFunction = createIBPointSystem(getNonSECutoffScores, ifInAttendBound, ifStudentAttendsOneOf());
+const ibWithElemPref: (...programIDs) => RequirementFunction = createIbPointSystemWithElemPref(getNonSECutoffScores, ifInAttendBound, ifStudentAttendsOneOf);
+
+console.log(ibWithElemPref(EDWARDS_LANGUAGE_PROGRAM));
+
 const sePointSystem: RequirementFunction = createSEPointSystem(getSECutoffScores);
 const ctePointSystem: RequirementFunction = createCTEPointSystem(getNonSECutoffScores);
 
@@ -1237,16 +1243,7 @@ export const requirementFunctions: ReqFnTable = {
       "CURIE HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Edwards ES (IB Partner School)</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifStudentAttendsOneOf(EDWARDS_LANGUAGE_PROGRAM),
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: ibPointSystem
-      }
-    )
+    "fn": ibWithElemPref(EDWARDS_LANGUAGE_PROGRAM)
   },
   "cd66854f8a2b17c12348b3cacde2ddc8": {
     "id": "cd66854f8a2b17c12348b3cacde2ddc8",
@@ -1411,14 +1408,7 @@ export const requirementFunctions: ReqFnTable = {
       "WASHINGTON HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Marsh ES (IB Partner School)</li></ul>",
-    "fn": conditional({
-      filter: ifStudentAttendsOneOf(MARSH_ES_PROGRAM),
-      fn: accept(everyone)
-    },
-    {
-      filter: everyone,
-      fn: ibPointSystem
-    })
+    "fn": ibWithElemPref(MARSH_ES_PROGRAM)
   },
   "56714a996f9491b4c28d03989fe075ff": {
     "id": "56714a996f9491b4c28d03989fe075ff",
@@ -1668,7 +1658,7 @@ export const requirementFunctions: ReqFnTable = {
       "FARRAGUT HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Madero (IB Partner School)</li></ul>",
-    "fn": ibPointSystem
+    "fn": ibWithElemPref(MADERO_MS_PROGRAM)
   },
   "1fa612cbae7eee259d9b96bf345dc07f": {
     "id": "1fa612cbae7eee259d9b96bf345dc07f",
@@ -1723,7 +1713,7 @@ export const requirementFunctions: ReqFnTable = {
       "HYDE PARK HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Carnegie ES (IB Partner School)</li></ul>",
-    "fn": ibPointSystem
+    "fn": ibWithElemPref(...CARNEGIE_ES_PROGRAMS)
   },
   "b241754ef51e1b21cc9aa329e0d69f79": {
     "id": "b241754ef51e1b21cc9aa329e0d69f79",
@@ -1827,7 +1817,7 @@ export const requirementFunctions: ReqFnTable = {
       "AMUNDSEN HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: McPherson (IB Partner School)</li></ul>",
-    "fn": ibPointSystem
+    "fn": ibWithElemPref(MCPHERSON_ES_PROGRAM)
   },
   "a9efffcd05e67572dbf9d9b990a6b51e": {
     "id": "a9efffcd05e67572dbf9d9b990a6b51e",
@@ -1935,16 +1925,7 @@ export const requirementFunctions: ReqFnTable = {
       "MORGAN PARK HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,General</li><li><strong>Note: </strong>50 bonus points for attendance areaThere is a continuing enrollment preference for students in the Academic Center at Morgan Park.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifStudentAttendsOneOf(MORGAN_PARK_ACADEMIC_CENTER_PROGRAM),
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: ibPointSystem
-      }
-    )
+    "fn": ibWithElemPref(MORGAN_PARK_ACADEMIC_CENTER_PROGRAM)
   },
   "66e343a085b71702276816de30084068": {
     "id": "66e343a085b71702276816de30084068",
@@ -2011,16 +1992,7 @@ export const requirementFunctions: ReqFnTable = {
       "SENN HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Peirce ES (IB Partner School)</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifStudentAttendsOneOf(PEIRCE_ES_PROGRAM),
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: ibPointSystem
-      }
-    )
+    "fn": ibWithElemPref(PEIRCE_ES_PROGRAM)
   },
   "123d0f63c5d2eb93f214b65560427c90": {
     "id": "123d0f63c5d2eb93f214b65560427c90",
@@ -2057,16 +2029,7 @@ export const requirementFunctions: ReqFnTable = {
       "STEINMETZ HS: International Baccalaureate (IB)"
     ],
     "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Locke (IB Partner School)</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifStudentAttendsOneOf(LOCKE_MAGNET_CLUSTER_ES_PROGRAM),
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: ibPointSystem
-      }
-    )
+    "fn": ibWithElemPref(LOCKE_MAGNET_CLUSTER_ES_PROGRAM)
   },
   "034f4ecd1ed2266bfde53644d4f7b670": {
     "id": "034f4ecd1ed2266bfde53644d4f7b670",
