@@ -22,6 +22,8 @@ export const HERZL_ES_PROGRAM = "609991-Open Enrollment";
 export const HOWE_ES_PROGRAM = "610000-Open Enrollment";
 export const JOHNSON_ES_PROGRAM = "610274-Open Enrollment";
 export const LEWIS_ES_PROGRAM = "610036-Open Enrollment";
+
+export const MARSH_ES_PROGRAM = "610054-Open Enrollment";
 export const MARQUETTE_ES_PROGRAM = "610053-Magnet Cluster (International Baccalaureate Middle Years)";
 
 export const MCNAIR_ES_PROGRAM = "610282-Open Enrollment";
@@ -137,6 +139,12 @@ export const CICS_WRIGHTWOOD_ES_PROGRAM = "400031-General Education";
 
 // MS programs
 export const ASPIRA_MS_PROGRAM = "400017-General Education";
+export const MADERO_MS_PROGRAM = "610215-Open Enrollment";
+
+export const NOBLE_COMER_MS_PROGRAM = "100001-Open Enrollment";
+export const PERSPECTIVES_MS_PROGRAM = "100002-Open Enrollment";
+export const ART_IN_MOTION_MS_PROGRAM = "100003-Open Enrollment";
+export const INTRINSIC_MS_PROGRAM = "100004-Open Enrollment";
 
 // joint HS / ES programs
 // -----------------------

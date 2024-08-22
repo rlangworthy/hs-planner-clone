@@ -67,6 +67,18 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
   }
 
   render() {
+    function shortenProgramInfo(programType) {
+      // cte info takes up a lot of space - we can shorten it to just say cte where relevant
+      // also applicable to other common starts of programs (not yet implemented)
+      if (programType.includes("CTE - Pre-Law")) {
+        return "Pre-Law"
+      }
+      if (programType.startsWith("Career & Technical Education (CTE)")) {
+        return programType.replace("Career & Technical Education (CTE)", "CTE");
+      }
+      return programType;
+    }
+
     return (
       <button 
         className="hs-list-element"
@@ -77,7 +89,8 @@ class HSProgramElement extends React.Component<HSProgramElemProps, HSProgramElem
       <ProgramCard 
         hover={this.state.hover}
         outcome={this.state.combinedSuccessChance}
-        displayName={this.props.program.programType}
+        //displayName={this.props.program.programType}
+        displayName={shortenProgramInfo(this.props.program.programType)}
       />
       </button>
     )

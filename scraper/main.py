@@ -8,6 +8,7 @@ import datetime
 import re
 import signal
 from bs4 import BeautifulSoup
+import math
 
 
 INTER_REQUEST_DELAY = 0.5 # seconds
@@ -48,6 +49,38 @@ def sigint_handler(signal_number, stack_frame):
     sys.exit(-1)
 signal.signal(signal.SIGINT, sigint_handler)
 # --
+
+def remove_instances_of(lst, str):
+    out = []
+    for i in lst:
+        if i != str:
+            out.append(i)
+    return out
+
+def process_application_requirements(program):
+    if not (program["SubPrograms"] == "Random Computerized Lottery"): return program["SelectionCriteria"]
+
+    descr = program["AssessmentDescription"]
+    criteria = program["SelectionCriteria"]
+
+    numbers = remove_instances_of(re.findall(r'\d+', descr), '504')
+
+    if len(numbers) != 2: return criteria
+
+    # this assumes the number for general education students is always first
+    # a weird way to do this but the most consistent I could find due to numerous typos in
+    # CPS's program descriptions
+    # these are percentiles, rather than scores
+    s_ge = math.trunc(int(numbers[0]))
+    s_ie = math.trunc(int(numbers[1]))
+
+    lottery = criteria.split("Priority: </strong>")[1].split("</li>")[0]
+
+    criteria = f"<ul><li><strong>Selection Type: </strong>{program["SubPrograms"]}</li> <li><strong>GPA: </strong>{program["GPA"]}</li><li><strong>HSAT Minimum for ELA/Math: </strong></li> <ul><li>General Education and 504 Plan Students: / {s_ge}</li><li>IEP and EL Students: / {s_ie} </li></ul> <li><strong>Priority: </strong>{lottery}</li></ul>"
+
+    print("PROCESSED CRITERIA")
+
+    return criteria
 
 statistics["time-start"] = datetime.datetime.now()
 with open(output_path, 'w+') as outfile:
@@ -119,6 +152,10 @@ with open(output_path, 'w+') as outfile:
                 else:"""
                     # otherwise, iterate through elements in programs tab.
                 for program in school['Programs']:
+
+                    processed_program_selections = program['SelectionCriteria']
+                    if (primary_category == "HS"):
+                        processed_program_selections = process_application_requirements(program)
                     
                     program_type = program['ProgramType']
                     application_requirements = program['ProgramApplicationRequirements']
@@ -131,7 +168,8 @@ with open(output_path, 'w+') as outfile:
                     print(school_profile_url)
                     print(program_type)
                     print(application_requirements)
-                    print(program_selections)
+                    #print(program_selections)
+                    print(processed_program_selections)
                     print('\n')
 
                     writer.writerow({
@@ -145,7 +183,8 @@ with open(output_path, 'w+') as outfile:
                         'School_Longitude': school_longitude,
                         'Program_Type': program_type,
                         'Application_Requirements': application_requirements,
-                        'Program_Selections': program_selections
+                        #'Program_Selections': program_selections
+                        'Program_Selections': processed_program_selections
                         })
 
                 statistics["success_count"] += 1

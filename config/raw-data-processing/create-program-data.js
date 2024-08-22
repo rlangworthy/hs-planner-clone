@@ -4,7 +4,7 @@ const PROGRAM_CATEGORY_ES = "ES";
 const PROGRAM_CATEGORY_HS = "HS";
 
 const isAcademicCenter = (program) => {
-  ACADEMIC_CENTER_PROGRAM_TYPES = ["Academic Center", "Selective Enrollment (Academic Center)"]
+  ACADEMIC_CENTER_PROGRAM_TYPES = ["Academic Center", "Selective Enrollment (Academic Center)", "Selective Enrollment - Academic Center"]
   return ACADEMIC_CENTER_PROGRAM_TYPES.indexOf(program.Program_Type) > 0;
 }
 
@@ -144,20 +144,35 @@ const fixProgramTypeMisspellings = (programType) => {
   return programType;
 };
 
+function removeSchoolNameFromProgramType(shortName, longName, programType) {
+  if (programType.startsWith(longName)) {
+    return programType.split(`${longName} - `).pop();
+  }
+  if (programType.startsWith(shortName)) {
+    return programType.split(`${shortName} - `).pop();
+  }
+  return programType;
+}
+
 function normalizeProgramData(rawProgramData) {
 
   return rawProgramData.map( rawProgram => {
 
     const p = sanitizeRequirementDescriptions(rawProgram);
+    const programFullName = p.Program_Type;
+
+    p.Program_Type = removeSchoolNameFromProgramType(p.Short_Name, p.Long_Name, p.Program_Type);
 
     const programName = `${p.Short_Name}: ${p.Program_Type}`;
     const programType = fixProgramTypeMisspellings(p.Program_Type);
     const category = getCategory(p);
 
     return {
-      id: `${p.School_ID}-${p.Program_Type}`,
+      id: `${p.School_ID}-${programName}`,
+      //id: p.Program_Type,
       programName: programName,
       programType: programType,
+      programFullName: programFullName,
 
       schoolNameShort: p.Short_Name,
       schoolNameLong: p.Long_Name,
