@@ -44,8 +44,8 @@
     "@types/react-redux": "^6.0.9",
     "@types/redux-thunk": "^2.1.0",
     "chai": "^4.1.2",
-    "node-sass": "^9.0.0",
     "react-scripts": "^5.0.1",
+    "sass": "^1.89.2",
     "typescript": "^3.1.6"
   },
   "dependencies": {
