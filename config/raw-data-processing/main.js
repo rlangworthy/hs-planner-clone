@@ -137,8 +137,8 @@ function buildProgramData() {
   const rawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_RAW_PROGRAM_DATA, "utf-8");  
   const unofficialRawProgramDataCsv = fs.readFileSync(INPUT_FILEPATH_UNOFFICIAL_RAW_PROGRAM_DATA, "utf-8");
 
-  const [, ...rest] = unofficialRawProgramDataCsv.split("\n");
-  const result = rawProgramDataCsv + rest.join("\n");
+  //const [, ...rest] = unofficialRawProgramDataCsv.split("\n");
+  const result = rawProgramDataCsv// + rest.join("\n");
 
   // parse csv file into js object
   const rawProgramData = csvParseSync(result, {columns: true });

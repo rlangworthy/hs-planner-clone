@@ -92,9 +92,12 @@ function reduceGeojsonPrecision(geojson, decimalPrecision) {
   // iterate through the geojson coordinates and reduce their precision
   const features = geojson["features"];
   geojson["features"] = features.map( feature => {
-    const coords = feature["geometry"]["coordinates"][0][0];
-    feature["geometry"]["coordinates"] = setPrecision(coords, decimalPrecision);
-    return feature;
+    if (feature["geometry"]["coordinates"]){
+      const coords = feature["geometry"]["coordinates"][0][0];
+      feature["geometry"]["coordinates"] = setPrecision(coords, decimalPrecision);
+      return feature;
+    }
+    return feature
   });
 }
 

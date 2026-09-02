@@ -68,7 +68,32 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
 
 }
 
-const seJson = seCutoffsCSVtoJSON(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.csv'), path.join(__dirname, '../../scraper/raw-data/Chicago_Public_Schools_-_School_Profile_Information_SY2122.csv'))
-fs.writeFileSync(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.json'), seJson, 'utf-8')
 
-module.exports=seCutoffsCSVtoJSON
+const rawDataParentDir = path.resolve(__dirname, "..", "raw-data");
+// find the most recent version of the data
+const subfolders = fs.readdirSync(rawDataParentDir);
+let mostRecentVersion;
+for (let i = 0; i < subfolders.length; i++) {
+  const subfolderName = subfolders[i];
+  // try and parse this subfolder's name as a date
+  const subfolderDate = Date.parse(subfolderName);
+  if (subfolderDate) {
+    if (mostRecentVersion === undefined) {
+      mostRecentVersion = subfolderName;
+    } else {
+      const mostRecentDate = Date.parse(mostRecentVersion);
+      const isMoreRecent = mostRecentDate - subfolderDate < 0;
+      if (isMoreRecent) {
+        mostRecentVersion = subfolderName;
+      }
+    }
+  }
+}
+if (!mostRecentVersion) {
+  throw new Error(`No versioned data folders found in ${rawDataParentDir}.\nSubfolders of this directory should be named in ISO8601 date format, ie 2017-01-01.`);
+}
+const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
+
+
+const seJson = seCutoffsCSVtoJSON(path.join(srcDir, 'se-cutoff-scores.csv'), path.join(srcDir, 'program-data.csv'))
+fs.writeFileSync(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.json'), seJson, 'utf-8')

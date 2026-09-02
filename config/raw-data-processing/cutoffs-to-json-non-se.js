@@ -76,5 +76,3 @@ const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
 
 const nonSEJson = nonSECutoffsCSVToJSON(path.join(srcDir, 'non-se-cutoff-scores.csv'), path.join(srcDir, 'program-data.csv'))
 fs.writeFileSync(path.join(srcDir, 'non-se-cutoff-scores.json'), nonSEJson, 'utf-8')
-
-module.exports = nonSECutoffsCSVToJSON
