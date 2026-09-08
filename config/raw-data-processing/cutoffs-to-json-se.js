@@ -1,7 +1,7 @@
-const csvParse = require('csv-parse/lib/sync');
-const d3 = require('d3')
-const fs = require('fs')
-const path = require('path')
+import { parse } from "csv-parse/sync";
+import * as d3 from "d3"
+import * as fs from "fs"
+import * as path from "path"
 
 const MAX_SE_SCORE = '900'
 const SE_PROGRAM_TYPE = 'Selective Enrollment High School'
@@ -25,28 +25,28 @@ const SE_PROGRAM_TYPE = 'Selective Enrollment High School'
  **/
 function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
     const cutoffScoresCsvFile = fs.readFileSync(pathToCutoffScores, 'utf-8')
-    const rawCutOffs  = csvParse(cutoffScoresCsvFile, {
+    const rawCutOffs  = parse(cutoffScoresCsvFile, {
         columns:true
     })
     const schoolIDsCsvFile = fs.readFileSync(pathToSchoolIDs, 'utf-8')
-    const rawSchoolIDs  = csvParse(schoolIDsCsvFile, {
+    const rawSchoolIDs  = parse(schoolIDsCsvFile, {
         columns:true
     })
 
-    cutOffs = d3.nest().key(k => k.School)
+    const cutOffs = d3.nest().key(k => k.School)
                         .rollup(ks => {
                             // (mpingram) Forgive me for this code. In the array of {School_ID: , Short_Name: },
                             // find the first element that has a Short_Name that matches our school name.
                             // The short_name is a semistandard name for the school, which usually is in ALL CAPS and
                             // ends in 'HS'. I had to capitalize the school names in the cutoff scores .csv and append
                             // 'HS' to the name to get it to work.
-                            const schoolRow = rawSchoolIDs.find( row => row['Short_Name'] === ks[0].School.toUpperCase() + ' HS' )
+                            const schoolRow = rawSchoolIDs.find( row => row['Short_Name'] === ks[0].School.toUpperCase())
                             if (schoolRow === undefined) {
-                                throw new Error(`Could not find school ${ks[0].School.toUpperCase() + ' HS'}`);
+                                throw new Error(`Could not find school ${ks[0].School.toUpperCase()}`);
                             }
                             const schoolID = schoolRow['School_ID']
                             if (schoolID === undefined) {
-                                throw new Error(`Could not find school ${ks[0].School.toUpperCase() + ' HS'}`);
+                                throw new Error(`Could not find school ${ks[0].School.toUpperCase()}`);
                             }
                             return {
                                 school: ks[0].School,
@@ -69,7 +69,7 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
 }
 
 
-const rawDataParentDir = path.resolve(__dirname, "..", "raw-data");
+const rawDataParentDir = "../raw-data"
 // find the most recent version of the data
 const subfolders = fs.readdirSync(rawDataParentDir);
 let mostRecentVersion;
@@ -96,4 +96,4 @@ const srcDir = path.resolve(rawDataParentDir, mostRecentVersion);
 
 
 const seJson = seCutoffsCSVtoJSON(path.join(srcDir, 'se-cutoff-scores.csv'), path.join(srcDir, 'program-data.csv'))
-fs.writeFileSync(path.join(__dirname, '../raw-data/2022-07-11/se-cutoff-scores.json'), seJson, 'utf-8')
+fs.writeFileSync(path.join(srcDir, 'se-cutoff-scores.json'), seJson, 'utf-8')

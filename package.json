@@ -5,14 +5,13 @@
   "main": " ",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build:cps": "PUBLIC_URL=https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner react-scripts build",
+    "build": "PUBLIC_URL=https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner react-scripts build",
     "build:dev": "PUBLIC_URL=https://s3.amazonaws.com/path-to-hs-dev react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "build-config": "node ./config/raw-data-processing/main.js",
     "deploy:production": "aws s3 sync build/ s3://chavez-hs-planner.com --acl public-read --delete",
-    "deploy:cps-server": "ssh -t rlangworthy@10.129.210.11 'sudo rm -r /var/www/hs-planner/* /home/rlangworthy/repos/chavez-hs-planner/build/*' && scp -r ./build/* rlangworthy@10.129.210.11:/home/rlangworthy/repos/chavez-hs-planner/build && ssh -t rlangworthy@10.129.210.11 'sudo rsync -rtv /home/rlangworthy/repos/chavez-hs-planner/build/ /var/www/hs-planner/ && sudo restorecon -R /var/www/hs-planner'",
+    "deploy": "ssh -t rlangworthy@10.129.210.4 'sudo rm -r /var/www/hs-planner/* /home/rlangworthy/repos/chavez-hs-planner/build/*' && scp -r ./build/* rlangworthy@10.129.210.4:/home/rlangworthy/repos/chavez-hs-planner/build && ssh -t rlangworthy@10.129.210.4 'sudo rsync -rtv /home/rlangworthy/repos/chavez-hs-planner/build/ /var/www/hs-planner/ && sudo restorecon -R /var/www/hs-planner'",
     "deploy:dev": "aws s3 sync build/ s3://path-to-hs-dev --acl public-read --delete",
     "scrape-programs": "cd scraper && pipenv run python main.py ./raw-data/School_Locations_SY1718.csv"
   },

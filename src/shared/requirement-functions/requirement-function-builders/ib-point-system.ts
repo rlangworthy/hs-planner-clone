@@ -8,10 +8,11 @@ import {
 
 import { pointSystem } from "./point-system";
 
-const createIBPointCalc = (ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
+const createIBPointCalc = (ifInAttendBound: ReqFnFilter, schoolPrefFilter: ReqFnFilter) => (student: StudentData, program: Program): number | null => {
 
   // if any needed student data is null, return early with null
-  if (student.hsatPercentileMath === null ||
+  if (
+    student.hsatPercentileMath === null ||
     student.hsatPercentileRead === null ||
     student.subjGradeMath === null ||
     student.subjGradeRead === null ||
@@ -46,7 +47,7 @@ const createIBPointCalc = (ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: 
   // TODO figure out what to do for schools without attendance bounds, like BACK OF THE YARDS HS
   const attendBonus = ifInAttendBound(student, program) ? IB_ATTEND_BOUND_BONUS_PTS : 0;
 
-  const elemBonus = ifStudentAttendsOneOf(student, program) ? IB_ELEM_PREF_BONUS_PTS : 0;
+  const elemBonus = schoolPrefFilter(student, program) ? IB_ELEM_PREF_BONUS_PTS : 0;
   console.log(student.currESProgramID?.value);
   if (elemBonus > 1) {
     console.log("got elem bonus for: ");
@@ -79,8 +80,8 @@ export const createIBPointSystem = (getCutoffDict: () => NonSECutoffDictionary, 
   return pointSystem(ibPointCalc, ibCutoffLookup);
 }
 
-export const createIbPointSystemWithElemPref = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: (...programIDs) => ReqFnFilter) => {
-  return ((...programIDs) => {
+export const createIbPointSystemWithElemPref = (getCutoffDict: () => NonSECutoffDictionary, ifInAttendBound: ReqFnFilter, ifStudentAttendsOneOf: (...programIDs: string[]) => ReqFnFilter) => {
+  return ((...programIDs : string[]) => {
     const ibPointCalc = createIBPointCalc(ifInAttendBound, ifStudentAttendsOneOf(...programIDs));
     const ibCutoffLookup = createIBCutoffLookup(getCutoffDict);
     return pointSystem(ibPointCalc, ibCutoffLookup);

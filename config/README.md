@@ -2,16 +2,18 @@
 
 > TODO remove the gritty details and put them in the code 
 
+EVERY YEAR UPDATE HS GEN ED PROGAMS
+
 The Chavez HS Planner config system is basically a bunch of code that converts 
 raw data from CPS into a form that the Chavez HS Planner app can consume.
 
 The raw data that the config system takes is:
 * (geoJSON) high school attendance boundaries  (https://api.cps.edu/maps/CPS/SchoolBoundariesGeoJSON?year={CURRENT_YEAR})
 * (geoJSON) elementary school attendance boundaries  (https://api.cps.edu/maps/CPS/SchoolBoundariesGeoJSON?year={CURRENT_YEAR})
-* (json) a table mapping Chicago's census tracts<sup>1</sup> to CPS Tiers<sup>2</sup>. (https://api.cps.edu/maps/CPS/GeoJSON?mapName=TIER&year=2022)
+* (json) a table mapping Chicago's census tracts<sup>1</sup> to CPS Tiers<sup>2</sup>. (https://api.cps.edu/maps/CPS/GeoJSON?mapName=TIER&year={CURRENT_YEAR})
 * (json) a table of cutoff scores<sup>3</sup> for Selective Enrollment high schools 
 * (json) a table of cutoff scores for all other (non-Selective-Enrollment) high schools
-* (csv) a list of all CPS high school programs and their admissions requirements 
+* (csv) a list of all CPS high school programs and their admissions requirements (run the api-interface script to generate this after updating it to reflect the most recent folder)
 
 
 Some of this raw data needs to be processed before the app can use it. This is done by code in the `raw-data-processing` folder. The processing done by the `raw-data-processing` code is:

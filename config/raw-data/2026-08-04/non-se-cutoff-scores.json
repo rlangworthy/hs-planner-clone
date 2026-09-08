@@ -1,0 +1,458 @@
+[
+  {
+    "programID": "609695-AMUNDSEN HS - International Baccalaureate (IB)",
+    "school": "AMUNDSEN HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 811
+    }
+  },
+  {
+    "programID": "609756-CURIE HS - International Baccalaureate (IB)",
+    "school": "CURIE HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 659
+    }
+  },
+  {
+    "programID": "609756-CURIE HS - Pre-Engineering",
+    "school": "CURIE HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 702
+    }
+  },
+  {
+    "programID": "609694-HANCOCK HS - Pre-Engineering",
+    "school": "HANCOCK HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 764
+    }
+  },
+  {
+    "programID": "609694-HANCOCK HS - Pre-Law",
+    "school": "HANCOCK HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": 766
+    }
+  },
+  {
+    "programID": "609678-JONES HS - Pre-Engineering",
+    "school": "JONES HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 832
+    }
+  },
+  {
+    "programID": "609678-JONES HS - Pre-Law",
+    "school": "JONES HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": 775
+    }
+  },
+  {
+    "programID": "609718-KENNEDY HS - International Baccalaureate (IB)",
+    "school": "KENNEDY HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 545
+    }
+  },
+  {
+    "programID": "609751-KING HS - Pre-Engineering",
+    "school": "KING HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 596
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - Advanced College Prep",
+    "school": "LINCOLN PARK HS",
+    "programType": "Advanced College Prep",
+    "cutoffScores": {
+      "min": 730
+    }
+  },
+  {
+    "programID": "609738-LINCOLN PARK HS - International Baccalaureate (IB) - MYP Diploma Program",
+    "school": "LINCOLN PARK HS",
+    "programType": "International Baccalaureate (IB) - MYP Diploma Program",
+    "cutoffScores": {
+      "min": 836
+    }
+  },
+  {
+    "programID": "610390-RICKOVER MILITARY HS - Millitary & Service Leadership",
+    "school": "RICKOVER MILITARY HS",
+    "programType": "Millitary & Service Leadership",
+    "cutoffScores": {
+      "min": 522
+    }
+  },
+  {
+    "programID": "610543-SOLORIO HS - Pre-Engineering",
+    "school": "SOLORIO HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 751
+    }
+  },
+  {
+    "programID": "610543-SOLORIO HS - Scholars",
+    "school": "SOLORIO HS",
+    "programType": "Scholars",
+    "cutoffScores": {
+      "min": 730
+    }
+  },
+  {
+    "programID": "609734-TAFT HS - International Baccalaureate (IB)",
+    "school": "TAFT HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 796
+    }
+  },
+  {
+    "programID": "609737-VON STEUBEN HS - Scholars",
+    "school": "VON STEUBEN HS",
+    "programType": "Scholars",
+    "cutoffScores": {
+      "min": 765
+    }
+  },
+  {
+    "programID": "609739-WASHINGTON HS - International Baccalaureate (IB)",
+    "school": "WASHINGTON HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 505
+    }
+  },
+  {
+    "programID": "610524-ALCOTT HS - Pre-Engineering",
+    "school": "ALCOTT HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 584
+    }
+  },
+  {
+    "programID": "610563-BACK OF THE YARDS HS - International Baccalaureate (IB)",
+    "school": "BACK OF THE YARDS HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 632
+    }
+  },
+  {
+    "programID": "609698-BOGAN HS - International Baccalaureate (IB)",
+    "school": "BOGAN HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 445
+    }
+  },
+  {
+    "programID": "610381-BRONZEVILLE HS - International Baccalaureate (IB)",
+    "school": "BRONZEVILLE HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 525
+    }
+  },
+  {
+    "programID": "609760-CARVER MILITARY HS - Military & Service Leadership",
+    "school": "CARVER MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "cutoffScores": {
+      "min": 460
+    }
+  },
+  {
+    "programID": "609754-CHICAGO MILITARY HS - Military & Service Leadership",
+    "school": "CHICAGO MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "cutoffScores": {
+      "min": 380
+    }
+  },
+  {
+    "programID": "610244-CLARK HS - International Baccalaureate (IB)",
+    "school": "CLARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 371
+    }
+  },
+  {
+    "programID": "609759-CLEMENTE HS - Health Science",
+    "school": "CLEMENTE HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 422
+    }
+  },
+  {
+    "programID": "609759-CLEMENTE HS - International Baccalaureate (IB)",
+    "school": "CLEMENTE HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 535
+    }
+  },
+  {
+    "programID": "609704-FARRAGUT HS - International Baccalaureate (IB)",
+    "school": "FARRAGUT HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 478
+    }
+  },
+  {
+    "programID": "609704-FARRAGUT HS - Pre-Law",
+    "school": "FARRAGUT HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": 378
+    }
+  },
+  {
+    "programID": "609708-FOREMAN HS - Pre-Engineering",
+    "school": "FOREMAN HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 400
+    }
+  },
+  {
+    "programID": "609709-GAGE PARK HS - Health Science",
+    "school": "GAGE PARK HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 390
+    }
+  },
+  {
+    "programID": "609741-HUBBARD HS - International Baccalaureate (IB)",
+    "school": "HUBBARD HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 527
+    }
+  },
+  {
+    "programID": "609741-HUBBARD HS - University Scholars",
+    "school": "HUBBARD HS",
+    "programType": "University Scholars",
+    "cutoffScores": {
+      "min": 503
+    }
+  },
+  {
+    "programID": "609713-HYDE PARK HS - International Baccalaureate (IB)",
+    "school": "HYDE PARK HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 472
+    }
+  },
+  {
+    "programID": "609764-JUAREZ HS - Health Science",
+    "school": "JUAREZ HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 541
+    }
+  },
+  {
+    "programID": "609764-JUAREZ HS - International Baccalaureate (IB)",
+    "school": "JUAREZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 551
+    }
+  },
+  {
+    "programID": "609762-JULIAN HS - Health Science",
+    "school": "JULIAN HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 411
+    }
+  },
+  {
+    "programID": "609715-KELLY HS - International Baccalaureate (IB)",
+    "school": "KELLY HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 553
+    }
+  },
+  {
+    "programID": "609716-KELVYN PARK HS - Health Science",
+    "school": "KELVYN PARK HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 418
+    }
+  },
+  {
+    "programID": "609724-MATHER HS - Pre-Engineering",
+    "school": "MATHER HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 595
+    }
+  },
+  {
+    "programID": "609724-MATHER HS - Pre-Law",
+    "school": "MATHER HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": 516
+    }
+  },
+  {
+    "programID": "609725-MORGAN PARK HS -  International Baccalaureate (IB)",
+    "school": "MORGAN PARK HS",
+    "programType": " International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 603
+    }
+  },
+  {
+    "programID": "609691-NORTH-GRAND HS - Health Science",
+    "school": "NORTH-GRAND HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 547
+    }
+  },
+  {
+    "programID": "609691-NORTH-GRAND HS - Pre-Engineering",
+    "school": "NORTH-GRAND HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 427
+    }
+  },
+  {
+    "programID": "610529-OGDEN HS - International Baccalaureate (IB)",
+    "school": "OGDEN HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 551
+    }
+  },
+  {
+    "programID": "610304-PHOENIX MILITARY HS - Military & Service Leadership",
+    "school": "PHOENIX MILITARY HS",
+    "programType": "Military & Service Leadership",
+    "cutoffScores": {
+      "min": 404
+    }
+  },
+  {
+    "programID": "609679-PROSSER HS - International Baccalaureate (IB)",
+    "school": "PROSSER HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 632
+    }
+  },
+  {
+    "programID": "609728-ROOSEVELT HS - Health Science",
+    "school": "ROOSEVELT HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 460
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - Health Science",
+    "school": "SCHURZ HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 414
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - International Baccalaureate (IB)",
+    "school": "SCHURZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 614
+    }
+  },
+  {
+    "programID": "609729-SCHURZ HS - Pre-Engineering",
+    "school": "SCHURZ HS",
+    "programType": "Pre-Engineering",
+    "cutoffScores": {
+      "min": 482
+    }
+  },
+  {
+    "programID": "609730-SENN HS - International Baccalaureate (IB)",
+    "school": "SENN HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 573
+    }
+  },
+  {
+    "programID": "610547-SOUTH SHORE INTL HS - Health Science",
+    "school": "SOUTH SHORE INTL HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 542
+    }
+  },
+  {
+    "programID": "609732-STEINMETZ HS - International Baccalaureate (IB)",
+    "school": "STEINMETZ HS",
+    "programType": "International Baccalaureate (IB)",
+    "cutoffScores": {
+      "min": 553
+    }
+  },
+  {
+    "programID": "609733-SULLIVAN HS - Health Science",
+    "school": "SULLIVAN HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 457
+    }
+  },
+  {
+    "programID": "609740-WELLS HS - Pre-Law",
+    "school": "WELLS HS",
+    "programType": "Pre-Law",
+    "cutoffScores": {
+      "min": 476
+    }
+  },
+  {
+    "programID": "610380-WILLIAMS HS - Health Science",
+    "school": "WILLIAMS HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 350
+    }
+  },
+  {
+    "programID": "610392-WORLD LANGUAGE HS - Health Science",
+    "school": "WORLD LANGUAGE HS",
+    "programType": "Health Science",
+    "cutoffScores": {
+      "min": 425
+    }
+  }
+]

@@ -1,0 +1,74 @@
+School_ID,Short_Name,Long_Name,Primary_Category,CPS_School_Profile,Website,School_Latitude,School_Longitude,Program_Type,Application_Requirements,Program_Selections
+
+609695,AMUNDSEN HS,Roald Amundsen High School,HS,https://www.cps.edu/schools/profiles/school-overview/AMUNDSEN-HS,http://www.amundsenhs.org,41.975067,-87.679484,AMUNDSEN HS - General Education/Grow Community,None,
+"<ul>
+    <li><strong>Selection Type: </strong>Random Computerized Lottery</li>                                                        
+    <li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li> 
+    <ul>
+        <li>General Education and 504 Plan Students:  / </li>
+        <li>IEP and EL Students:  / </li>
+    </ul>
+    <li><strong>Priority: </strong>Sibling Preference,Staff Preference,Elementary Preference,Attendance Area,General</li>
+    <li><strong>Note: </strong>Elementary preference: 
+Audubon ES,  Bell ES, Blaine ES, Budlong ES, Burley ES, Chappell ES, Coonley ES, Greeley ES, Hamilton ES, Hawthorne ES,  Inter-American ES, Jahn ES, Jamieson ES, McPherson ES, Nettelhorst ES, Ravenswood ES, Waters ES, Ravenswood ES, Waters ES
+
+Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li>
+</ul>"
+
+609695,AMUNDSEN HS,Roald Amundsen High School,HS,https://www.cps.edu/schools/profiles/school-overview/AMUNDSEN-HS,http://www.amundsenhs.org,41.975067,-87.679484,AMUNDSEN HS - International Baccalaureate (IB),None,
+"<ul>
+    <li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li>
+    <li><strong>GPA: </strong>N/A</li>
+    <li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li>
+    <ul>
+        <li>General Education and 504 Plan Students:  / </li>
+        <li>IEP and EL Students:  / </li>
+    </ul>
+    <li><strong>Priority: </strong>Elementary Preference,General</li>
+    <li><strong>Note: </strong>50 bonus points for attendance area
+
+Elementary preference: McPherson (IB Partner School)</li>
+</ul>"
+
+SubPrograms
+GPA
+
+program selections - thing to replace
+
+Application requirements : assessmentdescription
+
+<ul>
+    <li><strong>Selection Type: </strong>#SUBPROGRAMS</li>
+    <li><strong>GPA: </strong>#GPA</li>
+    <li><strong>HS Admissions Exam Minimum for ELA/Math: </strong>#CHOICE/IB</li> 
+    <ul>
+        <li>General Education and 504 Plan Students:  #CHOICE/IB</li>
+        <li>IEP and EL Students:  #CHOICE/IB </li>
+    </ul>
+    <li><strong>Priority: </strong>#PRIORITY</li>
+    <li><strong>Note: </strong>#NOTES \n #SUBPROGRAM</li>
+    <li><strong>
+
+</ul>
+
+
+
+<AssessmentDescription>High School Admissions Test (HSAT) Scores Required.</AssessmentDescription>
+<GPA>N/A</GPA>
+<Notes>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MCPHERSON</Notes>
+<PreviousYearApplicationCount>2266</PreviousYearApplicationCount>
+<PreviousYearOfferCount>475</PreviousYearOfferCount>
+<Priority>Elementary Preference,General</Priority>
+<ProgramApplicationRequirements/>
+<ProgramCode>AMIBA50</ProgramCode>
+<ProgramGradesServed>9th Grade</ProgramGradesServed>
+<ProgramName>International Baccalaureate (IB)</ProgramName>
+<ProgramOverview>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MCPHERSON</ProgramOverview>
+<ProgramRollupGroup>International Baccalaureate (IB)</ProgramRollupGroup>
+<ProgramRollupType>International Baccalaureate (IB)</ProgramRollupType>
+<ProgramType>AMUNDSEN HS-International Baccalaureate (IB)</ProgramType>
+<SchoolDataProgramAdmissionsID>552</SchoolDataProgramAdmissionsID>
+<SchoolID>609695</SchoolID>
+<SchoolProgramYear>2026</SchoolProgramYear>
+<SubPrograms/>
+<rollupYear>2026</rollupYear>

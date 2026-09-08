@@ -47,6 +47,7 @@ import {
   AUSL_ES_PROGRAMS,
   GROW_COMMUNITY_SCHOOL_ES_PROGRAMS,
   ACERO_ES_PROGRAMS,
+  CICS_ES_PROGRAMS,
 
   FOUNDATIONS_COLLEGE_PREP_JOINT_ES_HS_PROGRAM,
   CHICAGO_VIRTUAL_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
@@ -112,11 +113,50 @@ import {
   PERSPECTIVES_MS_PROGRAM,
   ART_IN_MOTION_MS_PROGRAM,
   INTRINSIC_MS_PROGRAM,
-  MADERO_MS_PROGRAM
+  MADERO_MS_PROGRAM,
+  ACERO_CISNEROS_ES_PROGRAM,
+  ACERO_CLEMENTE_ES_PROGRAM,
+  ACERO_DE_LA_CRUZ_ES_PROGRAM,
+  ACERO_DE_LAS_CASAS_ES_PROGRAM,
+  CURTIS_ES_PROGRAM,
+  CURIE_HSGENED,
+  MOOS_LANGUAGE_PROGRAM,
+  KELVYN_PARK_HSGENED,
+  LOCKE_GENERAL_EDUCATION_ES_PROGRAM,
+  SPRY_LANGUAGE_PROGRAM,
+  AZUELA_LANGUAGE_PROGRAM,
+  BARRY_LANGUAGE_PROGRAM,
+  BATEMAN_LANGUAGE_PROGRAM,
+  BELMONT_CRAGIN_LANGUAGE_PROGRAM,
+  CALMECA_LANGUAGE_PROGRAM,
+  CALMECA_ES_PROGRAM,
+  CARSON_LANGUAGE_PROGRAM,
+  CHASE_LANGUAGE_PROGRAM,
+  COOPER_LANGUAUGE_PROGRAM,
+  DARWIN_LANGUAGE_PROGRAM,
+  HURLEY_LANGUAGE_PROGRAM,
+  INTER_AMERICAN_ES_PROGRAM,
+  MOZART_LANGUAGE_PROGRAM,
+  SABIN_LANGUAGE_PROGRAM,
+  STOWE_LANGUAGE_PROGRAM,
+  AUDUBON_ES_PROGRAM,
+  BELL_OPEN_ENROLLMENT_ES_PROGRAM,
+  BLAINE_ES_PROGRAM,
+  BUDLONG_ES_PROGRAM,
+  BURLEY_ES_PROGRAM,
+  CHAPPELL_ES_PROGRAM,
+  COONLEY_OPEN_ENROLLMENT_ES_PROGRAM,
+  HAMILTON_ES_PROGRAM,
+  HAWTHORNE_ES_PROGRAM,
+  JAHN_ES_PROGRAM,
+  NETTELHORST_ES_PROGRAM,
+  WATERS_ES_PROGRAM
 
 } from "./constants";
 import { store } from "../../shared/redux/store";
 import { getOverallSuccessChance } from "../util/get-overall-success-chance";
+import { all } from "axios";
+import { generateKeyPair } from "crypto";
 
 /**
  * This is a placeholder requirement function. Use it to indicate "I need to write this
@@ -137,7 +177,7 @@ const getNonSECutoffScores = () => store.getState().data.nonSECutoffScores;
 
 const ifInAttendBound = createIfInAttendBound(getAttendBoundDict);
 const ibPointSystem: RequirementFunction = createIBPointSystem(getNonSECutoffScores, ifInAttendBound, ifStudentAttendsOneOf());
-const ibWithElemPref: (...programIDs) => RequirementFunction = createIbPointSystemWithElemPref(getNonSECutoffScores, ifInAttendBound, ifStudentAttendsOneOf);
+const ibWithElemPref: (...programIDs:string[]) => RequirementFunction = createIbPointSystemWithElemPref(getNonSECutoffScores, ifInAttendBound, ifStudentAttendsOneOf);
 
 console.log(ibWithElemPref(EDWARDS_LANGUAGE_PROGRAM));
 
@@ -187,976 +227,831 @@ interface ReqFnTable {
     fn: RequirementFunction
   }
 }
-export const requirementFunctions: ReqFnTable = {
-  "6adf97f83acf6453d4a6a4b1070f3754": {
-    "id": "6adf97f83acf6453d4a6a4b1070f3754",
+
+const newFNs : ReqFnTable = {
+}
+export const requirementFunctions: ReqFnTable = 
+
+{
+  "5de2e9829ece34a213bae85d691c8ed3": {
+    "id": "5de2e9829ece34a213bae85d691c8ed3",
     "programs": [
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Agriculture & Horticulture",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Architecture & Construction - Carpentry",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Personal Care Services - Cosmetology",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Transportation - Diesel Technology",
-      "CHICAGO VOCATIONAL HS: General Education",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Health Science",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Early College STEM",
-      "DUNBAR HS: Career & Technical Education (CTE) - Transportation - Auto Body Repair",
-      "DUNBAR HS: Career & Technical Education (CTE) - Architecture & Construction - Architecture",
-      "DUNBAR HS: Career & Technical Education (CTE) - Broadcast Technology",
-      "DUNBAR HS: Career & Technical Education (CTE) - Culinary & Hospitality",
-      "DUNBAR HS: Career & Technical Education (CTE) - Personal Care Services - Cosmetology",
-      "DUNBAR HS: Career & Technical Education (CTE) - Health Science",
-      "PROSSER HS: Career & Technical Education (CTE) - Career Academy",
-      "PROSSER HS: International Baccalaureate (IB)",
-      "ACERO - GARCIA HS: STEM",
-      "URBAN PREP - ENGLEWOOD HS: Urban Prep Academy for Young Men HS - Englewood - Charter - General Education",
-      "PERSPECTIVES - LEADERSHIP HS: Charter - General Education",
-      "PERSPECTIVES - TECH HS: Charter - STEM",
-      "PERSPECTIVES - JOSLIN HS: Charter - General Education",
-      "PERSPECTIVES - MATH & SCI HS: Charter - STEM",
-      "CICS - LONGWOOD: Charter - General Education",
-      "CICS - NORTHTOWN HS: Charter - General Education",
-      "CHICAGO MATH & SCIENCE HS: CHICAGO MATH & SCIENCE ACADEMY HS - Charter - General Education",
-      "NOBLE - NOBLE HS: Charter - General Education",
-      "NOBLE - COMER: Charter - General Education",
-      "NOBLE - GOLDER HS: Charter - General Education",
-      "NOBLE - PRITZKER HS: Charter - General Education",
-      "NOBLE - RAUNER HS: Charter - General Education",
-      "NOBLE - ROWE CLARK HS: Charter - STEM",
-      "NOBLE - UIC HS: Charter - General Education",
-      "NLCP - CHRISTIANA HS: NORTH LAWNDALE - CHRISTIANA HS - Charter - General Education",
-      "NLCP - COLLINS HS: NORTH LAWNDALE - COLLINS HS - Charter - General Education",
-      "ASPIRA - EARLY COLLEGE HS: Charter - General Education",
-      "NOBLE - MUCHIN HS: Charter - General Education",
-      "INSTITUTO - HEALTH: Charter - Health Sciences",
-      "INSTITUTO - HEALTH: Charter - General Education",
-      "URBAN PREP - BRONZEVILLE HS: Urban Prep Academy For Young Men HS - Bronzeville - Charter - General Education",
-      "NOBLE - JOHNSON HS: Charter - General Education",
-      "NOBLE - BULLS HS: Charter - General Education",
-      "EPIC HS: Charter - General Education",
-      "CICS - ELLISON HS: Charter - General Education",
-      "NOBLE - ITW SPEER HS: Charter - STEM",
-      "NOBLE - ACADEMY HS: Charter - General Education",
-      "ASPIRA - BUSINESS & FINANCE HS: Charter - General Education",
-      "CHICAGO COLLEGIATE: Charter - General Education",
-      "INTRINSIC HS: Charter - General Education",
-      "NOBLE - BUTLER HS: Charter - General Education",
-      "NOBLE - BAKER HS: Charter - General Education",
-      "ACERO - SOTO HS: Charter - General Education",
-      "NOBLE - HANSBERRY HS: Charter - International Baccalaureate (IB)",
-      "NOBLE - DRW HS: Charter - General Education",
-      "LEGAL PREP HS: Charter - Law & Public Safety",
-      "U OF C - WOODLAWN HS: Charter - General Education",
-      "ART IN MOTION: ART in MOTION HS - Charter - Fine & Performing Arts",
-      "NOBLE - MANSUETO HS: Charter - General Education",
-      "GOODE HS: STEM - Early College STEM",
-      "CHICAGO TECH HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "CHICAGO TECH HS: STEM",
-      "CLARK HS: Magnet - Early College STEM",
-      "DISNEY II HS: Magnet - Fine & Performing Arts, Technology",
-      "DISNEY II HS: Magnet - Fine & Performing Arts, Technology",
-      "CRANE MEDICAL HS: Magnet - Early College STEM",
-      "CHICAGO AGRICULTURE HS: Magnet - Agriculture & Horticulture",
-      "CURIE HS: Career & Technical Education (CTE) - Business & Finance - Accounting",
-      "CURIE HS: Career & Technical Education (CTE) - Architecture & Construction - Architecture",
-      "CURIE HS: Career & Technical Education (CTE) - Transportation - Automotive Technology",
-      "CURIE HS: AVID",
-      "CURIE HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "CURIE HS: Career & Technical Education (CTE) - Culinary & Hospitality",
-      "CURIE HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "CURIE HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "CURIE HS: Magnet - Fine & Performing Arts - Fine & Performing Arts",
-      "CURIE HS: International Baccalaureate (IB)",
-      "CURIE HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "CURIE HS: General Education",
-      "CURIE HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "VON STEUBEN HS: STEM - Magnet College Prep Program",
-      "CHICAGO MILITARY HS: CHICAGO MILITARY HS at Bronzeville - Military & Service Leadership",
-      "MARINE LEADERSHIP AT AMES HS: Military - Military & Service Leadership",
-      "MARINE LEADERSHIP AT AMES HS: Military & Service Leadership",
-      "CARVER MILITARY HS: Military & Service Leadership",
-      "RICKOVER MILITARY HS: Military & Service Leadership",
-      "AIR FORCE HS: Military & Service Leadership",
-      "PHOENIX MILITARY HS: Military & Service Leadership",
-      "KENWOOD HS: Magnet - Honors",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "CLEMENTE HS: General Education",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Health Science",
-      "CLEMENTE HS: International Baccalaureate (IB)",
-      "CORLISS HS: STEM - Early College STEM",
-      "JUAREZ HS: Career & Technical Education (CTE) - Architecture & Construction",
-      "JUAREZ HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "JUAREZ HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "JUAREZ HS: General Education",
-      "JUAREZ HS: Career & Technical Education (CTE) - Health Science",
-      "JUAREZ HS: International Baccalaureate (IB)",
-      "JUAREZ HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "JULIAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "JULIAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "JULIAN HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "JULIAN HS: Fine & Performing Arts",
-      "JULIAN HS: General Education",
-      "JULIAN HS: Career & Technical Education (CTE) - Health Science",
-      "JULIAN HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "WASHINGTON HS: General Education",
-      "WASHINGTON HS: International Baccalaureate (IB)",
-      "WELLS HS: Fine & Performing Arts",
-      "WELLS HS: General Education",
-      "WELLS HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "HUBBARD HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "HUBBARD HS: Career & Technical Education (CTE) - Information Technology - Web Development & Design",
-      "HUBBARD HS: General Education",
-      "HUBBARD HS: International Baccalaureate (IB)",
-      "HUBBARD HS: Military & Service Leadership - JROTC",
-      "HUBBARD HS: Honors - University Scholars",
-      "SULLIVAN HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "SULLIVAN HS: General Education - The English Learner Academy",
-      "SULLIVAN HS: General Education",
-      "SULLIVAN HS: Career & Technical Education (CTE) - Health Science",
-      "TAFT HS: General Education",
-      "TAFT HS: International Baccalaureate (IB)",
-      "TILDEN HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "TILDEN HS: General Education",
-      "DYETT ARTS HS: Fine & Performing Arts - Band",
-      "DYETT ARTS HS: Fine & Performing Arts - Choir",
-      "DYETT ARTS HS: Fine & Performing Arts - Dance",
-      "DYETT ARTS HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "DYETT ARTS HS: General Education",
-      "DYETT ARTS HS: Fine & Performing Arts - Theatre",
-      "DYETT ARTS HS: Fine & Performing Arts - Visual Arts",
-      "BOGAN HS: International Baccalaureate (IB)",
-      "FARRAGUT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "FARRAGUT HS: International Baccalaureate (IB)",
-      "FARRAGUT HS: Military & Service Leadership - JROTC",
-      "FARRAGUT HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "FENGER HS: General Education",
-      "FENGER HS: Honors",
-      "FOREMAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "FOREMAN HS: General Education",
-      "FOREMAN HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "FOREMAN HS: Military & Service Leadership - JROTC",
-      "GAGE PARK HS: General Education",
-      "GAGE PARK HS: Career & Technical Education (CTE) - Health Science",
-      "HARLAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "HARLAN HS: General Education",
-      "HIRSCH HS: General Education",
-      "HYDE PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "HYDE PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "HYDE PARK HS: General Education",
-      "HYDE PARK HS: International Baccalaureate (IB)",
-      "KELLY HS: Career & Technical Education (CTE) - Architecture & Construction",
-      "KELLY HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "KELLY HS: General Education",
-      "KELLY HS: International Baccalaureate (IB)",
-      "KELVYN PARK HS: Open Enrollment - General Education",
-      "KELVYN PARK HS: Fine & Performing Arts",
-      "KELVYN PARK HS: General Education",
-      "KELVYN PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "KELVYN PARK HS: Career & Technical Education (CTE) - Health Science",
-      "KENNEDY HS: General Education",
-      "KENNEDY HS: International Baccalaureate (IB)",
-      "RICHARDS HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "RICHARDS HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "RICHARDS HS: General Education",
-      "NORTH - GRAND HS: Career &Technical Education (CTE) - Culinary & Hospitality Management",
-      "NORTH - GRAND HS: Early College STEAM",
-      "NORTH - GRAND HS: Career &Technical Education (CTE) - Health Science",
-      "NORTH - GRAND HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "AMUNDSEN HS: General Education/Grow Community",
-      "AMUNDSEN HS: International Baccalaureate (IB)",
-      "LINCOLN PARK HS: Advanced College Prep (formerly Double Honors)",
-      "LINCOLN PARK HS: International Baccalaureate (IB) - MYP Diploma Program",
-      "LAKE VIEW HS: Grow Community - Early College STEM",
-      "MANLEY HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "MANLEY HS: General Education",
-      "MARSHALL HS: Career & Technical Education (CTE) - Agriculture & Horticulture",
-      "MARSHALL HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "MARSHALL HS: General Education",
-      "MATHER HS: AVID",
-      "MATHER HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "MATHER HS: General Education",
-      "MATHER HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "MATHER HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "MATHER HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "MORGAN PARK HS: General Education",
-      "MORGAN PARK HS: International Baccalaureate (IB)",
-      "PHILLIPS HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "PHILLIPS HS: General Education",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Information Technology - Computer Networking",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "ROOSEVELT HS: General Education",
-      "ROOSEVELT HS: World Language - Dual Language",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Health Science",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "SCHURZ HS: Career & Technical Education (CTE) - Business & Finance - Accounting & Entrepreneurship",
-      "SCHURZ HS: Career & Technical Education (CTE) - Transportation - Automotive Technology",
-      "SCHURZ HS: AVID",
-      "SCHURZ HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "SCHURZ HS: World Language - Dual Language",
-      "SCHURZ HS: General Education",
-      "SCHURZ HS: Career & Technical Education (CTE) - Health Science",
-      "SCHURZ HS: International Baccalaureate (IB)",
-      "SCHURZ HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "SENN HS: General Education",
-      "SENN HS: International Baccalaureate (IB)",
-      "STEINMETZ HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "STEINMETZ HS: STEAM",
-      "STEINMETZ HS: International Baccalaureate (IB)",
-      "STEINMETZ HS: Military & Service Leadership - JROTC",
-      "ENGLEWOOD STEM HS: Early College STEM",
-      "BACK OF THE YARDS HS: World Language - Dual Language",
-      "BACK OF THE YARDS HS: General Education",
-      "BACK OF THE YARDS HS: International Baccalaureate (IB)",
-      "SPRY HS: SPRY COMMUNITY LINKS HS - Three - Year; Year - Round High School",
-      "ORR HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "ORR HS: General Education",
-      "SOLORIO HS: General Education",
-      "SOLORIO HS: Honors - Double Honors/Scholars",
-      "SOLORIO HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "OGDEN HS: International Baccalaureate (IB)",
-      "DOUGLASS HS: General Education",
-      "KING HS: King HS - Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "HANCOCK HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "HANCOCK HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "WESTINGHOUSE HS: Career & Technical Education (CTE) - Career Academy",
-      "JONES HS: Pre - Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "JONES HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "SOUTH SHORE INTL HS: Career & Technical Education (CTE) - Health Science",
-      "SOUTH SHORE INTL HS: International Baccalaureate (IB)",
-      "CHICAGO ACADEMY HS: General Education",
-      "CHICAGO ACADEMY HS: Honors - Scholars",
-      "WILLIAMS HS: General Education",
-      "WILLIAMS HS: Career & Technical Education (CTE) - Health Science",
-      "BRONZEVILLE HS: International Baccalaureate (IB)",
-      "SOCIAL JUSTICE HS: General Education",
-      "SOCIAL JUSTICE HS: Career & Technical Education (CTE) - Health Science",
-      "INFINITY HS: LVLHS INFINITY HS - General Education - STEM",
-      "MULTICULTURAL ARTS HS: MULTICULTURAL HS - General Education - Fine & Performing Arts",
-      "MULTICULTURAL ARTS HS: MULTICULTURAL HS - Career & Technical Education (CTE) - Health Science",
-      "BOWEN HS: General Education",
-      "BOWEN HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "RABY HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "RABY HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "RABY HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "AUSTIN CCA HS: General Education",
-      "ALCOTT HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "WORLD LANGUAGE HS: Career & Technical Education (CTE) - Health Science",
-      "WORLD LANGUAGE HS: General Education",
-      "UPLIFT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "UPLIFT HS: General Education - Early College STEAM",
-      "Collins Academy STEAM HS: COLLINS HS - Fine & Performing Arts",
-      "Collins Academy STEAM HS: COLLINS HS - General Education",
-      "Collins Academy STEAM HS: COLLINS HS - Career & Technical Education (CTE) - Information Technology - Computer Networking",
-      "Collins Academy STEAM HS: COLLINS HS - Honors - Scholars"
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Brass & Woodwinds",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Creative Writing",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Dance",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Guitar",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Musical Theatre",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Percussion",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Piano",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Strings",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Theatre",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Visual Arts",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Vocal Music",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Deaf/Hard of Hearing",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-General Education",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "DUNBAR HS: DUNBAR HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PROSSER HS: PROSSER HS-Deaf/Hard of Hearing",
+      "PROSSER HS: PROSSER HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SIMEON HS: SIMEON HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "SIMEON HS: SIMEON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "NOBLE - NOBLE HS: NOBLE - NOBLE HS-General Education",
+      "NOBLE - COMER: NOBLE - COMER-General Education",
+      "NOBLE - GOLDER HS: NOBLE - GOLDER HS-General Education",
+      "NOBLE - RAUNER HS: NOBLE - RAUNER HS-General Education",
+      "NOBLE - PRITZKER HS: NOBLE - PRITZKER HS-General Education",
+      "NOBLE - ROWE CLARK HS: NOBLE - ROWE CLARK HS-STEM",
+      "NOBLE - UIC HS: NOBLE - UIC HS-General Education",
+      "NLCP - CHRISTIANA HS: NLCP - CHRISTIANA HS-General Education",
+      "NLCP - COLLINS HS: NLCP - COLLINS HS-General Education",
+      "NOBLE - BULLS HS: NOBLE - BULLS HS-General Education",
+      "CICS - ELLISON HS: CICS - ELLISON HS-General Education",
+      "NOBLE - JOHNSON HS: NOBLE - JOHNSON HS-General Education",
+      "NOBLE - MUCHIN HS: NOBLE - MUCHIN HS-General Education",
+      "U OF C - WOODLAWN HS: U OF C - WOODLAWN HS-General Education",
+      "PERSPECTIVES - LEADERSHIP HS: PERSPECTIVES - LEADERSHIP HS-General Education",
+      "PERSPECTIVES - TECH HS: PERSPECTIVES - TECH HS-STEM",
+      "PERSPECTIVES - JOSLIN HS: PERSPECTIVES - JOSLIN HS-General Education",
+      "CICS - LONGWOOD: CICS - LONGWOOD-General Education",
+      "CICS - NORTHTOWN HS: CICS - NORTHTOWN HS-General Education",
+      "CHICAGO MATH & SCIENCE HS: CHICAGO MATH & SCIENCE HS-General Education",
+      "INSTITUTO - HEALTH: INSTITUTO - HEALTH-Health Sciences",
+      "INSTITUTO - HEALTH: INSTITUTO - HEALTH-General Education",
+      "NOBLE - HANSBERRY HS: NOBLE - HANSBERRY HS-International Baccalaureate (IB)",
+      "NOBLE - DRW HS: NOBLE - DRW HS-General Education",
+      "LEGAL PREP HS: LEGAL PREP HS-Law & Public Safety",
+      "PERSPECTIVES - MATH & SCI HS: PERSPECTIVES - MATH & SCI HS-STEM",
+      "ACERO - GARCIA HS: ACERO - GARCIA HS-STEM",
+      "URBAN PREP HS: URBAN PREP HS-General Education",
+      "NOBLE - ITW SPEER HS: NOBLE - ITW SPEER HS-STEM",
+      "NOBLE - ACADEMY HS: NOBLE - ACADEMY HS-General Education",
+      "CHICAGO COLLEGIATE: CHICAGO COLLEGIATE-General Education",
+      "INTRINSIC HS: INTRINSIC HS-General Education",
+      "NOBLE - BUTLER HS: NOBLE - BUTLER HS-General Education",
+      "NOBLE - BAKER HS: NOBLE - BAKER HS-General Education",
+      "ACERO - SOTO HS: ACERO - SOTO HS-General Education",
+      "ART IN MOTION: ART IN MOTION-Fine & Performing Arts",
+      "NOBLE - MANSUETO HS: NOBLE - MANSUETO HS-International Baccalaureate (IB)",
+      "GOODE HS: GOODE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "GOODE HS: GOODE HS-Early College STEM",
+      "CHICAGO TECH HS: CHICAGO TECH HS-STEM",
+      "CLARK HS: CLARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "DISNEY II HS: DISNEY II HS-Magnet - Fine & Performing Arts, Technology (7-8)",
+      "VON STEUBEN HS: VON STEUBEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CURIE HS: CURIE HS-Deaf/Hard of Hearing",
+      "CURIE HS: CURIE HS-Magnet - Fine & Performing Arts",
+      "CURIE HS: CURIE HS-Visual Impairment",
+      "CHICAGO MILITARY HS: CHICAGO MILITARY HS-Military & Service Leadership",
+      "MILITARY LEADERSHIP HS: MILITARY LEADERSHIP HS-Military & Service Leadership",
+      "DYETT ARTS HS: DYETT ARTS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SULLIVAN HS: SULLIVAN HS-The English Learner Academy",
+      "SULLIVAN HS: SULLIVAN HS-General Education",
+      "SULLIVAN HS: SULLIVAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "TAFT HS: TAFT HS-General Education",
+      "TAFT HS: TAFT HS-Significantly Modified Curriculum w/Intensive Supports",
+      "TILDEN HS: TILDEN HS-General Education",
+      "TILDEN HS: TILDEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "JUAREZ HS: JUAREZ HS-General Education",
+      "JULIAN HS: JULIAN HS-Significantly Modified Curriculum w/ Moderate Support",
+      "JULIAN HS: JULIAN HS-Fine & Performing Arts",
+      "JULIAN HS: JULIAN HS-General Education",
+      "MANLEY HS: MANLEY HS-General Education",
+      "MARSHALL HS: MARSHALL HS-General Education",
+      "CLEMENTE HS: CLEMENTE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CORLISS HS: CORLISS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CORLISS HS: CORLISS HS-Early College STEM",
+      "RICHARDS HS: RICHARDS HS-General Education",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Early College STEAM",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Significantly Modified Curriculum w/Intensive Supports",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Significantly Modified Curriculum w/Moderate Supports",
+      "AMUNDSEN HS: AMUNDSEN HS-General Education/Grow Community",
+      "AMUNDSEN HS: AMUNDSEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Theatre",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Instrumental Music",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Visual Arts",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Vocal Music",
+      "LAKE VIEW HS: LAKE VIEW HS-Grow Community - Early College STEM",
+      "MATHER HS: MATHER HS-General Education",
+      "MORGAN PARK HS: MORGAN PARK HS-Significantly Modified Curriculum w/Moderate Supports",
+      "PHILLIPS HS: PHILLIPS HS-General Education",
+      "KENWOOD HS: KENWOOD HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "ROOSEVELT HS: ROOSEVELT HS-General Education",
+      "ROOSEVELT HS: ROOSEVELT HS-Dual Language",
+      "ROOSEVELT HS: ROOSEVELT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SCHURZ HS: SCHURZ HS-Dual Language",
+      "SCHURZ HS: SCHURZ HS-General Education",
+      "SCHURZ HS: SCHURZ HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SENN HS: SENN HS-Dance",
+      "SENN HS: SENN HS-Music",
+      "SENN HS: SENN HS-Theatre",
+      "SENN HS: SENN HS-Visual Arts",
+      "WASHINGTON HS: WASHINGTON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "WELLS HS: WELLS HS-Fine & Performing Arts",
+      "WELLS HS: WELLS HS-General Education",
+      "HUBBARD HS: HUBBARD HS-General Education",
+      "BOGAN HS: BOGAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "FARRAGUT HS: FARRAGUT HS-General Education",
+      "FARRAGUT HS: FARRAGUT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "FENGER HS: FENGER HS-General Education",
+      "FOREMAN HS: FOREMAN HS-General Education",
+      "FOREMAN HS: FOREMAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "GAGE PARK HS: GAGE PARK HS-General Education",
+      "GAGE PARK HS: GAGE PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "HARLAN HS: HARLAN HS-General Education",
+      "HARLAN HS: HARLAN HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "HIRSCH HS: HIRSCH HS-General Education",
+      "HYDE PARK HS: HYDE PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "KELLY HS: KELLY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "KELVYN PARK HS: KELVYN PARK HS-Open Enrollment",
+      "KELVYN PARK HS: KELVYN PARK HS-Fine & Performing Arts",
+      "KELVYN PARK HS: KELVYN PARK HS-General Education",
+      "KENNEDY HS: KENNEDY HS-General Education",
+      "KENNEDY HS: KENNEDY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "OGDEN HS: OGDEN HS-Deaf/Hard of Hearing",
+      "ENGLEWOOD STEM HS: ENGLEWOOD STEM HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "ENGLEWOOD STEM HS: ENGLEWOOD STEM HS-Early College STEM",
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-Dual Language",
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-General Education",
+      "SOLORIO HS: SOLORIO HS-General Education",
+      "SOLORIO HS: SOLORIO HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "DOUGLASS HS: DOUGLASS HS-General Education",
+      "SPRY HS: SPRY HS-Three-Year; Year-Round High School",
+      "ORR HS: ORR HS-General Education",
+      "NORTHSIDE PREP HS: NORTHSIDE PREP HS-Significantly Modified Curriculum w/Intensive Supports",
+      "KING HS: KING HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "KING HS: KING HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LANE TECH HS: LANE TECH HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "LANE TECH HS: LANE TECH HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "HANCOCK HS: HANCOCK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "YOUNG HS: YOUNG HS-Deaf/Hard of Hearing",
+      "YOUNG HS: YOUNG HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "YOUNG HS: YOUNG HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BROOKS HS: BROOKS HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "BROOKS HS: BROOKS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PAYTON HS: PAYTON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PAYTON HS: PAYTON HS-Visual Impairment",
+      "JONES HS: JONES HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "JONES HS: JONES HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LINDBLOM HS: LINDBLOM HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "LINDBLOM HS: LINDBLOM HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BOWEN HS: BOWEN HS-General Education",
+      "BOWEN HS: BOWEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "RABY HS: RABY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CHICAGO ACADEMY HS: CHICAGO ACADEMY HS-General Education",
+      "WORLD LANGUAGE HS: WORLD LANGUAGE HS-General Education",
+      "MULTICULTURAL ARTS HS: MULTICULTURAL ARTS HS-Fine & Performing Arts",
+      "SOCIAL JUSTICE HS: SOCIAL JUSTICE HS-General Education",
+      "BRONZEVILLE HS: BRONZEVILLE HS-General Education",
+      "BRONZEVILLE HS: BRONZEVILLE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "ALCOTT HS: ALCOTT HS-General Education",
+      "UPLIFT HS: UPLIFT HS-Early College STEAM",
+      "UPLIFT HS: UPLIFT HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "UPLIFT HS: UPLIFT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "COLLINS STEAM HS: COLLINS STEAM HS-Fine & Performing Arts",
+      "COLLINS STEAM HS: COLLINS STEAM HS-General Education",
+      "COLLINS STEAM HS: COLLINS STEAM HS-STEAM",
+      "AUSTIN CCA HS: AUSTIN CCA HS-General Education",
+      "NORTHSIDE LEARNING HS: NORTHSIDE LEARNING HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "VAUGHN HS: VAUGHN HS-Significantly Modified Curriculum w/ Moderate Supports"
     ],
-    "desc": "None",
+    "desc": "<ul><li>GPA: N/A</li></ul>",
     "fn": accept(everyone)
   },
-  "93c6f349e4f5e35de421419911fa61b5": {
-    "id": "93c6f349e4f5e35de421419911fa61b5",
+  "c8d9b77e2fc468dca61148b9cf487317": {
+    "id": "c8d9b77e2fc468dca61148b9cf487317",
     "programs": [
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Agriculture & Horticulture",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Architecture & Construction - Carpentry",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Personal Care Services - Cosmetology",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Transportation - Diesel Technology",
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Early College STEM",
-      "CURIE HS: Career & Technical Education (CTE) - Business & Finance - Accounting",
-      "CURIE HS: Career & Technical Education (CTE) - Architecture & Construction - Architecture",
-      "CURIE HS: Career & Technical Education (CTE) - Transportation - Automotive Technology",
-      "CURIE HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "CURIE HS: Career & Technical Education (CTE) - Culinary & Hospitality",
-      "CURIE HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "CURIE HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "CURIE HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "JUAREZ HS: Career & Technical Education (CTE) - Architecture & Construction",
-      "JUAREZ HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "JUAREZ HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "JUAREZ HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "JULIAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "JULIAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "JULIAN HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "JULIAN HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "HUBBARD HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "HUBBARD HS: Career & Technical Education (CTE) - Information Technology - Web Development & Design",
-      "SULLIVAN HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "TILDEN HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "DYETT ARTS HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "FARRAGUT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "FOREMAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "HARLAN HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "HYDE PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "HYDE PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "KELLY HS: Career & Technical Education (CTE) - Architecture & Construction",
-      "KELLY HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "KELVYN PARK HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "RICHARDS HS: Career & Technical Education (CTE) - Business & Finance - Entrepreneurship",
-      "RICHARDS HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "NORTH - GRAND HS: Career &Technical Education (CTE) - Culinary & Hospitality Management",
-      "MANLEY HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "MARSHALL HS: Career & Technical Education (CTE) - Agriculture & Horticulture",
-      "MARSHALL HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "MATHER HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "MATHER HS: Career & Technical Education (CTE) - Information Technology - Game Programming & Web Design",
-      "PHILLIPS HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Information Technology - Computer Networking",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "SCHURZ HS: Career & Technical Education (CTE) - Business & Finance - Accounting & Entrepreneurship",
-      "SCHURZ HS: Career & Technical Education (CTE) - Transportation - Automotive Technology",
-      "SCHURZ HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "STEINMETZ HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "ORR HS: Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "BOWEN HS: Career & Technical Education (CTE) - Manufacturing & Engineering - Machine Technology"
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Brass & Woodwinds",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Creative Writing",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Dance",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Guitar",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Musical Theatre",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Percussion",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Piano",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Strings",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Theatre",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Visual Arts",
+      "CHICAGO ARTS HS: CHICAGO ARTS HS-Vocal Music",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Health Science",
+      "VON STEUBEN HS: VON STEUBEN HS-Scholars",
+      "CURIE HS: CURIE HS-Pre-Engineering",
+      "SULLIVAN HS: SULLIVAN HS-Health Science",
+      "JUAREZ HS: JUAREZ HS-Health Science",
+      "JULIAN HS: JULIAN HS-Health Science",
+      "CLEMENTE HS: CLEMENTE HS-Health Science",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Health Science",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Pre-Engineering",
+      "MATHER HS: MATHER HS-Pre-Engineering",
+      "MATHER HS: MATHER HS-Pre-Law",
+      "ROOSEVELT HS: ROOSEVELT HS-Health Science",
+      "SCHURZ HS: SCHURZ HS-Health Science",
+      "SCHURZ HS: SCHURZ HS-Pre-Engineering",
+      "WELLS HS: WELLS HS-Pre-Law",
+      "FARRAGUT HS: FARRAGUT HS-Pre-Law",
+      "FOREMAN HS: FOREMAN HS-Pre-Engineering",
+      "GAGE PARK HS: GAGE PARK HS-Health Science",
+      "KELVYN PARK HS: KELVYN PARK HS-Health Science",
+      "SOLORIO HS: SOLORIO HS-Scholars",
+      "SOLORIO HS: SOLORIO HS-Pre-Engineering",
+      "KING HS: KING HS-Pre-Engineering",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Health Science",
+      "BOWEN HS: BOWEN HS-Pre-Engineering",
+      "WORLD LANGUAGE HS: WORLD LANGUAGE HS-Health Science",
+      "WILLIAMS HS: WILLIAMS HS-Health Science",
+      "MULTICULTURAL ARTS HS: MULTICULTURAL ARTS HS-Health Science",
+      "SOCIAL JUSTICE HS: SOCIAL JUSTICE HS-Health Science",
+      "ALCOTT HS: ALCOTT HS-Pre-Engineering"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Attendance Area,General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-        ifHasGrades({ hsatCombined: 58 })
-      ),
-      fn: lottery(
-        ATTENDANCE_AREA_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
+    "desc": "<ul><li><strong>Priority: </strong>General</li></ul>",
+    "fn": lottery(GENERAL_LOTTERY_STAGE)
   },
-  "093bdb9e6477bfb91a17a801e48e406a": {
-    "id": "093bdb9e6477bfb91a17a801e48e406a",
+  "c0eb9bf2387879b885b2af70335bbaae": {
+    "id": "c0eb9bf2387879b885b2af70335bbaae",
     "programs": [
-      "CHICAGO VOCATIONAL HS: Special Education - Deaf/Hard of Hearing",
-      "CHICAGO VOCATIONAL HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CHICAGO VOCATIONAL HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "DUNBAR HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PROSSER HS: Special Education - Deaf/Hard of Hearing",
-      "PROSSER HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SIMEON HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "SIMEON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "GOODE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CLARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CHICAGO AGRICULTURE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CHICAGO AGRICULTURE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CURIE HS: Special Education - Deaf/Hard of Hearing",
-      "CURIE HS: Special Education - Visual Impairment",
-      "VON STEUBEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KENWOOD HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CLEMENTE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CORLISS HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "JULIAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Support",
-      "JULIAN HS: Special Education - MultiSensory",
-      "WASHINGTON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HUBBARD HS: Special Education - MultiSensory",
-      "SULLIVAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "TAFT HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "TILDEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "DYETT ARTS HS: DYETT HS - Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BOGAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "FARRAGUT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "FOREMAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "GAGE PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HARLAN HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "HYDE PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KELLY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KELLY HS: Special Education - MultiSensory",
-      "KENNEDY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "NORTH - GRAND HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "NORTH - GRAND HS: Special Education - Significantly Modified Curriculum w/Moderate Supports",
-      "AMUNDSEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LINCOLN PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LAKE VIEW HS: Special Education - MultiSensory",
-      "MORGAN PARK HS: Special Education - Significantly Modified Curriculum w/Moderate Supports",
-      "ROOSEVELT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SCHURZ HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "ENGLEWOOD STEM HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SOLORIO HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "OGDEN HS: Special Education - Deaf/Hard of Hearing",
-      "NORTHSIDE PREP HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "KING HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "KING HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "YOUNG HS: Special Education - Deaf/Hard of Hearing",
-      "YOUNG HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "YOUNG HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LANE TECH HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "LANE TECH HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HANCOCK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "WESTINGHOUSE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "WESTINGHOUSE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BROOKS HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "BROOKS HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PAYTON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PAYTON HS: Special Education - Visual Impairment",
-      "JONES HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "JONES HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SOUTH SHORE INTL HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LINDBLOM HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "LINDBLOM HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BRONZEVILLE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BOWEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "RABY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "UPLIFT HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "UPLIFT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "VAUGHN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "NORTHSIDE LEARNING HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports"
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Agriculture & Horticulture",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Carpentry",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Cosmetology",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Culinary & Hospitality Management",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Diesel Technology",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Health Science",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Early College STEM",
+      "DUNBAR HS: DUNBAR HS-Career Academy",
+      "PROSSER HS: PROSSER HS-International Baccalaureate (IB)",
+      "CHICAGO TECH HS: CHICAGO TECH HS-Game Programming",
+      "CLARK HS: CLARK HS-International Baccalaureate (IB)",
+      "CLARK HS: CLARK HS-Magnet - Early College STEM",
+      "DISNEY II HS: DISNEY II HS-Magnet - Fine & Performing Arts, Technology",
+      "CRANE MEDICAL HS: CRANE MEDICAL HS-Magnet - Early College STEM",
+      "VON STEUBEN HS: VON STEUBEN HS-Magnet - STEM College Prep",
+      "VON STEUBEN HS: VON STEUBEN HS-Scholars",
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Magnet-Agriculture & Horticulture",
+      "CURIE HS: CURIE HS-Accounting",
+      "CURIE HS: CURIE HS-Architecture",
+      "CURIE HS: CURIE HS-Automotive Technology",
+      "CURIE HS: CURIE HS-Broadcast",
+      "CURIE HS: CURIE HS-Culinary & Hospitality",
+      "CURIE HS: CURIE HS-Digital Media",
+      "CURIE HS: CURIE HS-Teaching Academy",
+      "CURIE HS: CURIE HS-International Baccalaureate (IB)",
+      "CURIE HS: CURIE HS-Game Programming & Web Design",
+      "CURIE HS: CURIE HS-Pre-Engineering",
+      "CARVER MILITARY HS: CARVER MILITARY HS-Military & Service Leadership",
+      "MILITARY LEADERSHIP HS: MILITARY LEADERSHIP HS-Military & Service Leadership",
+      "HOLMES HS: HOLMES HS-Military & Service Leadership",
+      "PHOENIX MILITARY HS: PHOENIX MILITARY HS-Military & Service Leadership",
+      "RICKOVER MILITARY HS: RICKOVER MILITARY HS-Military & Service Leadership",
+      "DYETT ARTS HS: DYETT ARTS HS-Digital Media",
+      "SULLIVAN HS: SULLIVAN HS-Entrepreneurship",
+      "SULLIVAN HS: SULLIVAN HS-Health Science",
+      "TAFT HS: TAFT HS-International Baccalaureate (IB)",
+      "TILDEN HS: TILDEN HS-Culinary & Hospitality Management",
+      "JUAREZ HS: JUAREZ HS-Architecture & Construction",
+      "JUAREZ HS: JUAREZ HS-Culinary & Hospitality Management",
+      "JUAREZ HS: JUAREZ HS-Teaching Academy",
+      "JUAREZ HS: JUAREZ HS-Health Science",
+      "JUAREZ HS: JUAREZ HS-International Baccalaureate (IB)",
+      "JUAREZ HS: JUAREZ HS-Game Programming & Web Design",
+      "JULIAN HS: JULIAN HS-Broadcast",
+      "JULIAN HS: JULIAN HS-Digital Media",
+      "JULIAN HS: JULIAN HS-Entrepreneurship",
+      "JULIAN HS: JULIAN HS-Health Science",
+      "JULIAN HS: JULIAN HS-Game Programming",
+      "MANLEY HS: MANLEY HS-Culinary & Hospitality Management",
+      "MARSHALL HS: MARSHALL HS-Agriculture & Horticulture",
+      "MARSHALL HS: MARSHALL HS-Culinary & Hospitality Management",
+      "CLEMENTE HS: CLEMENTE HS-Broadcast",
+      "CLEMENTE HS: CLEMENTE HS-Culinary & Hospitality Management",
+      "CLEMENTE HS: CLEMENTE HS-Health Science",
+      "CLEMENTE HS: CLEMENTE HS-International Baccalaureate (IB)",
+      "RICHARDS HS: RICHARDS HS-Business & Finance-Entrepreneurship",
+      "RICHARDS HS: RICHARDS HS-Culinary & Hospitality Management",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Culinary & Hospitality Management",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Health Science",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Pre-Engineering",
+      "AMUNDSEN HS: AMUNDSEN HS-International Baccalaureate (IB)",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Advanced College Prep",
+      "LINCOLN PARK HS: LINCOLN PARK HS-International Baccalaureate (IB) - MYP Diploma Program",
+      "MATHER HS: MATHER HS-Digital Media",
+      "MATHER HS: MATHER HS-Game Programming & Web Design",
+      "MATHER HS: MATHER HS-Pre-Engineering",
+      "MATHER HS: MATHER HS-Pre-Law",
+      "MORGAN PARK HS: MORGAN PARK HS-International Baccalaureate (IB)",
+      "PHILLIPS HS: PHILLIPS HS-Digital Media",
+      "ROOSEVELT HS: ROOSEVELT HS-Computer Networking",
+      "ROOSEVELT HS: ROOSEVELT HS-Culinary & Hospitality Management",
+      "ROOSEVELT HS: ROOSEVELT HS-Teaching Academy",
+      "ROOSEVELT HS: ROOSEVELT HS-Health Science",
+      "ROOSEVELT HS: ROOSEVELT HS-Game Programming",
+      "SCHURZ HS: SCHURZ HS-Accounting & Entrepreneurship",
+      "SCHURZ HS: SCHURZ HS-Automotive Technology",
+      "SCHURZ HS: SCHURZ HS-Digital Media",
+      "SCHURZ HS: SCHURZ HS-Health Science",
+      "SCHURZ HS: SCHURZ HS-International Baccalaureate (IB)",
+      "SCHURZ HS: SCHURZ HS-Pre-Engineering",
+      "SENN HS: SENN HS-International Baccalaureate (IB)",
+      "STEINMETZ HS: STEINMETZ HS-Digital Media",
+      "STEINMETZ HS: STEINMETZ HS-International Baccalaureate (IB)",
+      "WASHINGTON HS: WASHINGTON HS-International Baccalaureate (IB)",
+      "WELLS HS: WELLS HS-Pre-Law",
+      "HUBBARD HS: HUBBARD HS-Game Programming",
+      "HUBBARD HS: HUBBARD HS-Web Development & Design",
+      "HUBBARD HS: HUBBARD HS-International Baccalaureate (IB)",
+      "HUBBARD HS: HUBBARD HS-University Scholars",
+      "BOGAN HS: BOGAN HS-International Baccalaureate (IB)",
+      "FARRAGUT HS: FARRAGUT HS-Teaching Academy",
+      "FARRAGUT HS: FARRAGUT HS-International Baccalaureate (IB)",
+      "FARRAGUT HS: FARRAGUT HS-Pre-Law",
+      "FOREMAN HS: FOREMAN HS-Digital Media",
+      "FOREMAN HS: FOREMAN HS-Pre-Engineering",
+      "GAGE PARK HS: GAGE PARK HS-Health Science",
+      "HARLAN HS: HARLAN HS-Digital Media",
+      "HYDE PARK HS: HYDE PARK HS-Broadcast",
+      "HYDE PARK HS: HYDE PARK HS-Digital Media",
+      "HYDE PARK HS: HYDE PARK HS-General Education",
+      "HYDE PARK HS: HYDE PARK HS-International Baccalaureate (IB)",
+      "KELLY HS: KELLY HS-Digital Media",
+      "KELLY HS: KELLY HS-International Baccalaureate (IB)",
+      "KELVYN PARK HS: KELVYN PARK HS-Digital Media",
+      "KELVYN PARK HS: KELVYN PARK HS-Health Science",
+      "KENNEDY HS: KENNEDY HS-International Baccalaureate (IB)",
+      "OGDEN HS: OGDEN HS-International Baccalaureate (IB)",
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-International Baccalaureate (IB)",
+      "SOLORIO HS: SOLORIO HS-Scholars",
+      "SOLORIO HS: SOLORIO HS-Pre-Engineering",
+      "ORR HS: ORR HS-Digital Media",
+      "NORTHSIDE PREP HS: NORTHSIDE PREP HS-Selective Enrollment High School",
+      "KING HS: KING HS-Pre-Engineering",
+      "KING HS: KING HS-Digital Media",
+      "KING HS: KING HS-Selective Enrollment High School",
+      "LANE TECH HS: LANE TECH HS-Selective Enrollment High School",
+      "HANCOCK HS: HANCOCK HS-Pre-Engineering",
+      "HANCOCK HS: HANCOCK HS-Pre-Law",
+      "HANCOCK HS: HANCOCK HS-Selective Enrollment High School",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Selective Enrollment High School",
+      "YOUNG HS: YOUNG HS-Selective Enrollment High School",
+      "BROOKS HS: BROOKS HS-Selective Enrollment High School",
+      "PAYTON HS: PAYTON HS-Selective Enrollment High School",
+      "JONES HS: JONES HS-Pre-Engineering",
+      "JONES HS: JONES HS-Pre-Law",
+      "JONES HS: JONES HS-Selective Enrollment High School",
+      "LINDBLOM HS: LINDBLOM HS-Selective Enrollment High School",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Health Science",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Selective Enrollment High School",
+      "BOWEN HS: BOWEN HS-Machine Technology",
+      "BOWEN HS: BOWEN HS-Pre-Engineering",
+      "RABY HS: RABY HS-Broadcast",
+      "RABY HS: RABY HS-Culinary & Hospitality Management",
+      "WORLD LANGUAGE HS: WORLD LANGUAGE HS-Health Science",
+      "WILLIAMS HS: WILLIAMS HS-General Education",
+      "WILLIAMS HS: WILLIAMS HS-Health Science",
+      "MULTICULTURAL ARTS HS: MULTICULTURAL ARTS HS-Health Science",
+      "SOCIAL JUSTICE HS: SOCIAL JUSTICE HS-Health Science",
+      "BRONZEVILLE HS: BRONZEVILLE HS-International Baccalaureate (IB)",
+      "ALCOTT HS: ALCOTT HS-Pre-Engineering",
+      "UPLIFT HS: UPLIFT HS-Teaching Academy",
+      "COLLINS STEAM HS: COLLINS STEAM HS-Computer Networking"
     ],
-    "desc": "Cluster and Review",
-    "fn": notImplemented
+    "desc": "<ul><li>Application Requirements: High School Admissions Test (HSAT) Scores Required.</li><li>GPA: N/A</li></ul>",
+    "fn": accept(everyone)
   },
-  "bb859ed4e5c91f128ecede83b8a0fc70": {
-    "id": "bb859ed4e5c91f128ecede83b8a0fc70",
+  "702a390a42f3bc7983516f8524dec606": {
+    "id": "702a390a42f3bc7983516f8524dec606",
     "programs": [
-      "CHICAGO VOCATIONAL HS: Special Education - Deaf/Hard of Hearing",
-      "CHICAGO VOCATIONAL HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CHICAGO VOCATIONAL HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "DUNBAR HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PROSSER HS: Special Education - Deaf/Hard of Hearing",
-      "PROSSER HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SIMEON HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "SIMEON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "GOODE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CLARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CHICAGO AGRICULTURE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "CHICAGO AGRICULTURE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CURIE HS: Special Education - Deaf/Hard of Hearing",
-      "CURIE HS: Special Education - Visual Impairment",
-      "VON STEUBEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KENWOOD HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CLEMENTE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "CORLISS HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "JULIAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Support",
-      "JULIAN HS: Special Education - MultiSensory",
-      "WASHINGTON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HUBBARD HS: Special Education - MultiSensory",
-      "SULLIVAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "TAFT HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "TILDEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "DYETT ARTS HS: DYETT HS - Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BOGAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "FARRAGUT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "FOREMAN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "GAGE PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HARLAN HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "HYDE PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KELLY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "KELLY HS: Special Education - MultiSensory",
-      "KENNEDY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "NORTH - GRAND HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "NORTH - GRAND HS: Special Education - Significantly Modified Curriculum w/Moderate Supports",
-      "AMUNDSEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LINCOLN PARK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LAKE VIEW HS: Special Education - MultiSensory",
-      "MORGAN PARK HS: Special Education - Significantly Modified Curriculum w/Moderate Supports",
-      "ROOSEVELT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SCHURZ HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "ENGLEWOOD STEM HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SOLORIO HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "OGDEN HS: Special Education - Deaf/Hard of Hearing",
-      "NORTHSIDE PREP HS: Special Education - Significantly Modified Curriculum w/Intensive Supports",
-      "KING HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "KING HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "YOUNG HS: Special Education - Deaf/Hard of Hearing",
-      "YOUNG HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "YOUNG HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LANE TECH HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "LANE TECH HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "HANCOCK HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "WESTINGHOUSE HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "WESTINGHOUSE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BROOKS HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "BROOKS HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PAYTON HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "PAYTON HS: Special Education - Visual Impairment",
-      "JONES HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "JONES HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "SOUTH SHORE INTL HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "LINDBLOM HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "LINDBLOM HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BRONZEVILLE HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "BOWEN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "RABY HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "UPLIFT HS: Special Education - Significantly Modified Curriculum w/ Intensive Supports",
-      "UPLIFT HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "VAUGHN HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports",
-      "NORTHSIDE LEARNING HS: Special Education - Significantly Modified Curriculum w/ Moderate Supports"
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Agriculture & Horticulture",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Carpentry",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Cosmetology",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Culinary & Hospitality Management",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Diesel Technology",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Early College STEM",
+      "DUNBAR HS: DUNBAR HS-Career Academy",
+      "CHICAGO TECH HS: CHICAGO TECH HS-Game Programming",
+      "CURIE HS: CURIE HS-Accounting",
+      "CURIE HS: CURIE HS-Architecture",
+      "CURIE HS: CURIE HS-Automotive Technology",
+      "CURIE HS: CURIE HS-Broadcast",
+      "CURIE HS: CURIE HS-Culinary & Hospitality",
+      "CURIE HS: CURIE HS-Digital Media",
+      "CURIE HS: CURIE HS-Teaching Academy",
+      "CURIE HS: CURIE HS-Game Programming & Web Design",
+      "DYETT ARTS HS: DYETT ARTS HS-Digital Media",
+      "SULLIVAN HS: SULLIVAN HS-Entrepreneurship",
+      "TILDEN HS: TILDEN HS-Culinary & Hospitality Management",
+      "JUAREZ HS: JUAREZ HS-Architecture & Construction",
+      "JUAREZ HS: JUAREZ HS-Culinary & Hospitality Management",
+      "JUAREZ HS: JUAREZ HS-Teaching Academy",
+      "JUAREZ HS: JUAREZ HS-Game Programming & Web Design",
+      "JULIAN HS: JULIAN HS-Broadcast",
+      "JULIAN HS: JULIAN HS-Digital Media",
+      "JULIAN HS: JULIAN HS-Entrepreneurship",
+      "JULIAN HS: JULIAN HS-Game Programming",
+      "MANLEY HS: MANLEY HS-Culinary & Hospitality Management",
+      "MARSHALL HS: MARSHALL HS-Agriculture & Horticulture",
+      "MARSHALL HS: MARSHALL HS-Culinary & Hospitality Management",
+      "CLEMENTE HS: CLEMENTE HS-Broadcast",
+      "CLEMENTE HS: CLEMENTE HS-Culinary & Hospitality Management",
+      "RICHARDS HS: RICHARDS HS-Business & Finance-Entrepreneurship",
+      "RICHARDS HS: RICHARDS HS-Culinary & Hospitality Management",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Culinary & Hospitality Management",
+      "MATHER HS: MATHER HS-Digital Media",
+      "MATHER HS: MATHER HS-Game Programming & Web Design",
+      "PHILLIPS HS: PHILLIPS HS-Digital Media",
+      "ROOSEVELT HS: ROOSEVELT HS-Computer Networking",
+      "ROOSEVELT HS: ROOSEVELT HS-Culinary & Hospitality Management",
+      "ROOSEVELT HS: ROOSEVELT HS-Teaching Academy",
+      "ROOSEVELT HS: ROOSEVELT HS-Game Programming",
+      "SCHURZ HS: SCHURZ HS-Accounting & Entrepreneurship",
+      "SCHURZ HS: SCHURZ HS-Automotive Technology",
+      "SCHURZ HS: SCHURZ HS-Digital Media",
+      "STEINMETZ HS: STEINMETZ HS-Digital Media",
+      "HUBBARD HS: HUBBARD HS-Game Programming",
+      "HUBBARD HS: HUBBARD HS-Web Development & Design",
+      "FARRAGUT HS: FARRAGUT HS-Teaching Academy",
+      "FOREMAN HS: FOREMAN HS-Digital Media",
+      "HARLAN HS: HARLAN HS-Digital Media",
+      "HYDE PARK HS: HYDE PARK HS-Broadcast",
+      "HYDE PARK HS: HYDE PARK HS-Digital Media",
+      "KELLY HS: KELLY HS-Digital Media",
+      "KELVYN PARK HS: KELVYN PARK HS-Digital Media",
+      "ORR HS: ORR HS-Digital Media",
+      "KING HS: KING HS-Digital Media",
+      "BOWEN HS: BOWEN HS-Machine Technology",
+      "RABY HS: RABY HS-Broadcast",
+      "RABY HS: RABY HS-Culinary & Hospitality Management",
+      "UPLIFT HS: UPLIFT HS-Teaching Academy",
+      "COLLINS STEAM HS: COLLINS STEAM HS-Computer Networking"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Proximity,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Students are selected by lottery within groups with preferences for students who have combined HSAT scores above the 58/48th percentile and who live within the attendance area of the school.</li><li><strong>Priority: </strong>Proximity Preference,General</li></ul>",
+    "fn": lottery(
+      {
+      filter: ifHasGrades({hsatMath: 58, hsatRead: 48}),
+      size: LotteryStageSize.LARGE
+      },
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "329fb2bb81d7ce12a89af11cad5e29b0": {
+    "id": "329fb2bb81d7ce12a89af11cad5e29b0",
+    "programs": [
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Deaf/Hard of Hearing",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "DUNBAR HS: DUNBAR HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PROSSER HS: PROSSER HS-Deaf/Hard of Hearing",
+      "PROSSER HS: PROSSER HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SIMEON HS: SIMEON HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "SIMEON HS: SIMEON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "GOODE HS: GOODE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "CLARK HS: CLARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "VON STEUBEN HS: VON STEUBEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CURIE HS: CURIE HS-Deaf/Hard of Hearing",
+      "CURIE HS: CURIE HS-Visual Impairment",
+      "DYETT ARTS HS: DYETT ARTS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SULLIVAN HS: SULLIVAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "TAFT HS: TAFT HS-Significantly Modified Curriculum w/Intensive Supports",
+      "TILDEN HS: TILDEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "JULIAN HS: JULIAN HS-Significantly Modified Curriculum w/ Moderate Support",
+      "CLEMENTE HS: CLEMENTE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "CORLISS HS: CORLISS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Significantly Modified Curriculum w/Intensive Supports",
+      "NORTH-GRAND HS: NORTH-GRAND HS-Significantly Modified Curriculum w/Moderate Supports",
+      "AMUNDSEN HS: AMUNDSEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LINCOLN PARK HS: LINCOLN PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "MORGAN PARK HS: MORGAN PARK HS-Significantly Modified Curriculum w/Moderate Supports",
+      "KENWOOD HS: KENWOOD HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "ROOSEVELT HS: ROOSEVELT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SCHURZ HS: SCHURZ HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "WASHINGTON HS: WASHINGTON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BOGAN HS: BOGAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "FARRAGUT HS: FARRAGUT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "FOREMAN HS: FOREMAN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "GAGE PARK HS: GAGE PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "HARLAN HS: HARLAN HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "HYDE PARK HS: HYDE PARK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "KELLY HS: KELLY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "KENNEDY HS: KENNEDY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "OGDEN HS: OGDEN HS-Deaf/Hard of Hearing",
+      "ENGLEWOOD STEM HS: ENGLEWOOD STEM HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SOLORIO HS: SOLORIO HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "NORTHSIDE PREP HS: NORTHSIDE PREP HS-Significantly Modified Curriculum w/Intensive Supports",
+      "KING HS: KING HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "KING HS: KING HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LANE TECH HS: LANE TECH HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "LANE TECH HS: LANE TECH HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "HANCOCK HS: HANCOCK HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "YOUNG HS: YOUNG HS-Deaf/Hard of Hearing",
+      "YOUNG HS: YOUNG HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "YOUNG HS: YOUNG HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BROOKS HS: BROOKS HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "BROOKS HS: BROOKS HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PAYTON HS: PAYTON HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "PAYTON HS: PAYTON HS-Visual Impairment",
+      "JONES HS: JONES HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "JONES HS: JONES HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "LINDBLOM HS: LINDBLOM HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "LINDBLOM HS: LINDBLOM HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BOWEN HS: BOWEN HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "RABY HS: RABY HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "BRONZEVILLE HS: BRONZEVILLE HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "UPLIFT HS: UPLIFT HS-Significantly Modified Curriculum w/ Intensive Supports",
+      "UPLIFT HS: UPLIFT HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "COLLINS STEAM HS: COLLINS STEAM HS-Fine & Performing Arts"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Proximity Preference,General</li></ul>",
     "fn": lottery(
       PROXIMITY_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "081e2bdf67bfe620963a0ebe0abaf6f8": {
-    "id": "081e2bdf67bfe620963a0ebe0abaf6f8",
+  "2594b05d883ddedeb324e15aeef48405": {
+    "id": "2594b05d883ddedeb324e15aeef48405",
     "programs": [
-      "CHICAGO VOCATIONAL HS: General Education",
-      "CORLISS HS: STEM - Early College STEM",
-      "JUAREZ HS: General Education",
-      "JULIAN HS: General Education",
-      "WELLS HS: General Education",
-      "TILDEN HS: General Education",
-      "FENGER HS: General Education",
-      "FOREMAN HS: General Education",
-      "GAGE PARK HS: General Education",
-      "HARLAN HS: General Education",
-      "HIRSCH HS: General Education",
-      "HYDE PARK HS: General Education",
-      "KENNEDY HS: General Education",
-      "RICHARDS HS: General Education",
-      "MANLEY HS: General Education",
-      "MARSHALL HS: General Education",
-      "PHILLIPS HS: General Education",
-      "SCHURZ HS: General Education",
-      "ENGLEWOOD STEM HS: Early College STEM",
-      "ORR HS: General Education",
-      "SOCIAL JUSTICE HS: General Education",
-      "MULTICULTURAL ARTS HS: MULTICULTURAL HS - General Education - Fine & Performing Arts",
-      "BOWEN HS: General Education",
-      "AUSTIN CCA HS: General Education",
-      "WORLD LANGUAGE HS: General Education"
+      "CHICAGO VOCATIONAL HS: CHICAGO VOCATIONAL HS-General Education",
+      "TILDEN HS: TILDEN HS-General Education",
+      "JUAREZ HS: JUAREZ HS-General Education",
+      "JULIAN HS: JULIAN HS-General Education",
+      "MANLEY HS: MANLEY HS-General Education",
+      "MARSHALL HS: MARSHALL HS-General Education",
+      "CLEMENTE HS: CLEMENTE HS-General Education",
+      "CORLISS HS: CORLISS HS-Early College STEM",
+      "RICHARDS HS: RICHARDS HS-General Education",
+      "PHILLIPS HS: PHILLIPS HS-General Education",
+      "ROOSEVELT HS: ROOSEVELT HS-General Education",
+      "SCHURZ HS: SCHURZ HS-General Education",
+      "WELLS HS: WELLS HS-General Education",
+      "FENGER HS: FENGER HS-General Education",
+      "FOREMAN HS: FOREMAN HS-General Education",
+      "GAGE PARK HS: GAGE PARK HS-General Education",
+      "HARLAN HS: HARLAN HS-General Education",
+      "HIRSCH HS: HIRSCH HS-General Education",
+      "KELLY HS: KELLY HS-General Education",
+      "KELVYN PARK HS: KELVYN PARK HS-General Education",
+      "KENNEDY HS: KENNEDY HS-General Education",
+      "ENGLEWOOD STEM HS: ENGLEWOOD STEM HS-Early College STEM",
+      "SPRY HS: SPRY HS-Three-Year; Year-Round High School",
+      "ORR HS: ORR HS-General Education",
+      "BOWEN HS: BOWEN HS-General Education",
+      "COLLINS STEAM HS: COLLINS STEAM HS-General Education",
+      "COLLINS STEAM HS: COLLINS STEAM HS-STEAM",
+      "AUSTIN CCA HS: AUSTIN CCA HS-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li></ul>",
     "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
       SIBLING_LOTTERY_STAGE,
       STAFF_PREFERENCE_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "817ab6b8acdc912f43ade2ab6d3f1bc7": {
-    "id": "817ab6b8acdc912f43ade2ab6d3f1bc7",
+  "2889ee097dbf3b99d5b54837c2409e38": {
+    "id": "2889ee097dbf3b99d5b54837c2409e38",
     "programs": [
-      "CHICAGO VOCATIONAL HS: Career & Technical Education (CTE) - Health Science",
-      "DUNBAR HS: Career & Technical Education (CTE) - Health Science",
-      "CURIE HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "VON STEUBEN HS: Honors - Scholars",
-      "CHICAGO MILITARY HS: CHICAGO MILITARY HS at Bronzeville - Military & Service Leadership",
-      "CARVER MILITARY HS: Military & Service Leadership",
-      "AIR FORCE HS: Military & Service Leadership",
-      "PHOENIX MILITARY HS: Military & Service Leadership",
-      "CLEMENTE HS: Career & Technical Education (CTE) - Health Science",
-      "JUAREZ HS: Career & Technical Education (CTE) - Health Science",
-      "JULIAN HS: Career & Technical Education (CTE) - Health Science",
-      "WELLS HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "HUBBARD HS: Honors - University Scholars",
-      "SULLIVAN HS: Career & Technical Education (CTE) - Health Science",
-      "FARRAGUT HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "FOREMAN HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "GAGE PARK HS: Career & Technical Education (CTE) - Health Science",
-      "KELVYN PARK HS: Career & Technical Education (CTE) - Health Science",
-      "NORTH - GRAND HS: Career &Technical Education (CTE) - Health Science",
-      "NORTH - GRAND HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "MATHER HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "MATHER HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "ROOSEVELT HS: Career & Technical Education (CTE) - Health Science",
-      "SCHURZ HS: Career & Technical Education (CTE) - Health Science",
-      "SCHURZ HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "SOLORIO HS: Honors - Double Honors/Scholars",
-      "SOLORIO HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "KING HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "SOUTH SHORE INTL HS: Career & Technical Education (CTE) - Health Science",
-      "WILLIAMS HS: Career & Technical Education (CTE) - Health Science",
-      "SOCIAL JUSTICE HS: Career & Technical Education (CTE) - Health Science",
-      "MULTICULTURAL ARTS HS: MULTICULTURAL HS - Career & Technical Education (CTE) - Health Science",
-      "BOWEN HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "RABY HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "ALCOTT HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "WORLD LANGUAGE HS: Career & Technical Education (CTE) - Health Science"
+      "PROSSER HS: PROSSER HS-Career Academy",
+      "SIMEON HS: SIMEON HS-Career Academy",
+      "TAFT HS: TAFT HS-Academic Center",
+      "CLEMENTE HS: CLEMENTE HS-General Education",
+      "MORGAN PARK HS: MORGAN PARK HS-Academic Center",
+      "MORGAN PARK HS: MORGAN PARK HS-General Education",
+      "KENWOOD HS: KENWOOD HS-Academic Center",
+      "BOGAN HS: BOGAN HS-General Education",
+      "LANE TECH HS: LANE TECH HS-Academic Center",
+      "YOUNG HS: YOUNG HS-Academic Center",
+      "BROOKS HS: BROOKS HS-Academic Center",
+      "LINDBLOM HS: LINDBLOM HS-Academic Center"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li></ul>",
-    "fn": ctePointSystem
+    "desc": "<ul><li>GPA: 2.50</li></ul>",
+    "fn": accept(ifHasGrades({gpa:2.5}))
   },
-  "7a3053081112d27ead712163d022d3ec": {
-    "id": "7a3053081112d27ead712163d022d3ec",
+  "0d074429aa6f81b7360583e1248ad4c0": {
+    "id": "0d074429aa6f81b7360583e1248ad4c0",
     "programs": [
-      "DUNBAR HS: Career & Technical Education (CTE) - Transportation - Auto Body Repair",
-      "DUNBAR HS: Career & Technical Education (CTE) - Architecture & Construction - Architecture",
-      "DUNBAR HS: Career & Technical Education (CTE) - Broadcast Technology",
-      "DUNBAR HS: Career & Technical Education (CTE) - Culinary & Hospitality",
-      "DUNBAR HS: Career & Technical Education (CTE) - Personal Care Services - Cosmetology",
-      "CHICAGO TECH HS: Career & Technical Education (CTE) - Information Technology - Game Programming",
-      "KING HS: King HS - Career & Technical Education (CTE) - Media & Communication Arts - Digital Media",
-      "RABY HS: Career & Technical Education (CTE) - Media & Communication Arts - Broadcast",
-      "RABY HS: Career & Technical Education (CTE) - Culinary & Hospitality Management",
-      "UPLIFT HS: Career & Technical Education (CTE) - Education & Training - Teaching Academy",
-      "Collins Academy STEAM HS: COLLINS HS - Career & Technical Education (CTE) - Information Technology - Computer Networking"
+      "PROSSER HS: PROSSER HS-Career Academy",
+      "DOUGLASS HS: DOUGLASS HS-General Education",
+      "CHICAGO ACADEMY HS: CHICAGO ACADEMY HS-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Proximity,General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-        ifHasGrades({ hsatCombined: 58 })
-      ),
-      fn: lottery(
-        PROXIMITY_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Proximity Preference,General</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
   },
-  "9be7162e1ee6037b9132f599f6bd2f1f": {
-    "id": "9be7162e1ee6037b9132f599f6bd2f1f",
+  "c4b1d03d4d20b067f27e232d87f0c7b4": {
+    "id": "c4b1d03d4d20b067f27e232d87f0c7b4",
     "programs": [
-      "PROSSER HS: Career & Technical Education (CTE) - Career Academy"
+      "PROSSER HS: PROSSER HS-International Baccalaureate (IB)",
+      "CLARK HS: CLARK HS-International Baccalaureate (IB)",
+      "TAFT HS: TAFT HS-International Baccalaureate (IB)",
+      "JUAREZ HS: JUAREZ HS-International Baccalaureate (IB)",
+      "LINCOLN PARK HS: LINCOLN PARK HS-International Baccalaureate (IB) - MYP Diploma Program",
+      "MORGAN PARK HS: MORGAN PARK HS-International Baccalaureate (IB)",
+      "SCHURZ HS: SCHURZ HS-International Baccalaureate (IB)",
+      "HUBBARD HS: HUBBARD HS-International Baccalaureate (IB)",
+      "BOGAN HS: BOGAN HS-International Baccalaureate (IB)",
+      "KELLY HS: KELLY HS-International Baccalaureate (IB)",
+      "KENNEDY HS: KENNEDY HS-International Baccalaureate (IB)",
+      "OGDEN HS: OGDEN HS-International Baccalaureate (IB)",
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-International Baccalaureate (IB)",
+      "BRONZEVILLE HS: BRONZEVILLE HS-International Baccalaureate (IB)"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Proximity,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional({
-      filter: ifHasGrades({ gpa: 2.5 }),
-      fn: lottery(
-        SIBLING_LOTTERY_STAGE,
-        STAFF_PREFERENCE_LOTTERY_STAGE,
-        PROXIMITY_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "bc3f0c8eeccd7c254c8e2beb0acbdeab": {
-    "id": "bc3f0c8eeccd7c254c8e2beb0acbdeab",
-    "programs": [
-      "PROSSER HS: International Baccalaureate (IB)",
-      "SOUTH SHORE INTL HS: International Baccalaureate (IB)",
-      "BRONZEVILLE HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>50 bonus points for students who live within 2.5 miles of the school.</li></ul>",
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. </li></ul>",
     "fn": ibPointSystem
   },
-  "d416d93fd0bc8c838400e8110be5d6ae": {
-    "id": "d416d93fd0bc8c838400e8110be5d6ae",
+  "6c5b02ca81e7440ce0e1561b14f7a41d": {
+    "id": "6c5b02ca81e7440ce0e1561b14f7a41d",
     "programs": [
-      "SIMEON HS: Career & Technical Education (CTE) - Career Academy"
+      "SIMEON HS: SIMEON HS-Career Academy",
+      "CURIE HS: CURIE HS-Magnet - Fine & Performing Arts",
+      "FARRAGUT HS: FARRAGUT HS-General Education",
+      "BRONZEVILLE HS: BRONZEVILLE HS-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 48, gpa: 2.0 })),
-        ifHasGrades({ hsatCombined: 58, gpa: 2.0 })
-      ),
-      fn: lottery(
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "f1f7d18151615d2a896c2b5bda0b151c": {
-    "id": "f1f7d18151615d2a896c2b5bda0b151c",
-    "programs": [
-      "ACERO - GARCIA HS: STEM",
-      "ACERO - SOTO HS: Charter - General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: ACERO - BRIGHTON PARK, ACERO - CISNEROS, ACERO - CLEMENTE, ACERO - DE LA CRUZ, ACERO - DE LAS CASAS, ACERO - FUENTES, ACERO - IDAR, ACERO - MARQUEZ, ACERO - PAZ, ACERO - SANTIAGO, ACERO - TAMAYO, ACERO - TORRES, ACERO - ZIZUMBO\"</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>General</li></ul>",
     "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(...ACERO_ES_PROGRAMS),
-        size: LotteryStageSize.LARGE
-      },
-      GENERAL_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
     )
   },
-  "6bad5064d64f2ad02dac9b05231213f0": {
-    "id": "6bad5064d64f2ad02dac9b05231213f0",
+  "546269f1d3462c8fb3fd259fef46ba67": {
+    "id": "546269f1d3462c8fb3fd259fef46ba67",
     "programs": [
-      "URBAN PREP - ENGLEWOOD HS: Urban Prep Academy for Young Men HS - Englewood - Charter - General Education",
-      "PERSPECTIVES - TECH HS: Charter - STEM",
-      "NOBLE - NOBLE HS: Charter - General Education",
-      "NOBLE - GOLDER HS: Charter - General Education",
-      "NOBLE - PRITZKER HS: Charter - General Education",
-      "NOBLE - RAUNER HS: Charter - General Education",
-      "NOBLE - ROWE CLARK HS: Charter - STEM",
-      "NLCP - CHRISTIANA HS: NORTH LAWNDALE - CHRISTIANA HS - Charter - General Education",
-      "NLCP - COLLINS HS: NORTH LAWNDALE - COLLINS HS - Charter - General Education",
-      "NOBLE - MUCHIN HS: Charter - General Education",
-      "INSTITUTO - HEALTH: Charter - Health Sciences",
-      "INSTITUTO - HEALTH: Charter - General Education",
-      "URBAN PREP - BRONZEVILLE HS: Urban Prep Academy For Young Men HS - Bronzeville - Charter - General Education",
-      "NOBLE - JOHNSON HS: Charter - General Education",
-      "EPIC HS: Charter - General Education",
-      "NOBLE - ACADEMY HS: Charter - General Education",
-      "NOBLE - BUTLER HS: Charter - General Education",
-      "NOBLE - BAKER HS: Charter - General Education",
-      "NOBLE - HANSBERRY HS: Charter - International Baccalaureate (IB)",
-      "NOBLE - DRW HS: Charter - General Education",
-      "LEGAL PREP HS: Charter - Law & Public Safety",
-      "NOBLE - MANSUETO HS: Charter - General Education",
-      "CHICAGO TECH HS: STEM"
+      "NOBLE - NOBLE HS: NOBLE - NOBLE HS-General Education",
+      "NOBLE - GOLDER HS: NOBLE - GOLDER HS-General Education",
+      "NOBLE - RAUNER HS: NOBLE - RAUNER HS-General Education",
+      "NOBLE - PRITZKER HS: NOBLE - PRITZKER HS-General Education",
+      "NOBLE - ROWE CLARK HS: NOBLE - ROWE CLARK HS-STEM",
+      "NLCP - CHRISTIANA HS: NLCP - CHRISTIANA HS-General Education",
+      "NLCP - COLLINS HS: NLCP - COLLINS HS-General Education",
+      "NOBLE - JOHNSON HS: NOBLE - JOHNSON HS-General Education",
+      "NOBLE - MUCHIN HS: NOBLE - MUCHIN HS-General Education",
+      "PERSPECTIVES - TECH HS: PERSPECTIVES - TECH HS-STEM",
+      "PERSPECTIVES - JOSLIN HS: PERSPECTIVES - JOSLIN HS-General Education",
+      "CHICAGO MATH & SCIENCE HS: CHICAGO MATH & SCIENCE HS-General Education",
+      "INSTITUTO - HEALTH: INSTITUTO - HEALTH-Health Sciences",
+      "INSTITUTO - HEALTH: INSTITUTO - HEALTH-General Education",
+      "NOBLE - DRW HS: NOBLE - DRW HS-General Education",
+      "LEGAL PREP HS: LEGAL PREP HS-Law & Public Safety",
+      "PERSPECTIVES - MATH & SCI HS: PERSPECTIVES - MATH & SCI HS-STEM",
+      "URBAN PREP HS: URBAN PREP HS-General Education",
+      "NOBLE - ACADEMY HS: NOBLE - ACADEMY HS-General Education",
+      "CHICAGO COLLEGIATE: CHICAGO COLLEGIATE-General Education",
+      "INTRINSIC HS: INTRINSIC HS-General Education",
+      "NOBLE - BUTLER HS: NOBLE - BUTLER HS-General Education",
+      "NOBLE - BAKER HS: NOBLE - BAKER HS-General Education",
+      "ART IN MOTION: ART IN MOTION-Fine & Performing Arts",
+      "NOBLE - MANSUETO HS: NOBLE - MANSUETO HS-International Baccalaureate (IB)",
+      "CHICAGO TECH HS: CHICAGO TECH HS-STEM"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,General</li></ul>",
     "fn": lottery(
       SIBLING_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "2ec716c893a873f0aa4a2aa0e78598a9": {
-    "id": "2ec716c893a873f0aa4a2aa0e78598a9",
+  "9046201b72e1061f903db4253a64721d": {
+    "id": "9046201b72e1061f903db4253a64721d",
     "programs": [
-      "PERSPECTIVES - LEADERSHIP HS: Charter - General Education"
+      "NOBLE - COMER: NOBLE - COMER-General Education",
+      "NOBLE - UIC HS: NOBLE - UIC HS-General Education",
+      "NOBLE - BULLS HS: NOBLE - BULLS HS-General Education",
+      "U OF C - WOODLAWN HS: U OF C - WOODLAWN HS-General Education",
+      "NOBLE - ITW SPEER HS: NOBLE - ITW SPEER HS-STEM"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Elementary Preference,Sibling Preference,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Overlay Preference,General</li></ul>",
     "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "0e77c0ca55fbe87d41fae8de5e8ede5f": {
+    "id": "0e77c0ca55fbe87d41fae8de5e8ede5f",
+    "programs": [
+      "CICS - ELLISON HS: CICS - ELLISON HS-General Education",
+      "CICS - NORTHTOWN HS: CICS - NORTHTOWN HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,Overlay Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): CICS - AVALON/SOUTH SHORE, CICS - BASIL, CICS - BUCKTOWN, CICS - IRVING PARK, CICS - LONGWOOD, CICS - PRAIRIE, CICS - WASHINGTON PARK, CICS - WEST BELDEN, CICS - WRIGHTWOOD</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      {
+      filter: ifStudentAttendsOneOf(
+        ...CICS_ES_PROGRAMS
+      ),
+      size: LotteryStageSize.LARGE},
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "1e5c5f905bebfdd173606b25053a7059": {
+    "id": "1e5c5f905bebfdd173606b25053a7059",
+    "programs": [
+      "PERSPECTIVES - LEADERSHIP HS: PERSPECTIVES - LEADERSHIP HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): PERSPECTIVES - JOSLIN HS, PERSPECTIVES - MATH & SCI HS, PERSPECTIVES - TECH HS</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
       {
         filter: ifStudentAttendsOneOf(
-          NOBLE_COMER_MS_PROGRAM
+          PERSPECTIVES_MS_PROGRAM
         ),
-        size: LotteryStageSize.SMALL
+        size:LotteryStageSize.LARGE
       },
-      SIBLING_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "3b105ecc91d4a04cc2531ce3572d05e0": {
-    "id": "3b105ecc91d4a04cc2531ce3572d05e0",
+  "93f23ebc2d48abb9c5813ebac9fb0da4": {
+    "id": "93f23ebc2d48abb9c5813ebac9fb0da4",
     "programs": [
-      "PERSPECTIVES - JOSLIN HS: Charter - General Education",
-      "PERSPECTIVES - MATH & SCI HS: Charter - STEM",
-      "CHICAGO MATH & SCIENCE HS: CHICAGO MATH & SCIENCE ACADEMY HS - Charter - General Education",
-      "CHICAGO COLLEGIATE: Charter - General Education",
-      "INTRINSIC HS: Charter - General Education",
-      "ART IN MOTION: ART in MOTION HS - Charter - Fine & Performing Arts"
+      "CICS - LONGWOOD: CICS - LONGWOOD-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Sibling Preference,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): CICS - AVALON/SOUTH SHORE, CICS - BASIL, CICS - BUCKTOWN, CICS - IRVING PARK, CICS - PRAIRIE, CICS - WASHINGTON PARK, CICS - WEST BELDEN, CICS - WRIGHTWOOD</li></ul>",
     "fn": lottery(
-      {filter: ifStudentAttendsOneOf(
-        CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-        CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-        PERSPECTIVES_MS_PROGRAM,
-        ART_IN_MOTION_MS_PROGRAM,
-        INTRINSIC_MS_PROGRAM
-      ),
-    size: LotteryStageSize.LARGE},
-    SIBLING_LOTTERY_STAGE,
-    GENERAL_LOTTERY_STAGE,
+      SIBLING_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          ...CICS_ES_PROGRAMS
+        ),
+        size:LotteryStageSize.LARGE
+      },
+      GENERAL_LOTTERY_STAGE
     )
   },
-  "6de8bdb1e5a08bbac808406bdf0ff272": {
-    "id": "6de8bdb1e5a08bbac808406bdf0ff272",
+  "e83c6e1fbb6d6c3bb55dde8569781d58": {
+    "id": "e83c6e1fbb6d6c3bb55dde8569781d58",
     "programs": [
-      "CICS - LONGWOOD: Charter - General Education"
+      "NOBLE - HANSBERRY HS: NOBLE - HANSBERRY HS-International Baccalaureate (IB)"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Elementary Preference,Sibling Preference,General</li><li><strong>Note: </strong>Elementary preference: CICS - AVALON/SOUTH SHORE, CICS - BASIL, CICS - BUCKTOWN, CICS - IRVING PARK, CICS - LONGWOOD, CICS - PRAIRIE, CICS - WASHINGTON PARK, CICS - WEST BELDEN, CICS - WRIGHTWOOD</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. Applicants are selected by a random computerized lottery. This program selects students based on the \"Queue Priority\" groups listed on the right. Students in those groups are selected in the order listed. </li></ul>",
+    "fn": ibPointSystem
+  },
+  "7b25b312f4b87c79c4b4f5f521ad7682": {
+    "id": "7b25b312f4b87c79c4b4f5f521ad7682",
+    "programs": [
+      "ACERO - GARCIA HS: ACERO - GARCIA HS-STEM",
+      "ACERO - SOTO HS: ACERO - SOTO HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): ACERO - BRIGHTON PARK, ACERO - CLEMENTE, ACERO - DE LA CRUZ, ACERO - IDAR, ACERO - MARQUEZ, ACERO - PAZ, ACERO - TORRES, ACERO - ZIZUMBO, CISNEROS, DE LAS CASAS, FUENTES, SANTIAGO, TAMAYO</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          ...ACERO_ES_PROGRAMS
+        ),
+        size:LotteryStageSize.LARGE
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "b80c258f84e0df6bdd86e69c1fed5d8f": {
+    "id": "b80c258f84e0df6bdd86e69c1fed5d8f",
+    "programs": [
+      "GOODE HS: GOODE HS-Early College STEM",
+      "TAFT HS: TAFT HS-General Education",
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-General Education",
+      "ALCOTT HS: ALCOTT HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Overlay Preference,General</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "2a7ba72df279fff9baf6e4179da82640": {
+    "id": "2a7ba72df279fff9baf6e4179da82640",
+    "programs": [
+      "CLARK HS: CLARK HS-Magnet - Early College STEM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Tier</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 58% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 48% to be considered for the lottery.&nbsp; </li></ul>",
     "fn": conditional(
       {
-        filter: ifStudentAttendsOneOf(CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM),
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
+        filter:either(
+          ifHasGrades({hsatCombined:58}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:48}))),
         fn: lottery(
-          {
-            filter: ifStudentAttendsOneOf(
-              CICS_AVALON_ES_PROGRAM,
-              CICS_BASIL_ES_PROGRAM,
-              CICS_BUCKTOWN_ES_PROGRAM,
-              CICS_IRVING_PARK_ES_PROGRAM,
-              CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-              CICS_PRAIRIE_ES_PROGRAM,
-              CICS_WASHINGTON_PARK_ES_PROGRAM,
-              CICS_WEST_BELDEN_ES_PROGRAM,
-              CICS_WRIGHTWOOD_ES_PROGRAM
-            ),
-            size: LotteryStageSize.LARGE
-          },
-          SIBLING_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            TIER_LOTTERY_STAGE
         )
       }
     )
   },
-  "d35d03512cc79195717b431d888ac1bd": {
-    "id": "d35d03512cc79195717b431d888ac1bd",
+  "72ba93e8ba417d532392cf4fd2bfceae": {
+    "id": "72ba93e8ba417d532392cf4fd2bfceae",
     "programs": [
-      "CICS - NORTHTOWN HS: Charter - General Education",
-      "CICS - ELLISON HS: Charter - General Education"
+      "DISNEY II HS: DISNEY II HS-Magnet - Fine & Performing Arts, Technology (7-8)"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,Sibling Preference,Overlay,General</li><li><strong>Note: </strong>Elementary preference: CICS - AVALON/SOUTH SHORE, CICS - BASIL, CICS - BUCKTOWN, CICS - IRVING PARK, CICS - LONGWOOD, CICS - PRAIRIE, CICS - WASHINGTON PARK, CICS - WEST BELDEN, CICS - WRIGHTWOOD</li></ul>",
-    "fn": lottery(
-      {
-        filter: ifStudentAttendsOneOf(
-          CICS_AVALON_ES_PROGRAM,
-          CICS_BASIL_ES_PROGRAM,
-          CICS_BUCKTOWN_ES_PROGRAM,
-          CICS_IRVING_PARK_ES_PROGRAM,
-          CICS_LONGWOOD_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-          CICS_PRAIRIE_ES_PROGRAM,
-          CICS_WASHINGTON_PARK_ES_PROGRAM,
-          CICS_WEST_BELDEN_ES_PROGRAM,
-          CICS_WRIGHTWOOD_ES_PROGRAM
-        ),
-        size: LotteryStageSize.LARGE
-      },
-      SIBLING_LOTTERY_STAGE,
-      // Overlay lottery stage
-      GENERAL_LOTTERY_STAGE,
-    )
-  },
-  "aab155b12ad42ed9e64d2cd29038c54d": {
-    "id": "aab155b12ad42ed9e64d2cd29038c54d",
-    "programs": [
-      "NOBLE - COMER: Charter - General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Sibling Preference,Overlay,General</li></ul>",
-    "fn": lottery(
-      {
-        filter: ifStudentAttendsOneOf(
-          NOBLE_COMER_MS_PROGRAM
-        ),
-        size: LotteryStageSize.SMALL
-      },
-      SIBLING_LOTTERY_STAGE,
-      // Overlay lottery stage
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "1fba1b4cca87c8657ab164e5a3f1978a": {
-    "id": "1fba1b4cca87c8657ab164e5a3f1978a",
-    "programs": [
-      "NOBLE - UIC HS: Charter - General Education",
-      "NOBLE - BULLS HS: Charter - General Education",
-      "NOBLE - ITW SPEER HS: Charter - STEM"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Overlay,General</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      // (overlay lottery stage?)
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "ca54a9d6c181303e76790484048a2300": {
-    "id": "ca54a9d6c181303e76790484048a2300",
-    "programs": [
-      "ASPIRA - EARLY COLLEGE HS: Charter - General Education",
-      "ASPIRA - BUSINESS & FINANCE HS: Charter - General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,Sibling Preference,General</li><li><strong>Note: </strong>Elementary preference: Aspira Haugan Middle</li></ul>",
-    "fn": lottery(
-      {
-        filter: ifStudentAttendsOneOf(
-          ASPIRA_MS_PROGRAM
-        ),
-        size: LotteryStageSize.LARGE
-      },
-      SIBLING_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE,
-    )
-  },
-  "816fa9b319531493e8371cef6eb303d7": {
-    "id": "816fa9b319531493e8371cef6eb303d7",
-    "programs": [
-      "U OF C - WOODLAWN HS: Charter - General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Continuing Enrollment,Overlay,General</li><li><strong>Note: </strong>Elementary preference: U of C Woodlawn</li></ul>",
-    "fn": conditional(
-      {filter: ifStudentAttendsOneOf(
-        U_OF_C_WOODLAWN_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM, 
-      ),
-      fn: accept(everyone)},{
-      filter: everyone,  
-      fn:lottery(
-        SIBLING_LOTTERY_STAGE,
-        PROXIMITY_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "b6b2599871fd7e47bf217d61e7ce2e07": {
-    "id": "b6b2599871fd7e47bf217d61e7ce2e07",
-    "programs": [
-      "GOODE HS: STEM - Early College STEM",
-      "BACK OF THE YARDS HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Overlay,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      // Overlay lottery stage
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "83cb9088eedf39ff8ccb0954b72ba2da": {
-    "id": "83cb9088eedf39ff8ccb0954b72ba2da",
-    "programs": [
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Brass & Woodwinds",
-      "CHIARTS HS: Fine & Performing Arts - Creative Writing",
-      "CHIARTS HS: Fine & Performing Arts - Dance",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Guitar",
-      "CHIARTS HS: Fine & Performing Arts - Musical Theatre",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Percussion",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Piano",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Strings",
-      "CHIARTS HS: Fine & Performing Arts - Theatre",
-      "CHIARTS HS: Fine & Performing Arts - Vocal Music",
-      "LINCOLN PARK HS: Fine & Performing Arts - Drama",
-      "LINCOLN PARK HS: Fine & Performing Arts - Instrumental Music",
-      "LINCOLN PARK HS: Fine & Performing Arts - Vocal Music",
-      "SENN HS: Fine & Performing Arts - Dance",
-      "SENN HS: Fine & Performing Arts - Music",
-      "SENN HS: Fine & Performing Arts - Theatre"
-    ],
-    "desc": "Audition",
-    "fn": notImplemented
-  },
-  "3c17ba5d0be89b258bf24d7be9371b52": {
-    "id": "3c17ba5d0be89b258bf24d7be9371b52",
-    "programs": [
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Brass & Woodwinds",
-      "CHIARTS HS: Fine & Performing Arts - Creative Writing",
-      "CHIARTS HS: Fine & Performing Arts - Dance",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Guitar",
-      "CHIARTS HS: Fine & Performing Arts - Musical Theatre",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Percussion",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Piano",
-      "CHIARTS HS: Fine & Performing Arts - Instrumental Music Strings",
-      "CHIARTS HS: Fine & Performing Arts - Theatre",
-      "CHIARTS HS: Fine & Performing Arts - Visual Arts",
-      "CHIARTS HS: Fine & Performing Arts - Vocal Music"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Audition Score</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Schedule your audition in your GoCPS account. For more information visit: Visit https://chiarts.org/prospective-students-parents/apply/audition-requirements/</li></ul>",
-    "fn": notImplemented
-  },
-  "fabca26dfec794d58fff02d0d1a06854": {
-    "id": "fabca26dfec794d58fff02d0d1a06854",
-    "programs": [
-      "CHIARTS HS: Fine & Performing Arts - Visual Arts",
-      "LINCOLN PARK HS: Fine & Performing Arts - Visual Arts",
-      "SENN HS: Fine & Performing Arts - Visual Arts"
-    ],
-    "desc": "Portfolio Review",
-    "fn": notImplemented
-  },
-  "df8627b81894efb4710d33dc60ae9678": {
-    "id": "df8627b81894efb4710d33dc60ae9678",
-    "programs": [
-      "CLARK HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>50 bonus points for students who live within a 2.5 mile proximity of the school. </li></ul>",
-    "fn": ibPointSystem
-  },
-  "f7e8317dbeb6460ab02f669efe1b256e": {
-    "id": "f7e8317dbeb6460ab02f669efe1b256e",
-    "programs": [
-      "CLARK HS: Magnet - Early College STEM",
-      "CRANE MEDICAL HS: Magnet - Early College STEM",
-      "VON STEUBEN HS: STEM - Magnet College Prep Program"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Tier</li></ul>",
-    "fn": conditional({
-      filter: (either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-        ifHasGrades({ hsatCombined: 58 })
-      )),
-      fn: lottery(
-        SIBLING_LOTTERY_STAGE,
-        STAFF_PREFERENCE_LOTTERY_STAGE,
-        TIER_LOTTERY_STAGE
-      )
-    })
-  },
-  "91e3f439df431f03edf2fa30f590297b": {
-    "id": "91e3f439df431f03edf2fa30f590297b",
-    "programs": [
-      "DISNEY II HS: Magnet - Fine & Performing Arts, Technology"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Proximity,Tier,General</li><li><strong>Note: </strong>This program serves only grades 7-8. There is a separate program available for applicants to grade 9.Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Proximity Preference,Tier,General</li><li><strong>Note: </strong>This program provides a comprehensive general education curriculum across all core academic subjects, with a focus on Fine & Performing Arts as an enriching complement to the standard coursework. Arts teachers in Fine & Performing Arts schools work with students and other classroom teachers to provide intensive and integrated instruction in the arts. Students are exposed to various arts opportunities and environments, and have the opportunity to learn and grow in multiple art forms: dance, drama, media arts, music, and/or visual arts.\n\nTechnology Program schools thoughtfully integrate technology and digital media throughout the curriculum to ensure that students develop the skills and habits of mind that will enable them to be successful in whatever endeavors they wish to pursue. This includes enabling students to use technology and digital media to demonstrate creative thinking and construct knowledge; communicate and work collaboratively; gather, evaluate and use information; conduct research, manage projects, and solve problems, practice legal and ethical behaviors while online; and understand technology concepts, systems, and operations. </li></ul>",
     "fn": lottery(
       SIBLING_LOTTERY_STAGE,
       STAFF_PREFERENCE_LOTTERY_STAGE,
@@ -1165,1209 +1060,930 @@ export const requirementFunctions: ReqFnTable = {
       GENERAL_LOTTERY_STAGE
     )
   },
-  "b80488c13bcff002e3cb9d8f1362733c": {
-    "id": "b80488c13bcff002e3cb9d8f1362733c",
+  "2f4708b6f4113a0af3d31c2470c5e842": {
+    "id": "2f4708b6f4113a0af3d31c2470c5e842",
     "programs": [
-      "DISNEY II HS: Magnet - Fine & Performing Arts, Technology"
+      "DISNEY II HS: DISNEY II HS-Magnet - Fine & Performing Arts, Technology",
+      "VON STEUBEN HS: VON STEUBEN HS-Magnet - STEM College Prep"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Sibling Preference,Staff Preference,Tier</li></ul>",
-    "fn": conditional(
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-          ifHasGrades({ hsatCombined: 58 })
-        ),
-        fn: lottery(
-          CONTINUING_STUDENTS_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          TIER_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      }
-    )
-  },
-  "79351495f858d1fd543e18427a1883c1": {
-    "id": "79351495f858d1fd543e18427a1883c1",
-    "programs": [
-      "CHICAGO AGRICULTURE HS: Magnet - Agriculture & Horticulture"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Overlay,Sibling Preference,Staff Preference,Tier</li></ul>",
-    "fn": conditional(
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-          ifHasGrades({ hsatCombined: 58 })
-        ),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          TIER_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      }
-    )
-  },
-  "1cccdfcfb9e313883cdb87cf6674dd2c": {
-    "id": "1cccdfcfb9e313883cdb87cf6674dd2c",
-    "programs": [
-      "CURIE HS: AVID"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ hsatCombined: 110, gpa: 2.5 })),
-          ifHasGrades({ hsatCombined: 120, gpa: 2.5 })
-        ),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      }
-    )
-  },
-  "6d8071cea60fc56814c1a950a9a0f0b0": {
-    "id": "6d8071cea60fc56814c1a950a9a0f0b0",
-    "programs": [
-      "CURIE HS: Magnet - Fine & Performing Arts - Fine & Performing Arts",
-      "BRONZEVILLE HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li></ul>",
-    "fn": lottery(GENERAL_LOTTERY_STAGE)
-  },
-  "71c627d8bc69f51ceca1f29a904111c0": {
-    "id": "71c627d8bc69f51ceca1f29a904111c0",
-    "programs": [
-      "CURIE HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Edwards ES (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(EDWARDS_LANGUAGE_PROGRAM)
-  },
-  "cd66854f8a2b17c12348b3cacde2ddc8": {
-    "id": "cd66854f8a2b17c12348b3cacde2ddc8",
-    "programs": [
-      "CURIE HS: General Education",
-      "WASHINGTON HS: General Education",
-      "SENN HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "7b6ef4cc299f4329a9b1f910735d8537": {
-    "id": "7b6ef4cc299f4329a9b1f910735d8537",
-    "programs": [
-      "MARINE LEADERSHIP AT AMES HS: Military - Military & Service Leadership"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>This program serves only grades 7-8. There is a separate program available for applicants to grade 9.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "ab63706c73ce1b6f05742ce80a32c151": {
-    "id": "ab63706c73ce1b6f05742ce80a32c151",
-    "programs": [
-      "MARINE LEADERSHIP AT AMES HS: Military & Service Leadership"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,General</li></ul>",
-    "fn": notImplemented //TODO military
-  },
-  "5cb8d66479ddd02fdd9cb181f2c4d581": {
-    "id": "5cb8d66479ddd02fdd9cb181f2c4d581",
-    "programs": [
-      "RICKOVER MILITARY HS: Military & Service Leadership"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Proximity,General</li></ul>",
-    "fn": notImplemented //TODO military
-  },
-  "626ed37ef5e5e5f484aa97869fd3a842": {
-    "id": "626ed37ef5e5e5f484aa97869fd3a842",
-    "programs": [
-      "KENWOOD HS: Selective Enrollment - Academic Center",
-      "TAFT HS: Selective Enrollment - Academic Center",
-      "MORGAN PARK HS: Selective Enrollment - Academic Center",
-      "NORTHSIDE PREP HS: Selective Enrollment High School",
-      "KING HS: Selective Enrollment High School",
-      "YOUNG HS: Selective Enrollment - Academic Center",
-      "YOUNG HS: Selective Enrollment High School",
-      "LANE TECH HS: Selective Enrollment - Academic Center",
-      "LANE TECH HS: Selective Enrollment High School",
-      "HANCOCK HS: Selective Enrollment High School",
-      "WESTINGHOUSE HS: Selective Enrollment High School",
-      "BROOKS HS: Selective Enrollment - Academic Center",
-      "BROOKS HS: Selective Enrollment High School",
-      "PAYTON HS: Selective Enrollment High School",
-      "JONES HS: Selective Enrollment High School",
-      "SOUTH SHORE INTL HS: Selective Enrollment High School",
-      "LINDBLOM HS: Selective Enrollment - Academic Center",
-      "LINDBLOM HS: Selective Enrollment High School"
-    ],
-    "desc": "Admissions Exam",
-    "fn": accept(everyone)
-  },
-  "3447aac508771f7718f1dd163a717599": {
-    "id": "3447aac508771f7718f1dd163a717599",
-    "programs": [
-      "KENWOOD HS: Magnet - Honors"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>3.0</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 110, gpa: 3.0 })),
-        ifHasGrades({ hsatCombined: 120, gpa: 3.0 })
-      ),
-      fn: lottery(
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "73a6e0ea8d720c3a0b14b904a831e352": {
-    "id": "73a6e0ea8d720c3a0b14b904a831e352",
-    "programs": [
-      "KENWOOD HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: either(ifStudentAttendsOneOf(KENWOOD_ACADEMIC_CENTER_PROGRAM), ifInAttendBound),
-        fn: accept(everyone)
-      },
-      {
-        filter:everyone,
-        fn:lottery(
-          CONTINUING_STUDENTS_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "64380570ae091ab3d8b7d9fa2c7852b6": {
-    "id": "64380570ae091ab3d8b7d9fa2c7852b6",
-    "programs": [
-      "CLEMENTE HS: General Education",
-      "NORTH - GRAND HS: Early College STEAM"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter:ifHasGrades({
-          gpa:2.5
-        }),
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "797a5c85e21922fa801c996061d75798": {
-    "id": "797a5c85e21922fa801c996061d75798",
-    "programs": [
-      "CLEMENTE HS: International Baccalaureate (IB)",
-      "JUAREZ HS: International Baccalaureate (IB)",
-      "HUBBARD HS: International Baccalaureate (IB)",
-      "BOGAN HS: International Baccalaureate (IB)",
-      "KELLY HS: International Baccalaureate (IB)",
-      "KENNEDY HS: International Baccalaureate (IB)",
-      "LINCOLN PARK HS: International Baccalaureate (IB) - MYP Diploma Program",
-      "SCHURZ HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>50 bonus points for attendance area</li></ul>",
-    "fn": ibPointSystem
-  },
-  "14ea70645a295ad9d0706b71ab4454ed": {
-    "id": "14ea70645a295ad9d0706b71ab4454ed",
-    "programs": [
-      "JULIAN HS: Fine & Performing Arts",
-      "WELLS HS: Fine & Performing Arts",
-      "FARRAGUT HS: General Education",
-      "SCHURZ HS: AVID"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,General</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "989468041f5e9eee56527688cd8e5018": {
-    "id": "989468041f5e9eee56527688cd8e5018",
-    "programs": [
-      "WASHINGTON HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Marsh ES (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(MARSH_ES_PROGRAM)
-  },
-  "56714a996f9491b4c28d03989fe075ff": {
-    "id": "56714a996f9491b4c28d03989fe075ff",
-    "programs": [
-      "HUBBARD HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "917604008472aa54b3d159cfd0bddbf0": {
-    "id": "917604008472aa54b3d159cfd0bddbf0",
-    "programs": [
-      "HUBBARD HS: Military & Service Leadership - JROTC"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
-    "fn": conditional({
-      filter: ifHasGrades({ gpa: 2.0 }),
-      fn: lottery(
-        SIBLING_LOTTERY_STAGE,
-        ATTENDANCE_AREA_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "ae2072fac38b0065534ff5595545cdd4": {
-    "id": "ae2072fac38b0065534ff5595545cdd4",
-    "programs": [
-      "SULLIVAN HS: General Education - The English Learner Academy"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Elementary Preference,Sibling Preference,General</li><li><strong>Note: </strong>Elementary preference: Armstrong, Boone, Courtenay, Field, Gale, Hayt, Jordan, Kilmer, McCutcheon, McPherson, West Ridge</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(
-          ARMSTRONG_G_ES_PROGRAM,
-          BOONE_ES_PROGRAM,
-          COURTENAY_ES_PROGRAM,
-          FIELD_ES_PROGRAM,
-          GALE_ES_PROGRAM,
-          HAYT_ES_PROGRAM,
-          JORDAN_ES_PROGRAM,
-          KILMER_ES_PROGRAM,
-          MCCUTCHEON_ES_PROGRAM,
-          MCPHERSON_ES_PROGRAM,
-          WEST_RIDGE_ES_PROGRAM,
-        ),
-        size: LotteryStageSize.LARGE
-      },
-      SIBLING_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "64b8c2d1f8ada3ec9b7a7d9df59478be": {
-    "id": "64b8c2d1f8ada3ec9b7a7d9df59478be",
-    "programs": [
-      "SULLIVAN HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Elementary Preference,Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Elementary preference: Armstrong, Boone, Courtenay, Field, Gale, Hayt, Jordan, Kilmer, McCutcheon, McPherson, West RidgeStaff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(
-          ARMSTRONG_G_ES_PROGRAM,
-          BOONE_ES_PROGRAM,
-          COURTENAY_ES_PROGRAM,
-          FIELD_ES_PROGRAM,
-          GALE_ES_PROGRAM,
-          HAYT_ES_PROGRAM,
-          JORDAN_ES_PROGRAM,
-          KILMER_ES_PROGRAM,
-          MCCUTCHEON_ES_PROGRAM,
-          MCPHERSON_ES_PROGRAM,
-          WEST_RIDGE_ES_PROGRAM,
-        ),
-        size: LotteryStageSize.LARGE
-      },
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "9da1cdf655397a0c6f2be0d55f80f6cd": {
-    "id": "9da1cdf655397a0c6f2be0d55f80f6cd",
-    "programs": [
-      "TAFT HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Overlay,General</li><li><strong>Note: </strong>The Overlay includes students who reside within Taft's Preference Zone. </li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      // Overlay lottery stage
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "4108f7dccff274f8ec678330030cbd96": {
-    "id": "4108f7dccff274f8ec678330030cbd96",
-    "programs": [
-      "TAFT HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,General</li><li><strong>Note: </strong>50 bonus points for attendance areaThere is a continuing enrollment preference for students in the Academic Center at Taft.</li></ul>",
-    "fn": ibPointSystem
-  },
-  "182301dc9612d0fc3e88f1e88042f095": {
-    "id": "182301dc9612d0fc3e88f1e88042f095",
-    "programs": [
-      "TAFT HS: Military & Service Leadership - NJROTC"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 48</li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Overlay,Attendance Area,General</li></ul>",
-    "fn": conditional({
-      filter: both(
-        ifHasGrades({ gpa: 2.0 }),
-        either(ifIEPorEL, ifHasGrades({ hsatCombined: 48 }))
-      ),
-      fn: lottery(
-        // Overlay lottery stage
-        ATTENDANCE_AREA_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "7edf50664cc2c2524e7807d5b9dde6e4": {
-    "id": "7edf50664cc2c2524e7807d5b9dde6e4",
-    "programs": [
-      "DYETT ARTS HS: Fine & Performing Arts - Band",
-      "DYETT ARTS HS: Fine & Performing Arts - Choir",
-      "DYETT ARTS HS: Fine & Performing Arts - Theatre"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifIsNeighborhoodSchool,
-        fn:accept(everyone)
-      },
-      {
-        filter: ifInAttendBound,
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,)
-      },
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ gpa: 2.0, hsatCombined: 48 })),
-          ifHasGrades({ hsatCombined: 58 })
-        ),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "d622e4b5301a195fda15df7321c385f9": {
-    "id": "d622e4b5301a195fda15df7321c385f9",
-    "programs": [
-      "DYETT ARTS HS: Fine & Performing Arts - Dance",
-      "DYETT ARTS HS: Fine & Performing Arts - Visual Arts"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifIsNeighborhoodSchool,
-        fn:accept(everyone)
-      },
-      {
-        filter: ifInAttendBound,
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,)
-      },
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ gpa: 2.0, hsatCombined: 48 })),
-          ifHasGrades({ hsatCombined: 58 })
-        ),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "e987527c383cab1ac5f33e0863225b1b": {
-    "id": "e987527c383cab1ac5f33e0863225b1b",
-    "programs": [
-      "DYETT ARTS HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,General</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifIsNeighborhoodSchool,
-        fn:accept(everyone)
-      },
-      {
-        filter: ifInAttendBound,
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,)
-      },
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ gpa: 2.0, hsatCombined: 48 })),
-          ifHasGrades({ hsatCombined: 58 })
-        ),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "e3978efa8488a6133ddee3e458289d8b": {
-    "id": "e3978efa8488a6133ddee3e458289d8b",
-    "programs": [
-      "BOGAN HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter:ifHasGrades({
-          gpa:2.5
-        }),
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "78b474f776134de729f0789f159891f0": {
-    "id": "78b474f776134de729f0789f159891f0",
-    "programs": [
-      "FARRAGUT HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Madero (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(MADERO_MS_PROGRAM)
-  },
-  "1fa612cbae7eee259d9b96bf345dc07f": {
-    "id": "1fa612cbae7eee259d9b96bf345dc07f",
-    "programs": [
-      "FARRAGUT HS: Military & Service Leadership - JROTC"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifHasGrades({gpa:2}),
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-          )
-      }
-    )
-  },
-  "fbb5880a791f057434ddbd847434addb": {
-    "id": "fbb5880a791f057434ddbd847434addb",
-    "programs": [
-      "FENGER HS: Honors"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ gpa: 2, hsatCombined: 110 })),
-        ifHasGrades({ gpa: 2, hsatCombined: 120 })
-      ),
-      fn: lottery(GENERAL_LOTTERY_STAGE)
-    })
-  },
-  "eb82a9f4f55f5ab1377691bc81142935": {
-    "id": "eb82a9f4f55f5ab1377691bc81142935",
-    "programs": [
-      "FOREMAN HS: Military & Service Leadership - JROTC"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifHasGrades({gpa:2}),
-        fn:lottery(
-          SIBLING_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-          )
-      }
-    )
-  },
-  "5845ea2b509b5fa824f48701f612f7c5": {
-    "id": "5845ea2b509b5fa824f48701f612f7c5",
-    "programs": [
-      "HYDE PARK HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Carnegie ES (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(...CARNEGIE_ES_PROGRAMS)
-  },
-  "b241754ef51e1b21cc9aa329e0d69f79": {
-    "id": "b241754ef51e1b21cc9aa329e0d69f79",
-    "programs": [
-      "KELLY HS: General Education",
-      "MORGAN PARK HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter: ifHasGrades({gpa:2}),
-        fn: lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "3b4ce15ecf9306d529af09d56ff2d551": {
-    "id": "3b4ce15ecf9306d529af09d56ff2d551",
-    "programs": [
-      "KELVYN PARK HS: Open Enrollment - General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>This program serves only grades 7-8. There is a separate program available for applicants to grade 9.Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "18a92f9cdfc7a03b55492a9c56f369c3": {
-    "id": "18a92f9cdfc7a03b55492a9c56f369c3",
-    "programs": [
-      "KELVYN PARK HS: Fine & Performing Arts"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General,Attendance Area</li></ul>",
-    "fn": lottery(
-      GENERAL_LOTTERY_STAGE,
-      ATTENDANCE_AREA_LOTTERY_STAGE
-    )
-  },
-  "0897aa324d60c12404ff21abe9d66468": {
-    "id": "0897aa324d60c12404ff21abe9d66468",
-    "programs": [
-      "KELVYN PARK HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Attendance Area,Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter:everyone,
-        fn:lottery(
-        CONTINUING_STUDENTS_LOTTERY_STAGE,
-        ATTENDANCE_AREA_LOTTERY_STAGE,
-        SIBLING_LOTTERY_STAGE,
-        STAFF_PREFERENCE_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "36dfc5b4f48d41d984d76da8ee4d7064": {
-    "id": "36dfc5b4f48d41d984d76da8ee4d7064",
-    "programs": [
-      "AMUNDSEN HS: General Education/Grow Community"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: Audubon ES, Bell ES, Blaine ES, Budlong ES, Burley ES, Chappell ES, Coonley ES, Greeley ES, Hamilton ES, Hawthorne ES, Inter - American ES, Jahn ES, Jamieson ES, McPherson ES, Nettelhorst ES, Ravenswood ES, Waters ES, Ravenswood ES, Waters ESStaff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifInAttendBound,
-        fn: accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: lottery(
-        ATTENDANCE_AREA_LOTTERY_STAGE,
-        SIBLING_LOTTERY_STAGE,
-        STAFF_PREFERENCE_LOTTERY_STAGE,
-        {
-          filter: ifStudentAttendsOneOf(
-            ...GROW_COMMUNITY_SCHOOL_ES_PROGRAMS
-          ),
-          size: LotteryStageSize.LARGE
-        },
-        GENERAL_LOTTERY_STAGE,
-      )}
-    )
-  },
-  "cf44435bf8078e0fffcef3bb141817cd": {
-    "id": "cf44435bf8078e0fffcef3bb141817cd",
-    "programs": [
-      "AMUNDSEN HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: McPherson (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(MCPHERSON_ES_PROGRAM)
-  },
-  "a9efffcd05e67572dbf9d9b990a6b51e": {
-    "id": "a9efffcd05e67572dbf9d9b990a6b51e",
-    "programs": [
-      "LINCOLN PARK HS: Fine & Performing Arts - Drama",
-      "LINCOLN PARK HS: Fine & Performing Arts - Instrumental Music",
-      "LINCOLN PARK HS: Fine & Performing Arts - Visual Arts",
-      "LINCOLN PARK HS: Fine & Performing Arts - Vocal Music"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Audition Score</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General,Attendance Area</li><li><strong>Note: </strong>Schedule your audition in your GoCPS account. For more information visit: https://www.lincolnparkhs.org/apps/pages/index.jsp?uREC_ID=924953&type=d&pREC_ID=1674883</li></ul>",
-    "fn": notImplemented
-  },
-  "6b2683ea24dec8b2b740720e8552a116": {
-    "id": "6b2683ea24dec8b2b740720e8552a116",
-    "programs": [
-      "LINCOLN PARK HS: Advanced College Prep (formerly Double Honors)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,General</li></ul>",
-    "fn": ibPointSystem //TODO verify that this is correct
-  },
-  "89ccb19deb188449aa9a76743442bb08": {
-    "id": "89ccb19deb188449aa9a76743442bb08",
-    "programs": [
-      "LAKE VIEW HS: Grow Community - Early College STEM"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,Elementary Preference,Overlay,General</li><li><strong>Note: </strong> Grow Community Schools preference: Audubon, Bell, Blaine, Budlong, Burley, Chappell, Coonley, Greeley, Hamilton, Hawthorne, Inter - American, Jahn, Jamieson, McPherson, Nettelhorst, Ravenswood, or Waters.  Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(...GROW_COMMUNITY_SCHOOL_ES_PROGRAMS),
-        size: LotteryStageSize.LARGE
-      },
-      {
-        filter: ifHasGrades({ gpa: 3.1, hsatCombined: 100 }),
-        size: LotteryStageSize.LARGE // not too sure this should be large... oh well, shouldn't matter
-      },
-      GENERAL_LOTTERY_STAGE,
-    )
-  },
-  "fb7ee9c5bc10df7e45ffc6389d6b4ab0": {
-    "id": "fb7ee9c5bc10df7e45ffc6389d6b4ab0",
-    "programs": [
-      "MATHER HS: AVID"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.0</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: Mosaic, Clinton, Jamieson, Peterson, Rogers, West RidgeStaff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifHasGrades({gpa: 2}),
-        fn: lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          {
-            filter: ifStudentAttendsOneOf(
-              BOONE_ES_PROGRAM,
-              CLINTON_ES_PROGRAM,
-              JAMIESON_ES_PROGRAM,
-              PETERSON_ES_PROGRAM,
-              ROGERS_ES_PROGRAM,
-              WEST_RIDGE_ES_PROGRAM),
-            size: LotteryStageSize.LARGE
-          },
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "e111cf3d163354e5973191936044dee3": {
-    "id": "e111cf3d163354e5973191936044dee3",
-    "programs": [
-      "MATHER HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: Mosaic, Clinton, Jamieson, Peterson, Rogers, West RidgeStaff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter: everyone,
-        fn: lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          {
-            filter: ifStudentAttendsOneOf(
-              BOONE_ES_PROGRAM,
-              CLINTON_ES_PROGRAM,
-              JAMIESON_ES_PROGRAM,
-              PETERSON_ES_PROGRAM,
-              ROGERS_ES_PROGRAM,
-              WEST_RIDGE_ES_PROGRAM),
-            size: LotteryStageSize.LARGE
-          },
-          GENERAL_LOTTERY_STAGE,
-      )
-    }
-  )
-  },
-  "e3f343f57319aa461bf3bed140653cab": {
-    "id": "e3f343f57319aa461bf3bed140653cab",
-    "programs": [
-      "MORGAN PARK HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,General</li><li><strong>Note: </strong>50 bonus points for attendance areaThere is a continuing enrollment preference for students in the Academic Center at Morgan Park.</li></ul>",
-    "fn": ibWithElemPref(MORGAN_PARK_ACADEMIC_CENTER_PROGRAM)
-  },
-  "66e343a085b71702276816de30084068": {
-    "id": "66e343a085b71702276816de30084068",
-    "programs": [
-      "ROOSEVELT HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Attendance Area,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      ATTENDANCE_AREA_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "d41d8ee6f2405b88fd8c286c962920ce": {
-    "id": "d41d8ee6f2405b88fd8c286c962920ce",
-    "programs": [
-      "ROOSEVELT HS: World Language - Dual Language"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: AZUELA, BARRY, BATEMAN, BELMONT - CRAGIN , CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER - AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STOWE, TALCOTT, TELPOCHCALLI, VOLTA, VON LINNE, WHITTIER</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifHasGrades({gpa: 2.5}),
-        fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          {
-            filter: ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
-            size: LotteryStageSize.LARGE
-          },
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "0f522a7205b7dbae736f0992d95d0047": {
-    "id": "0f522a7205b7dbae736f0992d95d0047",
-    "programs": [
-      "SCHURZ HS: World Language - Dual Language"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: AZUELA, BARRY, BATEMAN, BELMONT - CRAGIN, CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER - AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STOWE, TALCOTT, TELPOCHCALLI, VOLTA, VON LINNE, WHITTIER</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
-        size: LotteryStageSize.LARGE
-      },
-      GENERAL_LOTTERY_STAGE,
-    )
-  },
-  "0c63c8fc5f7d2b560047b2797d78fcaa": {
-    "id": "0c63c8fc5f7d2b560047b2797d78fcaa",
-    "programs": [
-      "SENN HS: Fine & Performing Arts - Dance",
-      "SENN HS: Fine & Performing Arts - Music",
-      "SENN HS: Fine & Performing Arts - Theatre",
-      "SENN HS: Fine & Performing Arts - Visual Arts"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Audition Score</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Schedule your audition in your GoCPS account. For more information visit: https://www.sennhs.org/apps/pages/SennArtsDanceAdmissions</li></ul>",
-    "fn": notImplemented
-  },
-  "31509cd37ce687b6a047e2f65a939de6": {
-    "id": "31509cd37ce687b6a047e2f65a939de6",
-    "programs": [
-      "SENN HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Peirce ES (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(PEIRCE_ES_PROGRAM)
-  },
-  "123d0f63c5d2eb93f214b65560427c90": {
-    "id": "123d0f63c5d2eb93f214b65560427c90",
-    "programs": [
-      "STEINMETZ HS: STEAM"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,General</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifInAttendBound,
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      },
-      {
-        filter:either(
-          both(ifIEPorEL, ifHasGrades({ gpa: 2, hsatCombined: 48 })),
-          ifHasGrades({ gpa: 2, hsatCombined: 58 })),
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "5803cd64b9782cf213f2e7ac279bd4db": {
-    "id": "5803cd64b9782cf213f2e7ac279bd4db",
-    "programs": [
-      "STEINMETZ HS: International Baccalaureate (IB)"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>50 bonus points for attendance areaElementary preference: Locke (IB Partner School)</li></ul>",
-    "fn": ibWithElemPref(LOCKE_MAGNET_CLUSTER_ES_PROGRAM)
-  },
-  "034f4ecd1ed2266bfde53644d4f7b670": {
-    "id": "034f4ecd1ed2266bfde53644d4f7b670",
-    "programs": [
-      "STEINMETZ HS: Military & Service Leadership - JROTC"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Tier</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 58% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 48% to be considered for the lottery. </li></ul>",
     "fn": conditional(
       {
         filter:either(
-          both(ifIEPorEL, ifHasGrades({gpa:2, hsatCombined:48})),
-          ifHasGrades({gpa:2, hsatCombined:58})),
-        fn:lottery(
-          GENERAL_LOTTERY_STAGE,
+          ifHasGrades({hsatCombined:58}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:48}))),
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            TIER_LOTTERY_STAGE
         )
       }
     )
   },
-  "08b6e607d0396f07082344cd0928e13e": {
-    "id": "08b6e607d0396f07082344cd0928e13e",
+  "80d4227640f05dca4894e759cb76257c": {
+    "id": "80d4227640f05dca4894e759cb76257c",
     "programs": [
-      "BACK OF THE YARDS HS: World Language - Dual Language"
+      "CRANE MEDICAL HS: CRANE MEDICAL HS-Magnet - Early College STEM"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2.5</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: \r\n AZUELA, BARRY, BATEMAN, BELMONT - CRAGIN, CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER - AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STOWE, TALCOTT, TELPOCHCALLI, VOLTA, VON LINNE, WHITTIER</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Tier</li><li><strong>Note: </strong>For the rolling waitlist, General Education and students with 504 plans must have an HSAT minimum combo score of 40% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 35% to be considered for the lottery.&nbsp; </li></ul>",
     "fn": conditional(
       {
-        filter: ifHasGrades({gpa: 2.5}),
+        filter:either(
+          ifHasGrades({hsatCombined:40}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:35}))),
         fn: lottery(
-          SIBLING_LOTTERY_STAGE,
-          {
-            filter: ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
-            size: LotteryStageSize.LARGE
-          },
-          GENERAL_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            TIER_LOTTERY_STAGE
         )
       }
     )
   },
-  "d7d90f2864409ddfa8ff77ad90537fa4": {
-    "id": "d7d90f2864409ddfa8ff77ad90537fa4",
+  "6b7898aa4858334e028a91f56bce1e01": {
+    "id": "6b7898aa4858334e028a91f56bce1e01",
     "programs": [
-      "BACK OF THE YARDS HS: International Baccalaureate (IB)"
+      "CHICAGO AGRICULTURE HS: CHICAGO AGRICULTURE HS-Magnet-Agriculture & Horticulture"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>50 bonus points for students who reside in the preference area (overlay)</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Overlay Preference,Sibling Preference,Staff Priority,Tier</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 58% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT minimum combo score of 48% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:58}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:48}))),
+        fn: lottery(
+            PROXIMITY_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            TIER_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "4f4343e2325ebac8c86e5f566f483412": {
+    "id": "4f4343e2325ebac8c86e5f566f483412",
+    "programs": [
+      "CURIE HS: CURIE HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): EDWARDS</li></ul>",
     "fn": ibPointSystem
   },
-  "4f8c9bbb584260aa81ec92adfa1cc2ba": {
-    "id": "4f8c9bbb584260aa81ec92adfa1cc2ba",
+  "de2306fa1f05b32b869c38b7248f0c9f": {
+    "id": "de2306fa1f05b32b869c38b7248f0c9f",
     "programs": [
-      "SPRY HS: SPRY COMMUNITY LINKS HS - Three - Year; Year - Round High School"
+      "CHICAGO MILITARY HS: CHICAGO MILITARY HS-Military & Service Leadership"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Continuing Enrollment,Staff Preference,Sibling Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Military and Service Leadership programs offer a unique option for highly motivated students, providing an academically rigorous curriculum with a focus on leadership and citizenship. The CPS HSAT requirement for this program has been removed for the rolling waitlist period. </li></ul>",
     "fn": lottery(
-      CONTINUING_STUDENTS_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      SIBLING_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "9fa1d26c535e64160d601e4c78a38d55": {
-    "id": "9fa1d26c535e64160d601e4c78a38d55",
+  "77ea136c26cea8229f30bf619d403a96": {
+    "id": "77ea136c26cea8229f30bf619d403a96",
     "programs": [
-      "SOLORIO HS: General Education"
+      "CARVER MILITARY HS: CARVER MILITARY HS-Military & Service Leadership",
+      "MILITARY LEADERSHIP HS: MILITARY LEADERSHIP HS-Military & Service Leadership",
+      "HOLMES HS: HOLMES HS-Military & Service Leadership",
+      "PHOENIX MILITARY HS: PHOENIX MILITARY HS-Military & Service Leadership"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Attendance Area,Staff Preference</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter:ifInAttendBound,
-        fn:accept(everyone)
-      },
-      {
-        filter:everyone,
-        fn:lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      }
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Military and Service Leadership programs offer a unique option for highly motivated students, providing an academically rigorous curriculum with a focus on leadership and citizenship. All students applying to this program must take the CPS HSAT. </li></ul>",
+    "fn": lottery(
+      GENERAL_LOTTERY_STAGE
     )
   },
-  "2528f14792b192d978aa91682502662d": {
-    "id": "2528f14792b192d978aa91682502662d",
+  "e962c3d6c234cc13e56ca111aea2e9fe": {
+    "id": "e962c3d6c234cc13e56ca111aea2e9fe",
     "programs": [
-      "OGDEN HS: International Baccalaureate (IB)"
+      "MILITARY LEADERSHIP HS: MILITARY LEADERSHIP HS-Military & Service Leadership"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>Elementary preference: Ogden ES\r\n50 bonus points for students who reside in the preference area (overlay)</li></ul>",
-    "fn": ibPointSystem
-  },
-  "746ea94301117c81c1ce48eb33971647": {
-    "id": "746ea94301117c81c1ce48eb33971647",
-    "programs": [
-      "DOUGLASS HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Proximity,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>The Service Leadership Academies are unique four-year high schools that prepare students for college and subsequent careers. Marine Leadership is the only one of these programs that is&nbsp;open to students in grades 7-8, and students who enter Marine's program in elementary school are able to continue there for high school without reapplying. Although students wear uniforms and operate in a structured environment, these Service Leadership Academies are not intended to prepare students for the military. Rather, students take part in unprecedented leadership opportunities and cocurricular activities, including college trips and citywide competitions, in a nurturing, safe, and healthy environment in which they can realize their full potential. </li></ul>",
     "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
+      SIBLING_LOTTERY_STAGE, 
       STAFF_PREFERENCE_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "5c40601829bf5a2488f490cb18df5910": {
+    "id": "5c40601829bf5a2488f490cb18df5910",
+    "programs": [
+      "RICKOVER MILITARY HS: RICKOVER MILITARY HS-Military & Service Leadership"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Proximity Preference,General</li><li><strong>Note: </strong>Military and Service Leadership programs offer a unique option for highly motivated students, providing an academically rigorous curriculum with a focus on leadership and citizenship. All students applying to this program must take the CPS HSAT. This program selects students based on the priority groups listed below. Students in those groups are selected in the order listed. </li></ul>",
+    "fn": lottery(
       PROXIMITY_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
   },
-  "8bfffa8e219dddfa0f211e2c929fd915": {
-    "id": "8bfffa8e219dddfa0f211e2c929fd915",
+  "4cf8b9f4858548f55aa25524797a56f0": {
+    "id": "4cf8b9f4858548f55aa25524797a56f0",
     "programs": [
-      "NORTHSIDE PREP HS: Selective Enrollment High School",
-      "KING HS: Selective Enrollment High School",
-      "YOUNG HS: Selective Enrollment High School",
-      "LANE TECH HS: Selective Enrollment High School",
-      "HANCOCK HS: Selective Enrollment High School",
-      "WESTINGHOUSE HS: Selective Enrollment High School",
-      "BROOKS HS: Selective Enrollment High School",
-      "PAYTON HS: Selective Enrollment High School",
-      "JONES HS: Selective Enrollment High School",
-      "SOUTH SHORE INTL HS: Selective Enrollment High School",
-      "LINDBLOM HS: Selective Enrollment High School"
+      "DYETT ARTS HS: DYETT ARTS HS-Band",
+      "DYETT ARTS HS: DYETT ARTS HS-Choir",
+      "DYETT ARTS HS: DYETT ARTS HS-Dance",
+      "DYETT ARTS HS: DYETT ARTS HS-General Education",
+      "DYETT ARTS HS: DYETT ARTS HS-Theatre",
+      "DYETT ARTS HS: DYETT ARTS HS-Visual Arts",
+      "KELLY HS: KELLY HS-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General,Tier</li></ul>",
+    "desc": "<ul><li>GPA: 2.00</li></ul>",
+    "fn": accept(ifHasGrades({gpa:2}))
+  },
+  "b98ac2a76ba10c18713f224d761e1281": {
+    "id": "b98ac2a76ba10c18713f224d761e1281",
+    "programs": [
+      "DYETT ARTS HS: DYETT ARTS HS-Band",
+      "DYETT ARTS HS: DYETT ARTS HS-Choir",
+      "DYETT ARTS HS: DYETT ARTS HS-Dance",
+      "DYETT ARTS HS: DYETT ARTS HS-Theatre",
+      "DYETT ARTS HS: DYETT ARTS HS-Visual Arts"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Attendance Area,General</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      ATTENDANCE_AREA_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "6ce306a7b08cb2f9016390d78477554b": {
+    "id": "6ce306a7b08cb2f9016390d78477554b",
+    "programs": [
+      "DYETT ARTS HS: DYETT ARTS HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. Those students with the minimum GPA of 2.0 or higher are eligible to be selected.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:ifHasGrades({gpa:2}),
+        fn: lottery(
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "50049662f3c9b3d3c779aaf42dcb1e99": {
+    "id": "50049662f3c9b3d3c779aaf42dcb1e99",
+    "programs": [
+      "SULLIVAN HS: SULLIVAN HS-The English Learner Academy"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): ARMSTRONG G, COURTENAY, FIELD, GALE, HAYT, JORDAN, KILMER, MCCUTCHEON, MCPHERSON, MOSAIC, WEST RIDGE</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          ARMSTRONG_G_ES_PROGRAM,
+          COURTENAY_ES_PROGRAM,
+          FIELD_ES_PROGRAM,
+          GALE_ES_PROGRAM,
+          HAYT_ES_PROGRAM,
+          JORDAN_ES_PROGRAM,
+          KILMER_ES_PROGRAM,
+          MCCUTCHEON_ES_PROGRAM,
+          MCPHERSON_ES_PROGRAM,
+          WEST_RIDGE_ES_PROGRAM
+        ),
+        size: LotteryStageSize.SMALL
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "12bb72922693b89ddf83c22926b3518a": {
+    "id": "12bb72922693b89ddf83c22926b3518a",
+    "programs": [
+      "SULLIVAN HS: SULLIVAN HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): ARMSTRONG G, COURTENAY, FIELD, GALE, HAYT, JORDAN, KILMER, MCCUTCHEON, MCPHERSON, MOSAIC, WEST RIDGE</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          ARMSTRONG_G_ES_PROGRAM,
+          COURTENAY_ES_PROGRAM,
+          FIELD_ES_PROGRAM,
+          GALE_ES_PROGRAM,
+          HAYT_ES_PROGRAM,
+          JORDAN_ES_PROGRAM,
+          KILMER_ES_PROGRAM,
+          MCCUTCHEON_ES_PROGRAM,
+          MCPHERSON_ES_PROGRAM,
+          WEST_RIDGE_ES_PROGRAM
+        ),
+        size: LotteryStageSize.SMALL
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "33f5da9ef9af22e9b374bf16612c2525": {
+    "id": "33f5da9ef9af22e9b374bf16612c2525",
+    "programs": [
+      "TAFT HS: TAFT HS-Academic Center",
+      "MORGAN PARK HS: MORGAN PARK HS-Academic Center",
+      "KENWOOD HS: KENWOOD HS-Academic Center",
+      "LANE TECH HS: LANE TECH HS-Academic Center",
+      "YOUNG HS: YOUNG HS-Academic Center",
+      "BROOKS HS: BROOKS HS-Academic Center",
+      "LINDBLOM HS: LINDBLOM HS-Academic Center"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>All selective enrollment programs use a points-based selection process. For this program, an applicant's final grades from the previous school year and composite score on the Regional Gifted exam are converted to points using a rubric. Students are selected in descending total point order, with top scorers chosen first. For entry-level (7th grade) selections only, a student's socioeconomic tier will be considered in the selection process (see the Preferences & Priorities section below for more details).</li><li><strong>Priority: </strong>Rank,Tier</li><li><strong>Note: </strong>Academic Centers, housed in high schools, offer high-achieving students the opportunity to take advanced classes. Students attending Academic Centers can continue at their current school when they enter 9th grade without needing to reapply. </li></ul>",
     "fn": sePointSystem
   },
-  "ae184bbef225c5d521efdf11597415a4": {
-    "id": "ae184bbef225c5d521efdf11597415a4",
+  "31435669ceb253210db9f69a9a72c1fa": {
+    "id": "31435669ceb253210db9f69a9a72c1fa",
     "programs": [
-      "HANCOCK HS: Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "HANCOCK HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law",
-      "JONES HS: Pre - Career & Technical Education (CTE) - Manufacturing - Pre - Engineering",
-      "JONES HS: Career & Technical Education (CTE) - Law & Public Safety - Pre - Law"
+      "JULIAN HS: JULIAN HS-Fine & Performing Arts",
+      "WELLS HS: WELLS HS-Fine & Performing Arts",
+      "KELVYN PARK HS: KELVYN PARK HS-Fine & Performing Arts"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Descending Point Score based on Academic Criteria</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Overlay,General</li></ul>",
-    "fn": ctePointSystem
-  },
-  "4b6cd0685299101b4865f534d6e40a08": {
-    "id": "4b6cd0685299101b4865f534d6e40a08",
-    "programs": [
-      "WESTINGHOUSE HS: Career & Technical Education (CTE) - Career Academy"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>3</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Proximity,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: both(ifIEPorEL, ifHasGrades({gpa:3, hsatCombined: 48})),
-        fn:lottery(
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          PROXIMITY_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      },
-      {
-        filter: ifHasGrades({gpa:3, hsatCombined: 58}),
-        fn:lottery(
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          PROXIMITY_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE
-        )
-      }
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Attendance Area,General</li></ul>",
+    "fn": lottery(
+      ATTENDANCE_AREA_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
     )
   },
-  "b67253cfc04ef6ecf1457b6595c3ef1c": {
-    "id": "b67253cfc04ef6ecf1457b6595c3ef1c",
+  "1695a83baad95dbc0cb68dce26e99200": {
+    "id": "1695a83baad95dbc0cb68dce26e99200",
     "programs": [
-      "CHICAGO ACADEMY HS: General Education"
+      "CLEMENTE HS: CLEMENTE HS-International Baccalaureate (IB)"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,Sibling Preference,Staff Preference,Proximity,General</li></ul>",
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MOOS</li></ul>",
+    "fn": ibPointSystem
+  },
+  "f71b7b3351027d90846656e9bd40c9e7": {
+    "id": "f71b7b3351027d90846656e9bd40c9e7",
+    "programs": [
+      "NORTH-GRAND HS: NORTH-GRAND HS-Early College STEAM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>All students living <strong>outside </strong>the attendance area for this program must submit an application and must have a minimum 2.5 GPA to enter the lottery. Applicants are selected by random computerized lottery. Students are selected in the order of the &quot;Preferences & Priorities&quot; listed below.\r\n\r\nAll students living <strong>inside </strong>the attendance area for this program will receive a Guaranteed Offer to this program<em>&nbsp;</em>and do not need to apply to Early College STEAM&nbsp;@ North-Grand HS within their Choice application.&nbsp; </li></ul>",
     "fn": lottery(
-      CONTINUING_STUDENTS_LOTTERY_STAGE,
       SIBLING_LOTTERY_STAGE,
       STAFF_PREFERENCE_LOTTERY_STAGE,
-      PROXIMITY_LOTTERY_STAGE,
-      {
-        filter: ifStudentAttendsOneOf(
-          CHICAGO_COLLEGIATE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM,
-          CHICAGO_MATH_AND_SCIENCE_GENERAL_EDUCATION_JOINT_ES_HS_PROGRAM
-        ),
-        size: LotteryStageSize.LARGE
-      },
-      GENERAL_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
     )
   },
-  "bae485f15f8767fe81de33eb174e4b1b": {
-    "id": "bae485f15f8767fe81de33eb174e4b1b",
+  "5522b6dbaced213c5db90c10e9c2bfe3": {
+    "id": "5522b6dbaced213c5db90c10e9c2bfe3",
     "programs": [
-      "CHICAGO ACADEMY HS: Honors - Scholars"
+      "AMUNDSEN HS: AMUNDSEN HS-General Education/Grow Community"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>3</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>Elementary Preference,Sibling Preference,Proximity,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Elementary Preference,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed. Elementary Preference School(s): AUDUBON, BELL, BLAINE, BUDLONG, BURLEY, CHAPPELL, COONLEY, GREELEY, HAMILTON, HAWTHORNE, INTER-AMERICAN, JAHN, JAMIESON, MCPHERSON, NETTELHORST, RAVENSWOOD, WATERS</li></ul>",
     "fn": conditional(
       {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({ gpa: 3, hsatCombined: 110 })),
-          ifHasGrades({ gpa: 3, hsatCombined: 120 })
-        ),
-        fn: lottery(
-          CONTINUING_STUDENTS_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          PROXIMITY_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "91de135b361712cf0a9cc8c4bb8d43ba": {
-    "id": "91de135b361712cf0a9cc8c4bb8d43ba",
-    "programs": [
-      "WILLIAMS HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 58</li><li>IEP and EL Students: / 48 </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Proximity,General</li></ul>",
-    "fn": conditional({
-      filter: either(
-        both(ifIEPorEL, ifHasGrades({ hsatCombined: 48 })),
-        ifHasGrades({ hsatCombined: 58 })
-      ),
-      fn: lottery(
-        SIBLING_LOTTERY_STAGE,
-        STAFF_PREFERENCE_LOTTERY_STAGE,
-        PROXIMITY_LOTTERY_STAGE,
-        GENERAL_LOTTERY_STAGE
-      )
-    })
-  },
-  "92e35b8f35a23890f54eafd6c6a24dcf": {
-    "id": "92e35b8f35a23890f54eafd6c6a24dcf",
-    "programs": [
-      "INFINITY HS: LVLHS INFINITY HS - General Education - STEM"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>2</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>Attendance Area,Sibling Preference,Staff Preference,General</li></ul>",
-    "fn": conditional(
-      {
-        filter: either(
-          both(ifIEPorEL, ifHasGrades({gpa: 2,hsatCombined:110})),
-          ifHasGrades({gpa:2, hsatCombined:120})
-        ),
-        fn: lottery(
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          SIBLING_LOTTERY_STAGE,
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
-        )
-      }
-    )
-  },
-  "7767bf9eb2aaa588cbb5508e4aec5736": {
-    "id": "7767bf9eb2aaa588cbb5508e4aec5736",
-    "programs": [
-      "ALCOTT HS: General Education"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Elementary Preference,Staff Preference,Overlay,General</li><li><strong>Note: </strong>Elementary preference: Alcott ESStaff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": conditional(
-      {
-        filter: ifStudentAttendsOneOf(ALCOTT_ES_PROGRAM),
+        filter:ifInAttendBound,
         fn:accept(everyone)
       },
       {
-        filter: everyone,
-        fn:lottery(
-          STAFF_PREFERENCE_LOTTERY_STAGE,
-          ATTENDANCE_AREA_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
+        filter:everyone,
+        fn: lottery(
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            {
+              filter: ifStudentAttendsOneOf(
+                AUDUBON_ES_PROGRAM,
+                BELL_OPEN_ENROLLMENT_ES_PROGRAM,
+                BLAINE_ES_PROGRAM,
+                BUDLONG_ES_PROGRAM,
+                BURLEY_ES_PROGRAM,
+                CHAPPELL_ES_PROGRAM,
+                COONLEY_OPEN_ENROLLMENT_ES_PROGRAM,
+                GREELEY_MAGNET_CLUSTER_ES_PROGRAM, 
+                HAMILTON_ES_PROGRAM, 
+                HAWTHORNE_ES_PROGRAM, 
+                INTER_AMERICAN_ES_PROGRAM,
+                JAHN_ES_PROGRAM, 
+                JAMIESON_ES_PROGRAM, 
+                MCPHERSON_ES_PROGRAM, 
+                NETTELHORST_ES_PROGRAM, 
+                RAVENSWOOD_ES_PROGRAM, 
+                WATERS_ES_PROGRAM
+              ),
+              size:LotteryStageSize.SMALL
+            },
+            GENERAL_LOTTERY_STAGE
         )
       }
     )
   },
-  "79db9407e81a2a67afc0d8c13346d9e5": {
-    "id": "79db9407e81a2a67afc0d8c13346d9e5",
+  "bfba4203fd06b8001fed92d9c99b6f46": {
+    "id": "bfba4203fd06b8001fed92d9c99b6f46",
     "programs": [
-      "UPLIFT HS: General Education - Early College STEAM"
+      "AMUNDSEN HS: AMUNDSEN HS-International Baccalaureate (IB)"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,Elementary Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MCPHERSON</li></ul>",
+    "fn": ibPointSystem
   },
-  "70d73925e60f709af9b09970c8a3e02f": {
-    "id": "70d73925e60f709af9b09970c8a3e02f",
+  "4cbbd41fd3a8d85c0f5f688b1295e746": {
+    "id": "4cbbd41fd3a8d85c0f5f688b1295e746",
     "programs": [
-      "Collins Academy STEAM HS: COLLINS HS - Fine & Performing Arts"
+      "LINCOLN PARK HS: LINCOLN PARK HS-Theatre"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>General,Proximity</li></ul>",
-    "fn": lottery(
-      PROXIMITY_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE,
-    )
+    "desc": "<ul><li><strong>Priority: </strong>Attendance Area,General</li><li><strong>Note: </strong>All applicants must schedule an audition in their GoCPS account at the time of application. Schools will score auditions/portfolios based on a rubric. Applicants are selected in descending total point order based on their audition/portfolio score.&nbsp;Please <a href=\"https://www.lincolnparkhs.org/apps/pages/index.jsp?uREC_ID=920561&type=u&pREC_ID=1616559\">click here</a> to review the Theatre audition requirements. </li></ul>",
+    "fn": notImplemented
   },
-  "ba4396fa752e72e3c20f371f319d7b34": {
-    "id": "ba4396fa752e72e3c20f371f319d7b34",
+  "41af1b6978dd46ee42a65f16f84da754": {
+    "id": "41af1b6978dd46ee42a65f16f84da754",
     "programs": [
-      "Collins Academy STEAM HS: COLLINS HS - General Education"
+      "LINCOLN PARK HS: LINCOLN PARK HS-Advanced College Prep"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,General</li><li><strong>Note: </strong>Staff Preference applies at the entry level grade only. A maximum of 2 seats can be filled through Staff Preference.</li></ul>",
-    "fn": lottery(
-      SIBLING_LOTTERY_STAGE,
-      STAFF_PREFERENCE_LOTTERY_STAGE,
-      GENERAL_LOTTERY_STAGE
-    )
-  },
-  "0f666db06f5150c58224e512bbba6e97": {
-    "id": "0f666db06f5150c58224e512bbba6e97",
-    "programs": [
-      "Collins Academy STEAM HS: COLLINS HS - Honors - Scholars"
-    ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>3.0</li><li><strong>HSAT Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / 120</li><li>IEP and EL Students: / 110 </li></ul><li><strong>Priority: </strong>Elementary Preference,Sibling Preference,General</li></ul>",
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Applicants who do not live in the attendance area are selected in descending total point order on a 900 point scale, with 450 points coming from the HSAT and 450 points coming from final (cumulative) grades from your 7th grade report card. Applicants living in the attendance area are admitted automatically. <em>(Please note this is the program that was formerly named Double Honors.)</em> </li></ul>",
     "fn": conditional(
       {
-        filter: both(
-          either(
-            both(ifIEPorEL, ifHasGrades({hsatCombined:110})),
-            ifHasGrades({hsatCombined:120})
-          ),
-          ifHasGrades({ gpa: 3.0 })
-        ),
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:everyone,
+        fn: sePointSystem
+      }
+    )
+  },
+  "c9ba95ecf4ca89f15df1de06ec5b60d4": {
+    "id": "c9ba95ecf4ca89f15df1de06ec5b60d4",
+    "programs": [
+      "LINCOLN PARK HS: LINCOLN PARK HS-Instrumental Music"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Attendance Area,General</li><li><strong>Note: </strong>All applicants must schedule an audition in their GoCPS account at the time of application. Schools will score auditions/portfolios based on a rubric. Applicants are selected in descending total point order based on their audition/portfolio score. Please <a href=\"https://docs.google.com/document/d/1XwS83SEsXIhGkmapk2_rGX6MCvWweLGJ6mlKccp9Nv0/edit?usp=sharing\">click here</a> to review the Instrumental Music audition requirements.&nbsp; </li></ul>",
+    "fn": notImplemented
+  },
+  "4e153ca9bcf5a8fee5dd992593b41892": {
+    "id": "4e153ca9bcf5a8fee5dd992593b41892",
+    "programs": [
+      "LINCOLN PARK HS: LINCOLN PARK HS-Visual Arts"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Attendance Area,General</li><li><strong>Note: </strong>All applicants must submit a Visual Arts Portfolio electronically by December 1st&nbsp;at 11:59pm. Students should follow the template laid out in the linked google slides. Include: short statement of intent, short autobiography, sketchbook pages, portfolio of completed artworks. <a href=\"https://docs.google.com/presentation/d/1p6I3J4r2oJq6YOb9bngJD9Pz9FP1q5OPnlYWMb9Eslg/edit?usp=sharing\">Link of template (Download a copy)</a>\r\n\r\n<a href=\"https://www.lincolnparkhs.org/apps/pages/index.jsp?uREC_ID=1106192&type=d&pREC_ID=1606882\">Submission information can be found here</a>. <strong>Any portfolios submitted AFTER the LPHS deadline may not be considered by the review team.&nbsp;</strong>Schools will score auditions/portfolios based on a rubric. Applicants are selected in descending total point order based on their audition/portfolio score. </li></ul>",
+    "fn": notImplemented
+  },
+  "b078afd3f8f4d81e6668225d6a6b8365": {
+    "id": "b078afd3f8f4d81e6668225d6a6b8365",
+    "programs": [
+      "LINCOLN PARK HS: LINCOLN PARK HS-Vocal Music"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Attendance Area,General</li><li><strong>Note: </strong>All applicants must schedule an audition in their GoCPS account at the time of application. Schools will score auditions/portfolios based on a rubric. Applicants are selected in descending total point order based on their audition/portfolio score. Please <a href=\"https://docs.google.com/document/d/1uN-SZEKbIDz_-RT-0kWnoQre8m85uHPO5kFkkcjjIm0/edit?usp=sharing\">click here</a> to review the Vocal Music audition requirements.&nbsp; </li></ul>",
+    "fn": notImplemented
+  },
+  "c0c08050ccbfee0198ee8fa030ada871": {
+    "id": "c0c08050ccbfee0198ee8fa030ada871",
+    "programs": [
+      "LAKE VIEW HS: LAKE VIEW HS-Grow Community - Early College STEM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Elementary Preference,Stem Selection,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. The lottery is conducted in the following order: Siblings, staff preference, Elementary preference (Grow Community Schools), STEM Selection (students who have at least a 3.0 GPA & whose HSAT Reading and math combo is at least 120 for general education students and 110 for IEP/EL students), and then all remaining applicants. Elementary Preference School(s): AUDUBON, BELL, BLAINE, BUDLONG, BURLEY, CHAPPELL, COONLEY, GREELEY, HAMILTON, HAWTHORNE, INTER-AMERICAN, JAHN, JAMIESON, MCPHERSON, NETTELHORST, RAVENSWOOD, WATERS</li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:everyone,
         fn: lottery(
-          {
-            filter: ifStudentAttendsOneOf(
-              CHALMERS_ES_PROGRAM,
-              DVORAK_ES_PROGRAM,
-              HERZL_ES_PROGRAM,
-              JOHNSON_ES_PROGRAM,
-              MORTON_ES_PROGRAM,
-            ),
-            size: LotteryStageSize.LARGE
-          },
           SIBLING_LOTTERY_STAGE,
-          GENERAL_LOTTERY_STAGE,
+          STAFF_PREFERENCE_LOTTERY_STAGE,
+          {
+            filter:ifStudentAttendsOneOf(
+              ...GROW_COMMUNITY_SCHOOL_ES_PROGRAMS
+            ),
+            size: LotteryStageSize.SMALL
+          },
+          {
+            filter:either(
+              ifHasGrades({gpa:3, hsatCombined:120}),
+              both(
+                ifIEPorEL,
+                ifHasGrades({gpa:3, hsatCombined:110})
+              )
+            )
+            ,
+            size: LotteryStageSize.SMALL
+          },
+          GENERAL_LOTTERY_STAGE
         )
       }
     )
   },
-  "8b6863c073cc5e05306177993a8da943": {
-    "id": "8b6863c073cc5e05306177993a8da943",
+  "a417cc7953db2373811682057f70489c": {
+    "id": "a417cc7953db2373811682057f70489c",
     "programs": [
-      "Collins Academy STEAM HS: COLLINS HS - STEAM"
+      "MATHER HS: MATHER HS-General Education"
     ],
-    "desc": "<ul><li><strong>Selection Type: </strong>Random Computerized Lottery</li><li><strong>GPA: </strong>N/A</li><li><strong>HS Admissions Exam Minimum for ELA/Math: </strong></li><ul><li>General Education and 504 Plan Students: / </li><li>IEP and EL Students: / </li></ul><li><strong>Priority: </strong>Sibling Preference,Staff Preference,General</li></ul>",
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): ARMSTRONG G, CLINTON, JAMIESON, MOSAIC, PETERSON, ROGERS, WEST RIDGE</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          ARMSTRONG_G_ES_PROGRAM,
+          CLINTON_ES_PROGRAM,
+          JAMIESON_ES_PROGRAM,
+          PETERSON_ES_PROGRAM,
+          ROGERS_ES_PROGRAM,
+          WEST_RIDGE_ES_PROGRAM
+        ),
+        size: LotteryStageSize.SMALL
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "a341a184b4ab51e3f0c7360f2f517b9a": {
+    "id": "a341a184b4ab51e3f0c7360f2f517b9a",
+    "programs": [
+      "MORGAN PARK HS: MORGAN PARK HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. Those students with the minimum GPA of 2.3 or higher are eligible to be selected.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:ifHasGrades({gpa:2.3}),
+        fn: lottery(
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "5ba24e3dbbc63e239ca65659f17a3436": {
+    "id": "5ba24e3dbbc63e239ca65659f17a3436",
+    "programs": [
+      "KENWOOD HS: KENWOOD HS-Magnet - Honors",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Career Academy",
+      "CHICAGO ACADEMY HS: CHICAGO ACADEMY HS-Scholars",
+      "COLLINS STEAM HS: COLLINS STEAM HS-Scholars"
+    ],
+    "desc": "<ul><li>Application Requirements: High School Admissions Test (HSAT) Scores Required.</li><li>GPA: 3.00</li></ul>",
+    "fn": accept(ifHasGrades({gpa:3}))
+  },
+  "e4f7453e432873f0a178bd7e1d4e59e2": {
+    "id": "e4f7453e432873f0a178bd7e1d4e59e2",
+    "programs": [
+      "KENWOOD HS: KENWOOD HS-Magnet - Honors"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>For the rolling waitlist, General Education and Students with 504 plans must have an HSAT minimum combo score of 100% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 90% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:100}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:90}))),
+        fn: lottery(
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "ee690a6b79373669deebbf1228b2f7d6": {
+    "id": "ee690a6b79373669deebbf1228b2f7d6",
+    "programs": [
+      "ROOSEVELT HS: ROOSEVELT HS-Dual Language",
+      "SCHURZ HS: SCHURZ HS-Dual Language"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>One-way dual language programs provide instruction in two languages and serve mostly English Learners (ELs), former ELs, and heritage language learners in the same classroom. Elementary Preference School(s): AZUELA, BARRY, BATEMAN, BELMONT-CRAGIN, CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER-AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STO</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          AZUELA_LANGUAGE_PROGRAM,
+          BARRY_LANGUAGE_PROGRAM,
+          BATEMAN_LANGUAGE_PROGRAM,
+          BELMONT_CRAGIN_LANGUAGE_PROGRAM,
+          CALMECA_LANGUAGE_PROGRAM,
+          CALMECA_ES_PROGRAM,
+          CARSON_LANGUAGE_PROGRAM,
+          CHASE_LANGUAGE_PROGRAM,
+          COOPER_LANGUAUGE_PROGRAM,
+          DARWIN_LANGUAGE_PROGRAM,
+          EDWARDS_LANGUAGE_PROGRAM,
+          HURLEY_LANGUAGE_PROGRAM,
+          INTER_AMERICAN_ES_PROGRAM,
+          MOOS_LANGUAGE_PROGRAM,
+          MOZART_LANGUAGE_PROGRAM,
+          SABIN_LANGUAGE_PROGRAM,
+          SPRY_LANGUAGE_PROGRAM,
+          STOWE_LANGUAGE_PROGRAM
+        ),
+        size: LotteryStageSize.SMALL
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "47a186e9b7ffecfd82ebe1a34da18e55": {
+    "id": "47a186e9b7ffecfd82ebe1a34da18e55",
+    "programs": [
+      "SENN HS: SENN HS-Dance"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Learn how to join the Senn HS - Dance program waitlist using <a href=\"https://docs.google.com/document/d/1swObVIiX9NMQUl4G3LF1SvUfFeH4pWLc9KW0AQNzH-8/edit?usp=sharing\">this guide</a>! For more information visit: <a href=\"https://www.sennhs.org/apps/pages/SennArtsDanceAdmissions\">https://www.sennhs.org/apps/pages/SennArtsDanceAdmissions</a> </li></ul>",
+    "fn": notImplemented
+  },
+  "0301ebb1d2801e54aef1d58465f24ddd": {
+    "id": "0301ebb1d2801e54aef1d58465f24ddd",
+    "programs": [
+      "SENN HS: SENN HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): PEIRCE</li></ul>",
+    "fn": ibPointSystem
+  },
+  "17fc6554ab2180b1d8c6bdf7a40ac05a": {
+    "id": "17fc6554ab2180b1d8c6bdf7a40ac05a",
+    "programs": [
+      "SENN HS: SENN HS-Music"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>The Senn Arts Music Program is an INTEREST BASED program. Students are selected by a lottery system - there are no auditions.&nbsp;\r\n\r\nLearn how to join the Senn HS - Music program waitlist using <a href=\"https://docs.google.com/document/d/1swObVIiX9NMQUl4G3LF1SvUfFeH4pWLc9KW0AQNzH-8/edit?usp=sharing\">this guide</a>!&nbsp;Learn more about the Music program here:&nbsp;<a href=\"https://docs.google.com/document/d/1ZqWmRlWZ5sVc4kI4CvplujN9uGS6NG1NEYPf1y7VDLk/edit?usp=sharing\" target=\"_blank\">Senn Arts Music - Program Info</a> </li></ul>",
+    "fn": notImplemented
+  },
+  "9cda221e5c067ef80f539d21bcb958b9": {
+    "id": "9cda221e5c067ef80f539d21bcb958b9",
+    "programs": [
+      "SENN HS: SENN HS-Theatre"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Learn how to join the Senn HS - Theatre program waitlist using <a href=\"https://docs.google.com/document/d/1swObVIiX9NMQUl4G3LF1SvUfFeH4pWLc9KW0AQNzH-8/edit?usp=sharing\">this guide</a>!. For more information visit: <a href=\"https://www.sennhs.org/apps/pages/SennArtsTheatreAdmissions\">https://www.sennhs.org/apps/pages/SennArtsTheatreAdmissions</a> </li></ul>",
+    "fn": notImplemented
+  },
+  "3843fe5658793f5d301caac89cba3c64": {
+    "id": "3843fe5658793f5d301caac89cba3c64",
+    "programs": [
+      "SENN HS: SENN HS-Visual Arts"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>Learn how to submit your Visual Arts portfolio and join the Senn HS - Visual Arts program waitlist using <a href=\"https://docs.google.com/document/d/1swObVIiX9NMQUl4G3LF1SvUfFeH4pWLc9KW0AQNzH-8/edit?usp=sharing\">this guide</a>! Students are selected based on the results of their portfolio review. Portfolios are submitted outside of your GoCPS account.&nbsp;For more information visit: <a href=\"https://www.sennhs.org/apps/pages/SennArtsVisualArtAdmissions\">https://www.sennhs.org/apps/pages/SennArtsVisualArtAdmissions</a> </li></ul>",
+    "fn": notImplemented
+  },
+  "b1b2d2865fd9a62812292d32e2442b06": {
+    "id": "b1b2d2865fd9a62812292d32e2442b06",
+    "programs": [
+      "STEINMETZ HS: STEINMETZ HS-STEAM",
+      "FENGER HS: FENGER HS-Honors",
+      "INFINITY HS: INFINITY HS-STEM"
+    ],
+    "desc": "<ul><li>Application Requirements: High School Admissions Test (HSAT) Scores Required.</li><li>GPA: 2.00</li></ul>",
+    "fn": accept(ifHasGrades({gpa:2}))
+  },
+  "73f8870f9ecf9af4521b8a290d4b7242": {
+    "id": "73f8870f9ecf9af4521b8a290d4b7242",
+    "programs": [
+      "STEINMETZ HS: STEINMETZ HS-STEAM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed. General Education and Students with 504 plans must have an HSAT minimum combo score of 58% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 48% to be considered for the lottery. </li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter: either(
+          ifHasGrades({hsatCombined:58}),
+            both(
+              ifIEPorEL,
+              ifHasGrades({hsatCombined:48})
+            )
+          ),
+        fn: lottery(
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "59c30414db501366229771b882584773": {
+    "id": "59c30414db501366229771b882584773",
+    "programs": [
+      "STEINMETZ HS: STEINMETZ HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): LOCKE J</li></ul>",
+    "fn": ibPointSystem
+  },
+  "801cb10341d624061189149ea08c9a99": {
+    "id": "801cb10341d624061189149ea08c9a99",
+    "programs": [
+      "WASHINGTON HS: WASHINGTON HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MARSH</li></ul>",
+    "fn": ibPointSystem
+  },
+  "bc9ed231131dfb5287e2d4bad18864a3": {
+    "id": "bc9ed231131dfb5287e2d4bad18864a3",
+    "programs": [
+      "HUBBARD HS: HUBBARD HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE
+    )
+  },
+  "78ecbad5d00d472eff53b5a99d53be17": {
+    "id": "78ecbad5d00d472eff53b5a99d53be17",
+    "programs": [
+      "HUBBARD HS: HUBBARD HS-University Scholars"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>All students applying to this program must take the CPS HSAT. Students are selected in descending total point order on a 900 point scale, with 450 points coming from the HSAT and 450 points coming from final (cumulative) 7th grade report card. Students who live in the attendance area receive 50 additional points. </li></ul>",
+    "fn": sePointSystem
+  },
+  "46632572f5b81c4bd60cdd91d8ab4b48": {
+    "id": "46632572f5b81c4bd60cdd91d8ab4b48",
+    "programs": [
+      "BOGAN HS: BOGAN HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Staff Priority,General</li></ul>",
+    "fn": lottery(
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "42d42fddb29561c39721e0795e4df8e8": {
+    "id": "42d42fddb29561c39721e0795e4df8e8",
+    "programs": [
+      "FARRAGUT HS: FARRAGUT HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): MADERO</li></ul>",
+    "fn": ibPointSystem
+  },
+  "6be830200b7cf28dadb2cffaa68afb88": {
+    "id": "6be830200b7cf28dadb2cffaa68afb88",
+    "programs": [
+      "FENGER HS: FENGER HS-Honors"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>General</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 120% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 110% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:120}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:110}))),
+        fn: lottery(
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "01ea8fce4bc9fa3dbe7bee105ef46aa8": {
+    "id": "01ea8fce4bc9fa3dbe7bee105ef46aa8",
+    "programs": [
+      "HYDE PARK HS: HYDE PARK HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>Students living in the attendance area are guaranteed a seat and do not need to submit an application. All students living outside the attendance area must submit an application. Students who live outside of the school's attendance boundary are randomly selected by computerized lottery. General Education and Students with 504 plans must have an HSAT minimum combo score of 50% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 40% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:50}),
+            both(
+              ifIEPorEL,
+              ifHasGrades({hsatCombined:40})
+            )
+          ),
+        fn: lottery(
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "4558eac2ec000c6c842a49273bcdce42": {
+    "id": "4558eac2ec000c6c842a49273bcdce42",
+    "programs": [
+      "HYDE PARK HS: HYDE PARK HS-International Baccalaureate (IB)"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Elementary Preference,General</li><li><strong>Note: </strong>International Baccalaureate (IB) is an inquiry-based, concept-driven framework that aims to develop self-directed thinkers and reflective problem solvers. Students enrolled in the IB Program may receive college credit for their high school courses. All students applying to this program must take the CPS HSAT. Elementary Preference School(s): CARNEGIE</li></ul>",
+    "fn": ibPointSystem
+  },
+  "72b226ba75d6e362d1f2561d3a6211a9": {
+    "id": "72b226ba75d6e362d1f2561d3a6211a9",
+    "programs": [
+      "KELVYN PARK HS: KELVYN PARK HS-Open Enrollment"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,General</li><li><strong>Note: </strong>Open enrollment programs offer a well-rounded general education curriculum, focusing on core subjects like math, science, reading, and social studies. These programs serve a broad range of students without admissions screening or specialized academic focus. </li></ul>",
     "fn": lottery(
       SIBLING_LOTTERY_STAGE,
       STAFF_PREFERENCE_LOTTERY_STAGE,
       GENERAL_LOTTERY_STAGE
     )
+  },
+  "48f0a45f6ea3dadb28162737e8fc5fd2": {
+    "id": "48f0a45f6ea3dadb28162737e8fc5fd2",
+    "programs": [
+      "BACK OF THE YARDS HS: BACK OF THE YARDS HS-Dual Language"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Students are selected by lottery within groups with preferences for students who have combined HSAT scores above the 58/48th percentile and who live within the attendance area of the school.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,General</li><li><strong>Note: </strong>One-way dual language programs provide instruction in two languages and serve mostly English Learners (ELs), former ELs, and heritage language learners in the same classroom. Elementary Preference School(s): AZUELA, BARRY, BATEMAN, BELMONT-CRAGIN, CALMECA, CARSON, CHASE, COOPER, DARWIN, EDWARDS, ERIE, GLOBAL CITIZENSHIP, HURLEY, INTER-AMERICAN, MOOS, MOZART, NAMASTE, SABIN, SPRY ES, STO</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      {
+        filter: both(
+          ifStudentAttendsOneOf(...LANGUAGE_ES_PROGRAMS),
+          either(
+          ifHasGrades({hsatCombined:58}),
+            both(
+              ifIEPorEL,
+              ifHasGrades({hsatCombined:48})
+            )
+          )),
+        size:LotteryStageSize.LARGE
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "bcd9dc5f78db5a241f618a6d67a00077": {
+    "id": "bcd9dc5f78db5a241f618a6d67a00077",
+    "programs": [
+      "SOLORIO HS: SOLORIO HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Staff Priority</li></ul>",
+    "fn": lottery(
+      STAFF_PREFERENCE_LOTTERY_STAGE
+    )
+  },
+  "5d043279282c00b425d349121c3ef6a0": {
+    "id": "5d043279282c00b425d349121c3ef6a0",
+    "programs": [
+      "NORTHSIDE PREP HS: NORTHSIDE PREP HS-Selective Enrollment High School",
+      "KING HS: KING HS-Selective Enrollment High School",
+      "LANE TECH HS: LANE TECH HS-Selective Enrollment High School",
+      "HANCOCK HS: HANCOCK HS-Selective Enrollment High School",
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Selective Enrollment High School",
+      "YOUNG HS: YOUNG HS-Selective Enrollment High School",
+      "BROOKS HS: BROOKS HS-Selective Enrollment High School",
+      "PAYTON HS: PAYTON HS-Selective Enrollment High School",
+      "JONES HS: JONES HS-Selective Enrollment High School",
+      "LINDBLOM HS: LINDBLOM HS-Selective Enrollment High School",
+      "SOUTH SHORE INTL HS: SOUTH SHORE INTL HS-Selective Enrollment High School"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>All students applying to this program must take the CPS High School Admission Test (HSAT). Students are selected in descending total points out of 900. Point totals are made up of 450 points from the HSAT and 450 points from the final 7th grade grades.</li><li><strong>Priority: </strong>Rank,Tier</li><li><strong>Note: </strong>Selective Enrollment High Schools provide academically advanced high school students with a challenging and enriched college preparatory experience. Each of the Selective Enrollment High Schools offers a rigorous curriculum with mainly honors and Advanced Placement (AP) courses. All students applying to this program must take the CPS HSAT. Students are selected in descending total points out of 900-450 points from the HSAT and 450 points from the final 7th grade grades. </li></ul>",
+    "fn": sePointSystem
+  },
+  "c60face03a9d8e3b3a86e508e4b641d5": {
+    "id": "c60face03a9d8e3b3a86e508e4b641d5",
+    "programs": [
+      "HANCOCK HS: HANCOCK HS-Pre-Engineering",
+      "HANCOCK HS: HANCOCK HS-Pre-Law",
+      "JONES HS: JONES HS-Pre-Engineering",
+      "JONES HS: JONES HS-Pre-Law"
+    ],
+    "desc": "<ul><li><strong>Priority: </strong>Overlay Preference,General</li></ul>",
+    "fn": lottery(
+      PROXIMITY_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "b849c1e1f484ebbd373dcccf9dcd9b48": {
+    "id": "b849c1e1f484ebbd373dcccf9dcd9b48",
+    "programs": [
+      "WESTINGHOUSE HS: WESTINGHOUSE HS-Career Academy",
+      "WILLIAMS HS: WILLIAMS HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Proximity Preference,General</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 58% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 48% to be considered for the lottery. </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:58}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:48}))),
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            PROXIMITY_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "e43300bdfb9007e8306b6defa2590b1b": {
+    "id": "e43300bdfb9007e8306b6defa2590b1b",
+    "programs": [
+      "CHICAGO ACADEMY HS: CHICAGO ACADEMY HS-Scholars"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Elementary Preference,Proximity Preference,General</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 120% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 110% to be considered for the lottery.&nbsp; Elementary Preference School(s): CHICAGO ACADEMY ES</li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:120}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:110}))),
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            {
+              filter:ifStudentAttendsOneOf(
+                CHICAGO_ACADEMY_ES_PROGRAM
+              ),
+              size:LotteryStageSize.SMALL
+            },
+            PROXIMITY_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "34c315156fe3de9397fec91b8e48d08c": {
+    "id": "34c315156fe3de9397fec91b8e48d08c",
+    "programs": [
+      "WORLD LANGUAGE HS: WORLD LANGUAGE HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Attendance Area,General</li><li><strong>Note: </strong>All students living <strong>outside </strong>the attendance area for this program must submit an application. Applicants are selected by random computerized lottery.\r\n\r\nAll students living <strong>inside </strong>the attendance area for this program will receive a Guaranteed Offer to the Little Village Lawndale Campus <em>(comprised of&nbsp;Infinity HS, Multicultural HS,&nbsp;Social Justice HS, and&nbsp;World Language HS) </em>and do not need to apply to General Education @ World Language HS within their Choice application.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:ifInAttendBound,
+        fn:accept(everyone)
+      },
+      {
+        filter:everyone,
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            STAFF_PREFERENCE_LOTTERY_STAGE,
+            ATTENDANCE_AREA_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "0a629306c17b76691860534406eee981": {
+    "id": "0a629306c17b76691860534406eee981",
+    "programs": [
+      "INFINITY HS: INFINITY HS-STEM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Students are selected by lottery within groups with preferences for students who have combined HSAT scores above the 58/48th percentile and who live within the attendance area of the school.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Attendance Area,General</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 120% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 110% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:120}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:110}))),
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            PROXIMITY_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "263b6278846b0049b1de6b4bf60f4965": {
+    "id": "263b6278846b0049b1de6b4bf60f4965",
+    "programs": [
+      "MULTICULTURAL ARTS HS: MULTICULTURAL ARTS HS-Fine & Performing Arts",
+      "SOCIAL JUSTICE HS: SOCIAL JUSTICE HS-General Education"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Attendance Area,General</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      ATTENDANCE_AREA_LOTTERY_STAGE,
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "fdf6fa52522d0ffc43c5305081feb321": {
+    "id": "fdf6fa52522d0ffc43c5305081feb321",
+    "programs": [
+      "UPLIFT HS: UPLIFT HS-Early College STEAM"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,Staff Priority,Elementary Preference,General</li><li><strong>Note: </strong>Elementary Preference School(s): BRENNEMANN, COURTENAY, DISNEY, GOUDY, GREELEY, MCCUTCHEON, RAVENSWOOD</li></ul>",
+    "fn": lottery(
+      SIBLING_LOTTERY_STAGE,
+      STAFF_PREFERENCE_LOTTERY_STAGE,
+      {
+        filter: ifStudentAttendsOneOf(
+          BRENNEMANN_ES_PROGRAM,
+          COURTENAY_ES_PROGRAM,
+          DISNEY_II_ES_PROGRAM,
+          GOUDY_ES_PROGRAM,
+          GREELEY_MAGNET_CLUSTER_ES_PROGRAM,
+          MCCUTCHEON_ES_PROGRAM,
+          RAVENSWOOD_ES_PROGRAM
+        ),
+        size: LotteryStageSize.SMALL
+      },
+      GENERAL_LOTTERY_STAGE
+    )
+  },
+  "e4c57cc444ba24748444b9d94cf9c2cd": {
+    "id": "e4c57cc444ba24748444b9d94cf9c2cd",
+    "programs": [
+      "COLLINS STEAM HS: COLLINS STEAM HS-Scholars"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Sibling Preference,General</li><li><strong>Note: </strong>General Education and Students with 504 plans must have an HSAT minimum combo score of 120% to be considered for the lottery. Students with IEPs and English Language Learners must have an HSAT&nbsp;minimum combo score of 110% to be considered for the lottery.&nbsp; </li></ul>",
+    "fn": conditional(
+      {
+        filter:either(
+          ifHasGrades({hsatCombined:120}),
+          both(ifIEPorEL, ifHasGrades({hsatCombined:110}))),
+        fn: lottery(
+            SIBLING_LOTTERY_STAGE,
+            GENERAL_LOTTERY_STAGE
+        )
+      }
+    )
+  },
+  "d3ada3d7a3e41cded85fea7983e3bf98": {
+    "id": "d3ada3d7a3e41cded85fea7983e3bf98",
+    "programs": [
+      "NORTHSIDE LEARNING HS: NORTHSIDE LEARNING HS-Significantly Modified Curriculum w/ Moderate Supports",
+      "VAUGHN HS: VAUGHN HS-Significantly Modified Curriculum w/ Moderate Supports"
+    ],
+    "desc": "<ul><li><strong>Selection Type: </strong>Applicants are selected by random computerized lottery. If the program has priority groups, students in those groups are selected in the order listed.</li><li><strong>Priority: </strong>Proximity Preference,General</li><li><strong>Note: </strong>Students who require this program are selected through OSD School Assignment Placement. Selections for this program require an IEP team determination for a placement in this specialty high school. Applications that do not meet this criteria will be withdrawn. </li></ul>",
+    "fn": notImplemented
   }
 }
 

@@ -24,11 +24,29 @@ headers = [
     "Application_Requirements",
     "Program_Selections"]
 programs = []
+#FIXME
+application_requirement_fields = ['AssessmentDescription', 'GPA']
+program_selection_fields = ['SubPrograms', 'Priority', 'Notes']
 
 for school in profiles:
     for program in school["Programs"]:
-        application_requirements = "<ul><li>Application Requirements: " + program['AssessmentDescription'] + "</li><li>GPA: "  + program['GPA'] + "</li></ul>"
-        program_selections = "<ul><li><strong>Selection Type: </strong>" +program["SubPrograms"] + "</li><li><strong>GPA: </strong>" +program["SubPrograms"] + "#GPA</li><li><strong>Priority: </strong>" +program["Priority"] + "</li><li><strong>Note: </strong>" +program["Notes"] + "</li><li><strong></ul>"
+
+        application_requirements = "<ul>"
+        if program['AssessmentDescription']!= '':
+            application_requirements = application_requirements + "<li>Application Requirements: " + program['AssessmentDescription'] + "</li>"
+        if program['GPA']!='':
+            application_requirements = application_requirements + "<li>GPA: "  + program['GPA'] + "</li>"
+        application_requirements = application_requirements + "</ul>"
+
+        program_selections = "<ul>"
+        if program['SubPrograms'] != '':
+            program_selections = program_selections + "<li><strong>Selection Type: </strong>" +program["SubPrograms"] + "</li>"
+        if program['Priority'] != '':
+            program_selections = program_selections + "<li><strong>Priority: </strong>" +program["Priority"] + "</li>"
+        if program['Notes'] != '':
+            program_selections = program_selections + "<li><strong>Note: </strong>" +program["Notes"] + "</li>"
+        program_selections = program_selections + "</ul>"
+
         programs.append({
             "School_ID": school["SchoolID"],
             "Short_Name": school["SchoolShortName"],

@@ -77,7 +77,7 @@ export const ProgramModal: React.SFC<ProgramModalProps> = (props) => {
             <tbody>
               <tr>
                 <td className="program-modal-requirement-type">To Apply:</td>
-                <td className="program-modal-requirement-desc">{props.program && props.program.applicationReqDescription}</td>
+                <td className="program-modal-requirement-desc">{props.program && toHTML(props.program.applicationReqDescription)}</td>
                 <td className="program-modal-requirement-outcome">{props.outcome && toMessage(props.outcome.applicationChance)}</td>
               </tr>
               <tr>

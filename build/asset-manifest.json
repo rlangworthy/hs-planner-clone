@@ -1,25 +1,13 @@
 {
   "files": {
-    "main.css": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/css/main.c9a513a0.chunk.css",
-    "main.js": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/main.09c27a5d.chunk.js",
-    "main.js.map": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/main.09c27a5d.chunk.js.map",
-    "runtime-main.js": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/runtime-main.fd43d372.js",
-    "runtime-main.js.map": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/runtime-main.fd43d372.js.map",
-    "static/css/2.6fcb3372.chunk.css": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/css/2.6fcb3372.chunk.css",
-    "static/js/2.542da456.chunk.js": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/2.542da456.chunk.js",
-    "static/js/2.542da456.chunk.js.map": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/2.542da456.chunk.js.map",
-    "index.html": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/index.html",
-    "precache-manifest.fc1b1dcc29a3191356a22879c416c9b3.js": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/precache-manifest.fc1b1dcc29a3191356a22879c416c9b3.js",
-    "service-worker.js": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/service-worker.js",
-    "static/css/2.6fcb3372.chunk.css.map": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/css/2.6fcb3372.chunk.css.map",
-    "static/css/main.c9a513a0.chunk.css.map": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/css/main.c9a513a0.chunk.css.map",
-    "static/js/2.542da456.chunk.js.LICENSE.txt": "https://co-ps-chavez-sites-w01.cps.k12.il.us/hs-planner/static/js/2.542da456.chunk.js.LICENSE.txt"
+    "main.css": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/css/main.29a212fb.css",
+    "main.js": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/js/main.f198489e.js",
+    "index.html": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/index.html",
+    "main.29a212fb.css.map": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/css/main.29a212fb.css.map",
+    "main.f198489e.js.map": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/js/main.f198489e.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.fd43d372.js",
-    "static/css/2.6fcb3372.chunk.css",
-    "static/js/2.542da456.chunk.js",
-    "static/css/main.c9a513a0.chunk.css",
-    "static/js/main.09c27a5d.chunk.js"
+    "static/css/main.29a212fb.css",
+    "static/js/main.f198489e.js"
   ]
 }
