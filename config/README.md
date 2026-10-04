@@ -1,6 +1,7 @@
 ## How the Chavez HS Planner config system works
 
 > TODO remove the gritty details and put them in the code 
+> NOTE THE GEOCODING API CAN CHANGE
 
 EVERY YEAR UPDATE HS GEN ED PROGAMS
 

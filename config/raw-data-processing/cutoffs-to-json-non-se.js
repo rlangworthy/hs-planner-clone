@@ -34,8 +34,9 @@ function nonSECutoffsCSVToJSON(pathToCutoffScores, pathToSchoolIDs) {
                                 throw new Error(`Could not find school ${ks[0]['SCHOOL'].toUpperCase()}`);
                             }
                             const schoolID = schoolRow['School_ID']
+                            //This is the formatting that has to match the lookup dictionary for requirement functions
                             return {
-                                programID: schoolID + '-' +ks[0]['SCHOOL']+' - ' + ks[0]['PROGRAM'],
+                                programID: schoolID + '-' +ks[0]['SCHOOL']+': ' + ks[0]['SCHOOL']+ '-' + ks[0]['PROGRAM'],
                                 school: ks[0]['SCHOOL'],
                                 programType: ks[0]['PROGRAM'],
                                 cutoffScores: {

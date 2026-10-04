@@ -50,7 +50,7 @@ function seCutoffsCSVtoJSON(pathToCutoffScores, pathToSchoolIDs){
                             }
                             return {
                                 school: ks[0].School,
-                                programID: schoolID + '-' + SE_PROGRAM_TYPE,
+                                programID: schoolID + '-' + ks[0].School + ': ' + ks[0].School + '-' + SE_PROGRAM_TYPE,
                                 programType: SE_PROGRAM_TYPE,
                                 tieredCutoffScores: d3.nest().key(k => k['Selection Method'].split(' ').join('').toLowerCase())
                                                             .rollup(rs => {

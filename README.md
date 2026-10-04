@@ -6,6 +6,8 @@ The Chavez Highschool Planner is a web app shows students their chances of being
 
 The Chavez HS Planner is still under active development, and contributions are encouraged. See the open [issues](https://github.com/mpingram/chavez-hs-planner/issues) for more information.
 
+Deploying the planner to the CPS server vs. s3 server involves changing the default directory
+
 ## Running the web app locally
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.

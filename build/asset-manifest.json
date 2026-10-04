@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/css/main.29a212fb.css",
-    "main.js": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/js/main.f198489e.js",
-    "index.html": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/index.html",
-    "main.29a212fb.css.map": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/css/main.29a212fb.css.map",
-    "main.f198489e.js.map": "https://co-ps-chavez-sites-w02.cps.k12.il.us/hs-planner/static/js/main.f198489e.js.map"
+    "main.css": "https://boty-hs-planner.com/static/css/main.29a212fb.css",
+    "main.js": "https://boty-hs-planner.com/static/js/main.f198489e.js",
+    "index.html": "https://boty-hs-planner.com/index.html",
+    "main.29a212fb.css.map": "https://boty-hs-planner.com/static/css/main.29a212fb.css.map",
+    "main.f198489e.js.map": "https://boty-hs-planner.com/static/js/main.f198489e.js.map"
   },
   "entrypoints": [
     "static/css/main.29a212fb.css",

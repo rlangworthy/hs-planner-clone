@@ -26,12 +26,31 @@ function createSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePreci
   // mutate the arguments passed to it. (!)
   let geojson = JSON.parse(JSON.stringify(attendBoundGeojson));
 
+  //sanitize geojson to make MultiPolygons of each feature, super hacky
+  let features = geojson.features;
+  features.forEach(feature => {
+    if(feature.geometry.type == 'Polygon'){
+      feature.geometry.coordinates = [feature.geometry.coordinates]
+    }
+    if(feature.geometry.type == 'GeometryCollection'){
+      let geometries = feature.geometry.geometries
+      feature.geometry.coordinates = feature.geometry.geometries.filter(geo => geo.type == 'Polygon').map(geo => geo.coordinates)
+      //console.log(feature.geometry.coordinates)  
+    }
+  })
+  //});
+
+  //console.log(Object.keys(geojson.features[0].geometry.coordinates))
+  //console.log(geojson.features[311].geometry.coordinates[0][0])
   // if coordinate precision is specified, reduce precision of coordinates
   // of each geojson object
   if (coordinatePrecision !== undefined) {
     // reduceGeojson mutates its parameters. (I know, I know.)
     reduceGeojsonPrecision(geojson, coordinatePrecision);
   } 
+  //console.log(Object.keys(geojson.features[311].geometry.coordinates[0][0]))
+  //console.log(geojson.features[311].geometry.coordinates[0][0])
+  //console.log(geojson.features[311].properties.SCHOOL_ID)
 
 
   let output = {};
@@ -40,7 +59,9 @@ function createSchoolAttendanceBoundaryTable(attendBoundGeojson, coordinatePreci
   const schools = geojson.features;
   // Add the school's geometry to the output object keyed by school ID.
   schools.forEach( school => {
-    output[school.properties.school_id] = school.geometry.coordinates;
+    //console.log(school.properties.SCHOOL_ID)
+    //console.log(school.geometry.coordinates[0][0])
+    output[school.properties.SCHOOL_ID] = school.geometry.coordinates;
   });
 
   return output;
@@ -101,4 +122,14 @@ function reduceGeojsonPrecision(geojson, decimalPrecision) {
   });
 }
 
-module.exports = createSchoolAttendanceBoundaryTable;
+//const fs = require("fs");
+
+//current = './raw-data/2026-08-04/hs-attendance-boundaries.geojson'
+//const curRaw = JSON.parse(fs.readFileSync(current, "utf-8"));
+//let curgeojson = JSON.parse(JSON.stringify(curRaw))
+//console.log('old ' + Object.keys(oldgeojson.features[1].geometry.coordinates[0]))
+//console.log('new ' + Object.keys(curgeojson.features[311]))
+//console.log(curgeojson.features[65].geometry)
+
+//const schoolAttendanceBoundTable = createSchoolAttendanceBoundaryTable(curRaw, 3);
+  module.exports = createSchoolAttendanceBoundaryTable;
